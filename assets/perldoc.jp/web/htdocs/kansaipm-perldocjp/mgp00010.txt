@@ -1,0 +1,17 @@
+
+●関連サイト
+
+  ・メーリングリスト
+    http://freeml.com/ctrl/html/MLInfoForm/perldocjp@freeml.com
+
+  ・Ｊａｐａｎｉｚｅｄ Ｐｅｒｌ Ｒｅｓｏｕｒｃｅｓ Ｐｒｏｊｅｃｔ
+    http://sourceforge.jp/projects/perldocjp/
+
+  ・perldoc.jp (宮川氏)
+      -- 翻訳されたドキュメントの閲覧
+    http://perldoc.jp/
+
+  ・ＣＰＡＮ．ｊｐ (まこと氏)
+      -- 日本語ドキュメント検索及び関連サイトへのリンク
+    http://www.cpan.jp/
+

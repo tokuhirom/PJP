@@ -1,0 +1,9 @@
+[% INCLUDE 'include/header.tt' %]
+
+<div class="PodVersion">Version: perl-[% version %]</div>
+
+<div class="PodBody">
+[% body %]
+</div>
+
+[% INCLUDE 'include/footer.tt' %]

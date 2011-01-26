@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ></パッケージ> 
+  <説明>WebService-Rakuten-0.02</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2007-01-24 04:49:29+09:00</作成日> 
+  <更新日>2007-01-24 04:49:29+09:00</更新日> 
+  <翻訳者>IWAI, Masaharu</翻訳者> 
+  <連絡先>
+    <名前>IWAI, Masaharu</名前>
+    <アドレス>iwaim.sub@gmail.com</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>lib/WebService/Rakuten.pod</ファイル>
+        <名前>WebService::Rakuten</名前>
+        <説明>楽天ウェブサービスAPIのPerlインタフェース</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/WebService/Rakuten/Genre.pod</ファイル>
+        <名前>WebService::Rakuten::Genre</名前>
+        <説明>WebService::Rakutenデータクラス</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/WebService/Rakuten/GenreResult.pod</ファイル>
+        <名前>WebService::Rakuten::GenreResult</名前>
+        <説明>WebService::Rakutenデータクラス</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/WebService/Rakuten/Item.pod</ファイル>
+        <名前>WebService::Rakuten::Item</名前>
+        <説明>WebService::Rakutenデータクラス</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/WebService/Rakuten/ItemResult.pod</ファイル>
+        <名前>WebService::Rakuten::ItemResult</名前>
+        <説明>WebService::Rakutenデータクラス</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/WebService/Rakuten/Parser.pod</ファイル>
+        <名前>WebService::Rakuten::Parser</名前>
+        <説明>楽天ウェブサービスからのレスポンスを解析するメソッドのクラス</説明>
+    </要素>
+  </内容物>
+</説明>

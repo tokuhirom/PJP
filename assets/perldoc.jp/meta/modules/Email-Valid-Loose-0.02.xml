@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>Email-Valid-Loose-0.02</パッケージ> 
+  <説明>Email-Valid-Loose-0.02 の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2003-05-09 02:54:35+09:00</作成日> 
+  <更新日>2003-05-09 02:54:35+09:00</更新日> 
+  <翻訳者>IWAI, Masaharu</翻訳者> 
+  <連絡先>
+    <名前>IWAI, Masaharu</名前>
+    <アドレス>iwaim.sub@gmail.com</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>Email/Valid/Loose.pod</ファイル>
+        <名前>Email::Valid::Loose</名前>
+        <説明>アットマークの前にドットを許す Email::Valid</説明>
+    </要素>
+  </内容物>
+</説明>

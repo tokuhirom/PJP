@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>XML-FOAF-0.02</パッケージ> 
+  <説明>XML-FOAF-0.02の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2003-07-06 18:23:45+09:00</作成日> 
+  <更新日>2004-11-25 01:12:38+09:00</更新日> 
+  <翻訳者>IWAI, Masaharu</翻訳者> 
+  <連絡先>
+    <名前>IWAI, Masaharu</名前>
+    <アドレス>iwaim.sub@gmail.com</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>lib/XML/FOAF.pod</ファイル>
+        <名前>XML::FOAF</名前>
+        <説明>FOAF (Friend of a Friend) データを解析</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/XML/FOAF/Person.pod</ファイル>
+        <名前>XML::FOAF::Person</名前>
+        <説明>FOAF ファイルの Person クラス</説明>
+    </要素>
+  </内容物>
+</説明>

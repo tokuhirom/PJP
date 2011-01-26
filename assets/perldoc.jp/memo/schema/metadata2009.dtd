@@ -1,0 +1,19 @@
+<!ELEMENT 翻訳物  (パッケージ,説明,言語,日時,翻訳グループ,内容物)>
+<!ELEMENT パッケージ (名称,バージョン,作者?)>
+<!ELEMENT 名称 (#PCDATA)>
+<!ELEMENT バージョン (#PCDATA)>
+<!ELEMENT 作者 (名前?,CPANID?)>
+<!ELEMENT 名前 (#PCDATA)>
+<!ELEMENT 連絡先 (#PCDATA)>
+<!ELEMENT PAUSEID (#PCDATA)>
+<!ELEMENT 説明 (#PCDATA)>
+<!ELEMENT 言語 (#PCDATA)>
+<!ELEMENT 日時 (作成日時,更新日時?)>
+<!ELEMENT 作成日時 (#PCDATA)>
+<!ELEMENT 更新日時 (#PCDATA)>
+<!ELEMENT 翻訳グループ (翻訳者)+>
+<!ELEMENT 翻訳者 (名前,連絡先?,CPANID?)>
+<!ELEMENT 内容物 (ファイル)+>
+<!ELEMENT ファイル (パス,名称,説明)>
+<!ELEMENT パス (#PCDATA)>
+

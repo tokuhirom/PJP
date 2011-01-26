@@ -1,0 +1,6 @@
++{
+
+    'Text::Xslate' => {
+        path => ['tmpl/'],
+    },
+};

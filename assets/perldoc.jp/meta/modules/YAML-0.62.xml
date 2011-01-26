@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="euc-jp" ?>
+<説明>
+  <パッケージ>YAML-0.62</パッケージ>
+  <説明>YAML Ain't Markup Language (tm)</説明>
+  <言語>ja-jp</言語>
+  <作成日>2006-10-04 00:00:00 +09:00</作成日>
+  <更新日>2006-12-20 00:11:21 +09:00</更新日>
+  <翻訳者>山科 氷魚</翻訳者>
+  <連絡先>
+    <名前>山科 氷魚</名前>
+    <アドレス>hio@hio.jp</アドレス>
+  </連絡先>
+  
+  <要素>
+    <ファイル>lib/Test/YAML.pod</ファイル>
+    <名前>Test::YAML</名前>
+    <説明>YAML 実装のためのテストモジュール</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Dumper/Base.pod</ファイル>
+    <名前>YAML::Dumper::Base</名前>
+    <説明>YAML Dumper クラスのベースクラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Node.pod</ファイル>
+    <名前>YAML::Node</名前>
+    <説明>YAML::Node - YAML 情報を内包する汎用データノード</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Loader/Base.pod</ファイル>
+    <名前>YAML::Loader::Base</名前>
+    <説明>YAML Loader クラスのベースクラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Base.pod</ファイル>
+    <名前>YAML::Base</名前>
+    <説明>YAML クラス群のベースクラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Marshall.pod</ファイル>
+    <名前>YAML::Marshall</名前>
+    <説明>mixin 用 YAML マーシャル クラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Tag.pod</ファイル>
+    <名前>YAML::Tag</名前>
+    <説明>YAML の為のタグ URI オブジェクト</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Types.pod</ファイル>
+    <名前>YAML::Types</名前>
+    <説明>Perl 内部データと YAML との整理要員</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Loader.pod</ファイル>
+    <名前>YAML::Loader</名前>
+    <説明>Perl オブジェクトを YAML からロードする YAML クラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Error.pod</ファイル>
+    <名前>YAML::Error</名前>
+    <説明>YAML モジュール群用エラー整形クラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML/Dumper.pod</ファイル>
+    <名前>YAML::Dumper</名前>
+    <説明>Perl オブジェクトを YAML にダンプする YAML クラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/YAML.pod</ファイル>
+    <名前>YAML</名前>
+    <説明>YAML Ain't Markup Language (tm)</説明>
+  </要素>
+  <要素>
+    <ファイル>ysh.pod</ファイル>
+    <名前>ysh</名前>
+    <説明>YAML テストシェル</説明>
+  </要素>
+
+</説明>

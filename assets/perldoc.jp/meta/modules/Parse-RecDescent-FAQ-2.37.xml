@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>Parse-RecDescent-FAQ-2.37</パッケージ> 
+  <説明>Parse-RecDescent-FAQ-2.37の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2003-08-10 20:15:00+09:00</作成日> 
+  <更新日>2002-08-10 20:15:00+09:00</更新日> 
+  <翻訳者>まかまか般若波羅蜜</翻訳者> 
+  <連絡先>
+    <名前>まかまか般若波羅蜜</名前>
+    <アドレス>makamaka@donzoko.net</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>Parse::RecDescent::FAQ.pod</ファイル>
+        <名前>Parse::RecDescent::FAQ</名前>
+        <説明>Parse::RecDescent 公式FAQ</説明>
+    </要素>
+  </内容物>
+</説明>

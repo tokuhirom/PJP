@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="euc-jp" ?>
+<説明>
+  <パッケージ>Number-Phone-JP-0.03</パッケージ>
+  <説明>Number::Phone::JPドキュメントの日本語訳</説明>
+  <言語>ja-jp</言語>
+  <作成日>2003-07-11 15:00:00+09:00</作成日>
+  <更新日>2003-07-11 15:00:00+09:00</更新日>
+  <翻訳者>谷口公一</翻訳者>
+  <連絡先>
+    <名前>谷口公一</名前>
+    <アドレス>taniguchi@users.sourceforge.jp</アドレス>
+  </連絡先>
+  <内容物>
+    <要素>
+        <ファイル>JP.pod</ファイル>
+        <名前>Number::Phone::JP</名前>
+        <説明>日本の電話番号の確認</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table.pod</ファイル>
+        <名前>Number::Phone::JP::Table</名前>
+        <説明>日本の全電話番号の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Class1.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Class1</名前>
+        <説明>日本の第一種電気通信事業者番号の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Class2.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Class2</名前>
+        <説明>日本の第二種電気通信事業者番号の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Freedial.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Freedial</名前>
+        <説明>日本のフリーダイアルの正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Home.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Home</名前>
+        <説明>日本の固定電話の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Ipphone.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Ipphone</名前>
+        <説明>日本の IP 電話の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Mobile.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Mobile</名前>
+        <説明>日本の携帯電話の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Pager.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Pager</名前>
+        <説明>日本のポケベルの正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Phs.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Phs</名前>
+        <説明>日本の PHS の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/Q2.pod</ファイル>
+        <名前>Number::Phone::JP::Table::Q2</名前>
+        <説明>日本のダイアル Q2 の正規表現テーブル</説明>
+    </要素>
+    <要素>
+        <ファイル>JP/Table/United.pod</ファイル>
+        <名前>Number::Phone::JP::Table::United</名前>
+        <説明>日本の統一番号用電話の正規表現テーブル</説明>
+    </要素>
+  </内容物>
+</説明>

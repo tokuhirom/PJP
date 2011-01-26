@@ -1,0 +1,164 @@
+%page
+%fore "cyan", size 9, back "black"
+
+%center
+
+
+Ｐｅｒｌドキュメント日本語訳プロジェクト
+ｐｅｒｌｄｏｃｊｐ
+
+%fore "white", size 7
+
+
+%right
+三浦真磁
+
+%page
+%fore "green", size 8
+%left
+
+●ｐｅｒｌｄｏｃｊｐとは？
+
+%fore "white", size 5
+  ・Ｐｅｒｌに関するドキュメントの日本語訳、及び既存の日本語ドキュメントの収集を行うプロジェクト
+
+  ・進渉の管理などはメーリングリスト上で行われている
+
+  ・プロジェクトにおける成果物の管理はＳｏｕｒｃｅＦｏｒｇｅ．ｊｐ上で行われている
+
+%page
+%fore "green", size 8
+
+●日本語訳の必要性
+%fore "white", size 5
+%fore "cyan"
+
+豊富な付属ドキュメント
+  モジュールと言う膨大な過去の資産
+     関連文書 etc...
+%fore "white", size 5
+
+  世界規模で使用されている言語であるため、このような文書のほとんどは英語で記述されている。
+  しかし、英語を苦手とする日本人は多い。そうでなくとも通常使い慣れていない言語である英語では読むのに時間がかかってしまう。
+%center
+↓
+%fore "yellow", size 5
+有志で集まって日本語訳をしてしまおう！
+
+%page
+%fore "green", size 8
+%left
+
+●日本語訳の問題点
+
+%fore "white", size 5
+  ・最新の情報でなくなってしまう場合が多い
+
+  ・誤訳の可能性もあり得る
+
+%fore "yellow"
+  結論
+%fore "white"
+    日本語ドキュメントは過信せず参考に
+  とどめるほうが良いかも知れない。
+    しかし、日本語ドキュメントがあることで
+  情報が素早く頭に入るのでとても便利。
+
+%page
+%fore "green", size 8
+
+●各所に散在する日本語ドキュメント
+
+%fore "white", size 5
+  現時点でも日本語ドキュメントは多数存在する。しかし、各所に散在しており目的のドキュメントを探すのが大変。
+
+%center
+↓
+
+%fore "yellow"
+一箇所に集めてしまおう！
+%page
+%left
+%fore "green", size 8
+
+●メーリングリストの役割
+%fore "white", size 6
+
+  ・参加表明
+  ・翻訳のリクエスト
+  ・翻訳の決意表明
+  ・翻訳完了のアナウンス
+  ・誤字・誤訳の指摘
+  ・その他、プロジェクトに関する質疑応答 etc...
+
+%page
+%fore "green", size 8
+%left
+
+●翻訳する上で必要となった能力
+
+%fore "white", size 6
+  ・Ｐｅｒｌに関しての知識
+
+  ・英語能力
+
+  ・日本語能力
+
+%page
+%fore "green", size 8
+
+●成果物を利用するには？
+
+%fore "white", size 6
+  ・メーリングリストに参加する
+
+  ・http://perldoc.jp/を閲覧する
+
+  ・http://www.cpan.jp/で日本語ドキュメントを検索
+%page
+%fore "green", size 8
+
+●翻訳者になるには？
+
+%fore "white", size 6
+  １．メーリングリストに参加する
+
+  ２．ＳＯＵＲＣＥＦＯＲＧＥ．ＪＰのアカウントを作成する
+
+  ３．プロジェクトのメンバーのうちの誰かに対して、あるいはML上で参加表明を行う
+
+  ４．後は登録完了の連絡を待つのみ
+
+%page
+%fore "green", size 8
+
+●関連サイト
+%fore "white", size 4
+
+  ・メーリングリスト
+    http://freeml.com/ctrl/html/MLInfoForm/perldocjp@freeml.com
+
+  ・Ｊａｐａｎｉｚｅｄ Ｐｅｒｌ Ｒｅｓｏｕｒｃｅｓ Ｐｒｏｊｅｃｔ
+    http://sourceforge.jp/projects/perldocjp/
+
+  ・perldoc.jp (宮川氏)
+      -- 翻訳されたドキュメントの閲覧
+    http://perldoc.jp/
+
+  ・ＣＰＡＮ．ｊｐ (まこと氏)
+      -- 日本語ドキュメント検索及び関連サイトへのリンク
+    http://www.cpan.jp/
+
+%page
+%fore "green", size 8
+
+●さいごに
+
+%fore "white", size 6
+  本プロジェクトはまだまだ人手不足
+
+  ・言葉の壁
+
+  ・ＣＶＳの壁
+
+   => これらを恐れずに頑張って行きましょう！

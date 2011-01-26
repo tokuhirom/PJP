@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>DBIx-Class-0.07006</パッケージ> 
+  <説明>DBIx-Class-0.07006の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2007-07-14 13:57:00+09:00</作成日> 
+  <更新日>2009-12-07 22:16:00+09:00</更新日> 
+  <翻訳者>加藤 敦</翻訳者> 
+  <連絡先>
+    <名前>加藤 敦</名前>
+    <アドレス>ktat.is at gmail.com</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>DBIx/Class/Manual/Cookbook.pod</ファイル>
+        <名前>DBIx::Class::Manual::Cookbook</名前>
+        <説明>DBIx::Classのレシピ集</説明>
+    </要素>
+    <要素>
+        <ファイル>DBIx/Class/Manual/Intro.pod</ファイル>
+        <名前>DBIx::Class::Manual::Intro</名前>
+        <説明>DBIx::Classのイントロダクション</説明>
+    </要素>
+    <要素>
+        <ファイル>DBIx/Class/Manual/Glossary.pod</ファイル>
+        <名前>DBIx::Class::Manual::Glossary</名前>
+        <説明>DBIx::Classで使われている用語の説明</説明>
+    </要素>
+    <要素>
+        <ファイル>DBIx/Class/Manual/Component.pod</ファイル>
+        <名前>DBIx::Class::Manual::Component</名前>
+        <説明>DBIx::ClassのComponentについての説明及び開発方法</説明>
+    </要素>
+  </内容物>
+</説明>

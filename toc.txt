@@ -1,0 +1,122 @@
+概要(overview)
+
+    perl - Perl の概要
+    perlrun - perl コマンドの実行とオプションについて
+
+チュートリアル
+
+    perldebtut - デバッグのチュートリアル
+    perlopentut - Perl でいろんなものを開くためのチュートリアル
+    perlpacktut - pack と unpack のチュートリアル
+    perlreftut - Mark によるリファレンスに関するとても短いチュートリアル
+    perlretut - Perl の正規表現のチュートリアル
+    perlthrtut - Perl におけるスレッドのチュートリアル
+    perlunitut - Perl における Unicode のチュートリアル
+    perlcheat - perl チートシート
+    perlbot - OO の例とか(あとでこの desc かきなおす)
+    perlboot - Perl オブジェクト指向導入編
+    perltooc - トムによる Perl のクラスデータのためのオブジェクト指向チュートリアル
+    perltoot - トムによる Perl オブジェクト指向チュートリアル
+    perldsc - Perl のデータ構造クックブック
+    perllol - Perl で配列の配列を操作する
+    perlstyle - Perl スタイルガイド
+    perltrap - 不注意による Perl の罠
+
+リファレンス
+
+    perlsyn - Perl の文法
+    perldata - Perl のデータ型
+    perlsub - Perl のサブルーチン
+    perlfunc - Perl 組み込み関数
+    perlunicode - Perl における Unicode サポート
+    perlunifaq - Perl Unicode FAQ
+    perluniintro - Perl Unicode の手引き
+    perlfork - Perl の fork エミュレーション
+    perlcompile - Perl Compile
+    # ↑が文字化けしとる
+    perldebug - Perl のデバッグ
+    perlipc - Perl のプロセス間通信 (シグナル, fifo, パイプ, 安全な副プロセス, ソケット, セマフォ)
+    perllocale - Perl のロケール操作 (国際化と地域化)
+    perlmod - Perl のモジュール (パッケージとシンボルテーブル)
+    perlmodlib - 新たな Perl モジュールを作ったり、既にあるものを検索する
+    perlnewmod - 新しいモジュールを配布するには
+    perltie - オブジェクトクラスを単純な変数に隠す方法
+    perlnumber - Perl での数値と数値操作の意味論
+    perlglossary - perl 用語集
+    perlpod - Plain Old Documentation フォーマット
+    perlpodspec - Plain Old Documentation: フォーマット仕様とメモ
+    perldiag - さまざまな Perl 診断メッセージ
+    perlform - Perlフォーマット
+    perlobj - Perl のオブジェクト
+    perlop - Perl の演算子と優先順位
+    perlref - Perlのリファレンスとネストしたデータ構造
+    perlreref - Perl の正規表現のリファレンス
+    perlsec - Perl のセキュリティ
+    perlvar - Perl の特殊変数
+
+XS
+
+    perlcall - C からの Perl 呼び出し規約
+    perlapi - perl public API の自動生成ドキュメント
+    # ↑ autodoc.pl の警告がみえちゃってる
+    perlapio - perl の抽象入出力インターフェース
+    perlxs - XS 言語リファレンスマニュアル
+    perlxstut - XSUB を書くためのチュートリアル
+    perlembed - C プログラムへの Perl の埋め込み方
+    perlguts - Perl API の紹介
+
+FAQ
+
+    perlfaq - Perl に関するよくある質問
+    perlfaq1 - Perl に関する一般的な質問
+    perlfaq2 - Perl の入手と学習
+    perlfaq3 - プログラミングツール
+    perlfaq4 - データ操作
+    perlfaq5 - ファイルとフォーマット
+    perlfaq6 - 正規表現
+    perlfaq7 - Perl 言語一般に関することがら
+    perlfaq8 -  システムとの相互作用
+    perlfaq9 - ネットワーク
+
+更新履歴
+
+    perldelta - what is new for perl v5.8.1
+    # ↑ 文字化け
+    perlhist - Perl の歴史的記録
+    perl5123delta - perl v5.12.3 での変更点
+    perl5122delta - perl v5.12.2 での変更点
+    perl5121delta - perl v5.12.1 での変更点
+    perl5120delta - perl v5.12.0 での変更点
+    perl5101delta - perl v5.10.1 での変更点
+    perl5100delta - perl v5.10.0 での変更点
+    perl595delta - perl v5.9.5 での変更点
+    perl588delta - perl v5.8.8 での変更点
+    perl587delta - perl v5.8.7 での変更点
+    perl586delta - perl v5.8.6 での変更点
+    perl585delta - perl v5.8.5 での変更点
+    perl584delta - perl v5.8.4 での変更点
+    perl583delta - perl v5.8.3 での変更点
+    perl582delta - perl v5.8.2 での変更点
+    perl581delta - perl v5.8.1 での変更点
+    perl58delta - perl v5.8.0 での変更点
+
+プラグマ
+
+    strict
+    # ↑ 文字化け
+    threads - インタプリタスレッドの使用を可能にするPerl拡張
+    utf8
+    # ↑ 文字化け
+    warnings
+    # ↑ 文字化け
+    open
+    # ↑ 文字化け
+    overload - Perl の演算子のオーバーロードを行うパッケージ
+
+標準添付モジュール
+
+    AutoLoader
+    # ↑ 文字化け
+    Carp
+    # ↑ 文字化け
+

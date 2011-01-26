@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>HTML-Template-2.6</パッケージ> 
+  <説明>HTML-Template-2.6の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2004-05-15 04:58:49+09:00</作成日> 
+  <更新日>2007-01-24 03:09:00+09:00</更新日> 
+  <翻訳者>argrath</翻訳者> 
+  <連絡先>
+    <名前>perldocjp</名前>
+    <アドレス>perldocjp-develop@lists.sourceforge.jp</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>HTML/Template.pod</ファイル>
+        <名前>HTML::Template</名前>
+        <説明>CGI スクリプトから HTML テンプレートを使うための Perl モジュール</説明>
+    </要素>
+  </内容物>
+</説明>

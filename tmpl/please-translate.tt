@@ -1,0 +1,20 @@
+[% INCLUDE 'include/header.tt' %]
+
+<p>
+なんということでしょう! '[% name %]' はまだ翻訳されていないようです!<br />
+<br />
+<br />
+しょうがないので貴方が訳してください!以下のリンクをたどれば翻訳プロジェクトに参加できます。<br />
+Perlコミュニティに貢献するチャンスですよ!
+</p>
+
+<ul>
+    <li><a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a></li>
+    <li><a href="http://perldocjp.sourceforge.jp/">perldocjp wiki</a></li>
+</ul>
+
+<p>
+	英語のドキュメントでよければ <a href="http://search.cpan.org/perldoc?[% name %]">search.cpan.org</a> でみることができますよ。
+</p>
+
+[% INCLUDE 'include/footer.tt' %]

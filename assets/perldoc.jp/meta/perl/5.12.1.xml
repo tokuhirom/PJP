@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="euc-jp" ?>
+<翻訳物>
+  <パッケージ>
+    <名称>perl</名称>
+    <バージョン>5.12.1</バージョン>
+  </パッケージ>
+  <言語>ja-jp</言語>
+  <ファイル>
+    <パス>perl.pod</パス>
+    <名称>perl</名称>
+    <説明>Perl 言語インタプリタ</説明>
+    <翻訳者>
+      <名前>吉村 寿人</名前>
+      <連絡先>JAE00534@niftyserve.or.jp</連絡先>
+    </翻訳者>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perl5100delta.pod</パス>
+    <名称>perl5100delta</名称>
+    <説明>perl 5.10.0 の新機能</説明>
+    <翻訳者>
+      <名前>山科 氷魚 (YAMASHINA Hio)</名前>
+      <連絡先>hio@hio.jp</連絡先>
+    </翻訳者>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perl5101delta.pod</パス>
+    <名称>perl5101delta</名称>
+    <説明>perl v5.10.1 での変更点</説明>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perl5120delta.pod</パス>
+    <名称>perl5120delta</名称>
+    <説明>perl v5.12.0 での変更点</説明>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perl5121delta.pod</パス>
+    <名称>perl5121delta</名称>
+    <説明>perl v5.12.1 での変更点</説明>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perlfunc.pod</パス>
+    <名称>perlfunc</名称>
+    <説明>Perl 組み込み関数</説明>
+    <翻訳者>
+      <名前>吉村 寿人</名前>
+      <連絡先>JAE00534@niftyserve.or.jp</連絡先>
+    </翻訳者>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perlop.pod</パス>
+    <名称>perlop</名称>
+    <説明>Perl の演算子と優先順位</説明>
+    <翻訳者>
+      <名前>吉村 寿人</名前>
+      <連絡先>JAE00534@niftyserve.or.jp</連絡先>
+    </翻訳者>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+  <ファイル>
+    <パス>perlvar.pod</パス>
+    <名称>perlvar</名称>
+    <説明>Perl で定義済みの変数</説明>
+    <翻訳者>
+      <名前>吉村 寿人</名前>
+      <連絡先>JAE00534@niftyserve.or.jp</連絡先>
+    </翻訳者>
+    <翻訳者>
+      <名前>Kentaro Shirakata</名前>
+      <連絡先>argrath@ub32.org</連絡先>
+    </翻訳者>
+  </ファイル>
+</説明>

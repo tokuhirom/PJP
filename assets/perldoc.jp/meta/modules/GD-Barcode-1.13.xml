@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>GD-Barcode-1.13</パッケージ> 
+  <説明>GD-Barcode-1.13の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2002-10-16 07:35:00+09:00</作成日> 
+  <更新日>2002-10-16 07:35:00+09:00</更新日> 
+  <翻訳者>川合 孝典</翻訳者> 
+  <連絡先>
+    <名前>川合 孝典</名前>
+    <アドレス>GCD00051@nifty.ne.jp</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>Barcode.pod</ファイル>
+        <名前>GD::Barcode</名前>
+        <説明>GDでバーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/Code39.pod</ファイル>
+        <名前>GD::Barcode::Code39</名前>
+        <説明>GDでCode39バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/COOP2of5.pod</ファイル>
+        <名前>GD::Barcode::COOP2of5</名前>
+        <説明>GDでCOOP2of5バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/EAN8.pod</ファイル>
+        <名前>GD::Barcode::EAN8</名前>
+        <説明>GDでEAN8(JAN8)バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/EAN13.pod</ファイル>
+        <名前>GD::Barcode::EAN13</名前>
+        <説明>GDでEAN13(JAN13)バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/IATA2of5.pod</ファイル>
+        <名前>GD::Barcode::IATA2of5</名前>
+        <説明>GDでIATA2of5バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/Industrial2of5.pod</ファイル>
+        <名前>GD::Barcode::Industrial2of5</名前>
+        <説明>GDでIndustrial2of5バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/ITF.pod</ファイル>
+        <名前>GD::Barcode::ITF</名前>
+        <説明>GDでITF(Interleaved2of5)バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/Matrix2of5.pod</ファイル>
+        <名前>GD::Barcode::Matrix2of5</名前>
+        <説明>GDでMatrix2of5バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/.pod</ファイル>
+        <名前>GD::Barcode::</名前>
+        <説明>GDでバーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/NW7.pod</ファイル>
+        <名前>GD::Barcode::NW7</名前>
+        <説明>GDでNW7バーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/UPCA.pod</ファイル>
+        <名前>GD::Barcode::UPCA</名前>
+        <説明>GDでUPC-Aバーコード・イメージを作成します</説明>
+    </要素>
+    <要素>
+        <ファイル>Barcode/UPCE.pod</ファイル>
+        <名前>GD::Barcode::UPCE</名前>
+        <説明>GDでUPC-Eバーコード・イメージを作成します</説明>
+    </要素>
+  </内容物>
+</説明>

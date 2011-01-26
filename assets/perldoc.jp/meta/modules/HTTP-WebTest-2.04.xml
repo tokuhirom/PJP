@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="euc-jp" ?>
+<説明>
+  <パッケージ>HTTP-WebTest-2.04</パッケージ>
+  <説明>HTTP-WebTest-2.04の日本語訳</説明>
+  <言語>ja-jp</言語>
+  <作成日>2004-08-14 12:53:44+09:00</作成日>
+  <更新日>2004-08-14 12:53:44+09:00</更新日>
+  <翻訳者>山科 氷魚</翻訳者>
+  <連絡先>
+    <名前>山科 氷魚</名前>
+    <アドレス>hio@hio.jp</アドレス>
+  </連絡先>
+  
+  <要素>
+    <ファイル>bin/wt.pod</ファイル>
+    <名前>wt</名前>
+    <説明>１つもしくは複数のウェブページのテスト</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/Bundle/HTTP/WebTest.pod</ファイル>
+    <名前>Bundle::HTTP::WebTest</名前>
+    <説明>HTTP::WebTest をインストール用に束ねたもの</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest.pod</ファイル>
+    <名前>HTTP::WebTest</名前>
+    <説明>静的及び動的なウェブコンテンツのテスト</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/API.pod</ファイル>
+    <名前>HTTP::WebTest::API</名前>
+    <説明>HTTP::WebTest の API</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Cookbook.pod</ファイル>
+    <名前>HTTP/WebTest/Cookbook.pod</名前>
+    <説明>ウェブページのテストのレシピ</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Cookies.pod</ファイル>
+    <名前>HTTP::WebTest::Cookies</名前>
+    <説明>Cookie の格納及び管理</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Parser.pod</ファイル>
+    <名前>HTTP::WebTest::Parser</名前>
+    <説明>wtscript ファイルの解析</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin</名前>
+    <説明>HTTP::WebTest プラグインの基底クラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/Click.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::Click</名前>
+    <説明>ウェブページのボタンやリンクをクリック</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/ContentSizeTest.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::ContentSizeTest</名前>
+    <説明>応答本体のサイズをチェック</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/Cookies.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::Cookies</名前>
+    <説明>テスト時のクッキーの送受信</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/DefaultReport.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::DefaultReport</名前>
+    <説明>デフォルトのテストレポートプラグイン</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/Delay.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::Delay</名前>
+    <説明>テスト前に少し停止</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/HarnessReport.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::HarnessReport</名前>
+    <説明>Test::Harness 互換のレポート</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/Hooks.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::Hooks</名前>
+    <説明>テスト実行中に呼ばれるコールバックの提供</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/Loader.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::Loader</名前>
+    <説明>外部プラグインのロード</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/ResponseTimeTest.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::ResponseTimeTest</名前>
+    <説明>応答時間のテスト</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/SetRequest.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::SetRequest</名前>
+    <説明>ウェブテストのための HTTP リクエストの初期化</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/StatusTest.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::StatusTest</名前>
+    <説明>HTTP 応答ステータスのチェック</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugin/TextMatchTest.pod</ファイル>
+    <名前>HTTP::WebTest::Plugin::TextMatchTest</名前>
+    <説明>HTTP レスポンスの内容をテストする</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Plugins.pod</ファイル>
+    <名前>HTTP::WebTest::Plugins</名前>
+    <説明>Plugin 開発者向けドキュメント</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/ReportPlugin.pod</ファイル>
+    <名前>HTTP::WebTest::ReportPlugin</名前>
+    <説明>HTTP::WebTest レポート用のプラグインのサブクラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Request.pod</ファイル>
+    <名前>HTTP::WebTest::Request</名前>
+    <説明>HTTP リクエストオブジェクト</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/SelfTest.pod</ファイル>
+    <名前>HTTP::WebTest::SelfTest</名前>
+    <説明>HTTP::WebTest テストスイート用のヘルパーパッケージ</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Test.pod</ファイル>
+    <名前>HTTP::WebTest::Test</名前>
+    <説明>テストオブジェクトクラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/TestResult.pod</ファイル>
+    <名前>HTTP::WebTest::TestResult</名前>
+    <説明>テスト結果クラス</説明>
+  </要素>
+  <要素>
+    <ファイル>lib/HTTP/WebTest/Utils.pod</ファイル>
+    <名前>HTTP::WebTest::Utils</名前>
+    <説明>HTTP::WebTest で使う様々な関数群</説明>
+  </要素>
+</説明>

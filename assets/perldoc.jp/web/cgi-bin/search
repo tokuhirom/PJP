@@ -1,0 +1,129 @@
+#!/usr/bin/perl -Tw
+
+use CGI::Carp qw/fatalsToBrowser/;
+use lib qw(../lib);
+use LWP::Simple;
+use HTML::TokeParser;
+use HTML::Template;
+use strict;
+use CGI ();
+
+main();
+
+sub main{
+  my $module;
+  my $untaint_module = $ENV{PATH_INFO} || CGI::param('q');
+  $untaint_module =~s#^/##;
+  $untaint_module = CGI->unescape($untaint_module);
+  $untaint_module =~s/::/-/g;
+  if($untaint_module =~/^([\w-]+)$/){
+    $module = $1;
+  }
+  die()   unless $module;
+  unless(my $module_list = get_doc($module)){
+    notfound($module);
+  }elsif(@$module_list == 1){
+    print CGI->redirect($module_list->[0]->[0]);
+  }else{
+    display_choice($module_list, $module);
+  }
+}
+
+sub get_doc{
+  my $module = shift;
+  my $module_list;
+  unless($module_list = _get_module_list($module, 'http://perldoc.jp/docs/modules/')){
+    my $core_dir = get_core_modules_dir();
+    foreach my $dir (@$core_dir){
+      my $version = $dir;
+      $version =~s{/}{}g;
+      if(my $core_module_list = _get_module_list($module, 'http://perldoc.jp/docs/perl/' . $dir, $version)){
+        $module_list ||= [];
+        push(@$module_list, @{$core_module_list});
+      }
+    }
+  }
+  return $module_list;
+}
+
+sub notfound{
+  my $module = shift;
+  $module =~s/-/::/g;
+  #my $url = "http://search.cpan.org/search?query=$module&mode=module";
+  my $url = "http://search.cpan.org/dist/$module";
+  # http://search.cpan.jp/search.cgi?query=$module&whence=0&idxname=perldoc.jp&max=20&result=normal&sort=score";
+  my $contents = LWP::Simple::get($url);
+  if($contents =~/cannot be found,/){
+    # print CGI->redirect("http://search.cpan.org/search?query=$module&mode=module");
+    print CGI->redirect("http://search.cpan.jp/search.cgi?query=$module&whence=0&idxname=perldoc.jp&max=20&result=normal&sort=score");
+  }else{
+    #$contents =~s#href\s*=\s*"namazu.cgi#href="http://search.cpan.jp/namazu.cgi#is;
+    #$contents =~s#action\s*=\s*"/index.cgi#action="http://search.cpan.jp/index.cgi#is;
+    #print CGI->header;
+    #print $contents;
+    print CGI->redirect($url);
+  }
+}
+
+sub display_choice{
+  my $module_list = shift;
+  my %hash;
+  $hash{module} = shift;
+  $hash{list} = [];
+  foreach my $module (@$module_list){
+    push(@{$hash{list}}, { url => $module->[0], version => $module->[1] });
+  }
+  my $file = '../tmpl/choice_version.tmpl';
+  my $tmpl = HTML::Template->new(filename => $file);
+  $tmpl->param(\%hash);
+  print CGI->header;
+  print $tmpl->output;
+}
+
+sub is_relative{
+  my $url = shift;
+  return 1 if $url !~ m#^http://# and $url !~ m#^/# and $url !~ m#\?#;
+}
+
+sub get_core_modules_dir{
+  my @check_dir;
+  my $contents = LWP::Simple::get('http://perldoc.jp/docs/perl/');
+  my $parser = HTML::TokeParser->new(\$contents);
+  while (my $token = $parser->get_tag("a")){
+    my $attr = $token->[1];
+    if(defined $attr->{href} and is_relative($attr->{href})){
+      my $check_text = $attr->{href};
+      if($check_text =~s#([\d\.RC]*)/$##i){
+        push(@check_dir, $attr->{href});
+      }
+    }
+  }
+  return \@check_dir;
+}
+
+
+sub _get_module_list{
+  my $module = shift;
+  my $url = shift;
+  my $version = shift;
+  my @found;
+  my $contents = LWP::Simple::get($url);
+  my $parser = HTML::TokeParser->new(\$contents);
+  while (my $token = $parser->get_tag("a")){
+    my $attr = $token->[1];
+    if(defined $attr->{href} and is_relative($attr->{href})){
+      my $check_text = $attr->{href};
+      if($check_text =~s#-([\d\.]*)/$##){
+        $version = $1;
+        if(lc($check_text) eq lc($module)){
+          push(@found, [$url . $attr->{href}, $1]);
+        }
+      }else{
+        if(lc($check_text) eq lc($module . '.pod')){
+          push(@found, [$url . $attr->{href}, $version]);
+        }
+      }
+    }
+  }
+  return @found ? \@found : undef;
+}

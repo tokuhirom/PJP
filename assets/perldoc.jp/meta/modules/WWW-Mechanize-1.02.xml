@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<説明>
+  <パッケージ>WWW-Mechanize-1.02</パッケージ> 
+  <説明>WWW-Mechanize-1.02の日本語訳</説明> 
+  <言語>ja-jp</言語>
+  <翻訳者>塚本 牧生</翻訳者> 
+  <連絡先>
+    <名前>塚本 牧生</名前>
+    <アドレス>walrus@digit.que.ne.jp</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>Mechanize.pod</ファイル>
+        <名前>WWW::Mechanize</名前>
+        <説明>Perlオブジェクト中のハンディWebブラウザ</説明>
+    </要素>
+    <要素>
+        <ファイル>Cookbook.pod</ファイル>
+        <名前>WWW::Mechanize::Cookbook</名前>
+        <説明>WWW::Mechanizeを使ったレシピ</説明>
+    </要素>
+    <要素>
+        <ファイル>Examples.pod</ファイル>
+        <名前>WWW::Mechanize::Examples</名前>
+        <説明>WWW::Mechanizeを使用するサンプルプログラム</説明>
+    </要素>
+    <要素>
+        <ファイル>FAQ.pod</ファイル>
+        <名前>WWW::Mechanize::FAQ</名前>
+        <説明>WWW::Mechanizeの良くある質問と回答</説明>
+    </要素>
+    <要素>
+        <ファイル>Link.pod</ファイル>
+        <名前>WWW::Mechanize::Link</名前>
+        <説明>WWW::Mechanizeのリンクオブジェクト</説明>
+    </要素>
+    <要素>
+        <ファイル>mech-dump.pod</ファイル>
+        <名前>mech-dump</名前>
+        <説明>Webページの情報のダンプ</説明>
+    </要素>
+  </内容物>
+</説明>

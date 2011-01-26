@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>Test-Base-0.52</パッケージ> 
+  <説明>Test::Base 0.52の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2006-10-22 05:20:53+09:00</作成日> 
+  <更新日>2006-10-26 01:19:53+09:00</更新日> 
+  <翻訳者>加藤敦</翻訳者> 
+  <連絡先>
+    <名前>加藤敦</名前>
+    <アドレス>ktat.is@gmail.com</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>lib/Test/Base.pod</ファイル>
+        <名前>Test::Base</名前>
+        <説明>データドリブンのテスト</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/Test/Base/Filter.pod</ファイル>
+        <名前>Test::Base::Filter</名前>
+        <説明>Test::Base のデフォルトのフィルタクラス</説明>
+    </要素>
+    <要素>
+        <ファイル>lib/Module/Install/TestBase.pod</ファイル>
+        <名前>Module::Install::TestBase</名前>
+        <説明>Module::Install での Test::Base サポート</説明>
+    </要素>
+  </内容物>
+</説明>

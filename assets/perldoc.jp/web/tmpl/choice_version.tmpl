@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML>
+<HEAD>
+<link rel="stylesheet" type="text/css" href="../index.css">
+<TITLE>Home - Japanized Perl Resources Project</TITLE>
+</HEAD>
+<BODY>
+<div class="menu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a HREF="joinus.html">参加するには?</a>(<a HREF="joinus.html#ml">メーリングリスト</a>)</li>
+<li><a HREF="translation.html">翻訳の入手</a></li>
+<li><a HREF="event.html">イベント</a></li>
+<li><a HREF="perldocjp-faq.html">FAQ</a></li>
+<li><a HREF="link.html">リンク</a></li>
+<li class="sourceforge"><a HREF="http://sourceforge.jp/projects/perldocjp/">sourceforge site</a></li>
+</ul>
+</div>
+<H1>検索結果</H1>
+<p>
+<TMPL_VAR NAME="MODULE" ESCAPE="HTML">は、複数のバージョンが見つかりました。
+</p>
+<UL>
+<TMPL_LOOP LIST>
+<LI><a href="<TMPL_VAR NAME="URL" ESCAPE="HTML">"><TMPL_VAR VERSION></A>
+</TMPL_LOOP LIST>
+</UL>
+<div class="footer">
+<address>
+<a href="http://sourceforge.jp/projects/perldocjp/">Japanized Perl Resources Project</a></address>
+<div class="sourceforge">
+<a href="http://sourceforge.jp/"><img src="http://sourceforge.jp/sflogo.php?group_id=136" width="96" height="31" alt="SourceForge.jp"></a>
+</div>
+</div>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,13 @@
+<!ELEMENT 説明  (#PCDATA|(パッケージ,説明,言語,作成日,更新日,翻訳者,連絡先,内容物))>
+<!ELEMENT パッケージ (#PCDATA)>
+<!ELEMENT 言語 (#PCDATA)>
+<!ELEMENT 作成日 (#PCDATA)>
+<!ELEMENT 更新日 (#PCDATA)>
+<!ELEMENT 翻訳者 (#PCDATA)>
+<!ELEMENT 連絡先 (名前,アドレス)>
+<!ELEMENT 内容物 (要素)>
+<!ELEMENT 要素 (ファイル,名前,説明)>
+<!ELEMENT ファイル (#PCDATA)>
+<!ELEMENT 名前 (#PCDATA)>
+<!ELEMENT アドレス (#PCDATA)>
+

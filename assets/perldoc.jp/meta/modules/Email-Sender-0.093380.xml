@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<翻訳物>
+  <パッケージ>
+		<名称>Email-Sender</名称>
+		<バージョン>-0.093380</バージョン>
+	</パッケージ> 
+  <説明>Email-Sender-0.093380 の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+	<日時>
+		<作成日時>2009-12-18 17:25:00+09:00</作成日時>
+		<更新日時>2009-12-18 17:25:00+09:00</更新日時>
+	</日時>
+	<翻訳グループ>
+		<翻訳者>
+			<名前>IWAI, Masaharu</名前>
+			<連絡先>iwaim.sub@gmail.com</連絡先>
+		</翻訳者>
+	</翻訳グループ>
+	<内容物>
+		<ファイル>
+			<パス>lib/Email/Sender.pod</パス>
+			<名称>Email::Sender</名称>
+			<説明>電子メールを送信するためのライブラリ</説明>
+		</ファイル>
+		<ファイル>
+			<パス>lib/Email/Sender/Manual.pod</パス>
+			<名称>Email::Sender::Manual</名称>
+			<説明>Email::Senderのマニュアルの目次</説明>
+		</ファイル>
+		<ファイル>
+			<パス>lib/Email/Sender/Manual/QuickStart.pod</パス>
+			<名称>Email::Sender::Manual::QuickStart</名称>
+			<説明>すぐにEmail::Senderを使い始める方法</説明>
+		</ファイル>
+	</内容物>
+</翻訳物>

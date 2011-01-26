@@ -1,0 +1,19 @@
+official な perldoc をみやすく表示するプログラムです。たぶんあとで、どっかでホスティングしようとおもってる。
+
+perldoc.jp でホスティングされているものと同等だけど、とてもみやすく表示します(の予定)
+
+セットアップのやりかた
+=====================
+
+    cd assets/perldoc.jp/
+    cvs -d:pserver:anonymous@cvs.sourceforge.jp:/cvsroot/perldocjp login
+    cvs -z3 -d:pserver:anonymous@cvs.sourceforge.jp:/cvsroot/perldocjp co ./
+
+アップデートするには
+====================
+
+まあ、いまどき cvs のつかいかたとかわすれてるとおもうけど、以下のようにすればよろしい。
+
+    cd assets/perldoc.jp/
+    cvs upd -dP
+

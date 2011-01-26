@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>Crypt-OOEnigma-0.3</パッケージ> 
+  <説明>Crypt-OOEnigma-0.3の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2003-05-25 23:25:00+09:00</作成日> 
+  <更新日>2003-05-25 23:25:00+09:00</更新日> 
+  <翻訳者>川合 孝典</翻訳者> 
+  <連絡先>
+    <名前>川合 孝典</名前>
+    <アドレス>GCD00051@nifty.ne.jp</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>OOEnigma.pod</ファイル>
+        <名前>Crypt::OOEnigma</名前>
+        <説明>柔軟なOOフレームワークによる第二次世界大戦でのEnigmaマシン</説明>
+    </要素>
+    <要素>
+        <ファイル>OOEnigma/Commercial.pod</ファイル>
+        <名前>Crypt::OOEnigma::Commercial</名前>
+        <説明>1940年頃の商用エニグマ・マシン</説明>
+    </要素>
+    <要素>
+        <ファイル>OOEnigma/Military.pod</ファイル>
+        <名前>Crypt::OOEnigma::Military</名前>
+        <説明>1940年頃の軍用エニグマ</説明>
+    </要素>
+    <要素>
+        <ファイル>OOEnigma/Plugboard.pod</ファイル>
+        <名前>Crypt::OOEnigma::Plugboard</名前>
+        <説明>Crypt::OOEnigmasで使われるPlugboardオブジェクト</説明>
+    </要素>
+    <要素>
+        <ファイル>OOEnigma/Reflector.pod</ファイル>
+        <名前>Crypt::OOEnigma::Reflector</名前>
+        <説明>Crypt::OOEnigmaで使うためのReflectorオブジェクト</説明>
+    </要素>
+    <要素>
+        <ファイル>OOEnigma/Rotor.pod</ファイル>
+        <名前>Crypt::OOEnigma::Rotor</名前>
+        <説明>Crypt::OOEnigmaで使うためのRotorオブジェクト</説明>
+    </要素>
+  </内容物>
+</説明>

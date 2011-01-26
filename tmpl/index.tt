@@ -1,0 +1,18 @@
+[% INCLUDE 'include/header.tt' %]
+
+<p>
+このサイトは Perl の公式ドキュメントを日本語翻訳したものを表示するサイトです。<br />
+類似のものに <a href="http://perldoc.jp/">perldoc.jp</a> がありますが、それよりもみやすくなるようにがんばってみました。
+</p>
+
+<h2>ドキュメント一覧</h2>
+
+[% toc %]
+
+<h2>翻訳に参加したいな、とおもったら</h2>
+<ul>
+    <li><a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a></li>
+    <li><a href="http://perldocjp.sourceforge.jp/">perldocjp wiki</a></li>
+</ul>
+
+[% INCLUDE 'include/footer.tt' %]

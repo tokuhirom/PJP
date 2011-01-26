@@ -1,0 +1,150 @@
+body {
+  color: #004;
+  background-color: #fff;
+  background-image: url("bg.png");
+  background-repeat: no-repeat;
+  font-family: 'trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
+  }
+
+a {
+/*  font-weight: bold; */
+  color: #44c;
+/*  text-decoration: none;*/
+  outline: none;
+  }
+
+a:visited {
+  color: #448;
+  }
+
+a:hover {
+  border-style: solid;
+  border-color: #484;
+  border-width: 0px 0 1px 0;
+  }
+
+a.active {
+  color: #000;
+  }
+
+h1 { font-size: 1.5em; border-style: dashed; }
+h2 { font-size: 1.4em; border-style: solid; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.1em; }
+h5 { font-size: 1em; }
+/* Who really needs more than 5 header sizes? */
+P { font-size: 1em;}
+
+h1{
+/*   text-transform: lowercase; */
+  padding: 2px 0 0 0px;
+  }
+h2, h3, h4, h5 {
+/*   text-transform: lowercase; */
+  padding: 2px 0 0 2px;
+  }
+
+h1, h2, h3, h4, h5 {
+/*   text-transform: lowercase; */
+  border-color: #ddd;
+  border-width:0px 0 1px 0;
+  color: #00a;
+  }
+
+p {
+    padding: 2px 0 0 20px;
+  }
+
+dt{
+  margin: 0 0 0 20px;
+  padding: 0 0 0 0;
+}
+
+dd{
+}
+
+div.menu{
+  background-color:#ddf;
+  border-style:solid;
+  border-color:#55f;
+  padding:0px 0 0 2px;
+  border-width: 0px 0 0 4px;
+  margin: 20px 0 0 0;
+  font-size: small;
+}
+
+
+ul.links {
+  margin: 0 0 10px 0;
+  padding: 0 0 0 0;
+  }
+
+ul.links li{
+  margin: 0 0 0 20px;
+  padding: 0 0 0 0;
+  }
+
+ul.links li.active {
+  padding-left: 5px;
+  margin-left: 15px;
+  }
+
+blockquote {
+  color: #333;
+  background: #ffe;
+  margin: 10px 0;
+  padding: 10px;
+  font-size:.9em;
+  line-height:1.4em;
+  }
+
+div.sourceforge{
+  text-align:right;
+  margin: 8px 0 0 0;
+}
+
+div.menu ul {
+  margin:24px 2em;
+  padding:2px 1em;
+}
+
+div.menu ul li {
+  display:inline;
+}
+
+div.menu ul li.current  {
+  background-color: #fff;
+  color: #000;
+}
+
+div.menu ul li a {
+  background-color:transparent;
+}
+
+div.menu ul li.sourceforge a {
+  background-color: #eef;
+}
+
+div.menu ul li:after {
+  content:"\3000/\3000";
+  background-color: #ddf;
+}
+ 
+div.footer{
+  border-style: dashed;
+  border-color: #ddd;
+  border-width: 1px 0 0 0;
+
+  background-image: url("footer.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+address {
+  text-align: center;
+}
+
+a img {
+  border-width: 0;
+  border-style: none;
+}

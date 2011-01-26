@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>Net-Server-0.85</パッケージ> 
+  <説明>Net-Server-0.85の日本語訳</説明> 
+  <言語>ja-jp</言語> 
+  <作成日>2003-06-28 17:56:00+09:00</作成日> 
+  <更新日>2003-06-28 17:56:00+09:00</更新日> 
+  <翻訳者>まかまか 般若波羅蜜</翻訳者> 
+  <連絡先>
+    <名前>まかまか 般若波羅蜜</名前>
+    <アドレス>makamaka@donzoko.net</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>Server.pod</ファイル>
+        <名前>Net::Server</名前>
+        <説明>Perlによる拡張可能な汎用サーバエンジン</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/INET.pod</ファイル>
+        <名前>Net::Server::INET</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Single.pod</ファイル>
+        <名前>Net::Server::Single</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Fork.pod</ファイル>
+        <名前>Net::Server::Fork</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/PreForkSimple.pod</ファイル>
+        <名前>Net::Server::PreForkSimple</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/PreFork.pod</ファイル>
+        <名前>Net::Server::PreFork</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Multiplex.pod</ファイル>
+        <名前>Net::Server::Multiplex</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/MultiType.pod</ファイル>
+        <名前>Net::Server::MultiType</名前>
+        <説明>Net::Serverのパーソナリティ</説明>
+    </要素>
+
+    <要素>
+        <ファイル>Server/SIG.pod</ファイル>
+        <名前>Net::Server::SIG</名前>
+        <説明>安全なシグナル処理</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Proto.pod</ファイル>
+        <名前>Net::Server::Proto</名前>
+        <説明>Net::Server プロトコル互換レイヤー</説明>
+    </要素>
+
+    <要素>
+        <ファイル>Server/Proto/UDP.pod</ファイル>
+        <名前>Net::Server::Proto::UDP</名前>
+        <説明>Net::Server UDPプロトコル</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Proto/UNIX.pod</ファイル>
+        <名前>Net::Server::Proto::UNIX</名前>
+        <説明>Net::Server UNIXプロトコル</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Proto/SSL.pod</ファイル>
+        <名前>Net::Server::Proto::SSL</名前>
+        <説明>Net::Server SSLプロトコル</説明>
+    </要素>
+    <要素>
+        <ファイル>Server/Proto/TCP.pod</ファイル>
+        <名前>Net::Server::Proto::TCP</名前>
+        <説明>Net::Server TCPプロトコル</説明>
+    </要素>
+
+  </内容物>
+</説明>

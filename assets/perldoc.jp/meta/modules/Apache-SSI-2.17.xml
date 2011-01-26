@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="euc-jp" ?> 
+<説明>
+  <パッケージ>Apache-SSI-2.17</パッケージ> 
+  <説明>Apache::SSIドキュメントの日本語訳</説明>
+  <言語>ja-jp</言語> 
+  <作成日>2003-05-06 12:00:00+09:00</作成日>
+  <更新日>2003-05-12 11:40:00+09:00</更新日>
+  <翻訳者>谷口公一</翻訳者> 
+  <連絡先>
+    <名前>谷口公一</名前>
+    <アドレス>taniguchi@users.sourceforge.jp</アドレス>
+  </連絡先> 
+  <内容物>
+    <要素>
+        <ファイル>SSI.pod</ファイル>
+        <名前>Apache::SSI</名前>
+        <説明>Perl での Server Side Includes の実行</説明>
+    </要素>
+    <要素>
+        <ファイル>FakeSSI.pod</ファイル>
+        <名前>Apache::FakeSSI</名前>
+        <説明>Pure-Perl での Server Side Includes の実行</説明>
+    </要素>
+  </内容物>
+</説明>
