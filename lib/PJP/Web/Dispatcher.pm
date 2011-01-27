@@ -54,4 +54,28 @@ get '/func/*' => sub {
     return $c->render('pod.tt', { body => $out, version => $version });
 };
 
+# TODO: Plack::App::Directory つかうのやめたい
+use Plack::App::Directory;
+my $dirapp = Plack::App::Directory->new({root => "./assets/perldoc.jp/"});
+get '/docs{path:/|/.+}' => sub {
+    my ($c, $p) = @_;
+    my $path = $p->{path};
+    if ($path =~ m{/CVS(/|$)}) {
+        # TODO: そもそも CVS/ をみせないようにするべき
+        return $c->create_response(403, ['Content-Type' => 'text/html; charset=utf-8'], ['forbidden']);
+    }
+
+    if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
+        my $distvname = $1;
+        my $fullpath = "./assets/perldoc.jp/docs/$path";
+        my $out = $c->cache->file_cache("path", $fullpath, sub {
+            PJP::M::Pod->pod2html($fullpath);
+        });
+        return $c->render('pod.tt', { body => $out, version => $distvname });
+    } else {
+        my $res = $dirapp->($c->req->env);
+        return $c->create_response(@$res);
+    }
+};
+
 1;
