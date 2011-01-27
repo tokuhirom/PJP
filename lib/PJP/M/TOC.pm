@@ -69,7 +69,7 @@ sub _render_function {
 			while ($line =~ s/C<([^>]+)>//) {
 				push @outs, sprintf('<a href="/func/%s">%s</a>', (html_escape($1))x2);
 			}
-			$out .= join(", ", @outs), "<br />\n";
+			$out .= join(", ", @outs) . "<br />\n";
 		}
 	}
 	mark_raw($out);
