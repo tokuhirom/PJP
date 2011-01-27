@@ -18,5 +18,9 @@
     <li><a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a></li>
     <li><a href="http://perldocjp.sourceforge.jp/">perldocjp wiki</a></li>
 </ul>
+<h2>このサイトをいじりたいな、とおもったら</h2>
+<ul>
+    <li><a href="https://github.com/tokuhirom/PJP/">https://github.com/tokuhirom/PJP/</a></li>
+</ul>
 
 [% INCLUDE 'include/footer.tt' %]
