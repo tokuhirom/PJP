@@ -12,6 +12,6 @@
 <body onload="prettyPrint();return true;">
     <div id="Container">
         <div id="Header">
-            <a href="[% uri_for('/') %]">Perl公式ドキュメント日本語版</a>
+            <a href="[% uri_for('/') %]">Perlのドキュメントを日本語に翻訳するよプロジェクトの成果物を表示するサイト</a>
         </div>
         <div id="Content">
