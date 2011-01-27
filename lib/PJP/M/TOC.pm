@@ -4,9 +4,23 @@ use utf8;
 
 package PJP::M::TOC;
 use Text::Xslate::Util qw/html_escape mark_raw/;
+use File::stat;
+use Log::Minimal;
 
 sub render {
-	my $class = shift;
+	my ($class, $c) = @_;
+
+	return mark_raw($c->cache->file_cache(
+		"toc", 'toc.txt', sub {
+			infof("regen toc");
+			$class->_render();
+		}
+	));
+}
+
+sub _render {
+	my ($class) = @_;
+
 	open my $fh, '<:utf8', 'toc.txt' or die "Cannot open toc.txt: $!";
 	my $out;
 	while (<$fh>) {
@@ -27,7 +41,7 @@ sub render {
 			$out .= "<br />\n";
 		}
 	}
-	return mark_raw($out);
+	$out;
 }
 
 1;

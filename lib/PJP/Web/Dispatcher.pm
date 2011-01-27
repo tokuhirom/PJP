@@ -7,11 +7,12 @@ use Pod::Simple::XHTML;
 use Log::Minimal;
 use PJP::M::TOC;
 use PJP::M::Pod;
+use File::stat;
 
 get '/' => sub {
     my $c = shift;
 
-    my $toc = PJP::M::TOC->render();
+    my $toc = PJP::M::TOC->render($c);
     $c->render('index.tt', {toc => $toc});
 };
 
@@ -19,20 +20,17 @@ get '/pod/*' => sub {
     my ($c, $p) = @_;
     my ($splat) = @{$p->{splat}};
 
-    my @path = map { $_->[0] } reverse sort { eval { version->parse($a->[1]) } <=> eval { version->parse($b->[1]) } } map {
-        +[ $_, map { local $_=$_; s!.*/perl/!!; s!/$splat.pod!!; $_ } $_ ]
-    } glob("assets/perldoc.jp/docs/perl/*/$splat.pod");
-    my ($latest) = @path;
-    my $path = $latest;
-
-    unless ($path) {
-        warnf("missing %s, %s", ddf($splat), ddf(\@path));
+    my $path_info = PJP::M::Pod->get_latest_file_path($splat);
+    unless ($path_info) {
+        warnf("missing %s, %s", $splat);
         return $c->render('please-translate.tt', {name => $splat});
     }
 
-    my ($version) = ($path =~ m{([^/]+)\/\Q$splat.pod\E\Z});
+    my ($path, $version) = @$path_info;
+    my $out = $c->cache->file_cache("pod:2", $path, sub {
+        PJP::M::Pod->pod2html($path);
+    });
 
-    my $out = PJP::M::Pod->pod2html($path);
     return $c->render('pod.tt', { body => $out, version => $version });
 };
 

@@ -9,6 +9,7 @@ requires 'Plack::Middleware::ReverseProxy';
 requires 'Time::Piece';
 requires 'Pod::Simple::XHTML';
 requires 'Log::Minimal';
+requires 'Cache::FileCache';
 
 recursive_author_tests('xt');
 

@@ -23,6 +23,21 @@ sub pod2html {
 	return mark_raw($out);
 }
 
+sub get_file_list {
+	my ($class, $name) = @_;
+
+    my @path = reverse sort { eval { version->parse($a->[1]) } <=> eval { version->parse($b->[1]) } } map {
+        +[ $_, map { local $_=$_; s!.*/perl/!!; s!/$name.pod!!; $_ } $_ ]
+    } glob("assets/perldoc.jp/docs/perl/*/$name.pod");
+	return @path;
+}
+
+sub get_latest_file_path {
+	my ($class, $name) = @_;
+	my ($latest) = $class->get_file_list($name);
+	return $latest;
+}
+
 {
     package PJP::Pod::Parser;
     use parent qw/Pod::Simple::XHTML/;    # for google source code prettifier
