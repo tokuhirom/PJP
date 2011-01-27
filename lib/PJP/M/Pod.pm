@@ -14,7 +14,7 @@ sub pod2html {
     my $parser = PJP::Pod::Parser->new();
     $parser->html_header('');
     $parser->html_footer('');
-    # $parser->index(1); # display table of contents
+    $parser->index(1); # display table of contents
 	$parser->perldoc_url_prefix('/pod/');
     $parser->output_string(\my $out);
 	if (ref $stuff eq 'SCALAR') {
