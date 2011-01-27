@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 HTML::Lint - 文字列あるいはファイルに入っているHTMLエラーのチェック
@@ -38,7 +41,7 @@ HTML::Lintにはこれはコマンドラインからの文法チェックを行うF<weblint>という
 
 Version 1.22
 
-    $Header: /cvsroot/perldocjp/docs/modules/HTML-Lint-1.22/lib/HTML/Lint.pod,v 1.1 2003/06/29 22:17:58 hippo2000 Exp $
+    $Header: /cvsroot/perldocjp/docs/modules/HTML-Lint-1.22/lib/HTML/Lint.pod,v 1.2 2011/01/27 13:14:55 iwai Exp $
 
 =head1 EXPORT
 

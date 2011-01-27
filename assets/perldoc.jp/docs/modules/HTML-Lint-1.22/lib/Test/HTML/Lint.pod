@@ -1,8 +1,11 @@
+
+=encoding euc-jp
+
 =head1 バージョン
 
 Version 1.22
 
-    $Header: /cvsroot/perldocjp/docs/modules/HTML-Lint-1.22/lib/Test/HTML/Lint.pod,v 1.2 2003/06/30 21:38:37 hippo2000 Exp $
+    $Header: /cvsroot/perldocjp/docs/modules/HTML-Lint-1.22/lib/Test/HTML/Lint.pod,v 1.3 2011/01/27 13:14:55 iwai Exp $
 
 =head1 名前
 

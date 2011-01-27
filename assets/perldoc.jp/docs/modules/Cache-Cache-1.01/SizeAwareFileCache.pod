@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 Cache::SizeAwareFileCache -- Cache::FileCacheの拡張
@@ -41,7 +44,7 @@ Original author: DeWitt Clinton <dewitt@unto.net>
 Also: Portions of this code are a rewrite of David Coppit's excellent
 extentions to the original File::Cache
 
-Last author:     $Author: hippo2000 $
+Last author:     $Author: iwai $
 
 Copyright (C) 2001, 2002 DeWitt Clinton
 

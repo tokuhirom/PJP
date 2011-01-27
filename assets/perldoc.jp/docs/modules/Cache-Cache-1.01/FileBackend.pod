@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 Cache::FileBackend -- ファイルシステムをベースとした永続化メカニズム
@@ -68,7 +71,7 @@ Cache::Backend, Cache::MemoryBackend, Cache::SharedMemoryBackend
 
 Original author: DeWitt Clinton <dewitt@unto.net>
 
-Last author:     $Author: hippo2000 $
+Last author:     $Author: iwai $
 
 Copyright (C) 2001, 2002 DeWitt Clinton
 

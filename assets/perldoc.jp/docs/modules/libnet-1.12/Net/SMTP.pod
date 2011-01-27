@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 Net::SMTP - SMTP(Simple Mail Transfer Protocol)クライアント
@@ -238,5 +241,5 @@ it under the same terms as Perl itself.
 
 =for html <hr>
 
-I<$Id: SMTP.pod,v 1.2 2003/04/29 06:52:27 iwai Exp $>
+I<$Id: SMTP.pod,v 1.3 2011/01/27 13:15:11 iwai Exp $>
 

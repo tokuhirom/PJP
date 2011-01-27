@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 Cache::SizeAwareCache -- Cacheインターフェースの拡張
@@ -92,7 +95,7 @@ Cache::Cache
 
 Original author: DeWitt Clinton <dewitt@unto.net>
 
-Last author:     $Author: hippo2000 $
+Last author:     $Author: iwai $
 
 Copyright (C) 2001, 2002 DeWitt Clinton
 

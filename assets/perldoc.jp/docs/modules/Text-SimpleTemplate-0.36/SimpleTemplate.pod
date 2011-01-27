@@ -1,6 +1,9 @@
+
+=encoding euc-jp
+
 # -*- mode: perl -*-
 #
-# $Id: SimpleTemplate.pod,v 1.2 2003/01/28 14:42:52 snj Exp $
+# $Id: SimpleTemplate.pod,v 1.3 2011/01/27 13:15:08 iwai Exp $
 #
 
 package Text::SimpleTemplate;

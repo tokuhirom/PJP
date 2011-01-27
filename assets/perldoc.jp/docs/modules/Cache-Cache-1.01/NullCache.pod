@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 Cache::NullCache -- Cacheインターフェースの実装
@@ -37,7 +40,7 @@ Cache::Cache
 
 Original author: Jay Sachs
 
-Last author:     $Author: hippo2000 $
+Last author:     $Author: iwai $
 
 Copyright (C) 2001 Jay Sachs, 2002 DeWitt Clinton
 

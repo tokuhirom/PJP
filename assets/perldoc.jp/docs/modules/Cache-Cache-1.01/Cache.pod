@@ -1,3 +1,6 @@
+
+=encoding euc-jp
+
 =head1 名前
 
 Cache::Cache -- Cacheインターフェース
@@ -226,7 +229,7 @@ Cache::SharedMemoryCache, and Cache::SizeAwareFileCache
 
 Original author: DeWitt Clinton <dewitt@unto.net>
 
-Last author:     $Author: hippo2000 $
+Last author:     $Author: iwai $
 
 Copyright (C) 2001, 2002 DeWitt Clinton
 
