@@ -1,7 +1,7 @@
 [% INCLUDE 'include/header.tt' %]
 
 <p>
-このサイトは Perl の公式ドキュメントを日本語翻訳したものを表示するサイトです。<br />
+このサイトは Perl の公式ドキュメントを日本語翻訳したものを表示するサイトです。翻訳データは、perldocjp project からとってきたものです。<br />
 類似のものに <a href="http://perldoc.jp/">perldoc.jp</a> がありますが、それよりもみやすくなるようにがんばってみました。
 </p>
 
