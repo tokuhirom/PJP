@@ -9,6 +9,10 @@
 
 [% toc %]
 
+<h2>組み込み関数</h2>
+
+[% toc_func %]
+
 <h2>翻訳に参加したいな、とおもったら</h2>
 <ul>
     <li><a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a></li>

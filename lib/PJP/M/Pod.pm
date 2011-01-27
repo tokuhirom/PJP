@@ -8,10 +8,8 @@ use Log::Minimal;
 use Text::Xslate::Util qw/mark_raw/;
 
 sub pod2html {
-	my ($class, $path) = @_;
-	$path or die "missing mandatory argument: $path";
-
-    infof("parsing %s", $path);
+	my ($class, $stuff) = @_;
+	$stuff or die "missing mandatory argument: $stuff";
 
     my $parser = PJP::Pod::Parser->new();
     $parser->html_header('');
@@ -19,7 +17,11 @@ sub pod2html {
     # $parser->index(1); # display table of contents
 	$parser->perldoc_url_prefix('/pod/');
     $parser->output_string(\my $out);
-    $parser->parse_file($path);
+	if (ref $stuff eq 'SCALAR') {
+		$parser->parse_string_document($$stuff);
+	} else {
+		$parser->parse_file($stuff);
+	}
 	return mark_raw($out);
 }
 

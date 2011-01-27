@@ -1,0 +1,254 @@
+=item Functions for SCALARs or strings
+X<scalar> X<string> X<character>
+
+(スカラや文字列のための関数)
+
+C<chomp>, C<chop>, C<chr>, C<crypt>, C<hex>, C<index>, C<lc>, C<lcfirst>,
+C<length>, C<oct>, C<ord>, C<pack>, C<q//>, C<qq//>, C<reverse>,
+C<rindex>, C<sprintf>, C<substr>, C<tr///>, C<uc>, C<ucfirst>, C<y///>
+
+=item Regular expressions and pattern matching
+X<regular expression> X<regex> X<regexp>
+
+(正規表現とパターンマッチング)
+
+C<m//>, C<pos>, C<quotemeta>, C<s///>, C<split>, C<study>, C<qr//>
+
+=item Numeric functions
+X<numeric> X<number> X<trigonometric> X<trigonometry>
+
+(数値関数)
+
+C<abs>, C<atan2>, C<cos>, C<exp>, C<hex>, C<int>, C<log>, C<oct>, C<rand>,
+C<sin>, C<sqrt>, C<srand>
+
+=item Functions for real @ARRAYs
+X<array>
+
+(実配列のための関数)
+
+C<pop>, C<push>, C<shift>, C<splice>, C<unshift>
+
+=item Functions for list data
+X<list>
+
+(リストデータのための関数)
+
+C<grep>, C<join>, C<map>, C<qw//>, C<reverse>, C<sort>, C<unpack>
+
+=item Functions for real %HASHes
+X<hash>
+
+(実ハッシュのための関数)
+
+C<delete>, C<each>, C<exists>, C<keys>, C<values>
+
+=item Input and output functions
+X<I/O> X<input> X<output> X<dbm>
+
+(入出力関数)
+
+C<binmode>, C<close>, C<closedir>, C<dbmclose>, C<dbmopen>, C<die>, C<eof>,
+C<fileno>, C<flock>, C<format>, C<getc>, C<print>, C<printf>, C<read>,
+C<readdir>, C<rewinddir>, C<say>, C<seek>, C<seekdir>, C<select>, C<syscall>,
+C<sysread>, C<sysseek>, C<syswrite>, C<tell>, C<telldir>, C<truncate>,
+C<warn>, C<write>
+
+=item Functions for fixed length data or records
+
+(固定長データやレコードのための関数)
+
+C<pack>, C<read>, C<syscall>, C<sysread>, C<syswrite>, C<unpack>, C<vec>
+
+=item Functions for filehandles, files, or directories
+X<file> X<filehandle> X<directory> X<pipe> X<link> X<symlink>
+
+(ファイルハンドル、ファイル、ディレクトリのための関数)
+
+C<-I<X>>, C<chdir>, C<chmod>, C<chown>, C<chroot>, C<fcntl>, C<glob>,
+C<ioctl>, C<link>, C<lstat>, C<mkdir>, C<open>, C<opendir>,
+C<readlink>, C<rename>, C<rmdir>, C<stat>, C<symlink>, C<sysopen>,
+C<umask>, C<unlink>, C<utime>
+
+=item Keywords related to the control flow of your Perl program
+X<control flow>
+
+(プログラムの流れを制御することに関連するキーワード)
+
+C<caller>, C<continue>, C<die>, C<do>, C<dump>, C<eval>, C<exit>,
+C<goto>, C<last>, C<next>, C<redo>, C<return>, C<sub>, C<wantarray>
+
+=item Keywords related to switch
+
+(switch に関連するキーワード)
+
+C<break>, C<continue>, C<given>, C<when>, C<default>
+
+=begin original
+
+(These are available only if you enable the C<"switch"> feature.
+See L<feature> and L<perlsyn/"Switch statements">.)
+
+=end original
+
+(これらは C<"switch"> 機能が有効の場合にのみ利用可能です。
+L<feature> と L<perlsyn/"Switch statements"> を参照してください。)
+
+=item Keywords related to scoping
+
+(スコープに関するキーワード)
+
+C<caller>, C<import>, C<local>, C<my>, C<our>, C<state>, C<package>,
+C<use>
+
+=begin original
+
+(C<state> is available only if the C<"state"> feature is enabled. See
+L<feature>.)
+
+=end original
+
+(C<state> は C<"state"> 機能が有効の場合にのみ利用可能です。
+L<feature> を参照してください。)
+
+=item Miscellaneous functions
+
+(さまざまな関数)
+
+C<defined>, C<dump>, C<eval>, C<formline>, C<local>, C<my>, C<our>,
+C<reset>, C<scalar>, C<state>, C<undef>, C<wantarray>
+
+=item Functions for processes and process groups
+X<process> X<pid> X<process id>
+
+(プロセスとプロセスグループのための関数)
+
+C<alarm>, C<exec>, C<fork>, C<getpgrp>, C<getppid>, C<getpriority>, C<kill>,
+C<pipe>, C<qx//>, C<setpgrp>, C<setpriority>, C<sleep>, C<system>,
+C<times>, C<wait>, C<waitpid>
+
+=item Keywords related to Perl modules
+X<module>
+
+(Perl モジュールに関するキーワード)
+
+C<do>, C<import>, C<no>, C<package>, C<require>, C<use>
+
+=item Keywords related to classes and object-orientation
+X<object> X<class> X<package>
+
+(クラスとオブジェクト指向に関するキーワード)
+
+C<bless>, C<dbmclose>, C<dbmopen>, C<package>, C<ref>, C<tie>, C<tied>,
+C<untie>, C<use>
+
+=item Low-level socket functions
+X<socket> X<sock>
+
+(低レベルソケット関数)
+
+C<accept>, C<bind>, C<connect>, C<getpeername>, C<getsockname>,
+C<getsockopt>, C<listen>, C<recv>, C<send>, C<setsockopt>, C<shutdown>,
+C<socket>, C<socketpair>
+
+=item System V interprocess communication functions
+X<IPC> X<System V> X<semaphore> X<shared memory> X<memory> X<message>
+
+(System V プロセス間通信関数)
+
+C<msgctl>, C<msgget>, C<msgrcv>, C<msgsnd>, C<semctl>, C<semget>, C<semop>,
+C<shmctl>, C<shmget>, C<shmread>, C<shmwrite>
+
+=item Fetching user and group info
+X<user> X<group> X<password> X<uid> X<gid>  X<passwd> X</etc/passwd>
+
+(ユーザーとグループの情報取得)
+
+C<endgrent>, C<endhostent>, C<endnetent>, C<endpwent>, C<getgrent>,
+C<getgrgid>, C<getgrnam>, C<getlogin>, C<getpwent>, C<getpwnam>,
+C<getpwuid>, C<setgrent>, C<setpwent>
+
+=item Fetching network info
+X<network> X<protocol> X<host> X<hostname> X<IP> X<address> X<service>
+
+(ネットワーク情報取得)
+
+C<endprotoent>, C<endservent>, C<gethostbyaddr>, C<gethostbyname>,
+C<gethostent>, C<getnetbyaddr>, C<getnetbyname>, C<getnetent>,
+C<getprotobyname>, C<getprotobynumber>, C<getprotoent>,
+C<getservbyname>, C<getservbyport>, C<getservent>, C<sethostent>,
+C<setnetent>, C<setprotoent>, C<setservent>
+
+=item Time-related functions
+X<time> X<date>
+
+(時刻に関する関数)
+
+C<gmtime>, C<localtime>, C<time>, C<times>
+
+=item Functions new in perl5
+X<perl5>
+
+(perl5 で新設された関数)
+
+C<abs>, C<bless>, C<break>, C<chomp>, C<chr>, C<continue>, C<default>, 
+C<exists>, C<formline>, C<given>, C<glob>, C<import>, C<lc>, C<lcfirst>,
+C<lock>, C<map>, C<my>, C<no>, C<our>, C<prototype>, C<qr//>, C<qw//>, C<qx//>,
+C<readline>, C<readpipe>, C<ref>, C<sub>*, C<sysopen>, C<tie>, C<tied>, C<uc>,
+C<ucfirst>, C<untie>, C<use>, C<when>
+
+=begin original
+
+* C<sub> was a keyword in Perl 4, but in Perl 5 it is an
+operator, which can be used in expressions.
+
+=end original
+
+* - C<sub> は Perl4 ではキーワードですが、Perl5 では演算子なので、
+式で使えます。
+
+=item Functions obsoleted in perl5
+
+(perl5 では古いものとなった関数)
+
+C<dbmclose>, C<dbmopen>
+
+=back
+
+=head2 Portability
+X<portability> X<Unix> X<portable>
+
+(移植性)
+
+=begin original
+
+Perl was born in Unix and can therefore access all common Unix
+system calls.  In non-Unix environments, the functionality of some
+Unix system calls may not be available, or details of the available
+functionality may differ slightly.  The Perl functions affected
+by this are:
+
+=end original
+
+Perl は Unix 環境で生まれたので、全ての共通する Unix システムコールに
+アクセスします。非 Unix 環境では、いくつかの Unix システムコールの
+機能が使えなかったり、使える機能の詳細が多少異なったりします。
+これによる影響を受ける Perl 関数は以下のものです:
+
+C<-X>, C<binmode>, C<chmod>, C<chown>, C<chroot>, C<crypt>,
+C<dbmclose>, C<dbmopen>, C<dump>, C<endgrent>, C<endhostent>,
+C<endnetent>, C<endprotoent>, C<endpwent>, C<endservent>, C<exec>,
+C<fcntl>, C<flock>, C<fork>, C<getgrent>, C<getgrgid>, C<gethostbyname>,
+C<gethostent>, C<getlogin>, C<getnetbyaddr>, C<getnetbyname>, C<getnetent>,
+C<getppid>, C<getpgrp>, C<getpriority>, C<getprotobynumber>,
+C<getprotoent>, C<getpwent>, C<getpwnam>, C<getpwuid>,
+C<getservbyport>, C<getservent>, C<getsockopt>, C<glob>, C<ioctl>,
+C<kill>, C<link>, C<lstat>, C<msgctl>, C<msgget>, C<msgrcv>,
+C<msgsnd>, C<open>, C<pipe>, C<readlink>, C<rename>, C<select>, C<semctl>,
+C<semget>, C<semop>, C<setgrent>, C<sethostent>, C<setnetent>,
+C<setpgrp>, C<setpriority>, C<setprotoent>, C<setpwent>,
+C<setservent>, C<setsockopt>, C<shmctl>, C<shmget>, C<shmread>,
+C<shmwrite>, C<socket>, C<socketpair>,
+C<stat>, C<symlink>, C<syscall>, C<sysopen>, C<system>,
+C<times>, C<truncate>, C<umask>, C<unlink>,
+C<utime>, C<wait>, C<waitpid>
