@@ -55,7 +55,7 @@ get '/pod/*' => sub {
         PJP::M::Pod->pod2html($path);
     });
 
-    return $c->render('pod.tt', { body => $out, version => $version });
+    return $c->render('pod.tt', { body => $out, version => $version, subtitle => $splat });
 };
 
 use Pod::Perldoc;
@@ -96,7 +96,15 @@ get '/docs{path:/|/.+}' => sub {
         my $out = $c->cache->file_cache("path:4", $path, sub {
             PJP::M::Pod->pod2html($path);
         });
-        return $c->render('pod.tt', { body => $out, version => $distvname });
+        return $c->render(
+            'pod.tt',
+            {
+                body    => $out,
+                version => $distvname,
+                subtitle =>
+                  do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle }
+            }
+        );
     } elsif (-f $path) {
         return $c->show_error("未知のファイル形式です: $p->{path}");
     } else {
