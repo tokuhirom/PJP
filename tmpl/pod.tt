@@ -1,6 +1,9 @@
-[% INCLUDE 'include/header.tt' %]
+[% INCLUDE 'include/header.tt' WITH subtitle=package %]
 
-<div class="PodVersion">Version: perl-[% version %]</div>
+<div class="PodVersion">Version: [% distvname %]</div>
+[% IF package %]
+    <a href="http://search.cpan.org/perldoc?[% package %]">CPANで確認する</a>
+[% END %]
 
 <div class="PodBody">
 [% body %]

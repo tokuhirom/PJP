@@ -55,7 +55,7 @@ get '/pod/*' => sub {
         PJP::M::Pod->pod2html($path);
     });
 
-    return $c->render('pod.tt', { body => $out, version => $version, subtitle => $splat });
+    return $c->render('pod.tt', { body => $out, distvname => "perl-$version", subtitle => $splat });
 };
 
 use Pod::Perldoc;
@@ -77,7 +77,6 @@ get '/func/*' => sub {
     return $c->render('pod.tt', { body => $out, version => $version });
 };
 
-# TODO: Plack::App::Directory つかうのやめたい
 use File::Spec::Functions qw/catfile abs2rel/;
 use Cwd ();
 use File::Find qw/finddepth/;
@@ -93,16 +92,15 @@ get '/docs{path:/|/.+}' => sub {
 
     if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
         my $distvname = $1;
-        my $out = $c->cache->file_cache("path:4", $path, sub {
-            PJP::M::Pod->pod2html($path);
-        });
+        my ($html, $package) = @{$c->cache->file_cache("path:6", $path, sub {
+            [PJP::M::Pod->pod2html($path), PJP::M::Pod->pod2package_name($path)];
+        })};
         return $c->render(
-            'pod.tt',
-            {
-                body    => $out,
-                version => $distvname,
-                subtitle =>
-                  do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle }
+            'pod.tt' => {
+                body      => $html,
+                distvname => $distvname,
+                subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
+                package   => $package,
             }
         );
     } elsif (-f $path) {

@@ -6,6 +6,27 @@ package PJP::M::Pod;
 use Pod::Simple::XHTML;
 use Log::Minimal;
 use Text::Xslate::Util qw/mark_raw html_escape/;
+use Pod::POM;
+use Encode ();
+
+sub pod2package_name {
+    my ($class, $stuff) = @_;
+    my $src = do {
+        if (ref $stuff) {
+            $$stuff;
+        } else {
+            open my $fh, '<', $stuff or die "Cannot open file $stuff: $!";
+            my $src = do { local $/; <$fh> };
+            if ($src =~ /^=encoding\s+(euc-jp|utf-?8)/sm) {
+                $src = Encode::decode($1, $src);
+            }
+            $src;
+        }
+    };
+    my $package = ($src =~ m/^=head1\s+(?:NAME|名前)\s*\n+\s*(\S+)\s*-\s*/ms)[0];
+    $package =~ s/^[A-Z]<(.+)>$/$1/;
+    return $package;
+}
 
 sub pod2html {
 	my ($class, $stuff) = @_;
