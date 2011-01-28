@@ -78,10 +78,8 @@ get '/func/*' => sub {
 };
 
 # TODO: Plack::App::Directory つかうのやめたい
-use Plack::App::Directory;
 use File::Spec::Functions qw/catfile/;
 use Cwd ();
-my $dirapp = Plack::App::Directory->new({root => "./assets/perldoc.jp/"});
 get '/docs{path:/|/.+}' => sub {
     my ($c, $p) = @_;
     my $path = $p->{path};
