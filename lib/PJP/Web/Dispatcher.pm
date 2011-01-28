@@ -32,7 +32,7 @@ get '/pod/*' => sub {
         PJP::M::Pod->pod2html($path);
     });
 
-    return $c->render('pod.tt', { body => $out, version => $version });
+    return $c->render('pod.tt', { body => $out, version => $version, subtitle => $splat });
 };
 
 use Pod::Perldoc;
@@ -71,7 +71,15 @@ get '/docs{path:/|/.+}' => sub {
         my $out = $c->cache->file_cache("path", $fullpath, sub {
             PJP::M::Pod->pod2html($fullpath);
         });
-        return $c->render('pod.tt', { body => $out, version => $distvname });
+        return $c->render(
+            'pod.tt',
+            {
+                body    => $out,
+                version => $distvname,
+                subtitle =>
+                  do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle }
+            }
+        );
     } else {
         my $res = $dirapp->($c->req->env);
         return $c->create_response(@$res);
