@@ -1,0 +1,15 @@
+[% INCLUDE 'include/header.tt' WITH bodyID="IndexModule" %]
+
+<p class="about">CPAN モジュールのドキュメントです。英語版は <a href="http://search.cpan.org/">search.cpan.org</a>でみることができます</p>
+
+<h1>翻訳済 CPAN モジュール</h1>
+
+[%# TODO: 各モジュールのリリース日と、最新版のバージョン番号を表示させたい %]
+
+<ul>
+[% FOR v IN index %]
+    <li><a href="/docs/modules/[% v %]/">[% v %]</a></li>
+[% END %]
+</ul>
+
+[% INCLUDE 'include/footer.tt' %]

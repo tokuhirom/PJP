@@ -17,6 +17,7 @@ sub pod2html {
     $parser->index(1); # display table of contents
 	$parser->perldoc_url_prefix('/pod/');
     $parser->output_string(\my $out);
+    $parser->html_h_level(3);
 	if (ref $stuff eq 'SCALAR') {
 		$parser->parse_string_document($$stuff);
 	} else {

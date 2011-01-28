@@ -62,7 +62,7 @@ sub _render_function {
 		} elsif (/^\s*\#/) {
 			next; # comment line
 		} elsif (/^\((.+)\)/) { # name
-			$out .= sprintf("<h3>%s</h3>\n", html_escape($1));
+			$out .= sprintf("<h2>%s</h2>\n", html_escape($1));
 		} elsif (/^C</) { # link
 			my @outs;
 			my $line = $_;

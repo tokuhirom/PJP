@@ -1,6 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>  
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>[% IF subtitle %][% subtitle %] - [% END %]Perl公式ドキュメント日本語版</title>
     <meta http-equiv="Content-Style-Type" content="text/css" />  
@@ -8,10 +15,22 @@
     <link href="[% uri_for('/static/css/main.css') %]" rel="stylesheet" type="text/css" media="screen" />
     <link href="/static/prettify/prettify.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="/static/prettify/prettify.js" type="text/javascript"></script>
+    <script src="/static/js/modernizr-1.6.min.js"></script>
+    <!--[if lt IE 7 ]>
+      <script src="/static/js/dd_belatedpng.js"></script>
+      <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+    <![endif]-->
 </head>
-<body onload="prettyPrint();return true;">
+<body onload="prettyPrint();return true;"[% IF bodyID %] id="[% bodyID %]"[% END %]>
     <div id="Container">
-        <div id="Header">
-            <a href="[% uri_for('/') %]">Perlのドキュメントを日本語に翻訳するよプロジェクトの成果物を表示するサイト</a>
-        </div>
-        <div id="Content">
+        <header>
+            <a class="SiteLogo" href="[% uri_for('/') %]">new.perldoc.jp</a>
+        </header>
+        <nav>
+            <ul>
+            <li><a href="/index/core">本体</a></li>
+            <li><a href="/index/function">関数</a></li>
+            <li><a href="/index/module">モジュール</a></li>
+            </ul>
+        </nav>
+        <div id="main">
