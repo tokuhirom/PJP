@@ -51,7 +51,7 @@ get '/pod/*' => sub {
     }
 
     my ($path, $version) = @$path_info;
-    my $out = $c->cache->file_cache("pod:4", $path, sub {
+    my $out = $c->cache->file_cache("pod:5", $path, sub {
         PJP::M::Pod->pod2html($path);
     });
 
@@ -94,7 +94,7 @@ get '/docs{path:/|/.+}' => sub {
 
     if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
         my $distvname = $1;
-        my $out = $c->cache->file_cache("path:3", $path, sub {
+        my $out = $c->cache->file_cache("path:4", $path, sub {
             PJP::M::Pod->pod2html($path);
         });
         return $c->render('pod.tt', { body => $out, version => $distvname });
