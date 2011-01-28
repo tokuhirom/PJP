@@ -1,0 +1,12 @@
+[% INCLUDE 'include/header.tt' %]
+<p class="about">[% path %]の内容を表示しています</p>
+
+<h1>[% path %]</h1>
+
+<ul class="DirectoryIndex">
+[% FOR v IN index %]
+    <li><a href="./[% v %]">[% v %]</a></li>
+[% END %]
+</ul>
+
+[% INCLUDE 'include/footer.tt' %]

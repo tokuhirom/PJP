@@ -1,0 +1,5 @@
+[% INCLUDE 'include/header.tt' %]
+
+<div style="color: red">[% message %]</div>
+
+[% INCLUDE 'include/footer.tt' %]

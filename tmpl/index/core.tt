@@ -1,0 +1,9 @@
+[% INCLUDE 'include/header.tt' WITH bodyID="IndexCore" %]
+
+<p class="about">Perl 本体に添付されている公式ドキュメントです。英語版は <a href="http://perldoc.perl.org">perldoc.perl.org</a>でみることができます</p>
+
+<h1>公式ドキュメント一覧</h1>
+
+[% toc %]
+
+[% INCLUDE 'include/footer.tt' %]

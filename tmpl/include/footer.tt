@@ -1,7 +1,7 @@
         </div>
-        <div id="FooterContainer"><div id="Footer">
+        <footer>
             Powered by Amon2, <a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a>
-        </div></div>
+        </footer>
     </div>
 </body>
 </html>
