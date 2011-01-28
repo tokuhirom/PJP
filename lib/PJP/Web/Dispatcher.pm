@@ -113,7 +113,7 @@ get '/docs{path:/|/.+}' => sub {
             }
             return 1; # need true value
         }, $path);
-        return $c->render('directory_index.tt', {index => \@index, path => $c->req->path_info});
+        return $c->render('directory_index.tt', {index => [sort @index], path => $c->req->path_info});
     }
 };
 

@@ -14,7 +14,7 @@ sub get {
         next if $e =~ /^CVS$/;
         push @mods, $e;
     }
-    return @mods;
+    return sort @mods;
 }
 
 1;
