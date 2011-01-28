@@ -78,8 +78,9 @@ get '/func/*' => sub {
 };
 
 # TODO: Plack::App::Directory つかうのやめたい
-use File::Spec::Functions qw/catfile/;
+use File::Spec::Functions qw/catfile abs2rel/;
 use Cwd ();
+use File::Find qw/finddepth/;
 get '/docs{path:/|/.+}' => sub {
     my ($c, $p) = @_;
     my $path = $p->{path};
@@ -100,12 +101,12 @@ get '/docs{path:/|/.+}' => sub {
         return $c->show_error("未知のファイル形式です: $p->{path}");
     } else {
         my @index;
-        opendir my $dh, $path or die "Cannot open directory: $path";
-        while (defined(my $e = readdir($dh))) {
-            next if $e =~ /^\./;
-            next if $e =~ /^CVS$/;
-            push @index, $e;
-        }
+        finddepth(sub {
+            unless (/^\./ || /^CVS$/ || $File::Find::name =~ m{/CVS/} || -d $_) {
+                push @index, abs2rel($File::Find::name, $path);
+            }
+            return 1; # need true value
+        }, $path);
         return $c->render('directory_index.tt', {index => \@index, path => $c->req->path_info});
     }
 };
