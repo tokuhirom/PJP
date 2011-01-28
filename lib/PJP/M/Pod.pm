@@ -11,6 +11,7 @@ sub pod2html {
 	my ($class, $stuff) = @_;
 	$stuff or die "missing mandatory argument: $stuff";
 
+    no warnings 'redefine';
     local *Pod::Simple::XHTML::encode_entities = \&Text::Xslate::Util::html_escape;
     my $parser = PJP::Pod::Parser->new();
     $parser->html_header('');
