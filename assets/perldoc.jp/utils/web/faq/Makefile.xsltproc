@@ -1,0 +1,10 @@
+XSLTPROC_PROG=xsltproc
+SOURCE_FILE=perldocjp-faq.xml
+XSLT_FILE=perldocjp-faq.xsl
+GEN_TARGET_DIR=./../../../web/htdocs/
+GEN_FILENAME=perldocjp-faq.html
+
+all: html
+
+html:
+	$(XSLTPROC_PROG) $(XSLT_FILE) $(SOURCE_FILE) > $(GEN_TARGET_DIR)$(GEN_FILENAME)

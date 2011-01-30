@@ -10,19 +10,19 @@
       <head>
         <title>FAQ - Japanize Perl Resours Project</title>
         <link rel="stylesheet" type="text/css" href="faq.css" />
-        <link rel="stylesheet" type="text/css" href="index.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
       </head>
       <body>
 
         <div class="menu">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="joinus.html">参加するには?</a>(<a href="joinus.html#ml">メーリングリスト</a>)</li>
-            <li><a href="translation.html">翻訳の入手</a></li>
-            <li><a href="event.html">イベント</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="joinus">参加するには?</a>(<a href="joinus#ml">メーリングリスト</a>)</li>
+            <li><a href="translation">翻訳の入手</a></li>
+            <li><a href="event">イベント</a></li>
             <li class="current">FAQ</li>
-            <li><a href="link.html">リンク</a></li>
-            <li class="sourceforge"><a href="http://sourceforge.jp/projects/perldocjp/">sourcefoge site</a></li>
+            <li><a href="link">リンク</a></li>
+            <li class="sourceforge"><a href="http://sourceforge.jp/projects/perldocjp/">sourceforge site</a></li>
           </ul>
         </div>
 

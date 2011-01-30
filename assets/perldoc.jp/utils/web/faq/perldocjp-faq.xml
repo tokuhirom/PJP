@@ -30,7 +30,7 @@
 <question>CVS の使い方がわからないのですがどうすればよいですか？</question>
 <answer>まずは<a href="http://sourceforge.jp/projects/perldocjp/document/cvs_operation/ja/1/cvs_operation.html">CVSの操作</a>などを読んでください。
 それでもわからない点があれば、ML で気軽に質問してください。
-また、Microsoft WIndows ユーザは<a href="http://sourceforge.jp/projects/perldocjp/document/cvs_wincvs/ja/3/cvs_wincvs.html">CVSの導入(WinCVS/Windows)</a>も用意されています。</answer>
+また、Microsoft Windows ユーザは<a href="http://sourceforge.jp/projects/perldocjp/document/cvs_wincvs/ja/3/cvs_wincvs.html">CVSの導入(WinCVS/Windows)</a>も用意されています。</answer>
 </part>
 
 <part id="no_use_cvs">
@@ -50,12 +50,12 @@
 
 <part id="charset">
 <question>文字コードは何を使えばいいですか？</question>
-<answer>EUC-JP を使ってください。</answer>
+<answer>EUC-JP が使われているものも多いですが、UTF-8でも構いません。PODファイルの冒頭に「=encoding euc-jp」などと記述して、使用している文字コードを指定してください。適切に指定されていないと外部のツールやウェブサイトで適切に表示されない可能性があります。</answer>
 </part>
 
 <part id="get_pod">
 <question>モジュールからの POD ファイルの抽出でどうやればよい？</question>
-<answer>「perldoc -u モジュール名」で抽出できるので、その結果をファイルに落とせばよいです。「perldoc -u モジュール名 > モジュール名.pod」などね。また、井上さんによる xpod.pl が <a href="http://www.freeml.com/perldocjp/0000160">Re: スクリプトから POD を取り出すプログラム</a>にあります。</answer>
+<answer>POD は「perldoc -u モジュール名」で抽出できるので、その結果をファイルに落とせばよいです。「perldoc -u モジュール名 > モジュール名.pod」などね。また、井上さんによる xpod.pl が <a href="http://www.freeml.com/perldocjp/0000160">Re: スクリプトから POD を取り出すプログラム</a>にあります。</answer>
 </part>
 
 <part id="pod_rule">
@@ -123,12 +123,12 @@
 <faq>
 <part id="read_translated_documents">
 <question>翻訳された文章はどこで閲覧できますか？</question>
-<answer><a href="http://perldoc.jp/">perldoc.jp</a>を参照するか、<a href="http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/perldocjp/">SourceForge JP上のCVSリポジトリ</a>を御利用下さい。</answer>
+<answer><a href="http://perldoc.jp/">perldoc.jp</a>や<a href="http://new.perldoc.jp/">new.perldoc.jp</a>を参照するか、<a href="http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/perldocjp/">SourceForge JP上のCVSリポジトリ</a>を御利用下さい。</answer>
 </part>
 
 <part id="search_from_all_documents">
 <question>翻訳された文章の全文検索は行えますか？</question>
-<answer><a href="http://www.cpan.jp/">CPAN.jp</a>を御参照下さい。また、このサイトは、perldocjp以外に、翻訳された文章を既に公開している他サイトも検索対象としています。</answer>
+<answer>2011年1月現在、全文検索の機能は提供されていません。Googleなどの検索エンジンでドメイン指定で <a href="http://perldoc.jp/">perldoc.jp</a> などを対象に検索してみてください。</answer>
 </part>
 
 </faq>
