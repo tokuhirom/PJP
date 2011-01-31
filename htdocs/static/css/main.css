@@ -107,12 +107,6 @@ button {  width: auto; overflow: visible; }
   
 }
 
-@media screen and (max-device-width: 480px) {
-  
-  
-  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
-}
-
 @media print {
   * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
   a, a:visited { color: #444 !important; text-decoration: underline; }
@@ -228,3 +222,17 @@ footer { margin-top: 10px; border-top: #cccccc 1px solid; font-size: x-small; te
     margin-top: 20px;
     font-size: 100%;
 }
+
+/* media queries */
+@media only screen and (max-width: 479px) {
+    body { margin: 1.5em; }
+    #Container { width: 100%; }
+    #header h1 { font-size: 200% }
+    #main {
+        font-size: 270%;
+        line-height: 1.5em;
+    }
+    pre { overflow:auto; }
+    html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
+}
+
