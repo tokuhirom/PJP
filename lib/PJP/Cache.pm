@@ -28,5 +28,15 @@ sub file_cache {
 	}
 }
 
+sub get_or_set {
+	my ($self, $key, $cb, $xt) = @_;
+
+	my $val = $self->{cache}->get($key);
+	return $val if defined $val;
+
+	$val = $cb->();
+	$self->{cache}->set($key, $val, $xt || '1 day');
+}
+
 1;
 

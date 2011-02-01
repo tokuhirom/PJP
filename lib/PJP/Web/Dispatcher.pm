@@ -36,8 +36,8 @@ get '/index/function' => sub {
 get '/index/module' => sub {
     my $c = shift;
 
-    my @index = PJP::M::Index::Module->get($c);
-    $c->render('index/module.tt', {index => \@index});
+    my $index = PJP::M::Index::Module->get($c);
+    $c->render('index/module.tt', {index => $index});
 };
 
 get '/pod/*' => sub {

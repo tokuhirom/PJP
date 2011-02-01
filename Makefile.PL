@@ -11,6 +11,9 @@ requires 'Time::Piece';
 requires 'Pod::Simple::XHTML';
 requires 'Log::Minimal';
 requires 'Cache::FileCache';
+requires 'CPAN::DistnameInfo';
+requires 'LWP::UserAgent';
+requires 'URI::Escape';
 
 recursive_author_tests('xt');
 

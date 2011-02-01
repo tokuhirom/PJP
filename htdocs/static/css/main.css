@@ -223,6 +223,9 @@ footer { margin-top: 10px; border-top: #cccccc 1px solid; font-size: x-small; te
     font-size: 100%;
 }
 
+span.old { color: red }
+span.fresh { color: green }
+
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
     body { margin: 1.5em; }

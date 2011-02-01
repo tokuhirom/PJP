@@ -6,10 +6,21 @@
 
 [%# TODO: 各モジュールのリリース日と、最新版のバージョン番号を表示させたい %]
 
-<ul>
+<table>
 [% FOR v IN index %]
-    <li><a href="/docs/modules/[% v %]/">[% v %]</a></li>
+    <tr>
+		<td><a href="/docs/modules/[% v.distvname %]/">[% v.name %]-[% v.version %]
+			[% IF v.latest_version %]
+				[% IF v.latest_version==v.version %]
+					<span class="fresh">(Fresh)</span>
+				[% ELSE %]
+					<span class="old">(Latest: [% v.latest_version %])</span>
+				[% END %]
+			[% END %]
+		</a></td>
+		<td>[% v.abstract %]</td>
+	</tr>
 [% END %]
-</ul>
+</table>
 
 [% INCLUDE 'include/footer.tt' %]
