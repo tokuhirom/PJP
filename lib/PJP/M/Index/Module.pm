@@ -42,7 +42,7 @@ sub generate_and_save {
 
     my $fname = $class->cache_path($c);
     my @data = $class->generate($c);
-    open my $fh, ':utf8>', $fname;
+    open my $fh, '>:utf8', $fname;
     print $fh JSON::encode_json(\@data);
     close $fh;
 
