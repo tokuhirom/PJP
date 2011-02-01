@@ -1,19 +1,20 @@
-official な perldoc をみやすく表示するプログラムです。たぶんあとで、どっかでホスティングしようとおもってる。
+new.perldoc.jp のソースです。
 
-perldoc.jp でホスティングされているものと同等だけど、とてもみやすく表示します(の予定)
+自前でうごかす方法
+==================
 
-セットアップのやりかた
-=====================
+    wget --no-check-certificates http://cpanmin.us
+    perl cpanm --installdeps .
+    plackup -p 5000 PJP.psgi
 
-    cd assets/perldoc.jp/
-    cvs -d:pserver:anonymous@cvs.sourceforge.jp:/cvsroot/perldocjp login
-    cvs -z3 -d:pserver:anonymous@cvs.sourceforge.jp:/cvsroot/perldocjp co ./
+勿論、PSGI based なので、Apache ででもなんででもうごきますけども。
 
 アップデートするには
 ====================
 
-まあ、いまどき cvs のつかいかたとかわすれてるとおもうけど、以下のようにすればよろしい。
+いまどき cvs のつかいかたとかわすれてるとおもうけど、以下のようにすればよろしい。
 
     cd assets/perldoc.jp/
+    cvs -d:pserver:anonymous@cvs.sourceforge.jp:/cvsroot/perldocjp login
     cvs upd -dP
 
