@@ -9,6 +9,7 @@ use Log::Minimal;
 
 sub render {
 	my ($class, $c) = @_;
+    $c // die;
 
 	return mark_raw($c->cache->file_cache(
 		"toc", 'toc.txt', sub {
