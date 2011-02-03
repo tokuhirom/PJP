@@ -10,7 +10,5 @@ builder {
         path => qr{^/static/},
         root => './htdocs/';
     enable 'Plack::Middleware::ReverseProxy';
-    enable 'Plack::Middleware::StackTrace',
-		no_print_errors => 1;
     PJP::Web->to_app();
 };
