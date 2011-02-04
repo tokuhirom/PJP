@@ -1262,7 +1262,7 @@
    {
       "abstract" : "Portable, event-loop agnostic eventy networking and multitasking.",
       "distvname" : "POE-0.26",
-      "latest_version" : "1.294_512",
+      "latest_version" : "1.299",
       "name" : "POE",
       "version" : "0.26"
    },
