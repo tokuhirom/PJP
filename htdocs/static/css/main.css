@@ -210,6 +210,7 @@ footer { margin-top: 10px; border-top: #cccccc 1px solid; font-size: x-small; te
 }
 .PodBody h3 {
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 .PodBody p {
     margin-left: 10px;

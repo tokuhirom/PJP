@@ -11,7 +11,7 @@
     <title>[% IF subtitle %][% subtitle %] - [% END %]Perl公式ドキュメント日本語版</title>
     <meta http-equiv="Content-Style-Type" content="text/css" />  
     <meta http-equiv="Content-Script-Type" content="text/javascript" />  
-    <link href="/static/css/main.css?v=8" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/static/css/main.css?v=9" rel="stylesheet" type="text/css" media="screen" />
     <link href="/static/prettify/prettify.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="/static/prettify/prettify.js" type="text/javascript"></script>
 </head>
