@@ -9,6 +9,7 @@ use PJP::M::TOC;
 use PJP::M::Index::Module;
 use PJP::M::Pod;
 use File::stat;
+use Try::Tiny;
 
 get '/' => sub {
     my $c = shift;
@@ -66,15 +67,25 @@ get '/func/*' => sub {
     my $path_info = PJP::M::Pod->get_latest_file_path('perlfunc');
     my ($path, $version) = @$path_info;
 
-    my $out = $c->cache->file_cache("func:$name", $path, sub {
-        infof("rendering %s from %s", $name, $path);
-        my @dynamic_pod;
-        my $perldoc = Pod::Perldoc->new(opt_f => $name);
-        $perldoc->search_perlfunc([$path], \@dynamic_pod);
-        PJP::M::Pod->pod2html(\(join("", "=encoding euc-jp\n\n=over 4\n\n", @dynamic_pod, "=back\n")));
-    });
+    try {
+        my $out = $c->cache->file_cache("func:$name", $path, sub {
+            infof("rendering %s from %s", $name, $path);
+            my @dynamic_pod;
+            my $perldoc = Pod::Perldoc->new(opt_f => $name);
+            $perldoc->search_perlfunc([$path], \@dynamic_pod);
+            PJP::M::Pod->pod2html(\(join("", "=encoding euc-jp\n\n=over 4\n\n", @dynamic_pod, "=back\n")));
+        });
 
-    return $c->render('pod.tt', { body => $out, version => $version });
+        return $c->render('pod.tt', { body => $out, version => $version });
+    } catch {
+        if (/No documentation for perl function/) {
+            my $res = $c->show_error("'$name' は Perl の組み込み関数ではありません。");
+            $res->code(404);
+            return $res;
+        } else {
+            die $_;
+        }
+    };
 };
 
 use File::Spec::Functions qw/catfile abs2rel/;

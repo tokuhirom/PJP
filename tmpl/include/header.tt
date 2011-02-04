@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>[% IF subtitle %][% subtitle %] - [% END %]Perl公式ドキュメント日本語版</title>
+    <title>[% IF subtitle %][% subtitle %] - [% END %]Perlドキュメント日本語版</title>
     <meta http-equiv="Content-Style-Type" content="text/css" />  
     <meta http-equiv="Content-Script-Type" content="text/javascript" />  
     <link href="/static/css/main.css?v=9" rel="stylesheet" type="text/css" media="screen" />
@@ -18,7 +18,7 @@
 <body onload="prettyPrint();return true;"[% IF bodyID %] id="[% bodyID %]"[% END %]>
     <div id="Container">
         <header>
-            <a class="SiteLogo" href="[% uri_for('/') %]">new.perldoc.jp</a>
+            <a class="SiteLogo" href="[% uri_for('/') %]">perldoc.jp</a>
         </header>
         <nav>
             <ul>

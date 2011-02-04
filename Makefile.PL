@@ -14,6 +14,7 @@ requires 'Cache::FileCache';
 requires 'CPAN::DistnameInfo';
 requires 'LWP::UserAgent';
 requires 'URI::Escape';
+requires 'Try::Tiny';
 
 recursive_author_tests('xt');
 
