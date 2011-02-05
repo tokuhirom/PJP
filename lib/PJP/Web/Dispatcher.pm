@@ -52,7 +52,7 @@ get '/pod/*' => sub {
     }
 
     my ($path, $version) = @$path_info;
-    my $out = $c->cache->file_cache("pod:5", $path, sub {
+    my $out = $c->cache->file_cache("pod:6", $path, sub {
         PJP::M::Pod->pod2html($path);
     });
 
@@ -68,7 +68,7 @@ get '/func/*' => sub {
     my ($path, $version) = @$path_info;
 
     try {
-        my $out = $c->cache->file_cache("func:$name", $path, sub {
+        my $out = $c->cache->file_cache("func:$name:1", $path, sub {
             infof("rendering %s from %s", $name, $path);
             my @dynamic_pod;
             my $perldoc = Pod::Perldoc->new(opt_f => $name);
@@ -103,7 +103,7 @@ get '/docs{path:/|/.+}' => sub {
 
     if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
         my $distvname = $1;
-        my ($html, $package) = @{$c->cache->file_cache("path:6", $path, sub {
+        my ($html, $package) = @{$c->cache->file_cache("path:8", $path, sub {
             [PJP::M::Pod->pod2html($path), PJP::M::Pod->pod2package_name($path)];
         })};
         return $c->render(
