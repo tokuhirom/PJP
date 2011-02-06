@@ -55,8 +55,9 @@ get '/pod/*' => sub {
     my $out = $c->cache->file_cache("pod:6", $path, sub {
         PJP::M::Pod->pod2html($path);
     });
+    my $is_old = $path !~ /delta/ && eval { version->parse($version) } < eval { version->parse("5.8.5") };
 
-    return $c->render('pod.tt', { body => $out, distvname => "perl-$version", subtitle => $splat });
+    return $c->render('pod.tt', { body => $out, distvname => "perl-$version", subtitle => $splat, is_old => $is_old, version => $version });
 };
 
 use Pod::Perldoc;
