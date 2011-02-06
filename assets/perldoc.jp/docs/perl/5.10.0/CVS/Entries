@@ -33,7 +33,6 @@
 /perlfaq9.pod/1.10/Wed Jan 26 02:21:40 2011/-ko/
 /perlfork.pod/1.2/Wed Jan 26 02:21:40 2011/-ko/
 /perlform.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
-/perlfunc.pod/1.8/Wed Jan 26 02:21:40 2011/-ko/
 /perlglossary.pod/1.8/Wed Jan 26 02:21:40 2011/-ko/
 /perlguts.pod/1.6/Wed Jan 26 02:21:40 2011/-ko/
 /perlhist.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
@@ -70,4 +69,5 @@
 /perlvar.pod/1.13/Wed Jan 26 02:21:40 2011/-ko/
 /perlxs.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perlxstut.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
+/perlfunc.pod/1.9/Sun Feb  6 05:10:01 2011/-ko/
 D

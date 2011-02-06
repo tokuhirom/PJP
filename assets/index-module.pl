@@ -327,7 +327,7 @@
    {
       "abstract" : null,
       "distvname" : "Crypt-CFB-0.01",
-      "latest_version" : "0.01",
+      "latest_version" : "0.02",
       "name" : "Crypt-CFB",
       "version" : "0.01"
    },

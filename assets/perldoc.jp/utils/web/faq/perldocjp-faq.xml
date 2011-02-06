@@ -123,7 +123,7 @@
 <faq>
 <part id="read_translated_documents">
 <question>翻訳された文章はどこで閲覧できますか？</question>
-<answer><a href="http://perldoc.jp/">perldoc.jp</a>や<a href="http://new.perldoc.jp/">new.perldoc.jp</a>を参照するか、<a href="http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/perldocjp/">SourceForge JP上のCVSリポジトリ</a>を御利用下さい。</answer>
+<answer><a href="http://perldoc.jp/">perldoc.jp</a>を参照するか、<a href="http://cvs.sourceforge.jp/cgi-bin/viewcvs.cgi/perldocjp/">SourceForge JP上のCVSリポジトリ</a>を御利用下さい。</answer>
 </part>
 
 <part id="search_from_all_documents">
