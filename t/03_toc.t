@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use utf8;
+use t::Util;
 use Test::More;
 use PJP::M::TOC;
 use PJP;
