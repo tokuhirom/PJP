@@ -104,7 +104,7 @@ get '/docs{path:/|/.+}' => sub {
 
     if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
         my $distvname = $1;
-        my ($html, $package) = @{$c->cache->file_cache("path:8", $path, sub {
+        my ($html, $package) = @{$c->cache->file_cache("path:10", $path, sub {
             [PJP::M::Pod->pod2html($path), PJP::M::Pod->pod2package_name($path)];
         })};
         return $c->render(
