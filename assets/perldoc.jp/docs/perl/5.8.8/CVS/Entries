@@ -1,4 +1,3 @@
-/perl581delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl582delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl583delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl584delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
@@ -12,7 +11,6 @@
 /perldata.pod/1.8/Wed Jan 26 02:21:40 2011/-ko/
 /perldebug.pod/1.2/Thu Jan 27 13:21:37 2011/-ko/
 /perldiag.pod/1.5/Wed Jan 26 02:21:40 2011/-ko/
-/perldsc.pod/1.2/Thu Jan 27 13:21:37 2011/-ko/
 /perlform.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
 /perlipc.pod/1.4/Wed Jan 26 02:21:40 2011/-ko/
 /perllocale.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
@@ -26,4 +24,6 @@
 /perltie.pod/1.8/Wed Jan 26 02:21:41 2011/-ko/
 /perlxs.pod/1.12/Wed Jan 26 02:21:41 2011/-ko/
 /perlxstut.pod/1.12/Wed Jan 26 02:21:41 2011/-ko/
+/perl581delta.pod/1.2/Mon Feb  7 13:40:02 2011/-ko/
+/perldsc.pod/1.3/Mon Feb  7 13:40:02 2011/-ko/
 D
