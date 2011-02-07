@@ -187,21 +187,21 @@
    {
       "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.048",
-      "latest_version" : "0.9011",
+      "latest_version" : "0.90_12",
       "name" : "CPANPLUS",
       "version" : "0.048"
    },
    {
       "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.043",
-      "latest_version" : "0.9011",
+      "latest_version" : "0.90_12",
       "name" : "CPANPLUS",
       "version" : "0.043"
    },
    {
       "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.044",
-      "latest_version" : "0.9011",
+      "latest_version" : "0.90_12",
       "name" : "CPANPLUS",
       "version" : "0.044"
    },
