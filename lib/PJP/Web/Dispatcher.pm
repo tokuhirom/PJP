@@ -95,7 +95,10 @@ use File::Find qw/finddepth/;
 get '/docs{path:/|/.+}' => sub {
     my ($c, $p) = @_;
     my $path = $p->{path};
-    $path = Cwd::realpath(catfile("./assets/perldoc.jp/docs/$path"));
+    $path = Cwd::realpath(catfile("./assets/perldoc.jp/docs/$path")) or do {
+        warnf("path '%s' is missing", $p->{path});
+        return $c->res_404();
+    };
     my $container = Cwd::realpath(catfile("./assets/perldoc.jp/docs/"));
 
     if ($path =~ m{/CVS(/|$)} || $path !~ m{^\Q$container} || $p->{path} =~ /\.\./) {
@@ -104,7 +107,8 @@ get '/docs{path:/|/.+}' => sub {
 
     if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
         my $distvname = $1;
-        my ($html, $package) = @{$c->cache->file_cache("path:10", $path, sub {
+        my ($html, $package) = @{$c->cache->file_cache("path:15", $path, sub {
+            infof("rendering %s", $path);
             [PJP::M::Pod->pod2html($path), PJP::M::Pod->pod2package_name($path)];
         })};
         return $c->render(

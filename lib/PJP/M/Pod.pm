@@ -67,9 +67,27 @@ sub get_latest_file_path {
 {
     package PJP::Pod::Parser;
     use parent qw/Pod::Simple::XHTML/;    # for google source code prettifier
+    use URI::Escape qw/uri_escape_utf8/;
 
     sub start_Verbatim {
         $_[0]{'scratch'} = '<pre class="prettyprint lang-perl"><code>';
+    }
+
+    # idify がマルチバイトクリーンじゃないから適当に対応してある。
+    sub idify {
+        my ($self, $t, $not_unique) = @_;
+        for ($t) {
+            s/<[^>]+>//g;            # Strip HTML.
+            s/&[^;]+;//g;            # Strip entities.
+            s/^\s+//; s/\s+$//;      # Strip white space.
+            s/^([^a-zA-Z]+)$/pod$1/; # Prepend "pod" if no valid chars.
+#           s/^[^a-zA-Z]+//;         # First char must be a letter.
+            s/([^-a-zA-Z0-9_:.]+)/uri_escape_utf8($1)/eg; # All other chars must be valid.
+        }
+        return $t if $not_unique;
+        my $i = '';
+        $i++ while $self->{ids}{"$t$i"}++;
+        return "$t$i";
     }
 }
 
