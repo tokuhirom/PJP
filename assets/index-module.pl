@@ -85,17 +85,17 @@
    },
    {
       "abstract" : null,
-      "distvname" : "Audio-Beep-0.07",
-      "latest_version" : "0.11",
-      "name" : "Audio-Beep",
-      "version" : "0.07"
-   },
-   {
-      "abstract" : null,
       "distvname" : "Audio-Beep-0.10",
       "latest_version" : "0.11",
       "name" : "Audio-Beep",
       "version" : "0.10"
+   },
+   {
+      "abstract" : null,
+      "distvname" : "Audio-Beep-0.07",
+      "latest_version" : "0.11",
+      "name" : "Audio-Beep",
+      "version" : "0.07"
    },
    {
       "distvname" : "Benchmark-1.10",
@@ -118,17 +118,17 @@
    },
    {
       "abstract" : null,
-      "distvname" : "CGI-2.89",
-      "latest_version" : "3.51",
-      "name" : "CGI",
-      "version" : "2.89"
-   },
-   {
-      "abstract" : null,
       "distvname" : "CGI-3.49",
       "latest_version" : "3.51",
       "name" : "CGI",
       "version" : "3.49"
+   },
+   {
+      "abstract" : null,
+      "distvname" : "CGI-2.89",
+      "latest_version" : "3.51",
+      "name" : "CGI",
+      "version" : "2.89"
    },
    {
       "distvname" : "CGI-Explorer-1.13",
@@ -187,23 +187,23 @@
    {
       "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.048",
-      "latest_version" : "0.90_12",
+      "latest_version" : "0.90_13",
       "name" : "CPANPLUS",
       "version" : "0.048"
    },
    {
       "abstract" : "Ameliorated interface to the CPAN",
-      "distvname" : "CPANPLUS-0.043",
-      "latest_version" : "0.90_12",
+      "distvname" : "CPANPLUS-0.044",
+      "latest_version" : "0.90_13",
       "name" : "CPANPLUS",
-      "version" : "0.043"
+      "version" : "0.044"
    },
    {
       "abstract" : "Ameliorated interface to the CPAN",
-      "distvname" : "CPANPLUS-0.044",
-      "latest_version" : "0.90_12",
+      "distvname" : "CPANPLUS-0.043",
+      "latest_version" : "0.90_13",
       "name" : "CPANPLUS",
-      "version" : "0.044"
+      "version" : "0.043"
    },
    {
       "abstract" : null,
@@ -228,17 +228,17 @@
    },
    {
       "abstract" : null,
-      "distvname" : "Class-DBI-0.94",
-      "latest_version" : "v3.0.17",
-      "name" : "Class-DBI",
-      "version" : "0.94"
-   },
-   {
-      "abstract" : null,
       "distvname" : "Class-DBI-0.96",
       "latest_version" : "v3.0.17",
       "name" : "Class-DBI",
       "version" : "0.96"
+   },
+   {
+      "abstract" : null,
+      "distvname" : "Class-DBI-0.94",
+      "latest_version" : "v3.0.17",
+      "name" : "Class-DBI",
+      "version" : "0.94"
    },
    {
       "abstract" : "lib/Class/DBI/Sweet.pm",
@@ -592,17 +592,17 @@
    },
    {
       "abstract" : null,
-      "distvname" : "Date-Simple-1.03",
-      "latest_version" : "3.03",
-      "name" : "Date-Simple",
-      "version" : "1.03"
-   },
-   {
-      "abstract" : null,
       "distvname" : "Date-Simple-2.03",
       "latest_version" : "3.03",
       "name" : "Date-Simple",
       "version" : "2.03"
+   },
+   {
+      "abstract" : null,
+      "distvname" : "Date-Simple-1.03",
+      "latest_version" : "3.03",
+      "name" : "Date-Simple",
+      "version" : "1.03"
    },
    {
       "abstract" : "Find memory cycles in objects",
@@ -690,13 +690,6 @@
    },
    {
       "abstract" : null,
-      "distvname" : "Email-Valid-0.14",
-      "latest_version" : "0.184",
-      "name" : "Email-Valid",
-      "version" : "0.14"
-   },
-   {
-      "abstract" : null,
       "distvname" : "Email-Valid-0.182",
       "latest_version" : "0.184",
       "name" : "Email-Valid",
@@ -711,6 +704,20 @@
    },
    {
       "abstract" : null,
+      "distvname" : "Email-Valid-0.14",
+      "latest_version" : "0.184",
+      "name" : "Email-Valid",
+      "version" : "0.14"
+   },
+   {
+      "abstract" : null,
+      "distvname" : "Email-Valid-Loose-0.05",
+      "latest_version" : "0.05",
+      "name" : "Email-Valid-Loose",
+      "version" : "0.05"
+   },
+   {
+      "abstract" : null,
       "distvname" : "Email-Valid-Loose-0.04",
       "latest_version" : "0.05",
       "name" : "Email-Valid-Loose",
@@ -722,13 +729,6 @@
       "latest_version" : "0.05",
       "name" : "Email-Valid-Loose",
       "version" : "0.02"
-   },
-   {
-      "abstract" : null,
-      "distvname" : "Email-Valid-Loose-0.05",
-      "latest_version" : "0.05",
-      "name" : "Email-Valid-Loose",
-      "version" : "0.05"
    },
    {
       "abstract" : "Error/exception handling in an OO-ish way",
@@ -865,17 +865,17 @@
    },
    {
       "abstract" : "Efficient Reading/Writing of Complete Files",
-      "distvname" : "File-Slurp-2004.0904",
-      "latest_version" : "9999.13",
-      "name" : "File-Slurp",
-      "version" : "2004.0904"
-   },
-   {
-      "abstract" : "Efficient Reading/Writing of Complete Files",
       "distvname" : "File-Slurp-9999.01",
       "latest_version" : "9999.13",
       "name" : "File-Slurp",
       "version" : "9999.01"
+   },
+   {
+      "abstract" : "Efficient Reading/Writing of Complete Files",
+      "distvname" : "File-Slurp-2004.0904",
+      "latest_version" : "9999.13",
+      "name" : "File-Slurp",
+      "version" : "2004.0904"
    },
    {
       "abstract" : "slurp and emit file trees as nested hashes",
@@ -1591,17 +1591,17 @@
    },
    {
       "abstract" : "TT wrapper for Text::WikiFormat",
-      "distvname" : "VCS-Lite-0.02",
-      "latest_version" : "0.09",
-      "name" : "VCS-Lite",
-      "version" : "0.02"
-   },
-   {
-      "abstract" : "TT wrapper for Text::WikiFormat",
       "distvname" : "VCS-Lite-0.04",
       "latest_version" : "0.09",
       "name" : "VCS-Lite",
       "version" : "0.04"
+   },
+   {
+      "abstract" : "TT wrapper for Text::WikiFormat",
+      "distvname" : "VCS-Lite-0.02",
+      "latest_version" : "0.09",
+      "name" : "VCS-Lite",
+      "version" : "0.02"
    },
    {
       "abstract" : "Handy web browsing in a Perl object",
@@ -1661,17 +1661,17 @@
    },
    {
       "abstract" : "YAML Ain't Markup Language (tm)",
-      "distvname" : "YAML-0.35",
-      "latest_version" : "0.72",
-      "name" : "YAML",
-      "version" : "0.35"
-   },
-   {
-      "abstract" : "YAML Ain't Markup Language (tm)",
       "distvname" : "YAML-0.62",
       "latest_version" : "0.72",
       "name" : "YAML",
       "version" : "0.62"
+   },
+   {
+      "abstract" : "YAML Ain't Markup Language (tm)",
+      "distvname" : "YAML-0.35",
+      "latest_version" : "0.72",
+      "name" : "YAML",
+      "version" : "0.35"
    },
    {
       "abstract" : "call methods on native types",
