@@ -6,7 +6,6 @@ package PJP::M::Pod;
 use Pod::Simple::XHTML;
 use Log::Minimal;
 use Text::Xslate::Util qw/mark_raw html_escape/;
-use Pod::POM;
 use Encode ();
 
 sub pod2package_name {
