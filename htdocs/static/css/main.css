@@ -75,9 +75,11 @@ a:hover {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
+    border: 1px #ccc solid;
+    padding: 20px;
     margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px; }
+    margin-top: 20px;
+    margin-bottom: 20px; }
   .PodPage .PodBody .pod_content_body h3 {
     margin-top: 20px;
     margin-bottom: 10px; }
