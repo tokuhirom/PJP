@@ -1,7 +1,7 @@
         </div>
-        <footer>
+        <div class="footer">
             Powered by Amon2, <a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a>
-        </footer>
+        </div>
     </div>
 </body>
 </html>
