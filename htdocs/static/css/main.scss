@@ -16,12 +16,14 @@ a {
     }
 }
 
+body {
+    background: whiteSmoke;
+}
+
 #Container {
-    background-color: white;
     margin: 0 auto;
     margin-top: 2px;
     margin-bottom: 20px;
-    background: whiteSmoke;
     padding: 10px;
 }
 
