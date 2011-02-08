@@ -22,6 +22,7 @@ sub parse_name_section {
             $src;
         }
     };
+    $src =~ s/=begin\s+original.+?=end\s+original\n//gsm;
     my ($package, $description) = ($src =~ m/
         ^=head1\s+(?:NAME|名前)\s*\n+
         \s*(\S+)(?:\s*-\s*([^\n]+))?
