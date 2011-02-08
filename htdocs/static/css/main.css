@@ -123,6 +123,8 @@ span.fresh { color: green }
 
 .alert { color: red; font-size: 150%; font-weight: bold; }
 
+div.original { display: none; }
+
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
     body { margin: 1.5em; }
