@@ -38,6 +38,7 @@ sub pod2html {
     no warnings 'redefine';
     local *Pod::Simple::XHTML::encode_entities = \&Text::Xslate::Util::html_escape;
     my $parser = PJP::Pod::Parser->new();
+    $parser->accept_targets_as_text('original');
     $parser->html_header('');
     $parser->html_footer('');
     $parser->index(1); # display table of contents
@@ -74,6 +75,33 @@ sub get_latest_file_path {
 
     sub start_Verbatim {
         $_[0]{'scratch'} = '<pre class="prettyprint lang-perl"><code>';
+    }
+
+    sub start_for {
+       my ($self, $flgs, @rest) = @_;
+       if ($flgs->{'target'} eq 'original') {
+           $self->{in_original} = 1;
+       } else {
+         $self->SUPER::start_for($flgs, @rest);
+       }
+    }
+
+    sub end_for {
+       my $self = shift;
+       if ($self->{in_original}) {
+           $self->{in_original} = 0;
+       }
+       $self->SUPER::end_for(@_);
+    }
+
+    sub handle_text {
+        my ($self, $text) = @_;
+        if (exists $self->{'in_original'} and $self->{'in_original'} == 1) {
+            $self->{'scratch'} .= q{<div class="original">} . $text;
+            $self->{'in_original'} = 2;
+        } else {
+            $self->{'scratch'} .= $text;
+        }
     }
 
     # idify がマルチバイトクリーンじゃないから適当に対応してある。
