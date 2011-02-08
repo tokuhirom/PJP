@@ -1,29 +1,19 @@
-body {
-  background-color: #999; }
-
 a:link {
   -webkit-tap-highlight-color: #FF5E99; }
-
 a, a:visited, a:active {
   color: #607890; }
-
 a:hover {
   color: #036; }
 
 #Container {
   background-color: white;
-  width: 940px;
   margin: 0 auto;
   margin-top: 2px;
   margin-bottom: 20px;
-  border: 3px solid #888;
   background: whiteSmoke;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   padding: 10px; }
 
-.SiteLogo {
+.header .SiteLogo {
   font-size: 200%;
   font-weight: bold;
   text-decoration: none; }
@@ -44,7 +34,7 @@ a:hover {
     .nav ul li {
       float: left;
       display: block;
-      padding-left: 5px; }
+      margin-left: 5px; }
       .nav ul li a {
         display: block;
         float: left;
@@ -56,67 +46,54 @@ a:hover {
           text-decoration: underline;
           color: whiteSmoke; }
 
-p.about {
-  font-size: small;
-  margin-bottom: 20px; }
-
-h1 {
-  font-size: 120%; }
-
-footer {
+.footer {
   margin-top: 10px;
   border-top: #cccccc 1px solid;
   font-size: x-small;
   text-align: right; }
 
-#IndexFunction h2,
-#IndexCore h2 {
+.content .about {
+  font-size: small;
+  margin-bottom: 20px; }
+.content .ContentBody {
   margin-top: 20px; }
+  .content .ContentBody .IndexBody {
+    line-height: 150%;
+    margin-left: 14px; }
 
-.PodBody ul#index {
-  list-style: none;
-  margin: 0; }
-
-.PodBody ul#index ul {
-  list-style: none;
-  font-size: 100%; }
-
-.PodBody ul#index > ul {
-  margin: 0; }
-
-.PodBody pre {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px; }
-
-.PodBody h3 {
-  margin-top: 20px;
-  margin-bottom: 10px; }
-
-.PodBody h4 {
-  margin-top: 20px;
-  margin-bottom: 10px; }
-
-.PodBody p {
-  margin-left: 10px; }
-
-.PodBody ul {
-  margin-left: 20px; }
-
-.PodBody dl {
-  margin-left: 30px; }
-
-.PodBody dt {
-  margin-top: 10px; }
-
-.PodBody dd {
-  margin-left: 30px; }
-
-.PodVersion {
+.PodPage .PodVersion {
   float: right; }
+.PodPage .PodBody {
+  clear: both; }
+  .PodPage .PodBody ul.pod_toc {
+    list-style: none;
+    margin: 0; }
+    .PodPage .PodBody ul.pod_toc ul {
+      list-style: none;
+      margin: 0; }
+  .PodPage .PodBody .pod_content_body pre {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .PodPage .PodBody .pod_content_body h3 {
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  .PodPage .PodBody .pod_content_body h4 {
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  .PodPage .PodBody .pod_content_body p {
+    margin-left: 10px; }
+  .PodPage .PodBody .pod_content_body ul {
+    margin-left: 20px; }
+  .PodPage .PodBody .pod_content_body dl {
+    margin-left: 30px; }
+  .PodPage .PodBody .pod_content_body dt {
+    margin-top: 10px; }
+  .PodPage .PodBody .pod_content_body dd {
+    margin-left: 30px; }
 
 .DirectoryIndex {
   list-style: none;
@@ -143,18 +120,7 @@ div.original {
     margin: 1.5em; }
 
   #Container {
-    width: 100%; }
-
-  header {
-    font-size: 300%; }
-
-  nav {
-    height: 90px; }
-
-  nav ul {
-    font-size: 30px; }
-
-  #main {
+    width: 100%;
     font-size: 300%;
     line-height: 1.5em; }
 

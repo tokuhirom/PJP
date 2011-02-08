@@ -1,33 +1,32 @@
-body {
-    background-color: #999
+a {
+    &:link {
+        -webkit-tap-highlight-color: #FF5E99;
+    }
+    &, &:visited, &:active {
+        color: #607890;
+    }
+    &:hover {
+        color: #036;
+    }
 }
-a:link {
-    -webkit-tap-highlight-color: #FF5E99;
-}
-a, a:visited, a:active {
-    color: #607890;
-}
-a:hover {
-    color: #036;
-}
+
 #Container {
     background-color: white;
-    width: 940px;
     margin: 0 auto;
     margin-top: 2px;
     margin-bottom: 20px;
-    border: 3px solid #888;
     background: whiteSmoke;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
     padding: 10px;
 }
-.SiteLogo {
-    font-size: 200%;
-    font-weight: bold;
-    text-decoration: none;
+
+.header {
+    .SiteLogo {
+        font-size: 200%;
+        font-weight: bold;
+        text-decoration: none;
+    }
 }
+
 .nav {
     background-color: #333;
     height: 50px;
@@ -44,7 +43,7 @@ a:hover {
         li {
             float: left;
             display: block;
-            padding-left: 5px;
+            margin-left: 5px;
             a {
                 display: block;
                 float: left;
@@ -60,61 +59,79 @@ a:hover {
         }
     }
 }
-p.about { font-size: small; margin-bottom: 20px; }
-h1 { font-size: 120% }
 
-footer { margin-top: 10px; border-top: #cccccc 1px solid; font-size: x-small; text-align: right; }
-
-#IndexFunction h2,
-#IndexCore h2 {
-    margin-top: 20px;
-}
-
-.PodBody ul#index {
-    list-style: none;
-    margin: 0;
-}
-.PodBody ul#index ul {
-    list-style: none;
-    font-size: 100%;
-}
-.PodBody ul#index > ul {
-    margin: 0;
-}
-.PodBody pre {
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-left: 20px;
+.footer {
     margin-top: 10px;
-    margin-bottom: 10px;
+    border-top: #cccccc 1px solid;
+    font-size: x-small;
+    text-align: right;
 }
-.PodBody h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
+
+.content {
+    .about { font-size: small; margin-bottom: 20px; }
+
+    .ContentBody {
+        margin-top: 20px;
+
+        .IndexBody {
+            line-height: 150%;
+            margin-left: 14px;
+        }
+    }
 }
-.PodBody h4 {
-    margin-top: 20px;
-    margin-bottom: 10px;
+
+.PodPage {
+    .PodVersion {
+        float: right;
+    }
+    .PodBody {
+        clear: both;
+
+        ul.pod_toc {
+            list-style: none;
+            margin: 0;
+            ul {
+                list-style: none;
+                margin: 0;
+            }
+        }
+
+        .pod_content_body {
+            pre {
+                border-radius: 10px;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                margin-left: 20px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            h3 {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            h4 {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            p {
+                margin-left: 10px;
+            }
+            ul {
+                margin-left: 20px;
+            }
+            dl {
+                margin-left: 30px;
+            }
+            dt {
+                margin-top: 10px;
+            }
+            dd {
+                margin-left: 30px;
+            }
+        }
+    }
 }
-.PodBody p {
-    margin-left: 10px;
-}
-.PodBody ul {
-    margin-left: 20px;
-}
-.PodBody dl {
-    margin-left: 30px;
-}
-.PodBody dt {
-    margin-top: 10px;
-}
-.PodBody dd {
-    margin-left: 30px;
-}
-.PodVersion {
-    float: right;
-}
+
 .DirectoryIndex {
     list-style: none;
     margin-top: 20px;
@@ -131,11 +148,8 @@ div.original { display: none; }
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
     body { margin: 1.5em; }
-    #Container { width: 100%; }
-    header { font-size: 300% }
-    nav { height: 90px; }
-    nav ul { font-size: 30px; }
-    #main {
+    #Container {
+        width: 100%;
         font-size: 300%;
         line-height: 1.5em;
     }

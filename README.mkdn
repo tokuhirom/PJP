@@ -18,3 +18,19 @@ new.perldoc.jp のソースです。
     cvs -d:pserver:anonymous@cvs.sourceforge.jp:/cvsroot/perldocjp login
     cvs upd -dP
 
+デザインを変更するには
+======================
+
+デザインの管理には Scss をつかっています。
+Scss の生成は gem の Sass が必要なので
+
+    % gem install haml
+
+して、
+
+    % sass --watch htdocs/static/css/main.scss:htdocs/static/css/main.css
+
+してから変更してください。
+
+main.css の方を変更してはいけません。
+

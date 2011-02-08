@@ -12,9 +12,11 @@ sub render {
     $c // die;
 
 	return mark_raw($c->cache->file_cache(
-		"toc", 'toc.txt', sub {
+		"toc:4", 'toc.txt', sub {
 			infof("regen toc");
-			$class->_render();
+			my $ret = $class->_render();
+            warn $ret;
+            return $ret;
 		}
 	));
 }
@@ -24,6 +26,7 @@ sub _render {
 
 	open my $fh, '<:utf8', 'toc.txt' or die "Cannot open toc.txt: $!";
 	my $out;
+    my $started = 0;
 	while (<$fh>) {
 		chomp;
 		if (!/\S/) {
@@ -31,17 +34,19 @@ sub _render {
 		} elsif (/^\s*\#/) {
 			next; # comment line
 		} elsif (/^\S/) { # header line
-			$out .= sprintf("<h3>%s</h3>\n", html_escape($_));
+            $out .= "</ul>" if $started++;
+			$out .= sprintf("<h3>%s</h3><ul>\n", html_escape($_));
 		} else { # main line
 			s/^\s+//;
 			my ($pkg, $desc) = split /\s*-\s*/, $_;
-			$out .= sprintf('<a href="/pod/%s">%s</a>', (html_escape($pkg))x2);
+			$out .= sprintf('<li><a href="/pod/%s">%s</a>', (html_escape($pkg))x2);
 			if ($desc) {
 				$out .= sprintf(' - %s', html_escape($desc));
 			}
-			$out .= "<br />\n";
+			$out .= "</li>\n";
 		}
 	}
+    $out .= "</ul>" if $started;
 	$out;
 }
 
