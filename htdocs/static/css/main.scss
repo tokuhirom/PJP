@@ -1,3 +1,9 @@
+@mixin rounded_corners ($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
 a {
     &:link {
         -webkit-tap-highlight-color: #FF5E99;
@@ -31,6 +37,8 @@ a {
     background-color: #333;
     height: 50px;
     font-weight: bold;
+    @include rounded_corners(10px);
+
     ul {
         font-size: 16px;
         font-weight:bold;
@@ -61,6 +69,7 @@ a {
 
     #GoogleSearch {
         float: right;
+        margin-right: 10px;
     }
 }
 

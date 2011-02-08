@@ -22,6 +22,7 @@ my $watcher = Filesys::Notify::Simple->new(['htdocs/static/css/']);
 $watcher->wait(
     sub {
         # 見ているホスト名が localhost... ならリロード
+        say "reloading";
         $sock->print("if (content.location.host.indexOf('localhost') == 0) content.location.reload(true)\n");
 #       for my $event (@_) {
 #           my $scss_path = $event->{path};

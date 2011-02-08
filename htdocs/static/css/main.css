@@ -21,7 +21,10 @@ a:hover {
 .nav {
   background-color: #333;
   height: 50px;
-  font-weight: bold; }
+  font-weight: bold;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
   .nav ul {
     font-size: 16px;
     font-weight: bold;
@@ -46,7 +49,8 @@ a:hover {
           text-decoration: underline;
           color: whiteSmoke; }
   .nav #GoogleSearch {
-    float: right; }
+    float: right;
+    margin-right: 10px; }
 
 .footer {
   margin-top: 10px;
