@@ -15,6 +15,7 @@ requires 'CPAN::DistnameInfo';
 requires 'LWP::UserAgent';
 requires 'URI::Escape';
 requires 'Try::Tiny';
+requires 'HTML::Zoom';
 
 recursive_author_tests('xt');
 

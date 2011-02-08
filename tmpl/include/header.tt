@@ -24,7 +24,7 @@
         })();
     </script>
 </head>
-<body onload="prettyPrint();return true;"[% IF bodyID %] id="[% bodyID %]"[% END %]>
+<body onload="prettyPrint();return true;">
     <div id="Container">
         <div class="header">
             <a class="SiteLogo" href="[% uri_for('/') %]">perldoc.jp - 翻訳された Perl 関連のドキュメントを表示する</a>

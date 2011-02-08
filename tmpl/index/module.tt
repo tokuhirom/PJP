@@ -1,4 +1,4 @@
-[% INCLUDE 'include/header.tt' WITH bodyID="IndexModule" %]
+[% INCLUDE 'include/header.tt' %]
 
 <div class="content">
     <p class="about">CPAN モジュールのドキュメントです。英語版は <a href="http://search.cpan.org/">search.cpan.org</a>でみることができます</p>
