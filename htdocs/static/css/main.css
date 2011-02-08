@@ -45,6 +45,8 @@ a:hover {
         .nav ul li a:hover {
           text-decoration: underline;
           color: whiteSmoke; }
+  .nav #GoogleSearch {
+    float: right; }
 
 .footer {
   margin-top: 10px;
