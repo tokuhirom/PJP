@@ -1,5 +1,5 @@
 body {
-    background-color: #555
+    background-color: #999
 }
 a:link {
     -webkit-tap-highlight-color: #FF5E99;
@@ -14,7 +14,7 @@ a:hover {
     background-color: white;
     width: 940px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 2px;
     margin-bottom: 20px;
     border: 3px solid #888;
     background: whiteSmoke;
@@ -102,6 +102,12 @@ footer { margin-top: 10px; border-top: #cccccc 1px solid; font-size: x-small; te
 }
 .PodBody p {
     margin-left: 10px;
+}
+.PodBody ul {
+    margin-left: 20px;
+}
+.PodBody dl {
+    margin-left: 30px;
 }
 .PodBody dt {
     margin-top: 10px;
