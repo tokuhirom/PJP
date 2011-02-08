@@ -22,6 +22,7 @@ sub parse_name_section {
             $src;
         }
     };
+    $src =~ s/=begin\s+original.+?=end\s+original\n//gsm;
     my ($package, $description) = ($src =~ m/
         ^=head1\s+(?:NAME|名前)\s*\n+
         \s*(\S+)(?:\s*-\s*([^\n]+))?
@@ -70,9 +71,10 @@ sub get_latest_file_path {
 
 {
     package PJP::Pod::Parser;
-    use parent qw/Pod::Simple::XHTML/;    # for google source code prettifier
+    use parent qw/Pod::Simple::XHTML/;
     use URI::Escape qw/uri_escape_utf8/;
 
+    # for google source code prettifier
     sub start_Verbatim {
         $_[0]{'scratch'} = '<pre class="prettyprint lang-perl"><code>';
     }
@@ -119,6 +121,61 @@ sub get_latest_file_path {
         my $i = '';
         $i++ while $self->{ids}{"$t$i"}++;
         return "$t$i";
+    }
+
+    sub end_Document {
+        my ($self) = @_;
+        my $to_index = $self->{'to_index'};
+
+        if ( $self->index && @{$to_index} ) {
+            my @out;
+            my $level  = 0;
+            my $indent = -1;
+            my $space  = '';
+            my $id     = ' class="pod_toc"';
+
+            for my $h ( @{$to_index}, [0] ) {
+                my $target_level = $h->[0];
+
+                # Get to target_level by opening or closing ULs
+                if ( $level == $target_level ) {
+                    $out[-1] .= '</li>';
+                }
+                elsif ( $level > $target_level ) {
+                    $out[-1] .= '</li>' if $out[-1] =~ /^\s+<li>/;
+                    while ( $level > $target_level ) {
+                        --$level;
+                        push @out, ( '  ' x --$indent ) . '</li>'
+                          if @out && $out[-1] =~ m{^\s+<\/ul};
+                        push @out, ( '  ' x --$indent ) . '</ul>';
+                    }
+                    push @out, ( '  ' x --$indent ) . '</li>' if $level;
+                }
+                else {
+                    while ( $level < $target_level ) {
+                        ++$level;
+                        push @out, ( '  ' x ++$indent ) . '<li>'
+                          if @out && $out[-1] =~ /^\s*<ul/;
+                        push @out, ( '  ' x ++$indent ) . "<ul$id>";
+                        $id = '';
+                    }
+                    ++$indent;
+                }
+
+                next unless $level;
+                $space = '  ' x $indent;
+                push @out, sprintf '%s<li><a href="#%s">%s</a>',
+                  $space, $h->[1], $h->[2];
+            }
+
+            print { $self->{'output_fh'} } join "\n", @out;
+        }
+
+        print { $self->{'output_fh'} }
+            '<div class="pod_content_body">' . 
+            join( "\n\n", @{ $self->{'output'} } ), "\n\n"
+            . '</div>';
+        @{ $self->{'output'} } = ();
     }
 }
 

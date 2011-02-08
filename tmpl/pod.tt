@@ -1,15 +1,17 @@
 [% INCLUDE 'include/header.tt' WITH subtitle=package _ " - " _ description %]
 
-<div class="PodVersion">Version: [% distvname %]</div>
-[% IF package %]
-    <a href="http://search.cpan.org/perldoc?[% package %]">CPANで確認する</a>
-[% END %]
-[% IF is_old %]
-    <p class="alert">このドキュメントは Perl [% version %] を対象にしたドキュメントです。英語の最新版をよむことをおすすめします。</p>
-[% END %]
+<div class="PodPage">
+    <div class="PodVersion">Version: [% distvname %]</div>
+    [% IF package %]
+        <a href="http://search.cpan.org/perldoc?[% package %]">CPANで確認する</a>
+    [% END %]
+    [% IF is_old %]
+        <p class="alert">このドキュメントは Perl [% version %] を対象にしたドキュメントです。英語の最新版をよむことをおすすめします。</p>
+    [% END %]
 
-<div class="PodBody">
-[% body %]
+    <div class="PodBody">
+    [% body %]
+    </div>
 </div>
 
 [% INCLUDE 'include/footer.tt' %]

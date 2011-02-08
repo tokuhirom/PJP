@@ -1,9 +1,15 @@
 [% INCLUDE 'include/header.tt' WITH bodyID="IndexFunction" %]
 
-<p class="about">Perl の組み込み関数にかんするドキュメントです。英語版は <a href="http://perldoc.perl.org">perldoc.perl.org</a>でみることができます</p>
+<div class="content">
+    <p class="about">Perl の組み込み関数にかんするドキュメントです。英語版は <a href="http://perldoc.perl.org">perldoc.perl.org</a>でみることができます</p>
 
-<h1>Perl の組み込み関数</h1>
+    <div class="ContentBody">
+        <h1>Perl の組み込み関数</h1>
 
-[% toc %]
+        <div class="IndexBody">
+            [% toc %]
+        </div>
+    </div>
+</div>
 
 [% INCLUDE 'include/footer.tt' %]

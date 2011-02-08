@@ -1,148 +1,134 @@
-body {
-    background-color: #999
-}
 a:link {
-    -webkit-tap-highlight-color: #FF5E99;
-}
+  -webkit-tap-highlight-color: #FF5E99; }
 a, a:visited, a:active {
-    color: #607890;
-}
+  color: #607890; }
 a:hover {
-    color: #036;
-}
+  color: #036; }
+
 #Container {
-    background-color: white;
-    width: 940px;
-    margin: 0 auto;
-    margin-top: 2px;
-    margin-bottom: 20px;
-    border: 3px solid #888;
-    background: whiteSmoke;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    padding: 10px;
-}
-.SiteLogo {
-    font-size: 200%;
-    font-weight: bold;
-    text-decoration: none;
-}
-nav {
-    background-color: #333;
-    height: 50px;
-    font-weight: bold;
-}
-nav ul {
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 2px;
+  margin-bottom: 20px;
+  background: whiteSmoke;
+  padding: 10px; }
+
+.header .SiteLogo {
+  font-size: 200%;
+  font-weight: bold;
+  text-decoration: none; }
+
+.nav {
+  background-color: #333;
+  height: 50px;
+  font-weight: bold; }
+  .nav ul {
     font-size: 16px;
-    font-weight:bold;
+    font-weight: bold;
     list-style: none;
     line-height: normal;
     margin: 0;
     padding: 17px 0 0 20px;
     list-style: none;
-    line-height: normal;
-}
-nav ul li {
-    float: left;
-    display: block;
-    padding-left: 5px;
-}
-nav ul li a {
-    display: block;
-    float: left;
-    margin-right: 5px;
-    padding: 0px 15px;
-    text-decoration: none;
-    color: whiteSmoke;
-}
-nav ul li a:hover {
-    text-decoration: underline;
-    color: whiteSmoke;
-}
-nav ul li a:visited {
-    color: whiteSmoke;
-}
-p.about { font-size: small; margin-bottom: 20px; }
-h1 { font-size: 120% }
+    line-height: normal; }
+    .nav ul li {
+      float: left;
+      display: block;
+      margin-left: 5px; }
+      .nav ul li a {
+        display: block;
+        float: left;
+        margin-right: 5px;
+        padding: 0px 15px;
+        text-decoration: none;
+        color: whiteSmoke; }
+        .nav ul li a:hover {
+          text-decoration: underline;
+          color: whiteSmoke; }
 
-footer { margin-top: 10px; border-top: #cccccc 1px solid; font-size: x-small; text-align: right; }
+.footer {
+  margin-top: 10px;
+  border-top: #cccccc 1px solid;
+  font-size: x-small;
+  text-align: right; }
 
-#IndexFunction h2,
-#IndexCore h2 {
-    margin-top: 20px;
-}
+.content .about {
+  font-size: small;
+  margin-bottom: 20px; }
+.content .ContentBody {
+  margin-top: 20px; }
+  .content .ContentBody .IndexBody {
+    line-height: 150%;
+    margin-left: 14px; }
 
-.PodBody ul#index {
+.PodPage .PodVersion {
+  float: right; }
+.PodPage .PodBody {
+  clear: both; }
+  .PodPage .PodBody ul.pod_toc {
     list-style: none;
-    margin: 0;
-}
-.PodBody ul#index ul {
-    list-style: none;
-    font-size: 100%;
-}
-.PodBody ul#index > ul {
-    margin: 0;
-}
-.PodBody pre {
+    margin: 0; }
+    .PodPage .PodBody ul.pod_toc ul {
+      list-style: none;
+      margin: 0; }
+  .PodPage .PodBody .pod_content_body pre {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
+    border: 1px #ccc solid;
+    padding: 20px;
     margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.PodBody h3 {
     margin-top: 20px;
-    margin-bottom: 10px;
-}
-.PodBody h4 {
+    margin-bottom: 20px; }
+  .PodPage .PodBody .pod_content_body h3 {
     margin-top: 20px;
-    margin-bottom: 10px;
-}
-.PodBody p {
-    margin-left: 10px;
-}
-.PodBody ul {
-    margin-left: 20px;
-}
-.PodBody dl {
-    margin-left: 30px;
-}
-.PodBody dt {
-    margin-top: 10px;
-}
-.PodBody dd {
-    margin-left: 30px;
-}
-.PodVersion {
-    float: right;
-}
+    margin-bottom: 10px; }
+  .PodPage .PodBody .pod_content_body h4 {
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  .PodPage .PodBody .pod_content_body p {
+    margin-left: 10px; }
+  .PodPage .PodBody .pod_content_body ul {
+    margin-left: 20px; }
+  .PodPage .PodBody .pod_content_body dl {
+    margin-left: 30px; }
+  .PodPage .PodBody .pod_content_body dt {
+    margin-top: 10px; }
+  .PodPage .PodBody .pod_content_body dd {
+    margin-left: 30px; }
+
 .DirectoryIndex {
-    list-style: none;
-    margin-top: 20px;
-    font-size: 100%;
-}
+  list-style: none;
+  margin-top: 20px;
+  font-size: 100%; }
 
-span.old { color: red }
-span.fresh { color: green }
+span.old {
+  color: red; }
 
-.alert { color: red; font-size: 150%; font-weight: bold; }
+span.fresh {
+  color: green; }
 
-div.original { display: none; }
+.alert {
+  color: red;
+  font-size: 150%;
+  font-weight: bold; }
+
+div.original {
+  display: none; }
 
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
-    body { margin: 1.5em; }
-    #Container { width: 100%; }
-    header { font-size: 300% }
-    nav { height: 90px; }
-    nav ul { font-size: 30px; }
-    #main {
-        font-size: 300%;
-        line-height: 1.5em;
-    }
-    pre { overflow:auto; }
-    html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
-}
+  body {
+    margin: 1.5em; }
 
+  #Container {
+    width: 100%;
+    font-size: 300%;
+    line-height: 1.5em; }
+
+  pre {
+    overflow: auto; }
+
+  html {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none; } }
