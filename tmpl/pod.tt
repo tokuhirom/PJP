@@ -1,4 +1,4 @@
-[% INCLUDE 'include/header.tt' WITH subtitle=package %]
+[% INCLUDE 'include/header.tt' WITH subtitle=package _ " - " _ description %]
 
 <div class="PodVersion">Version: [% distvname %]</div>
 [% IF package %]

@@ -107,9 +107,9 @@ get '/docs{path:/|/.+}' => sub {
 
     if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
         my $distvname = $1;
-        my ($html, $package) = @{$c->cache->file_cache("path:15", $path, sub {
+        my ($html, $package, $description) = @{$c->cache->file_cache("path:16", $path, sub {
             infof("rendering %s", $path);
-            [PJP::M::Pod->pod2html($path), PJP::M::Pod->pod2package_name($path)];
+            [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
         })};
         return $c->render(
             'pod.tt' => {
@@ -117,6 +117,7 @@ get '/docs{path:/|/.+}' => sub {
                 distvname => $distvname,
                 subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
                 package   => $package,
+                description => $description,
             }
         );
     } elsif (-f $path) {

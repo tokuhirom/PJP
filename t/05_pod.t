@@ -12,7 +12,7 @@ __END__
 
 =head1 NAME
 
-B<OK> - foobar
+B<OK> - あれです
 
 =head1 SYNOPSIS
 
@@ -34,7 +34,11 @@ my $html = PJP::M::Pod->pod2html(\$pod);
 like $html, qr{<h1 id="pod%E6%B3%A8%E6%84%8F">注意</h1>};
 like $html, qr{<p><a href="#pod%E6%B3%A8%E6%84%8F">&quot;注意&quot;</a></p>};
 
-is(PJP::M::Pod->pod2package_name('assets/perldoc.jp/docs/modules/Acme-Bleach-1.12/Bleach.pod'), "Acme::Bleach");
+subtest 'parse_name_section' => sub {
+    my ($pkg, $desc) = PJP::M::Pod->parse_name_section(\$pod);
+    is $pkg, 'OK';
+    is $desc, 'あれです';
+};
 
 done_testing;
 

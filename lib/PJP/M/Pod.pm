@@ -8,7 +8,7 @@ use Log::Minimal;
 use Text::Xslate::Util qw/mark_raw html_escape/;
 use Encode ();
 
-sub pod2package_name {
+sub parse_name_section {
     my ($class, $stuff) = @_;
     my $src = do {
         if (ref $stuff) {
@@ -22,9 +22,13 @@ sub pod2package_name {
             $src;
         }
     };
-    my $package = ($src =~ m/^=head1\s+(?:NAME|名前)\s*\n+\s*(\S+)\s*-\s*/ms)[0];
-    $package =~ s/^[A-Z]<(.+)>$/$1/;
-    return $package;
+    my ($package, $description) = ($src =~ m/
+        ^=head1\s+(?:NAME|名前)\s*\n+
+        \s*(\S+)(?:\s*-\s*([^\n]+))?
+    /msx);
+    $package =~ s/[A-Z]<(.+)>/$1/; # remove tags
+    $description =~ s/[A-Z]<(.+)>/$1/; # remove tags
+    return ($package, $description || '');
 }
 
 sub pod2html {
