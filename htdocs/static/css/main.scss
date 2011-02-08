@@ -97,6 +97,8 @@ a {
         }
 
         .pod_content_body {
+            div.original { display: none; }
+
             pre {
                 border-radius: 10px;
                 -moz-border-radius: 10px;
@@ -142,12 +144,12 @@ a {
     font-size: 100%;
 }
 
-span.old { color: red }
-span.fresh { color: green }
+.IndexModuleContent {
+    .old   { color: red }
+    .fresh { color: green }
+}
 
 .alert { color: red; font-size: 150%; font-weight: bold; }
-
-div.original { display: none; }
 
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
