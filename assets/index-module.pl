@@ -7,12 +7,16 @@
       "version" : "1.12"
    },
    {
+      "abstract" : "Embed Brainfuck in your perl code",
       "distvname" : "Acme-Brainfuck-1.1.1",
+      "latest_version" : "1.1.1",
       "name" : "Acme-Brainfuck",
       "version" : "1.1.1"
    },
    {
+      "abstract" : null,
       "distvname" : "Acme-Bushisms-0.02",
+      "latest_version" : "0.02",
       "name" : "Acme-Bushisms",
       "version" : "0.02"
    },
@@ -38,12 +42,16 @@
       "version" : "0.05"
    },
    {
+      "abstract" : null,
       "distvname" : "Apache-DBILogConfig-0.02",
+      "latest_version" : "0.02",
       "name" : "Apache-DBILogConfig",
       "version" : "0.02"
    },
    {
+      "abstract" : "Alter the output of previous handlers",
       "distvname" : "Apache-Filter-1.022",
+      "latest_version" : "1.024",
       "name" : "Apache-Filter",
       "version" : "1.022"
    },
@@ -55,7 +63,9 @@
       "version" : "0.01"
    },
    {
+      "abstract" : null,
       "distvname" : "Apache-ParseLog-1.02",
+      "latest_version" : "1.02",
       "name" : "Apache-ParseLog",
       "version" : "1.02"
    },
@@ -67,7 +77,9 @@
       "version" : "2.17"
    },
    {
+      "abstract" : "Manage perl installations in your $HOME",
       "distvname" : "App-perlbrew-0.10",
+      "latest_version" : "0.15",
       "name" : "App-perlbrew",
       "version" : "0.10"
    },
@@ -79,7 +91,9 @@
       "version" : "0.07"
    },
    {
+      "abstract" : null,
       "distvname" : "Audio-Beep-0.10",
+      "latest_version" : "0.11",
       "name" : "Audio-Beep",
       "version" : "0.10"
    },
@@ -89,12 +103,16 @@
       "version" : "1.10"
    },
    {
+      "abstract" : "Perl extension for Berkeley DB version 2, 3 or 4",
       "distvname" : "BerkeleyDB-0.20",
+      "latest_version" : "0.43",
       "name" : "BerkeleyDB",
       "version" : "0.20"
    },
    {
+      "abstract" : null,
       "distvname" : "BerkeleyDB-Lite-1_10",
+      "latest_version" : "1_1",
       "name" : "BerkeleyDB-Lite",
       "version" : "1_10"
    },
@@ -118,17 +136,23 @@
       "version" : "1.13"
    },
    {
+      "abstract" : null,
       "distvname" : "CGI-FastTemplate-1.09",
+      "latest_version" : "1.09",
       "name" : "CGI-FastTemplate",
       "version" : "1.09"
    },
    {
+      "abstract" : "A Quickie Wiki that's not too Tricky",
       "distvname" : "CGI-Kwiki-0.18",
+      "latest_version" : "0.18",
       "name" : "CGI-Kwiki",
       "version" : "0.18"
    },
    {
+      "abstract" : null,
       "distvname" : "CGI-Lite-2.001-emergencyrelease",
+      "latest_version" : "2.02",
       "name" : "CGI-Lite",
       "version" : "2.001-emergencyrelease"
    },
@@ -140,34 +164,44 @@
       "version" : "3.11"
    },
    {
+      "abstract" : "persistent session using hidden fields",
       "distvname" : "CGI-Session-Hidden-0.01",
+      "latest_version" : "0.03",
       "name" : "CGI-Session-Hidden",
       "version" : "0.01"
    },
    {
+      "abstract" : null,
       "distvname" : "CGI-SpeedyCGI-2.21",
+      "latest_version" : "2.22",
       "name" : "CGI-SpeedyCGI",
       "version" : "2.21"
    },
    {
+      "abstract" : null,
       "distvname" : "CGI-WebGzip-0.12",
+      "latest_version" : "0.14",
       "name" : "CGI-WebGzip",
       "version" : "0.12"
    },
    {
       "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.048",
-      "latest_version" : "0.90_13",
+      "latest_version" : "0.90_12",
       "name" : "CPANPLUS",
       "version" : "0.048"
    },
    {
+      "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.043",
+      "latest_version" : "0.90_12",
       "name" : "CPANPLUS",
       "version" : "0.043"
    },
    {
+      "abstract" : "Ameliorated interface to the CPAN",
       "distvname" : "CPANPLUS-0.044",
+      "latest_version" : "0.90_12",
       "name" : "CPANPLUS",
       "version" : "0.044"
    },
@@ -179,7 +213,9 @@
       "version" : "1.01"
    },
    {
+      "abstract" : "Perl extension to create simple calendars",
       "distvname" : "Calendar-Simple-1.07",
+      "latest_version" : "1.21",
       "name" : "Calendar-Simple",
       "version" : "1.07"
    },
@@ -198,17 +234,23 @@
       "version" : "0.94"
    },
    {
+      "abstract" : null,
       "distvname" : "Class-DBI-0.96",
+      "latest_version" : "v3.0.17",
       "name" : "Class-DBI",
       "version" : "0.96"
    },
    {
+      "abstract" : "lib/Class/DBI/Sweet.pm",
       "distvname" : "Class-DBI-Sweet-0.05",
+      "latest_version" : "0.10",
       "name" : "Class-DBI-Sweet",
       "version" : "0.05"
    },
    {
+      "abstract" : null,
       "distvname" : "Class-DBI-mysql-1.00",
+      "latest_version" : "1.00",
       "name" : "Class-DBI-mysql",
       "version" : "1.00"
    },
@@ -241,7 +283,9 @@
       "version" : "4.55"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-Blowfish-2.09",
+      "latest_version" : "2.12",
       "name" : "Crypt-Blowfish",
       "version" : "2.09"
    },
@@ -253,7 +297,9 @@
       "version" : "1.12"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-CAST5-0.02",
+      "latest_version" : "0.05",
       "name" : "Crypt-CAST5",
       "version" : "0.02"
    },
@@ -265,12 +311,16 @@
       "version" : "1.02"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-CBC-2.08",
+      "latest_version" : "2.30",
       "name" : "Crypt-CBC",
       "version" : "2.08"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-CBCeasy-0.24",
+      "latest_version" : "0.24",
       "name" : "Crypt-CBCeasy",
       "version" : "0.24"
    },
@@ -282,17 +332,23 @@
       "version" : "0.01"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-Caesar-0.01",
+      "latest_version" : "0.01",
       "name" : "Crypt-Caesar",
       "version" : "0.01"
    },
    {
+      "abstract" : "Perl interface to Alec Muffett's Cracklib.",
       "distvname" : "Crypt-Cracklib-0.01",
+      "latest_version" : "1.7",
       "name" : "Crypt-Cracklib",
       "version" : "0.01"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-DES-2.03",
+      "latest_version" : "2.05",
       "name" : "Crypt-DES",
       "version" : "2.03"
    },
@@ -304,12 +360,16 @@
       "version" : "1.00"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-ECB-1.1",
+      "latest_version" : "1.45",
       "name" : "Crypt-ECB",
       "version" : "1.1"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-Enigma-1.1",
+      "latest_version" : "1.1",
       "name" : "Crypt-Enigma",
       "version" : "1.1"
    },
@@ -321,12 +381,16 @@
       "version" : "1.01"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-OOEnigma-0.3",
+      "latest_version" : "0.3",
       "name" : "Crypt-OOEnigma",
       "version" : "0.3"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-Passwd-0.03",
+      "latest_version" : "0.03",
       "name" : "Crypt-Passwd",
       "version" : "0.03"
    },
@@ -338,7 +402,9 @@
       "version" : "1.2"
    },
    {
+      "abstract" : "Crypt::CBC compliant Rijndael encryption module",
       "distvname" : "Crypt-Rijndael-0.05",
+      "latest_version" : "1.09",
       "name" : "Crypt-Rijndael",
       "version" : "0.05"
    },
@@ -350,22 +416,30 @@
       "version" : "0.04"
    },
    {
+      "abstract" : "Perl S/Key calculator",
       "distvname" : "Crypt-SKey-0.03",
+      "latest_version" : "0.10",
       "name" : "Crypt-SKey",
       "version" : "0.03"
    },
    {
+      "abstract" : "OpenSSL support for LWP",
       "distvname" : "Crypt-SSLeay-0.45",
+      "latest_version" : "0.58_01",
       "name" : "Crypt-SSLeay",
       "version" : "0.45"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-TEA-1.25",
+      "latest_version" : "2.12",
       "name" : "Crypt-TEA",
       "version" : "1.25"
    },
    {
+      "abstract" : null,
       "distvname" : "Crypt-Tea-1.43",
+      "latest_version" : "2.12",
       "name" : "Crypt-Tea",
       "version" : "1.43"
    },
@@ -377,12 +451,16 @@
       "version" : "0.24"
    },
    {
+      "abstract" : "The Twofish Encryption Algorithm",
       "distvname" : "Crypt-Twofish-2.12",
+      "latest_version" : "2.14",
       "name" : "Crypt-Twofish",
       "version" : "2.12"
    },
    {
+      "abstract" : "DBI access to XML, CSV and other formats",
       "distvname" : "DBD-AnyData-0.05",
+      "latest_version" : "0.110",
       "name" : "DBD-AnyData",
       "version" : "0.05"
    },
@@ -415,12 +493,16 @@
       "version" : "1.22"
    },
    {
+      "abstract" : null,
       "distvname" : "DBD-PgPP-0.05",
+      "latest_version" : "0.08",
       "name" : "DBD-PgPP",
       "version" : "0.05"
    },
    {
+      "abstract" : "Self Contained SQLite RDBMS in a DBI Driver",
       "distvname" : "DBD-SQLite-0.19",
+      "latest_version" : "1.32_01",
       "name" : "DBD-SQLite",
       "version" : "0.19"
    },
@@ -432,12 +514,16 @@
       "version" : "1.00"
    },
    {
+      "abstract" : "A MySQL driver for the Perl5 Database Interface (DBI)",
       "distvname" : "DBD-mysql-2.1026",
+      "latest_version" : "4.018",
       "name" : "DBD-mysql",
       "version" : "2.1026"
    },
    {
+      "abstract" : null,
       "distvname" : "DBD-mysqlPP-0.03",
+      "latest_version" : "0.04",
       "name" : "DBD-mysqlPP",
       "version" : "0.03"
    },
@@ -449,7 +535,9 @@
       "version" : "0.07006"
    },
    {
+      "abstract" : "Perl5 access to Berkeley DB version 1.x",
       "distvname" : "DB_File-1.805",
+      "latest_version" : "1.821",
       "name" : "DB_File",
       "version" : "1.805"
    },
@@ -461,7 +549,9 @@
       "version" : "1.91"
    },
    {
+      "abstract" : "help when paging through sets of results",
       "distvname" : "Data-Page-1.01",
+      "latest_version" : "2.02",
       "name" : "Data-Page",
       "version" : "1.01"
    },
@@ -473,12 +563,16 @@
       "version" : "0.06"
    },
    {
+      "abstract" : null,
       "distvname" : "Data-TemporaryBag-0.06",
+      "latest_version" : "0.09",
       "name" : "Data-TemporaryBag",
       "version" : "0.06"
    },
    {
+      "abstract" : "Gregorian calendar date calculations",
       "distvname" : "Date-Calc-5.3",
+      "latest_version" : "6.3",
       "name" : "Date-Calc",
       "version" : "5.3"
    },
@@ -490,7 +584,9 @@
       "version" : "0.03"
    },
    {
+      "abstract" : null,
       "distvname" : "Date-Range-0.9",
+      "latest_version" : "1.40",
       "name" : "Date-Range",
       "version" : "0.9"
    },
@@ -502,12 +598,16 @@
       "version" : "1.03"
    },
    {
+      "abstract" : null,
       "distvname" : "Date-Simple-2.03",
+      "latest_version" : "3.03",
       "name" : "Date-Simple",
       "version" : "2.03"
    },
    {
+      "abstract" : "Find memory cycles in objects",
       "distvname" : "Devel-Cycle-1.02",
+      "latest_version" : "1.11",
       "name" : "Devel-Cycle",
       "version" : "1.02"
    },
@@ -519,17 +619,23 @@
       "version" : "0.02"
    },
    {
+      "abstract" : null,
       "distvname" : "Devel-Profile-1.04",
+      "latest_version" : "1.05",
       "name" : "Devel-Profile",
       "version" : "1.04"
    },
    {
+      "abstract" : "Perl extension for finding the memory usage of Perl variables",
       "distvname" : "Devel-Size-0.58",
+      "latest_version" : "0.71",
       "name" : "Devel-Size",
       "version" : "0.58"
    },
    {
+      "abstract" : null,
       "distvname" : "Digest-1.00",
+      "latest_version" : "1.16",
       "name" : "Digest",
       "version" : "1.00"
    },
@@ -548,17 +654,23 @@
       "version" : "2.00"
    },
    {
+      "abstract" : "Perl interface to the MD-5 algorithm",
       "distvname" : "Digest-MD5-2.20",
+      "latest_version" : "2.51",
       "name" : "Digest-MD5",
       "version" : "2.20"
    },
    {
+      "abstract" : null,
       "distvname" : "Digest-Perl-MD5-1.5",
+      "latest_version" : "1.8",
       "name" : "Digest-Perl-MD5",
       "version" : "1.5"
    },
    {
+      "abstract" : "Perl interface to the SHA-1 algorithm",
       "distvname" : "Digest-SHA1-2.01",
+      "latest_version" : "2.13",
       "name" : "Digest-SHA1",
       "version" : "2.01"
    },
@@ -584,12 +696,16 @@
       "version" : "0.14"
    },
    {
+      "abstract" : null,
       "distvname" : "Email-Valid-0.182",
+      "latest_version" : "0.184",
       "name" : "Email-Valid",
       "version" : "0.182"
    },
    {
+      "abstract" : null,
       "distvname" : "Email-Valid-0.15",
+      "latest_version" : "0.184",
       "name" : "Email-Valid",
       "version" : "0.15"
    },
@@ -608,7 +724,9 @@
       "version" : "0.02"
    },
    {
+      "abstract" : null,
       "distvname" : "Email-Valid-Loose-0.05",
+      "latest_version" : "0.05",
       "name" : "Email-Valid-Loose",
       "version" : "0.05"
    },
@@ -627,17 +745,23 @@
       "version" : "0.53"
    },
    {
+      "abstract" : null,
       "distvname" : "File-Backup-0.0602",
+      "latest_version" : "0.07",
       "name" : "File-Backup",
       "version" : "0.0602"
    },
    {
+      "abstract" : "Use the Freedesktop.org base directory specification",
       "distvname" : "File-BaseDir-0.02",
+      "latest_version" : "0.03",
       "name" : "File-BaseDir",
       "version" : "0.02"
    },
    {
+      "abstract" : null,
       "distvname" : "File-BasicFlock-98.1202",
+      "latest_version" : "98.1202",
       "name" : "File-BasicFlock",
       "version" : "98.1202"
    },
@@ -684,7 +808,9 @@
       "version" : "1.02"
    },
    {
+      "abstract" : null,
       "distvname" : "File-MMagic-1.21",
+      "latest_version" : "1.27",
       "name" : "File-MMagic",
       "version" : "1.21"
    },
@@ -717,7 +843,9 @@
       "version" : "1.02"
    },
    {
+      "abstract" : null,
       "distvname" : "File-Remote-1.16",
+      "latest_version" : "1.17",
       "name" : "File-Remote",
       "version" : "1.16"
    },
@@ -743,22 +871,30 @@
       "version" : "2004.0904"
    },
    {
+      "abstract" : "Efficient Reading/Writing of Complete Files",
       "distvname" : "File-Slurp-9999.01",
+      "latest_version" : "9999.13",
       "name" : "File-Slurp",
       "version" : "9999.01"
    },
    {
+      "abstract" : "slurp and emit file trees as nested hashes",
       "distvname" : "File-Slurp-Tree-1.22",
+      "latest_version" : "1.24",
       "name" : "File-Slurp-Tree",
       "version" : "1.22"
    },
    {
+      "abstract" : null,
       "distvname" : "File-Tail-0.98",
+      "latest_version" : "0.99.3",
       "name" : "File-Tail",
       "version" : "0.98"
    },
    {
+      "abstract" : null,
       "distvname" : "File-Temp-0.12",
+      "latest_version" : "0.22",
       "name" : "File-Temp",
       "version" : "0.12"
    },
@@ -780,12 +916,16 @@
       "version" : "0.05"
    },
    {
+      "abstract" : "a more sensible way to change directories",
       "distvname" : "File-chdir-0.06",
+      "latest_version" : "0.1004",
       "name" : "File-chdir",
       "version" : "0.06"
    },
    {
+      "abstract" : null,
       "distvname" : "Filesys-DiskFree-0.06",
+      "latest_version" : "0.06",
       "name" : "Filesys-DiskFree",
       "version" : "0.06"
    },
@@ -797,7 +937,9 @@
       "version" : "0.02"
    },
    {
+      "abstract" : "Interface to Gd Graphics Library",
       "distvname" : "GD-2.02",
+      "latest_version" : "2.45",
       "name" : "GD",
       "version" : "2.02"
    },
@@ -821,7 +963,9 @@
       "version" : "1.45"
    },
    {
+      "abstract" : null,
       "distvname" : "Games-Go-GMP-0.01",
+      "latest_version" : "0.01",
       "name" : "Games-Go-GMP",
       "version" : "0.01"
    },
@@ -845,7 +989,9 @@
       "version" : "3.55"
    },
    {
+      "abstract" : null,
       "distvname" : "HTML-Entities-ImodePictogram-0.05",
+      "latest_version" : "0.06",
       "name" : "HTML-Entities-ImodePictogram",
       "version" : "0.05"
    },
@@ -857,22 +1003,30 @@
       "version" : "1.04"
    },
    {
+      "abstract" : null,
       "distvname" : "HTML-FillInForm-1.00",
+      "latest_version" : "2.00",
       "name" : "HTML-FillInForm",
       "version" : "1.00"
    },
    {
+      "abstract" : "check for HTML errors in a string or file",
       "distvname" : "HTML-Lint-1.22",
+      "latest_version" : "2.06",
       "name" : "HTML-Lint",
       "version" : "1.22"
    },
    {
+      "abstract" : "produces HTML tables",
       "distvname" : "HTML-Table-2.02",
+      "latest_version" : "2.08a",
       "name" : "HTML-Table",
       "version" : "2.02"
    },
    {
+      "abstract" : null,
       "distvname" : "HTML-Template-2.6",
+      "latest_version" : "2.9",
       "name" : "HTML-Template",
       "version" : "2.6"
    },
@@ -905,12 +1059,16 @@
       "version" : "2.1.4"
    },
    {
+      "abstract" : "Lightweight HTTP implementation",
       "distvname" : "HTTP-Lite-2.1.1",
+      "latest_version" : "2.3",
       "name" : "HTTP-Lite",
       "version" : "2.1.1"
    },
    {
+      "abstract" : null,
       "distvname" : "HTTP-WebTest-2.04",
+      "latest_version" : "2.04",
       "name" : "HTTP-WebTest",
       "version" : "2.04"
    },
@@ -920,7 +1078,9 @@
       "version" : "0.01"
    },
    {
+      "abstract" : "IO::All of it to Graham and Damian!",
       "distvname" : "IO-All-0.31",
+      "latest_version" : "0.39",
       "name" : "IO-All",
       "version" : "0.31"
    },
@@ -974,17 +1134,23 @@
       "version" : "0.302"
    },
    {
+      "abstract" : "read, compose, modify, and write MIDI files",
       "distvname" : "MIDI-Perl-0.8",
+      "latest_version" : "0.82",
       "name" : "MIDI-Perl",
       "version" : "0.8"
    },
    {
+      "abstract" : "The RFC 2045 encodings; base64 and quoted-printable",
       "distvname" : "MIME-Base64-2.12",
+      "latest_version" : "3.13",
       "name" : "MIME-Base64",
       "version" : "2.12"
    },
    {
+      "abstract" : null,
       "distvname" : "MIME-Explode-0.09",
+      "latest_version" : "0.38",
       "name" : "MIME-Explode",
       "version" : "0.09"
    },
@@ -1010,12 +1176,16 @@
       "version" : "0.37"
    },
    {
+      "abstract" : null,
       "distvname" : "Net-Daemon-SSL-1.0",
+      "latest_version" : "1.0",
       "name" : "Net-Daemon-SSL",
       "version" : "1.0"
    },
    {
+      "abstract" : null,
       "distvname" : "Net-IRC-0.73",
+      "latest_version" : "0.79",
       "name" : "Net-IRC",
       "version" : "0.73"
    },
@@ -1027,7 +1197,9 @@
       "version" : "0.05"
    },
    {
+      "abstract" : null,
       "distvname" : "Net-Rexec-0.12",
+      "latest_version" : "0.12",
       "name" : "Net-Rexec",
       "version" : "0.12"
    },
@@ -1039,7 +1211,9 @@
       "version" : "1.20"
    },
    {
+      "abstract" : "Extensible, general Perl server engine",
       "distvname" : "Net-Server-0.85",
+      "latest_version" : "0.99",
       "name" : "Net-Server",
       "version" : "0.85"
    },
@@ -1058,12 +1232,16 @@
       "version" : "0.03"
    },
    {
+      "abstract" : "Comprehensive inside-out object support module",
       "distvname" : "Object-InsideOut-1.52",
+      "latest_version" : "3.79",
       "name" : "Object-InsideOut",
       "version" : "1.52"
    },
    {
+      "abstract" : "Perl Archive Tookit",
       "distvname" : "PAR-0.75",
+      "latest_version" : "1.002",
       "name" : "PAR",
       "version" : "0.75"
    },
@@ -1082,7 +1260,9 @@
       "version" : "0.15"
    },
    {
+      "abstract" : "Portable, event-loop agnostic eventy networking and multitasking.",
       "distvname" : "POE-0.26",
+      "latest_version" : "1.299",
       "name" : "POE",
       "version" : "0.26"
    },
@@ -1101,12 +1281,16 @@
       "version" : "0.05"
    },
    {
+      "abstract" : "Generate Recursive-Descent Parsers",
       "distvname" : "Parse-RecDescent-1.94",
+      "latest_version" : "1.965001",
       "name" : "Parse-RecDescent",
       "version" : "1.94"
    },
    {
+      "abstract" : null,
       "distvname" : "Parse-RecDescent-FAQ-2.37",
+      "latest_version" : "7.5",
       "name" : "Parse-RecDescent-FAQ",
       "version" : "2.37"
    },
@@ -1118,17 +1302,23 @@
       "version" : "0.17"
    },
    {
+      "abstract" : null,
       "distvname" : "PersistentPerl-2.21",
+      "latest_version" : "2.22",
       "name" : "PersistentPerl",
       "version" : "2.21"
    },
    {
+      "abstract" : null,
       "distvname" : "PlRPC-0.2016",
+      "latest_version" : "0.2020",
       "name" : "PlRPC",
       "version" : "0.2016"
    },
    {
+      "abstract" : null,
       "distvname" : "RDF-Core-0.30",
+      "latest_version" : "0.51",
       "name" : "RDF-Core",
       "version" : "0.30"
    },
@@ -1147,12 +1337,16 @@
       "version" : "2.25"
    },
    {
+      "abstract" : "XML Parser for SVG documents",
       "distvname" : "SVG-Parser-0.97",
+      "latest_version" : "1.03",
       "name" : "SVG-Parser",
       "version" : "0.97"
    },
    {
+      "abstract" : null,
       "distvname" : "SVGGraph-0.04",
+      "latest_version" : "0.07",
       "name" : "SVGGraph",
       "version" : "0.04"
    },
@@ -1171,12 +1365,16 @@
       "version" : "0.11"
    },
    {
+      "abstract" : null,
       "distvname" : "Sort-Fields-0.90",
+      "latest_version" : "0.90",
       "name" : "Sort-Fields",
       "version" : "0.90"
    },
    {
+      "abstract" : null,
       "distvname" : "Storable-2.05",
+      "latest_version" : "2.25",
       "name" : "Storable",
       "version" : "2.05"
    },
@@ -1195,7 +1393,9 @@
       "version" : "0.59"
    },
    {
+      "abstract" : "A Data Driven Testing Framework",
       "distvname" : "Test-Base-0.52",
+      "latest_version" : "0.59",
       "name" : "Test-Base",
       "version" : "0.52"
    },
@@ -1221,12 +1421,16 @@
       "version" : "0.94"
    },
    {
+      "abstract" : "Basic utilities for writing tests.",
       "distvname" : "Test-Simple-0.47",
+      "latest_version" : "2.00_06",
       "name" : "Test-Simple",
       "version" : "0.47"
    },
    {
+      "abstract" : null,
       "distvname" : "Test-Unit-0.24",
+      "latest_version" : "0.25",
       "name" : "Test-Unit",
       "version" : "0.24"
    },
@@ -1241,7 +1445,9 @@
       "version" : "0.23"
    },
    {
+      "abstract" : null,
       "distvname" : "Text-Iconv-1.2",
+      "latest_version" : "1.7",
       "name" : "Text-Iconv",
       "version" : "1.2"
    },
@@ -1258,12 +1464,16 @@
       "version" : "2.00"
    },
    {
+      "abstract" : "transport of any data-structure",
       "distvname" : "Thread-Conveyor-0.17",
+      "latest_version" : "0.19",
       "name" : "Thread-Conveyor",
       "version" : "0.17"
    },
    {
+      "abstract" : "monitor a belt for specific content",
       "distvname" : "Thread-Conveyor-Monitored-0.12",
+      "latest_version" : "0.14",
       "name" : "Thread-Conveyor-Monitored",
       "version" : "0.12"
    },
@@ -1303,12 +1513,16 @@
       "version" : "0.05"
    },
    {
+      "abstract" : "serialize data-structures between threads",
       "distvname" : "Thread-Serialize-0.07",
+      "latest_version" : "0.11",
       "name" : "Thread-Serialize",
       "version" : "0.07"
    },
    {
+      "abstract" : null,
       "distvname" : "Thread-Use-0.05",
+      "latest_version" : "0.05",
       "name" : "Thread-Use",
       "version" : "0.05"
    },
@@ -1320,7 +1534,9 @@
       "version" : "0.1"
    },
    {
+      "abstract" : null,
       "distvname" : "Time-Elapse-1.2402",
+      "latest_version" : "1.2402",
       "name" : "Time-Elapse",
       "version" : "1.2402"
    },
@@ -1332,7 +1548,9 @@
       "version" : "1.55"
    },
    {
+      "abstract" : "Object Oriented time objects",
       "distvname" : "Time-Piece-1.08",
+      "latest_version" : "1.20",
       "name" : "Time-Piece",
       "version" : "1.08"
    },
@@ -1351,12 +1569,16 @@
       "version" : "1.21"
    },
    {
+      "abstract" : "Uniform Resource Identifiers (absolute and relative)",
       "distvname" : "URI-1.35",
+      "latest_version" : "1.58",
       "name" : "URI",
       "version" : "1.35"
    },
    {
+      "abstract" : "Convert encoding of japanese text",
       "distvname" : "Unicode-Japanese-0.18",
+      "latest_version" : "0.47",
       "name" : "Unicode-Japanese",
       "version" : "0.18"
    },
@@ -1375,7 +1597,9 @@
       "version" : "0.02"
    },
    {
+      "abstract" : "TT wrapper for Text::WikiFormat",
       "distvname" : "VCS-Lite-0.04",
+      "latest_version" : "0.09",
       "name" : "VCS-Lite",
       "version" : "0.04"
    },
@@ -1408,12 +1632,16 @@
       "version" : "0.01"
    },
    {
+      "abstract" : "Parse FOAF (Friend of a Friend) data",
       "distvname" : "XML-FOAF-0.02",
+      "latest_version" : "0.03",
       "name" : "XML-FOAF",
       "version" : "0.02"
    },
    {
+      "abstract" : "creates and updates RSS files",
       "distvname" : "XML-RSS-1.02",
+      "latest_version" : "1.48",
       "name" : "XML-RSS",
       "version" : "1.02"
    },
@@ -1439,7 +1667,9 @@
       "version" : "0.35"
    },
    {
+      "abstract" : "YAML Ain't Markup Language (tm)",
       "distvname" : "YAML-0.62",
+      "latest_version" : "0.72",
       "name" : "YAML",
       "version" : "0.62"
    },
@@ -1473,7 +1703,9 @@
       "version" : "1.00"
    },
    {
+      "abstract" : null,
       "distvname" : "libapreq-1.0",
+      "latest_version" : "1.34",
       "name" : "libapreq",
       "version" : "1.0"
    },
@@ -1490,12 +1722,16 @@
       "version" : "0.26"
    },
    {
+      "abstract" : "The World-Wide Web library for Perl",
       "distvname" : "libwww-perl-5.813",
+      "latest_version" : "5.837",
       "name" : "libwww-perl",
       "version" : "5.813"
    },
    {
+      "abstract" : null,
       "distvname" : "mod_perl-1.29_related",
+      "latest_version" : "2.0.4",
       "name" : "mod_perl",
       "version" : "1.29_related"
    },
@@ -1532,12 +1768,16 @@
       "version" : "1.04"
    },
    {
+      "abstract" : "Perl interpreter-based threads",
       "distvname" : "threads-1.67",
+      "latest_version" : "1.82",
       "name" : "threads",
       "version" : "1.67"
    },
    {
+      "abstract" : "Perl interpreter-based threads",
       "distvname" : "threads-0.99",
+      "latest_version" : "1.82",
       "name" : "threads",
       "version" : "0.99"
    },
@@ -1554,12 +1794,16 @@
       "version" : "1.07"
    },
    {
+      "abstract" : "Structured version objects",
       "distvname" : "version-0.74",
+      "latest_version" : "0.88",
       "name" : "version",
       "version" : "0.74"
    },
    {
+      "abstract" : "Structured version objects",
       "distvname" : "version-0.70",
+      "latest_version" : "0.88",
       "name" : "version",
       "version" : "0.70"
    }

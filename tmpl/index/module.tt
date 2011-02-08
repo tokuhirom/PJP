@@ -7,7 +7,11 @@
 [%# TODO: 各モジュールのリリース日と、最新版のバージョン番号を表示させたい %]
 
 <table>
+[% before_name = ''; count = 0  %]
 [% FOR v IN index %]
+    [% IF before_name != v.name %]
+    [% IF count > 1 %]</td></tr>[% END %]
+    [% before_name = v.name; count = 1 %]
     <tr>
 		<td><a href="/docs/modules/[% v.distvname %]/">[% v.name %]-[% v.version %]
 			[% IF v.latest_version %]
@@ -20,6 +24,10 @@
 		</a></td>
 		<td>[% v.abstract %]</td>
 	</tr>
+    [% ELSE %]
+    [% IF count == 1 %]<tr><td colspan=2>&nbsp;older version: [% count = count + 1 %][% ELSE %]/[% END %]
+       <a href="/docs/modules/[% v.distvname %]/">[% v.version%]</a>
+    [% END %]
 [% END %]
 </table>
 

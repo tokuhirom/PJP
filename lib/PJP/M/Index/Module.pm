@@ -10,6 +10,7 @@ use Log::Minimal;
 use URI::Escape qw/uri_escape/;
 use JSON;
 use File::Spec::Functions qw/catfile/;
+use version;
 
 sub slurp {
     if (@_==1) {
@@ -77,7 +78,10 @@ sub generate {
         }
         push @mods, $row;
     }
-    @mods = sort { $a->{name} cmp $b->{name} }  @mods;
+    my %sort_tmp;
+    @mods = sort { $a->{name} cmp $b->{name} or
+                   ($sort_tmp{$b} ||= version->new($b->{version})) <=> ($sort_tmp{$a} ||= version->new($a->{version}))
+                 }  @mods;
     infof("data: %s", ddf(\@mods));
     return @mods;
 }
