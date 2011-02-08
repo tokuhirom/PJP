@@ -5,6 +5,25 @@
 翻訳データは、 Japanized Perl Resources Project からとってきたものです。<br />
 </p>
 
+<!-- SiteSearch Google -->
+<center>
+<form method=get action="http://www.google.co.jp/search">
+<table><tr valign=top>
+<td>
+<input type=text name=q size=31 maxlength=255 value="">
+<input type=hidden name=ie value=UTF-8>
+<input type=hidden name=oe value=UTF-8>
+<input type=hidden name=hl value="ja">
+<input type=submit name=btnG value="Google 検索">
+<font size=-1>
+<input type=hidden name=domains value="perldoc.jp"><br>
+<input type="hidden" name="sitesearch" value="perldoc.jp">
+</font>
+</td></tr></table>
+</form>
+</center>
+<!-- SiteSearch Google -->
+
 <h2>翻訳に参加したいな、とおもったら</h2>
 <ul>
     <li><a href="http://sourceforge.jp/projects/perldocjp/">Japanized Perl Resources Project(sf.jp のプロジェクトページ)</a></li>
