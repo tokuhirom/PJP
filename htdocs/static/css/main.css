@@ -1,3 +1,6 @@
+* {
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Helvetica,Arial,sans-serif; }
+
 a:link {
   -webkit-tap-highlight-color: #FF5E99; }
 a, a:visited, a:active {
@@ -50,6 +53,7 @@ body {
           text-decoration: underline;
           color: whiteSmoke; }
   .nav #GoogleSearch {
+    display: inline;
     float: right;
     margin-right: 10px; }
 
@@ -81,10 +85,11 @@ body {
   .PodPage .PodBody .pod_content_body div.original {
     display: none; }
   .PodPage .PodBody .pod_content_body pre {
+    background-color: white;
+    border: 0;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    border: 1px #ccc solid;
     padding: 20px;
     margin-left: 20px;
     margin-top: 20px;

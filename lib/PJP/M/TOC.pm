@@ -15,7 +15,6 @@ sub render {
 		"toc:4", 'toc.txt', sub {
 			infof("regen toc");
 			my $ret = $class->_render();
-            warn $ret;
             return $ret;
 		}
 	));

@@ -4,6 +4,10 @@
   border-radius: $radius;
 }
 
+* {
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Helvetica,Arial,sans-serif;
+}
+
 a {
     &:link {
         -webkit-tap-highlight-color: #FF5E99;
@@ -70,6 +74,7 @@ body {
     }
 
     #GoogleSearch {
+        display: inline;
         float: right;
         margin-right: 10px;
     }
@@ -115,10 +120,13 @@ body {
             div.original { display: none; }
 
             pre {
+                background-color: white;
+
+                border: 0;
+
                 border-radius: 10px;
                 -moz-border-radius: 10px;
                 -webkit-border-radius: 10px;
-                border: 1px #ccc solid;
 
                 padding: 20px;
 
