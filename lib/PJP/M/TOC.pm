@@ -72,7 +72,10 @@ sub _render_function {
 			my @outs;
 			my $line = $_;
 			while ($line =~ s/C<([^>]+)>//) {
-				push @outs, sprintf('<a href="/func/%s">%s</a>', (html_escape($1))x2);
+                my ($url, $text) = ($1, $1);
+                $url =~ s!///!!; # s/// みたいなやつは s にリンクするべき
+                push @outs,
+                  sprintf( '<a href="/func/%s">%s</a>', html_escape($url), html_escape($text) );
 			}
 			$out .= join(", ", @outs) . "<br />\n";
 		}
