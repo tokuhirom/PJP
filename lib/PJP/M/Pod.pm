@@ -27,8 +27,8 @@ sub parse_name_section {
         ^=head1\s+(?:NAME|名前)\s*\n+
         \s*(\S+)(?:\s*-\s*([^\n]+))?
     /msx);
-    $package =~ s/[A-Z]<(.+)>/$1/; # remove tags
-    $description =~ s/[A-Z]<(.+)>/$1/; # remove tags
+    $package =~ s/[A-Z]<(.+?)>/$1/g; # remove tags
+    $description =~ s/[A-Z]<(.+?)>/$1/g; # remove tags
     return ($package, $description || '');
 }
 
