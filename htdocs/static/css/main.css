@@ -377,7 +377,7 @@ body {
   overflow: visible; }
 .PodPage .PodBody ul.pod_toc {
   list-style: none;
-  margin: 0; }
+  margin-bottom: 10px; }
   .PodPage .PodBody ul.pod_toc ul {
     list-style: none;
     margin: 0; }
