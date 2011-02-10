@@ -24,7 +24,7 @@ sub parse_name_section {
     };
     $src =~ s/=begin\s+original.+?=end\s+original\n//gsm;
     my ($package, $description) = ($src =~ m/
-        ^=head1\s+(?:NAME|名前)\s*\n+
+        ^=head1\s+(?:NAME|名前)[ \t]*\n(?:名前\n)?\n+
         \s*(\S+)(?:\s*-+\s*([^\n]+))?
     /msx);
     $package =~ s/[A-Z]<(.+?)>/$1/g; # remove tags
