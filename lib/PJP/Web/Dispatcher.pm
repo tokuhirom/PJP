@@ -204,14 +204,26 @@ use Cwd ();
 use File::Find qw/finddepth/;
 get '/docs{path:/|/.+}' => sub {
     my ($c, $p) = @_;
-    my $path = $p->{path};
-    $path = Cwd::realpath(catfile("./assets/perldoc.jp/docs/$path")) or do {
+    my @bases = qw(
+        assets/perldoc.jp/docs/
+        assets/module-pod-jp/docs/
+    );
+    my $path;
+    for my $dir (@bases) {
+        $path = Cwd::realpath(catfile($dir, $p->{path}));
+        infof($path);
+        last if -d $path;
+    }
+    unless ($path) {
         warnf("path '%s' is missing", $p->{path});
         return $c->res_404();
-    };
-    my $container = Cwd::realpath(catfile("./assets/perldoc.jp/docs/"));
+    }
 
-    if ($path =~ m{/CVS(/|$)} || $path !~ m{^\Q$container} || $p->{path} =~ /\.\./) {
+    my $container_regex =
+      join( '|', map { quotemeta Cwd::realpath($_) } @bases );
+
+    if ($path =~ m{/CVS(/|$)} || $path !~ m{^($container_regex)} || $p->{path} =~ /\.\./) {
+        warnf("forbidden: %s, %s", $path, $container_regex);
         return $c->create_response(403, ['Content-Type' => 'text/html; charset=utf-8'], ['forbidden']);
     }
 

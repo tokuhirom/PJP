@@ -55,10 +55,28 @@ sub generate_and_save {
 
 sub generate {
     my ($class, $c) = @_;
+
+    my @mods;
+    for my $base (qw(
+        assets/perldoc.jp/docs/modules/
+        assets/module-pod-jp/docs/modules/
+    )) {
+        push @mods, $class->_generate($c, $base);
+    }
+    my %sort_tmp;
+    @mods = sort { $a->{name} cmp $b->{name} or
+                   ($sort_tmp{$b} ||= version->new($b->{version})) <=> ($sort_tmp{$a} ||= version->new($a->{version}))
+                 }  @mods;
+    infof("data: %s", ddf(\@mods));
+    return @mods;
+}
+
+sub _generate {
+    my ($class, $c, $base) = @_;
     state $ua = LWP::UserAgent->new(agent => 'PJP', timeout => 1);
 
     my @mods;
-    opendir my $dh, 'assets/perldoc.jp/docs/modules/';
+    opendir(my $dh, $base);
     while (defined(my $e = readdir $dh)) {
         next if $e =~ /^\./;
         next if $e =~ /^CVS$/;
@@ -86,7 +104,7 @@ sub generate {
         my ($pod_file) = sort { length($a) <=> length($b) }
             File::Find::Rule->file()
                             ->name('*.pod')
-                            ->in("assets/perldoc.jp/docs/modules/$e");
+                            ->in("$base/$e");
         if ($pod_file) {
             infof("parsing %s", $pod_file);
             my ($name, $desc) = PJP::M::Pod->parse_name_section($pod_file);
@@ -98,11 +116,6 @@ sub generate {
 
         push @mods, $row;
     }
-    my %sort_tmp;
-    @mods = sort { $a->{name} cmp $b->{name} or
-                   ($sort_tmp{$b} ||= version->new($b->{version})) <=> ($sort_tmp{$a} ||= version->new($a->{version}))
-                 }  @mods;
-    infof("data: %s", ddf(\@mods));
     return @mods;
 }
 
