@@ -14,7 +14,7 @@ sub parse_name_section {
         if (ref $stuff) {
             $$stuff;
         } else {
-            open my $fh, '<', $stuff or die "Cannot open file $stuff: $!";
+            open my $fh, '<:raw', $stuff or die "Cannot open file $stuff: $!";
             my $src = do { local $/; <$fh> };
             if ($src =~ /^=encoding\s+(euc-jp|utf-?8)/sm) {
                 $src = Encode::decode($1, $src);
@@ -25,10 +25,10 @@ sub parse_name_section {
     $src =~ s/=begin\s+original.+?=end\s+original\n//gsm;
     my ($package, $description) = ($src =~ m/
         ^=head1\s+(?:NAME|名前)\s*\n+
-        \s*(\S+)(?:\s*-\s*([^\n]+))?
+        \s*(\S+)(?:\s*-+\s*([^\n]+))?
     /msx);
-    $package =~ s/[A-Z]<(.+)>/$1/; # remove tags
-    $description =~ s/[A-Z]<(.+)>/$1/; # remove tags
+    $package =~ s/[A-Z]<(.+?)>/$1/g; # remove tags
+    $description =~ s/[A-Z]<(.+?)>/$1/g; # remove tags
     return ($package, $description || '');
 }
 

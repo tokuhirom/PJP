@@ -10,7 +10,10 @@ use Log::Minimal;
 use URI::Escape qw/uri_escape/;
 use JSON;
 use File::Spec::Functions qw/catfile/;
+use File::Find::Rule;
 use version;
+use autodie;
+use PJP::M::Pod;
 
 sub slurp {
     if (@_==1) {
@@ -43,7 +46,7 @@ sub generate_and_save {
 
     my $fname = $class->cache_path($c);
     my @data = $class->generate($c);
-    open my $fh, '>:utf8', $fname;
+    open my $fh, '>', $fname;
     print $fh JSON->new->pretty->canonical->utf8->encode(\@data);
     close $fh;
 
@@ -61,6 +64,8 @@ sub generate {
         next if $e =~ /^CVS$/;
         my ($dist, $version) = CPAN::DistnameInfo::distname_info($e);
         my $row = {distvname => $e, name => $dist, version => $version};
+
+        # get information from FrePAN
         my $data = $c->cache->get_or_set("frepanapi:1:$e", sub {
             my $res = $ua->get('http://frepan.org/api/v1/dist/show.json?dist_name=' . uri_escape($dist));
             if ($res->is_success) {
@@ -76,6 +81,21 @@ sub generate {
             $row->{latest_version} = $data->{version};
             $row->{abstract}       = $data->{abstract};
         }
+
+        # ファイル名のいちばん短い pod ファイルが代表格といえる
+        my ($pod_file) = sort { length($a) <=> length($b) }
+            File::Find::Rule->file()
+                            ->name('*.pod')
+                            ->in("assets/perldoc.jp/docs/modules/$e");
+        if ($pod_file) {
+            infof("parsing %s", $pod_file);
+            my ($name, $desc) = PJP::M::Pod->parse_name_section($pod_file);
+            if ($desc) {
+                infof("Japanese Description: %s, %s", $name, $desc);
+                $row->{abstract} = $desc;
+            }
+        }
+
         push @mods, $row;
     }
     my %sort_tmp;
