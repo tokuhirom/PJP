@@ -1,0 +1,3 @@
+[submodule "assets/module-pod-jp"]
+	path = assets/module-pod-jp
+	url = git://github.com/perldoc-jp/module-pod-jp.git
