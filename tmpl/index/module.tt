@@ -14,7 +14,7 @@
                 [% IF count > 1 %]</td></tr>[% END %]
                 [% before_name = v.name; count = 1 %]
                 <tr>
-                    <td><a href="/docs/modules/[% v.distvname %]/">[% v.name %]-[% v.version %]
+                    <td nowrap="nowrap"><a href="/docs/modules/[% v.distvname %]/">[% v.name %]-[% v.version %]
                         [% IF v.latest_version %]
                             [% IF v.latest_version==v.version %]
                                 <span class="fresh">(Fresh)</span>
