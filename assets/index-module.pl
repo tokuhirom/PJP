@@ -145,7 +145,7 @@
       "version" : "1.09"
    },
    {
-      "abstract" : "トリッキーすぎないお手軽なWiki。\r",
+      "abstract" : "A Quickie Wiki that's not too Tricky",
       "distvname" : "CGI-Kwiki-0.18",
       "latest_version" : "0.18",
       "name" : "CGI-Kwiki",
@@ -942,10 +942,10 @@
    },
    {
       "abstract" : "軽量で速い URL fecher",
-      "distvname" : "Furl-0.22",
+      "distvname" : "Furl-0.24",
       "latest_version" : "0.24",
       "name" : "Furl",
-      "version" : "0.22"
+      "version" : "0.24"
    },
    {
       "abstract" : "Gdグラフィックス・ライブラリへのインターフェース",
@@ -1079,7 +1079,7 @@
       "version" : "2.1.1"
    },
    {
-      "abstract" : null,
+      "abstract" : "test one or more web pages",
       "distvname" : "HTTP-WebTest-2.04",
       "latest_version" : "2.04",
       "name" : "HTTP-WebTest",
@@ -1379,7 +1379,7 @@
       "version" : "0.11"
    },
    {
-      "abstract" : null,
+      "abstract" : "Sort lines containing delimited fields",
       "distvname" : "Sort-Fields-0.90",
       "latest_version" : "0.90",
       "name" : "Sort-Fields",
@@ -1461,7 +1461,7 @@
       "version" : "0.23"
    },
    {
-      "abstract" : "コードセット変換関数iconv()へのPerlインターフェース\r",
+      "abstract" : null,
       "distvname" : "Text-Iconv-1.2",
       "latest_version" : "1.7",
       "name" : "Text-Iconv",
