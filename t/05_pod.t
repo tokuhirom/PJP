@@ -27,17 +27,21 @@ L<"SYNOPSIS">
 L<"注意">
 
 ...
-my $out = PJP::M::Pod->pod2package_name(\($pod));
-is $out, "OK";
 
 my $html = PJP::M::Pod->pod2html(\$pod);
 like $html, qr{<h1 id="pod%E6%B3%A8%E6%84%8F">注意</h1>};
-like $html, qr{<p><a href="#pod%E6%B3%A8%E6%84%8F">&quot;注意&quot;</a></p>};
+like $html, qr{<li><a href="#pod%E6%B3%A8%E6%84%8F">注意</a></li>};
 
 subtest 'parse_name_section' => sub {
     my ($pkg, $desc) = PJP::M::Pod->parse_name_section(\$pod);
     is $pkg, 'OK';
     is $desc, 'あれです';
+
+    subtest 'wt.pod' => sub {
+        my ($pkg, $desc) = PJP::M::Pod->parse_name_section('assets/perldoc.jp/docs/modules/HTTP-WebTest-2.04/bin/wt.pod');
+        is $pkg, 'wt';
+        is $desc, '１つもしくは複数のウェブページのテスト';
+    };
 };
 
 done_testing;
