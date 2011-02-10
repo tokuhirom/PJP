@@ -33,7 +33,7 @@ body {
 
 .header {
     .SiteLogo {
-        font-size: 200%;
+        font-size: 120%;
         font-weight: bold;
         text-decoration: none;
     }
@@ -41,7 +41,7 @@ body {
 
 .nav {
     background-color: #777;
-    height: 50px;
+    height: 30px;
     font-weight: bold;
     @include rounded_corners(10px);
 
@@ -51,9 +51,11 @@ body {
         list-style: none;
         line-height: normal;
         margin: 0;
-        padding: 17px 0 0 20px;
+        padding: 5px 0 0 10px;
         list-style: none;
         line-height: normal;
+        float: left;
+
         li {
             float: left;
             display: block;
@@ -77,6 +79,7 @@ body {
         display: inline;
         float: right;
         margin-right: 10px;
+        margin-top: 3px;
     }
 }
 
@@ -85,28 +88,21 @@ body {
     border-top: #cccccc 1px solid;
     font-size: x-small;
     text-align: right;
+    clear: both;
 }
 
-.content {
+#content {
     .about { font-size: small; margin-bottom: 20px; }
-
-    .ContentBody {
-        margin-top: 20px;
-
-        .IndexBody {
-            line-height: 150%;
-            margin-left: 14px;
-        }
-    }
 }
 
 .PodPage {
-    .PodVersion {
+    .PodInfo {
         float: right;
+        text-align: right;
+        overflow: visible;
     }
-    .PodBody {
-        clear: both;
 
+    .PodBody {
         ul.pod_toc {
             list-style: none;
             margin: 0;
@@ -161,10 +157,16 @@ body {
     }
 }
 
-.DirectoryIndex {
-    list-style: none;
-    margin-top: 20px;
-    font-size: 100%;
+.DirectoryIndexContainer {
+    h1 {
+        font-size: 120%;
+    }
+    
+    ul.DirectoryIndex {
+        list-style: none;
+        margin-top: 20px;
+        font-size: 100%;
+    }
 }
 
 .IndexModuleContent {
@@ -179,10 +181,21 @@ body {
     body { margin: 1.5em; }
     #Container {
         width: 100%;
-        font-size: 300%;
+        font-size: 200%;
         line-height: 1.5em;
+    }
+    #content {
+        .about { font-size: normal; margin-bottom: 20px; }
     }
     pre { overflow:auto; }
     html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
+    .nav {
+        #GoogleSearch {
+            display: none;
+        }
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 110%;
+    }
 }
 

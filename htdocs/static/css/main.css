@@ -18,13 +18,13 @@ body {
   padding: 10px; }
 
 .header .SiteLogo {
-  font-size: 200%;
+  font-size: 120%;
   font-weight: bold;
   text-decoration: none; }
 
 .nav {
   background-color: #777;
-  height: 50px;
+  height: 30px;
   font-weight: bold;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -35,9 +35,10 @@ body {
     list-style: none;
     line-height: normal;
     margin: 0;
-    padding: 17px 0 0 20px;
+    padding: 5px 0 0 10px;
     list-style: none;
-    line-height: normal; }
+    line-height: normal;
+    float: left; }
     .nav ul li {
       float: left;
       display: block;
@@ -55,63 +56,62 @@ body {
   .nav #GoogleSearch {
     display: inline;
     float: right;
-    margin-right: 10px; }
+    margin-right: 10px;
+    margin-top: 3px; }
 
 .footer {
   margin-top: 10px;
   border-top: #cccccc 1px solid;
   font-size: x-small;
-  text-align: right; }
+  text-align: right;
+  clear: both; }
 
-.content .about {
+#content .about {
   font-size: small;
   margin-bottom: 20px; }
-.content .ContentBody {
-  margin-top: 20px; }
-  .content .ContentBody .IndexBody {
-    line-height: 150%;
-    margin-left: 14px; }
 
-.PodPage .PodVersion {
-  float: right; }
-.PodPage .PodBody {
-  clear: both; }
-  .PodPage .PodBody ul.pod_toc {
+.PodPage .PodInfo {
+  float: right;
+  text-align: right;
+  overflow: visible; }
+.PodPage .PodBody ul.pod_toc {
+  list-style: none;
+  margin: 0; }
+  .PodPage .PodBody ul.pod_toc ul {
     list-style: none;
     margin: 0; }
-    .PodPage .PodBody ul.pod_toc ul {
-      list-style: none;
-      margin: 0; }
-  .PodPage .PodBody .pod_content_body div.original {
-    display: none; }
-  .PodPage .PodBody .pod_content_body pre {
-    background-color: white;
-    border: 0;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    padding: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px; }
-  .PodPage .PodBody .pod_content_body h3 {
-    margin-top: 20px;
-    margin-bottom: 10px; }
-  .PodPage .PodBody .pod_content_body h4 {
-    margin-top: 20px;
-    margin-bottom: 10px; }
-  .PodPage .PodBody .pod_content_body p {
-    margin-left: 10px; }
-  .PodPage .PodBody .pod_content_body ul {
-    margin-left: 20px; }
-  .PodPage .PodBody .pod_content_body dl {
-    margin-left: 30px; }
-  .PodPage .PodBody .pod_content_body dt {
-    margin-top: 10px; }
-  .PodPage .PodBody .pod_content_body dd {
-    margin-left: 30px; }
+.PodPage .PodBody .pod_content_body div.original {
+  display: none; }
+.PodPage .PodBody .pod_content_body pre {
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+.PodPage .PodBody .pod_content_body h3 {
+  margin-top: 20px;
+  margin-bottom: 10px; }
+.PodPage .PodBody .pod_content_body h4 {
+  margin-top: 20px;
+  margin-bottom: 10px; }
+.PodPage .PodBody .pod_content_body p {
+  margin-left: 10px; }
+.PodPage .PodBody .pod_content_body ul {
+  margin-left: 20px; }
+.PodPage .PodBody .pod_content_body dl {
+  margin-left: 30px; }
+.PodPage .PodBody .pod_content_body dt {
+  margin-top: 10px; }
+.PodPage .PodBody .pod_content_body dd {
+  margin-left: 30px; }
 
-.DirectoryIndex {
+.DirectoryIndexContainer h1 {
+  font-size: 120%; }
+.DirectoryIndexContainer ul.DirectoryIndex {
   list-style: none;
   margin-top: 20px;
   font-size: 100%; }
@@ -133,12 +133,22 @@ body {
 
   #Container {
     width: 100%;
-    font-size: 300%;
+    font-size: 200%;
     line-height: 1.5em; }
+
+  #content .about {
+    font-size: normal;
+    margin-bottom: 20px; }
 
   pre {
     overflow: auto; }
 
   html {
     -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none; } }
+    -ms-text-size-adjust: none; }
+
+  .nav #GoogleSearch {
+    display: none; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 110%; } }

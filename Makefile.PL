@@ -16,6 +16,7 @@ requires 'LWP::UserAgent';
 requires 'URI::Escape';
 requires 'Try::Tiny';
 requires 'HTML::Zoom';
+requires 'Text::Caml';
 
 recursive_author_tests('xt');
 
