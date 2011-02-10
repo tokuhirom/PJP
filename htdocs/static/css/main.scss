@@ -1,11 +1,18 @@
+@import "reset.scss";
+@import "typography.scss";
+
+/* ----------------------------------------------- */
+/* sites css                                       */
+/* ----------------------------------------------- */
+
 @mixin rounded_corners ($radius) {
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
   border-radius: $radius;
 }
 
-* {
-    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Helvetica,Arial,sans-serif;
+body {
+    font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 
 a {
@@ -67,6 +74,9 @@ body {
                 padding: 0px 15px;
                 text-decoration: none;
                 color: whiteSmoke;
+                &:visited {
+                    color: whiteSmoke;
+                }
                 &:hover {
                     text-decoration: underline;
                     color: whiteSmoke;
@@ -92,6 +102,8 @@ body {
 }
 
 #content {
+    margin-top: 10px;
+    margin-left: 20px;
     .about { font-size: small; margin-bottom: 20px; }
 }
 
@@ -130,14 +142,12 @@ body {
                 margin-top: 20px;
                 margin-bottom: 20px;
             }
-            h3 {
-                margin-top: 20px;
-                margin-bottom: 10px;
-            }
-            h4 {
-                margin-top: 20px;
-                margin-bottom: 10px;
-            }
+            h1 { font-size: 2em; line-height: 1; margin-bottom: 0.5em; }
+            h2 { font-size: 1.8em; margin-bottom: 0.75em; }
+            h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+            h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+            h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+            h6 { font-size: 1em; font-weight: bold; }
             p {
                 margin-left: 10px;
             }
@@ -189,7 +199,7 @@ body {
     }
     pre { overflow:auto; }
     html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
-    .nav {
+    nav {
         #GoogleSearch {
             display: none;
         }
