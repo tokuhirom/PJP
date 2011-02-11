@@ -250,20 +250,31 @@ get '/docs{path:/|/.+}' => sub {
     } elsif (-f $path) {
         return $c->show_error("未知のファイル形式です: $p->{path}");
     } else {
+        # directory index
         my @index;
         finddepth(sub {
             unless (/^\./ || /^CVS$/ || $File::Find::name =~ m{/CVS/} || -d $_) {
-                push @index, abs2rel($File::Find::name, $path);
+                my ($package, $desc) = PJP::M::Pod->parse_name_section($File::Find::name);
+                push @index,
+                  [
+                    abs2rel( $File::Find::name, $path ),
+                    $package || $File::Find::name,
+                    $desc
+                  ];
             }
             return 1; # need true value
         }, $path);
 
+        my $distvname = $c->req->path_info;
+        $distvname =~ s!\/$!!;
+        $distvname =~ s!.+\/!!;
         PJP::Template->new()
                      ->load_file('layout.html')
                      ->replace('#content' => [
                          'directory_index.tt', {
                             index => [sort @index],
                             path => $c->req->path_info,
+                            distvname => $distvname,
                          }
                      ])
                      ->replace('title' => "@{[ $c->req->path_info ]} 【perldoc.jp】")

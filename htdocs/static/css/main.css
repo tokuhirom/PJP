@@ -427,11 +427,8 @@ body {
   margin-left: 30px; }
 
 .DirectoryIndexContainer h1 {
-  font-size: 120%; }
-.DirectoryIndexContainer ul.DirectoryIndex {
-  list-style: none;
-  margin-top: 20px;
-  font-size: 100%; }
+  font-size: 120%;
+  font-weight: bold; }
 
 .IndexModuleContent .old {
   color: red; }

@@ -1,11 +1,14 @@
 <div class="DirectoryIndexContainer">
-    <p class="about">[% path %]の内容を表示しています</p>
+    <p class="about">[% distvname %]の翻訳済ドキュメントの一覧です</p>
 
-    <h1>[% path %]</h1>
+    <h1>[% distvname %]</h1>
 
-    <ul class="DirectoryIndex">
+    <table>
     [% FOR v IN index %]
-        <li><a href="./[% v %]">[% v %]</a></li>
+        <tr>
+            <td><a href="./[% v.0 %]">[% v.1 %]</a></td>
+            <td>[% v.2 %]</td>
+        </tr>
     [% END %]
-    </ul>
+    </table>
 </div>
