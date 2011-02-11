@@ -178,6 +178,10 @@ body {
 .IndexModuleContent {
     .old   { color: red }
     .fresh { color: green }
+    .oldVersionInfo {
+        padding-left: 10px;
+        font-size: x-small;
+    }
 }
 
 .alert { color: red; font-size: 150%; font-weight: bold; }

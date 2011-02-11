@@ -56,6 +56,7 @@ sub generate_and_save {
 sub generate {
     my ($class, $c) = @_;
 
+    # 情報をかきあつめる
     my @mods;
     for my $base (qw(
         assets/perldoc.jp/docs/modules/
@@ -63,12 +64,33 @@ sub generate {
     )) {
         push @mods, $class->_generate($c, $base);
     }
-    my %sort_tmp;
-    @mods = sort { $a->{name} cmp $b->{name} or
-                   ($sort_tmp{$b} ||= version->new($b->{version})) <=> ($sort_tmp{$a} ||= version->new($a->{version}))
-                 }  @mods;
-    infof("data: %s", ddf(\@mods));
-    return @mods;
+
+    # モジュールを中心に GROUP 化する
+    my %module2versions;
+    for (@mods) {
+        push @{$module2versions{$_->{name}}}, $_;
+    }
+    for my $module ( keys %module2versions ) {
+        $module2versions{$module} = [
+            map            { $_->[0] }
+              reverse sort { $a->[1] <=> $b->[1] }
+              map          { [ $_, version->new( $a->{version} ) ] }
+              @{ $module2versions{$module} }
+        ];
+    }
+
+    my @sorted = (
+        map {
+            +{
+                name     => $_,
+                abstract => $module2versions{$_}->[0]->{abstract},
+                latest_version => $module2versions{$_}->[0]->{latest_version},
+                versions => $module2versions{$_}
+              }
+          }
+          sort { $a cmp $b } keys %module2versions
+    );
+    return @sorted;
 }
 
 sub _generate {

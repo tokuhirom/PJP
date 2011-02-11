@@ -8,27 +8,28 @@
             [%# TODO: 各モジュールのリリース日と、最新版のバージョン番号を表示させたい %]
 
             <table>
-            [% before_name = ''; count = 0  %]
             [% FOR v IN index %]
-                [% IF before_name != v.name %]
-                [% IF count > 1 %]</td></tr>[% END %]
-                [% before_name = v.name; count = 1 %]
                 <tr>
-                    <td nowrap="nowrap"><a href="/docs/modules/[% v.distvname %]/">[% v.name %]-[% v.version %]
+                    <td nowrap="nowrap">
+                        <a href="/docs/modules/[% v.versions.0.distvname %]/">[% v.name %]-[% v.versions.0.version %]</a>
                         [% IF v.latest_version %]
-                            [% IF v.latest_version==v.version %]
+                            [% IF v.latest_version==v.versions.0.version %]
                                 <span class="fresh">(Fresh)</span>
                             [% ELSE %]
                                 <span class="old">(Latest: [% v.latest_version %])</span>
                             [% END %]
                         [% END %]
-                    </a></td>
+                        [% IF v.versions.size() > 1 %]
+                            [% v.versions.shift() | null %][%# 最初の人は無視する %]
+                            <div class="oldVersionInfo">
+                            older: [% FOR xx IN v.versions %]
+                                <a href="/docs/modules/[% xx.distvname %]/">[% xx.version %]</a>
+                            [% END %]
+                            </div>
+                        [% END %]
+                    </td>
                     <td>[% v.abstract %]</td>
                 </tr>
-                [% ELSE %]
-                [% IF count == 1 %]<tr><td colspan=2>&nbsp;older version: [% count = count + 1 %][% ELSE %]/[% END %]
-                <a href="/docs/modules/[% v.distvname %]/">[% v.version%]</a>
-                [% END %]
             [% END %]
             </table>
         </div>

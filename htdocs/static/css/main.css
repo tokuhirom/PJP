@@ -434,6 +434,9 @@ body {
   color: red; }
 .IndexModuleContent .fresh {
   color: green; }
+.IndexModuleContent .oldVersionInfo {
+  padding-left: 10px;
+  font-size: x-small; }
 
 .alert {
   color: red;
