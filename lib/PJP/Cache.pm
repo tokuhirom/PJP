@@ -16,7 +16,7 @@ sub new {
 sub file_cache {
 	my ($self, $prefix, $file, $cb) = @_;
 	my $cache = $self->{cache};
-	my $key = "1:${prefix}::${file}";
+	my $key = "2:${prefix}::${file}";
     $key .= rand() if $ENV{DEBUG};
 	my $data = $cache->get($key);
 	my $stat = stat($file) or die "Cannot stat $file: $!";
