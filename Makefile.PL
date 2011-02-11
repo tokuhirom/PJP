@@ -18,6 +18,8 @@ requires 'Try::Tiny';
 requires 'HTML::Zoom';
 requires 'Text::Caml';
 
+test_requires 'Test::Requires';
+
 recursive_author_tests('xt');
 
 WriteAll;
