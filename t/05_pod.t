@@ -20,6 +20,12 @@ B<OK> - あれです
 
 =head1 注意
 
+=head1 GETTING HELP
+
+(ヘルプを見る)
+
+perldoc プログラムは、Perl と共に配布されている全ての文書を読むための プログラムです。 http://www.perl.org/ では、さらなる文書、チュートリアル、コミュニティ サポポートがオンラインで得られます。
+
 =head1 理解されるフォーマット
 
 L<"SYNOPSIS">
@@ -31,6 +37,8 @@ L<"注意">
 my $html = PJP::M::Pod->pod2html(\$pod);
 like $html, qr{<h1 id="pod%E6%B3%A8%E6%84%8F">注意</h1>};
 like $html, qr{<li><a href="#pod%E6%B3%A8%E6%84%8F">注意</a></li>};
+like $html, qr{<h1 id="GETTING%20HELP">ヘルプを見る</h1>};
+like $html, qr{<li><a href="#GETTING%20HELP">ヘルプを見る</a></li>};
 
 subtest 'parse_name_section' => sub {
     my ($pkg, $desc) = PJP::M::Pod->parse_name_section(\$pod);

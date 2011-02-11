@@ -78,29 +78,39 @@ sub get_latest_file_path {
     sub start_Verbatim {
         $_[0]{'scratch'} = '<pre class="prettyprint lang-perl"><code>';
     }
-
-    sub start_for {
-       my ($self, $flgs, @rest) = @_;
-       if ($flgs->{'target'} eq 'original') {
-           $self->{in_original} = 1;
-       } else {
-         $self->SUPER::start_for($flgs, @rest);
-       }
+    sub end_Verbatim {
+        $_[0]{'scratch'} .= '</code></pre>';
+        $_[0]->emit;
     }
 
-    sub end_for {
-       my $self = shift;
-       if ($self->{in_original}) {
-           $self->{in_original} = 0;
-       }
-       $self->SUPER::end_for(@_);
+    sub _end_head {
+        $_[0]->{last_head_body} = $_[0]->{scratch};
+        $_[0]->{end_head}  = 1;
+
+        my $h = delete $_[0]{in_head};
+
+        my $add = $_[0]->html_h_level;
+           $add = 1 unless defined $add;
+        $h += $add - 1;
+
+        my $id = $_[0]->idify($_[0]{scratch});
+        my $text = $_[0]{scratch};
+        # あとで翻訳したリソースと置換できるように、印をつけておく
+        $_[0]{'scratch'} = qq{<h$h id="$id">TRANHEADSTART${text}TRANHEADEND</h$h>};
+        $_[0]->emit;
+        push @{ $_[0]{'to_index'} }, [$h, $id, $text];
     }
+    sub end_head1       { shift->_end_head(@_); }
+    sub end_head2       { shift->_end_head(@_); }
+    sub end_head3       { shift->_end_head(@_); }
+    sub end_head4       { shift->_end_head(@_); }
 
     sub handle_text {
         my ($self, $text) = @_;
-        if (exists $self->{'in_original'} and $self->{'in_original'} == 1) {
-            $self->{'scratch'} .= q{<div class="original">} . $text;
-            $self->{'in_original'} = 2;
+        if ($_[0]->{end_head}-- > 0 && $text =~ /^\((.+)\)$/) {
+            # 最初の行の括弧でかこまれたものがあったら、それは翻訳された見出しとみなす
+            # 仕様については Pod::L10N を見よ
+            $_[0]->{translated_toc}->{$_[0]->{last_head_body}} = $1;
         } else {
             $self->{'scratch'} .= $text;
         }
@@ -147,7 +157,7 @@ sub get_latest_file_path {
                         --$level;
                         push @out, ( '  ' x --$indent ) . '</li>'
                           if @out && $out[-1] =~ m{^\s+<\/ul};
-                        push @out, ( '  ' x --$indent ) . '</ul>';
+                        push @out, ( '  ' x --$indent ) . "</ul>";
                     }
                     push @out, ( '  ' x --$indent ) . '</li>' if $level;
                 }
@@ -163,18 +173,30 @@ sub get_latest_file_path {
                 }
 
                 next unless $level;
+
                 $space = '  ' x $indent;
+                # 見出しが翻訳されていれば、翻訳されたものをつかう
+                my $text = $h->[2];
+                if ($self->{translated_toc}->{$text}) {
+                    $text = $self->{translated_toc}->{$text};
+                }
                 push @out, sprintf '%s<li><a href="#%s">%s</a>',
-                  $space, $h->[1], $h->[2];
+                  $space, $h->[1], $text;
             }
 
             print { $self->{'output_fh'} } join "\n", @out;
         }
 
+        my $output = join( "\n\n", @{ $self->{'output'} } );
+        $output =~ s[TRANHEADSTART(.+?)TRANHEADEND][
+            if (my $translated = $self->{translated_toc}->{$1}) {
+                $translated;
+            } else {
+                $1;
+            }
+        ]ge;
         print { $self->{'output_fh'} }
-            '<div class="pod_content_body">' . 
-            join( "\n\n", @{ $self->{'output'} } ), "\n\n"
-            . '</div>';
+            qq{\n\n<div class="pod_content_body">$output\n\n</div>};
         @{ $self->{'output'} } = ();
     }
 }
