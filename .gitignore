@@ -5,3 +5,4 @@ MANIFEST
 *.old
 nytprof.out
 .sass-cache/
+assets/index-module.pl
