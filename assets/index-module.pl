@@ -2562,12 +2562,12 @@
       ]
    },
    {
-      "abstract" : "PlRPC-Server, Clientおよび事前に必要なものをインストールするためのバンドル",
+      "abstract" : "PlRPCサーバーを書くためのPerl拡張",
       "latest_version" : "0.2020",
       "name" : "PlRPC",
       "versions" : [
          {
-            "abstract" : "PlRPC-Server, Clientおよび事前に必要なものをインストールするためのバンドル",
+            "abstract" : "PlRPCサーバーを書くためのPerl拡張",
             "distvname" : "PlRPC-0.2016",
             "latest_version" : "0.2020",
             "name" : "PlRPC",
@@ -3361,12 +3361,12 @@
       ]
    },
    {
-      "abstract" : "ネットワーク・コマンド　クラス　（FTP、SMTPなどによって使われます）",
+      "abstract" : "FTPクライアント・オブジェクト",
       "latest_version" : "1.22_01",
       "name" : "libnet",
       "versions" : [
          {
-            "abstract" : "ネットワーク・コマンド　クラス　（FTP、SMTPなどによって使われます）",
+            "abstract" : "FTPクライアント・オブジェクト",
             "distvname" : "libnet-1.12",
             "latest_version" : "1.22_01",
             "name" : "libnet",

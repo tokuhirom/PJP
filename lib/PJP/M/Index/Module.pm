@@ -74,8 +74,9 @@ sub generate {
         $module2versions{$module} = [
             map            { $_->[0] }
               reverse sort { $a->[1] <=> $b->[1] }
-              map          { [ $_, version->new( $a->{version} ) ] }
-              @{ $module2versions{$module} }
+              map {
+                [ $_, eval { version->new( $_->{version} ) } || 0 ]
+              } @{ $module2versions{$module} }
         ];
     }
 
