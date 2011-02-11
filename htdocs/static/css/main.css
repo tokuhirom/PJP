@@ -450,8 +450,8 @@ body {
 
   #Container {
     width: 100%;
-    font-size: 200%;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    word-wrap: break-word; }
 
   #content .about {
     font-size: normal;

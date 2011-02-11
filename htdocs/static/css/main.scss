@@ -192,8 +192,8 @@ body {
     body { margin: 1.5em; }
     #Container {
         width: 100%;
-        font-size: 200%;
         line-height: 1.5em;
+        word-wrap:break-word;
     }
     #content {
         .about { font-size: normal; margin-bottom: 20px; }
