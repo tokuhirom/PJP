@@ -36,9 +36,6 @@ use Tiffany::Text::Xslate;
     sub create_view { $view }
 }
 
-# load plugins
-__PACKAGE__->load_plugins('Web::NoCache');
-
 sub show_error {
     my ($c, $msg) = @_;
     $c->render('error.tt', {message => $msg});
