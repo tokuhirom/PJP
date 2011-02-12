@@ -60,6 +60,7 @@ get '/index/module' => sub {
     );
 };
 
+# 添付 pod の表示
 get '/pod/*' => sub {
     my ($c, $p) = @_;
     my ($splat) = @{$p->{splat}};
@@ -98,12 +99,13 @@ get '/func/*' => sub {
     my ($path, $version) = @$path_info;
 
     try {
-        my $out = $c->cache->file_cache("func:$name:1", $path, sub {
+        my $out = $c->cache->file_cache("func:$name:5", $path, sub {
             infof("rendering %s from %s", $name, $path);
             my @dynamic_pod;
             my $perldoc = Pod::Perldoc->new(opt_f => $name);
             $perldoc->search_perlfunc([$path], \@dynamic_pod);
             my $pod = join("", "=encoding euc-jp\n\n=over 4\n\n", @dynamic_pod, "=back\n");
+            $pod =~ s!L</([a-z]+)>!L<$1|http://perldoc.jp/func/$1>!g;
             PJP::M::Pod->pod2html(\$pod);
         });
 
