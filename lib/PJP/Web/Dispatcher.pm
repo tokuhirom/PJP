@@ -181,7 +181,7 @@ get '/docs{path:/|/.+}' => sub {
                 push @index,
                   [
                     abs2rel( $File::Find::name, $path ),
-                    $package || $File::Find::name,
+                    $package || abs2rel($File::Find::name, $path),
                     $desc
                   ];
             }
