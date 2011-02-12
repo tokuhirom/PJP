@@ -116,7 +116,6 @@ get '/index/module' => sub {
 
     my $index = PJP::M::Index::Module->get($c);
 
-    my $toc = PJP::M::TOC->render_function($c);
     PJP::Template->new()
                  ->load_file('layout.html')
                  ->replace(title => '翻訳済モジュール - perldoc.jp')
