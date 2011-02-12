@@ -272,12 +272,11 @@ get '/docs{path:/|/.+}' => sub {
                      ->load_file('layout.html')
                      ->replace('#content' => [
                          'directory_index.tt', {
-                            index => [sort @index],
-                            path => $c->req->path_info,
+                            index => [sort {$a->[0] cmp $b->[0]} @index],
                             distvname => $distvname,
                          }
                      ])
-                     ->replace('title' => "@{[ $c->req->path_info ]} 【perldoc.jp】")
+                     ->replace('title' => "$distvname 【perldoc.jp】")
                      ->as_response();
     }
 };
