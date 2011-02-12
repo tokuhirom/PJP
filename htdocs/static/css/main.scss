@@ -129,6 +129,12 @@ body {
         .pod_content_body {
             div.original { display: none; }
 
+            .toc_link {
+                text-decoration: none;
+                font-size: 70%;
+                vertical-align: top;
+            }
+
             pre {
                 background-color: white;
 

@@ -384,6 +384,10 @@ body {
     margin: 0; }
 .PodPage .PodBody .pod_content_body div.original {
   display: none; }
+.PodPage .PodBody .pod_content_body .toc_link {
+  text-decoration: none;
+  font-size: 70%;
+  vertical-align: top; }
 .PodPage .PodBody .pod_content_body pre {
   background-color: white;
   border: 0;

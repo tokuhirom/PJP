@@ -76,7 +76,7 @@ get '/pod/*' => sub {
     }
 
     my ($path, $version) = @$path_info;
-    my ($html, $package, $description) = @{$c->cache->file_cache("pod:8", $path, sub {
+    my ($html, $package, $description) = @{$c->cache->file_cache("pod:17", $path, sub {
         [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
     })};
     my $is_old = $path !~ /delta/ && eval { version->parse($version) } < eval { version->parse("5.8.5") };

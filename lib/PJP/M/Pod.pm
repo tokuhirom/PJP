@@ -106,7 +106,7 @@ sub get_latest_file_path {
         my $id = $_[0]->idify($_[0]{scratch});
         my $text = $_[0]{scratch};
         # あとで翻訳したリソースと置換できるように、印をつけておく
-        $_[0]{'scratch'} = qq{<h$h id="$id">TRANHEADSTART${text}TRANHEADEND</h$h>};
+        $_[0]{'scratch'} = sprintf(qq{<h$h id="$id">TRANHEADSTART%sTRANHEADEND<a href="#$id" class="toc_link">&#x2693;</a></h$h>}, $text);
         $_[0]->emit;
         push @{ $_[0]{'to_index'} }, [$h, $id, $text];
     }
