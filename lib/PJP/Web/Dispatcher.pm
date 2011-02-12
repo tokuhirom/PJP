@@ -80,8 +80,6 @@ PJP::Template->import();
 get '/' => sub {
     my $c = shift;
 
-    my $toc = PJP::M::TOC->render($c);
-    my $toc_func = PJP::M::TOC->render_function($c);
     PJP::Template->new()
                  ->load_file('layout.html')
                  ->replace('#content' => [
