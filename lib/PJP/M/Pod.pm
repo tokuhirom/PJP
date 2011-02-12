@@ -25,7 +25,7 @@ sub parse_name_section {
     $src =~ s/=begin\s+original.+?=end\s+original\n//gsm;
     $src =~ s/=encoding\s+\S+\n//gsm;
     my ($package, $description) = ($src =~ m/
-        ^=head1\s+(?:NAME|名前)[ \t]*\n(?:名前\n)?\n+
+        ^=head1\s+(?:NAME|名前|名前\ \(NAME\))[ \t]*\n(?:名前\n)?\n+
         \s*(\S+)(?:\s*-+\s*([^\n]+))?
     /msx);
     $package =~ s/[A-Z]<(.+?)>/$1/g; # remove tags
@@ -135,7 +135,7 @@ sub get_latest_file_path {
             s/^\s+//; s/\s+$//;      # Strip white space.
             s/^([^a-zA-Z]+)$/pod$1/; # Prepend "pod" if no valid chars.
 #           s/^[^a-zA-Z]+//;         # First char must be a letter.
-            s/([^-a-zA-Z0-9_:.]+)/unpack 'H*', $1/eg; # All other chars must be valid.
+            s/([^-a-zA-Z0-9_:.]+)/unpack('H*', $1)/eg; # All other chars must be valid.
         }
         return $t if $not_unique;
         my $i = '';
