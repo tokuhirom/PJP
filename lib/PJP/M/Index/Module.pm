@@ -3,6 +3,8 @@ use warnings;
 use utf8;
 use 5.10.0;
 
+# perl -Ilib -e 'use PJP::M::Index::Module; use PJP; my $c = PJP->bootstrap; PJP::M::Index::Module->generate_and_save($c)'
+
 package PJP::M::Index::Module;
 use LWP::UserAgent;
 use CPAN::DistnameInfo;
@@ -14,6 +16,7 @@ use File::Find::Rule;
 use version;
 use autodie;
 use PJP::M::Pod;
+use Data::Dumper;
 
 sub slurp {
     if (@_==1) {
@@ -27,13 +30,13 @@ sub slurp {
 
 sub get {
     my ($class, $c) = @_;
+
     my $fname = $class->cache_path($c);
-    if (-f $fname) {
-        my $json = slurp $fname;
-        return JSON::decode_json($json);
-    } else {
-        return $class->generate_and_save($c);
+    unless (-f $fname) {
+        die "Missing '$fname'";
     }
+
+    return do $fname;
 }
 
 sub cache_path {
@@ -45,12 +48,17 @@ sub generate_and_save {
     my ($class, $c) = @_;
 
     my $fname = $class->cache_path($c);
+
     my @data = $class->generate($c);
+    local $Data::Dumper::Terse  = 1;
+    local $Data::Dumper::Indent = 1;
+    local $Data::Dumper::Purity = 1;
+
     open my $fh, '>', $fname;
-    print $fh JSON->new->pretty->canonical->utf8->encode(\@data);
+    print $fh Dumper(\@data);
     close $fh;
 
-    return \@data;
+    return;
 }
 
 sub generate {
