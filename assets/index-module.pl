@@ -366,26 +366,26 @@
       {
         'version' => '0.048',
         'distvname' => 'CPANPLUS-0.048',
-        'latest_version' => '0.90_13',
+        'latest_version' => '0.91',
         'name' => 'CPANPLUS',
         'abstract' => 'Ameliorated interface to the CPAN'
       },
       {
         'version' => '0.044',
         'distvname' => 'CPANPLUS-0.044',
-        'latest_version' => '0.90_13',
+        'latest_version' => '0.91',
         'name' => 'CPANPLUS',
         'abstract' => 'Ameliorated interface to the CPAN'
       },
       {
         'version' => '0.043',
         'distvname' => 'CPANPLUS-0.043',
-        'latest_version' => '0.90_13',
+        'latest_version' => '0.91',
         'name' => 'CPANPLUS',
         'abstract' => 'Ameliorated interface to the CPAN'
       }
     ],
-    'latest_version' => '0.90_13',
+    'latest_version' => '0.91',
     'name' => 'CPANPLUS',
     'abstract' => 'Ameliorated interface to the CPAN'
   },
@@ -1813,11 +1813,12 @@
       {
         'version' => '0.24',
         'distvname' => 'Furl-0.24',
+        'latest_version' => '0.24',
         'name' => 'Furl',
         'abstract' => "\x{8efd}\x{91cf}\x{3067}\x{901f}\x{3044} URL fecher"
       }
     ],
-    'latest_version' => undef,
+    'latest_version' => '0.24',
     'name' => 'Furl',
     'abstract' => "\x{8efd}\x{91cf}\x{3067}\x{901f}\x{3044} URL fecher"
   },
@@ -2567,12 +2568,12 @@
         'distvname' => 'PlRPC-0.2016',
         'latest_version' => '0.2020',
         'name' => 'PlRPC',
-        'abstract' => "PlRPC-Server, Client\x{304a}\x{3088}\x{3073}\x{4e8b}\x{524d}\x{306b}\x{5fc5}\x{8981}\x{306a}\x{3082}\x{306e}\x{3092}\x{30a4}\x{30f3}\x{30b9}\x{30c8}\x{30fc}\x{30eb}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e}\x{30d0}\x{30f3}\x{30c9}\x{30eb}"
+        'abstract' => "PlRPC\x{30b5}\x{30fc}\x{30d0}\x{30fc}\x{3092}\x{66f8}\x{304f}\x{305f}\x{3081}\x{306e}Perl\x{62e1}\x{5f35}"
       }
     ],
     'latest_version' => '0.2020',
     'name' => 'PlRPC',
-    'abstract' => "PlRPC-Server, Client\x{304a}\x{3088}\x{3073}\x{4e8b}\x{524d}\x{306b}\x{5fc5}\x{8981}\x{306a}\x{3082}\x{306e}\x{3092}\x{30a4}\x{30f3}\x{30b9}\x{30c8}\x{30fc}\x{30eb}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e}\x{30d0}\x{30f3}\x{30c9}\x{30eb}"
+    'abstract' => "PlRPC\x{30b5}\x{30fc}\x{30d0}\x{30fc}\x{3092}\x{66f8}\x{304f}\x{305f}\x{3081}\x{306e}Perl\x{62e1}\x{5f35}"
   },
   {
     'versions' => [
@@ -2754,11 +2755,12 @@
       {
         'version' => '0.15',
         'distvname' => 'Test-SharedFork-0.15',
+        'latest_version' => '0.16',
         'name' => 'Test-SharedFork',
         'abstract' => "fork(2) \x{3092}\x{30c6}\x{30b9}\x{30c8}\x{306e}\x{4e2d}\x{3067}\x{3064}\x{304b}\x{3048}\x{308b}\x{3088}\x{3046}\x{306b}\x{3059}\x{308b}"
       }
     ],
-    'latest_version' => undef,
+    'latest_version' => '0.16',
     'name' => 'Test-SharedFork',
     'abstract' => "fork(2) \x{3092}\x{30c6}\x{30b9}\x{30c8}\x{306e}\x{4e2d}\x{3067}\x{3064}\x{304b}\x{3048}\x{308b}\x{3088}\x{3046}\x{306b}\x{3059}\x{308b}"
   },
@@ -3365,12 +3367,12 @@
         'distvname' => 'libnet-1.12',
         'latest_version' => '1.22_01',
         'name' => 'libnet',
-        'abstract' => "\x{30cd}\x{30c3}\x{30c8}\x{30ef}\x{30fc}\x{30af}\x{30fb}\x{30b3}\x{30de}\x{30f3}\x{30c9}\x{3000}\x{30af}\x{30e9}\x{30b9}\x{3000}\x{ff08}FTP\x{3001}SMTP\x{306a}\x{3069}\x{306b}\x{3088}\x{3063}\x{3066}\x{4f7f}\x{308f}\x{308c}\x{307e}\x{3059}\x{ff09}"
+        'abstract' => "FTP\x{30af}\x{30e9}\x{30a4}\x{30a2}\x{30f3}\x{30c8}\x{30fb}\x{30aa}\x{30d6}\x{30b8}\x{30a7}\x{30af}\x{30c8}"
       }
     ],
     'latest_version' => '1.22_01',
     'name' => 'libnet',
-    'abstract' => "\x{30cd}\x{30c3}\x{30c8}\x{30ef}\x{30fc}\x{30af}\x{30fb}\x{30b3}\x{30de}\x{30f3}\x{30c9}\x{3000}\x{30af}\x{30e9}\x{30b9}\x{3000}\x{ff08}FTP\x{3001}SMTP\x{306a}\x{3069}\x{306b}\x{3088}\x{3063}\x{3066}\x{4f7f}\x{308f}\x{308c}\x{307e}\x{3059}\x{ff09}"
+    'abstract' => "FTP\x{30af}\x{30e9}\x{30a4}\x{30a2}\x{30f3}\x{30c8}\x{30fb}\x{30aa}\x{30d6}\x{30b8}\x{30a7}\x{30af}\x{30c8}"
   },
   {
     'versions' => [
