@@ -1,3 +1,5 @@
+[% WRAPPER 'layout.html' %]
+
 <p>
 このサイトは Perl の公式ドキュメントを日本語翻訳したものを表示するサイトです。<br />
 翻訳データは、 Japanized Perl Resources Project からとってきたものです。<br />
@@ -14,3 +16,5 @@
 <ul>
     <li><a href="https://github.com/tokuhirom/PJP/">https://github.com/tokuhirom/PJP/</a></li>
 </ul>
+
+[% END %]

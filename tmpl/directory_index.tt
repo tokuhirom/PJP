@@ -1,3 +1,5 @@
+[% WRAPPER 'layout.html' %]
+
 <div class="DirectoryIndexContainer">
     <p class="about">[% distvname %]の翻訳済ドキュメントの一覧です</p>
 
@@ -12,3 +14,5 @@
     [% END %]
     </table>
 </div>
+
+[% END %]

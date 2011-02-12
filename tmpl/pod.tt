@@ -1,7 +1,9 @@
+[% WRAPPER 'layout.html' %]
+
 <div class="content">
     <div class="PodPage">
         <div class="PodInfo">
-            <div class="PodVersion">Version Here</div>
+            <div class="PodVersion">[% PodVersion %]</div>
         [% IF package %]
             <div class="CheckAtCPAN"><a href="http://search.cpan.org/perldoc?[% package %]">CPANで確認する</a></div>
         [% END %]
@@ -16,3 +18,5 @@
         </div>
     </div>
 </div>
+
+[% END %]

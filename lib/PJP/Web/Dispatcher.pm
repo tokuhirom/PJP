@@ -11,103 +11,32 @@ use PJP::M::Index::Module;
 use PJP::M::Pod;
 use File::stat;
 use Try::Tiny;
-
-{
-    package PJP::Template;
-    use parent qw/Exporter/;
-    use HTML::Zoom;
-    use File::Spec;
-    use File::Spec::Functions qw/catfile catdir/;
-    use Amon2::Declare;
-    use Encode qw/encode_utf8/;
-
-    our @EXPORT = qw/h/;
-
-    sub h { HTML::Zoom->from_html($_[0]) }
-
-    sub new {
-        my $class = shift;
-        my %args = @_==1 ? %{$_[0]} : @_;
-        return bless {%args}, $class;
-    }
-
-    sub load_file {
-        my ($self, $fname) = @_;
-
-        $fname = File::Spec->catfile(c()->base_dir(), "tmpl/$fname") unless -f $fname;
-
-        open my $fh, '<:utf8', $fname or die "Cannot open file '$fname': $!";
-        my $content = do { local $/; <$fh> };
-        $self->{content} = HTML::Zoom->from_html($content);
-        return $self;
-    }
-
-    # ->replace($selector, [$tmpl, \%vars]);
-    # ->replace($selector, $string);
-    sub replace {
-        my ($self, $selector) = (shift, shift);
-        if (ref $_[0] eq 'ARRAY') {
-            my ($tmpl, $vars) = @{ $_[0] };
-            my $html = c()->create_view->render($tmpl, $vars || +{});
-            $self->{content} = $self->{content}->select($selector)->replace_content(HTML::Zoom->from_html($html));
-        } else {
-            my $string = $_[0];
-            $self->{content} = $self->{content}->select($selector)->replace_content($string);
-        }
-        return $self;
-    }
-
-    sub to_html {
-        $_[0]->{content}->to_html();
-    }
-
-    sub as_response {
-        my $self = shift;
-        my $html = encode_utf8($self->to_html());
-        PJP::Web->create_response(
-            200,
-            [
-                'Content-Type'  => 'text/html; charset=utf-8',
-                'Conten-Length' => length($html),
-            ],
-            [$html]
-        );
-    }
-}
-
-PJP::Template->import();
+use Text::Xslate::Util qw/mark_raw/;
 
 get '/' => sub {
     my $c = shift;
 
-    PJP::Template->new()
-                 ->load_file('layout.html')
-                 ->replace('#content' => [
-                    'index.tt'
-                 ])
-                 ->as_response();
+    return $c->render('index.tt');
 };
 
 get '/index/core' => sub {
     my $c = shift;
 
     my $toc = PJP::M::TOC->render($c);
-    PJP::Template->new()
-                 ->load_file('layout.html')
-                 ->replace(title => 'コアドキュメント - perldoc.jp')
-                 ->replace('#content' => h($toc))
-                 ->as_response();
+    return $c->render('index/core.tt', {
+        title => 'コアドキュメント - perldoc.jp',
+        toc   => $toc,
+    });
 };
 
 get '/index/function' => sub {
     my $c = shift;
 
     my $toc = PJP::M::TOC->render_function($c);
-    PJP::Template->new()
-                 ->load_file('layout.html')
-                 ->replace(title => '組み込み関数 - perldoc.jp')
-                 ->replace('#content' => h($toc))
-                 ->as_response();
+    return $c->render('index/function.tt' => {
+        title => '組み込み関数 - perldoc.jp',
+        toc   => $toc,
+    });
 };
 
 # モジュールの目次
@@ -123,11 +52,12 @@ get '/index/module' => sub {
         );
     });
 
-    PJP::Template->new()
-                 ->load_file('layout.html')
-                 ->replace(title => '翻訳済モジュール - perldoc.jp')
-                 ->replace('#content' => h($content))
-                 ->as_response();
+    $c->render(
+        'layout.html' => {
+            title => '翻訳済モジュール - perldoc.jp',
+            content => mark_raw($content),
+        }
+    );
 };
 
 get '/pod/*' => sub {
@@ -137,15 +67,11 @@ get '/pod/*' => sub {
     my $path_info = PJP::M::Pod->get_latest_file_path($splat);
     unless ($path_info) {
         warnf("missing %s, %s", $splat);
-        return PJP::Template->new()
-                    ->load_file('layout.html')
-                    ->replace(title => '翻訳済モジュール - perldoc.jp')
-                    ->replace('#content' => [
-                        'please-translate.tt' => {
-                            name => $splat
-                        }
-                    ])
-                    ->as_response();
+        return $c->render(
+            'please-translate.tt' => {
+                name => $splat
+            },
+        );
     }
 
     my ($path, $version) = @$path_info;
@@ -154,18 +80,13 @@ get '/pod/*' => sub {
     })};
     my $is_old = $path !~ /delta/ && eval { version->parse($version) } < eval { version->parse("5.8.5") };
 
-    PJP::Template->new()
-                 ->load_file('layout.html')
-                 ->replace('#content' => [
-                    'pod.tt', {
-                        is_old    => $is_old,
-                        version   => $version
-                    }
-                 ])
-                 ->replace('title' => "$package - $description 【perldoc.jp】")
-                 ->replace('.PodVersion' => "perl-$version")
-                 ->replace('.PodBody' => h($html))
-                 ->as_response();
+    return $c->render('pod.tt' => {
+        is_old    => $is_old,
+        version   => $version,
+        'title' => "$package - $description 【perldoc.jp】",
+        'PodVersion' => "perl-$version",
+        'body' => $html,
+    });
 };
 
 use Pod::Perldoc;
@@ -182,20 +103,18 @@ get '/func/*' => sub {
             my @dynamic_pod;
             my $perldoc = Pod::Perldoc->new(opt_f => $name);
             $perldoc->search_perlfunc([$path], \@dynamic_pod);
-            PJP::M::Pod->pod2html(\(join("", "=encoding euc-jp\n\n=over 4\n\n", @dynamic_pod, "=back\n")));
+            my $pod = join("", "=encoding euc-jp\n\n=over 4\n\n", @dynamic_pod, "=back\n");
+            PJP::M::Pod->pod2html(\$pod);
         });
 
-        PJP::Template->new()
-                     ->load_file('layout.html')
-                     ->replace('#content' => [
-                         'pod.tt', {
-                             body => $out,
-                             version => $version,
-                         }
-                     ])
-                     ->replace('.PodVersion' => "perl-$version")
-                     ->replace('title' => "$name 【perldoc.jp】")
-                     ->as_response();
+        return $c->render(
+            'pod.tt' => {
+                body => $out,
+                version => $version,
+                title => "$name 【perldoc.jp】",
+                'PodVersion' => "perl-$version",
+            },
+        );
     } catch {
         if (/No documentation for perl function/) {
             my $res = $c->show_error("'$name' は Perl の組み込み関数ではありません。");
@@ -240,20 +159,17 @@ get '/docs{path:/|/.+}' => sub {
             infof("rendering %s", $path);
             [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
         })};
-        return PJP::Template->new()
-                     ->load_file('layout.html')
-                     ->replace('#content' => [
-                         'pod.tt', {
-                            body      => $html,
-                            distvname => $distvname,
-                            subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
-                            package   => $package,
-                            description => $description,
-                         }
-                     ])
-                     ->replace('.PodVersion' => $distvname)
-                     ->replace('title' => "$package - $description 【perldoc.jp】")
-                     ->as_response();
+        return $c->render(
+            'pod.tt' => {
+                body      => $html,
+                distvname => $distvname,
+                subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
+                package   => $package,
+                description => $description,
+                'PodVersion' => $distvname,
+                'title' => "$package - $description 【perldoc.jp】",
+            }
+        );
     } elsif (-f $path) {
         return $c->show_error("未知のファイル形式です: $p->{path}");
     } else {
@@ -275,16 +191,13 @@ get '/docs{path:/|/.+}' => sub {
         my $distvname = $c->req->path_info;
         $distvname =~ s!\/$!!;
         $distvname =~ s!.+\/!!;
-        return PJP::Template->new()
-                     ->load_file('layout.html')
-                     ->replace('#content' => [
-                         'directory_index.tt', {
-                            index => [sort {$a->[0] cmp $b->[0]} @index],
-                            distvname => $distvname,
-                         }
-                     ])
-                     ->replace('title' => "$distvname 【perldoc.jp】")
-                     ->as_response();
+        return $c->render(
+            'directory_index.tt' => {
+                index     => [ sort { $a->[0] cmp $b->[0] } @index ],
+                distvname => $distvname,
+                'title' => "$distvname 【perldoc.jp】",
+            }
+        );
     }
 };
 

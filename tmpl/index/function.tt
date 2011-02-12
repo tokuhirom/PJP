@@ -1,0 +1,3 @@
+[% WRAPPER 'layout.html' %]
+[% toc %]
+[% END %]
