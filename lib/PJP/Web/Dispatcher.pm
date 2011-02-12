@@ -137,7 +137,15 @@ get '/pod/*' => sub {
     my $path_info = PJP::M::Pod->get_latest_file_path($splat);
     unless ($path_info) {
         warnf("missing %s, %s", $splat);
-        return $c->render('please-translate.tt', {name => $splat});
+        PJP::Template->new()
+                    ->load_file('layout.html')
+                    ->replace(title => '翻訳済モジュール - perldoc.jp')
+                    ->replace('#content' => [
+                        'please-translate.tt' => {
+                            name => $splat
+                        }
+                    ])
+                    ->as_response();
     }
 
     my ($path, $version) = @$path_info;

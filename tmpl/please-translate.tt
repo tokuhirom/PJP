@@ -1,5 +1,3 @@
-[% INCLUDE 'include/header.tt' %]
-
 <p>
 なんということでしょう! '[% name %]' はまだ翻訳されていないようです!<br />
 <br />
@@ -16,5 +14,3 @@ Perlコミュニティに貢献するチャンスですよ!
 <p>
 	英語のドキュメントでよければ <a href="http://search.cpan.org/perldoc?[% name %]">search.cpan.org</a> でみることができますよ。
 </p>
-
-[% INCLUDE 'include/footer.tt' %]
