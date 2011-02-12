@@ -122,7 +122,7 @@ sub get_latest_file_path {
             # 仕様については Pod::L10N を見よ
             $_[0]->{translated_toc}->{$_[0]->{last_head_body}} = $1;
         } else {
-            $self->{'scratch'} .= $text;
+            $self->SUPER::handle_text($text);
         }
     }
 
