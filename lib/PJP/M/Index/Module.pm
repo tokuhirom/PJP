@@ -10,7 +10,6 @@ use LWP::UserAgent;
 use CPAN::DistnameInfo;
 use Log::Minimal;
 use URI::Escape qw/uri_escape/;
-use JSON;
 use File::Spec::Functions qw/catfile/;
 use File::Find::Rule;
 use version;
