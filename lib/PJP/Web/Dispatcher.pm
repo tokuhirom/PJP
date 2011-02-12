@@ -219,7 +219,6 @@ get '/docs{path:/|/.+}' => sub {
     my $path;
     for my $dir (@bases) {
         $path = Cwd::realpath(catfile($dir, $p->{path}));
-        infof($path);
         last if -e $path;
     }
     unless ($path) {
