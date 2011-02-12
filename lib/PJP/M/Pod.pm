@@ -74,6 +74,15 @@ sub get_latest_file_path {
     use parent qw/Pod::Simple::XHTML/;
     use URI::Escape qw/uri_escape_utf8/;
 
+    sub new {
+        my $self = shift->SUPER::new(@_);
+        $self->{translated_toc} = +{
+            NAME        => '名前',
+            DESCRIPTION => '概要',
+        };
+        return $self;
+    }
+
     # for google source code prettifier
     sub start_Verbatim {
         $_[0]{'scratch'} = '<pre class="prettyprint lang-perl"><code>';
