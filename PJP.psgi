@@ -18,8 +18,8 @@ builder {
         sub {
             my $env = shift;
             local $Log::Minimal::PRINT = sub {
-                my ($env, $time, $type, $message, $trace, $raw_message) = @_;
-                print STDERR sprintf("%s [%s] [%s] %s at %s\n", $time, $type, $env->{REQUEST_URI}, $message, $trace);
+                my ($time, $type, $message, $trace, $raw_message) = @_;
+                print STDERR sprintf("[%s] [%s] %s at %s by '%s'\n", $type, $env->{REQUEST_URI}, $message, $trace, $env->{HTTP_USER_AGENT});
             };
             $app->($env);
         };
