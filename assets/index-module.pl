@@ -104,12 +104,12 @@
         'distvname' => 'Apache-Filter-1.022',
         'latest_version' => '1.024',
         'name' => 'Apache-Filter',
-        'abstract' => 'Alter the output of previous handlers'
+        'abstract' => "\x{524d}\x{306e}\x{30cf}\x{30f3}\x{30c9}\x{30e9}\x{306e}\x{51fa}\x{529b}\x{3092}\x{5909}\x{66f4}"
       }
     ],
     'latest_version' => '1.024',
     'name' => 'Apache-Filter',
-    'abstract' => 'Alter the output of previous handlers'
+    'abstract' => "\x{524d}\x{306e}\x{30cf}\x{30f3}\x{30c9}\x{30e9}\x{306e}\x{51fa}\x{529b}\x{3092}\x{5909}\x{66f4}"
   },
   {
     'versions' => [
@@ -118,12 +118,12 @@
         'distvname' => 'Apache-JumpByReferer-0.01',
         'latest_version' => '0.01',
         'name' => 'Apache-JumpByReferer',
-        'abstract' => undef
+        'abstract' => "Referer \x{30d8}\x{30c3}\x{30c0}\x{5024}\x{306b}\x{3088}\x{3063}\x{3066}\x{30b8}\x{30e3}\x{30f3}\x{30d7}\x{3084}\x{30d6}\x{30ed}\x{30c3}\x{30af}\x{3092}\x{3059}\x{308b}"
       }
     ],
     'latest_version' => '0.01',
     'name' => 'Apache-JumpByReferer',
-    'abstract' => undef
+    'abstract' => "Referer \x{30d8}\x{30c3}\x{30c0}\x{5024}\x{306b}\x{3088}\x{3063}\x{3066}\x{30b8}\x{30e3}\x{30f3}\x{30d7}\x{3084}\x{30d6}\x{30ed}\x{30c3}\x{30af}\x{3092}\x{3059}\x{308b}"
   },
   {
     'versions' => [
@@ -146,12 +146,12 @@
         'distvname' => 'Apache-SSI-2.17',
         'latest_version' => '2.19',
         'name' => 'Apache-SSI',
-        'abstract' => 'Implement Server Side Includes in Perl'
+        'abstract' => "Perl \x{3067}\x{306e} Server Side Includes \x{306e}\x{5b9f}\x{884c}"
       }
     ],
     'latest_version' => '2.19',
     'name' => 'Apache-SSI',
-    'abstract' => 'Implement Server Side Includes in Perl'
+    'abstract' => "Perl \x{3067}\x{306e} Server Side Includes \x{306e}\x{5b9f}\x{884c}"
   },
   {
     'versions' => [
@@ -236,7 +236,7 @@
         'distvname' => 'CGI-3.49',
         'latest_version' => '3.51',
         'name' => 'CGI',
-        'abstract' => undef
+        'abstract' => "Common Gateway Interface \x{306e}\x{30ea}\x{30af}\x{30a8}\x{30b9}\x{30c8}\x{3068}\x{30ec}\x{30b9}\x{30dd}\x{30f3}\x{30b9}\x{3092}\x{6271}\x{3046}"
       },
       {
         'version' => '2.89',
@@ -248,7 +248,7 @@
     ],
     'latest_version' => '3.51',
     'name' => 'CGI',
-    'abstract' => undef
+    'abstract' => "Common Gateway Interface \x{306e}\x{30ea}\x{30af}\x{30a8}\x{30b9}\x{30c8}\x{3068}\x{30ec}\x{30b9}\x{30dd}\x{30f3}\x{30b9}\x{3092}\x{6271}\x{3046}"
   },
   {
     'versions' => [
@@ -2400,12 +2400,12 @@
         'distvname' => 'Number-Phone-JP-0.03',
         'latest_version' => '0.20110201',
         'name' => 'Number-Phone-JP',
-        'abstract' => 'Validate Japanese phone numbers'
+        'abstract' => "\x{65e5}\x{672c}\x{306e}\x{96fb}\x{8a71}\x{756a}\x{53f7}\x{306e}\x{78ba}\x{8a8d}"
       }
     ],
     'latest_version' => '0.20110201',
     'name' => 'Number-Phone-JP',
-    'abstract' => 'Validate Japanese phone numbers'
+    'abstract' => "\x{65e5}\x{672c}\x{306e}\x{96fb}\x{8a71}\x{756a}\x{53f7}\x{306e}\x{78ba}\x{8a8d}"
   },
   {
     'versions' => [
