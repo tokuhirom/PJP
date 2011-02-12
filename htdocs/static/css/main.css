@@ -291,6 +291,7 @@ caption {
   margin-bottom: 0;
   padding-bottom: 0; }
 
+@import url(../prettify/prettify.css);
 /* ----------------------------------------------- */
 /* sites css                                       */
 /* ----------------------------------------------- */
