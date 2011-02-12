@@ -114,16 +114,19 @@ get '/index/function' => sub {
 get '/index/module' => sub {
     my $c = shift;
 
-    my $index = PJP::M::Index::Module->get($c);
+    my $content = $c->cache->file_cache("index/module", PJP::M::Index::Module->cache_path($c), sub {
+        my $index = PJP::M::Index::Module->get($c);
+        $c->create_view->render(
+            'index/module.tt' => {
+                index => $index,
+            }
+        );
+    });
 
     PJP::Template->new()
                  ->load_file('layout.html')
                  ->replace(title => '翻訳済モジュール - perldoc.jp')
-                 ->replace('#content' => [
-                    'index/module.tt' => {
-                        index => $index,
-                    }
-                 ])
+                 ->replace('#content' => h($content))
                  ->as_response();
 };
 
