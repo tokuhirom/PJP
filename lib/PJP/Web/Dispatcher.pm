@@ -240,7 +240,7 @@ get '/docs{path:/|/.+}' => sub {
             infof("rendering %s", $path);
             [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
         })};
-        PJP::Template->new()
+        return PJP::Template->new()
                      ->load_file('layout.html')
                      ->replace('#content' => [
                          'pod.tt', {
@@ -275,7 +275,7 @@ get '/docs{path:/|/.+}' => sub {
         my $distvname = $c->req->path_info;
         $distvname =~ s!\/$!!;
         $distvname =~ s!.+\/!!;
-        PJP::Template->new()
+        return PJP::Template->new()
                      ->load_file('layout.html')
                      ->replace('#content' => [
                          'directory_index.tt', {
