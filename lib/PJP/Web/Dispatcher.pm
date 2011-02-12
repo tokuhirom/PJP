@@ -122,11 +122,11 @@ get '/index/module' => sub {
     PJP::Template->new()
                  ->load_file('layout.html')
                  ->replace(title => '翻訳済モジュール - perldoc.jp')
-                 ->replace('#content' => h(
-                    $c->create_view->render('index/module.tt', {
+                 ->replace('#content' => [
+                    'index/module.tt' => {
                         index => $index,
-                    })
-                 ))
+                    }
+                 ])
                  ->as_response();
 };
 
