@@ -6,9 +6,11 @@ use PJP::Web;
 use Plack::Builder;
 
 builder {
-    enable 'Plack::Middleware::Static',
-        path => qr{^/static/},
-        root => './htdocs/';
+    if ($ENV{PLACK_MODE} ne 'production') {
+        enable 'Plack::Middleware::Static',
+            path => qr{^(/static/|favicon\.ico|robots\.txt)},
+            root => './htdocs/';
+    }
     enable 'Plack::Middleware::ReverseProxy';
     PJP::Web->to_app();
 };
