@@ -136,13 +136,15 @@ sub _generate {
             File::Find::Rule->file()
                             ->name('*.pod')
                             ->in("$base/$e");
-        if ($pod_file) {
-            infof("parsing %s", $pod_file);
-            my ($name, $desc) = PJP::M::Pod->parse_name_section($pod_file);
-            if ($desc) {
-                infof("Japanese Description: %s, %s", $name, $desc);
-                $row->{abstract} = $desc;
-            }
+
+        # pod file が一個もないものは表示しない(具体的には CPANPLUS)
+        next unless $pod_file;
+
+        infof("parsing %s", $pod_file);
+        my ($name, $desc) = PJP::M::Pod->parse_name_section($pod_file);
+        if ($desc) {
+            infof("Japanese Description: %s, %s", $name, $desc);
+            $row->{abstract} = $desc;
         }
 
         push @mods, $row;
