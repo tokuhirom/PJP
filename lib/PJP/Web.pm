@@ -2,6 +2,8 @@ package PJP::Web;
 use strict;
 use warnings;
 use parent qw/PJP Amon2::Web/;
+use Log::Minimal;
+use Amon2::Declare;
 
 # load all controller classes
 use Module::Find ();
@@ -31,6 +33,8 @@ use Tiffany::Text::Xslate;
             uri_with => sub { Amon2->context()->req->uri_with(@_) },
             uri_for  => sub { Amon2->context()->uri_for(@_) },
         },
+        warn_handler => sub { print STDERR sprintf("[WARN] [%s] %s", c->req->path_info, $_[0]) },
+        die_handler  => sub { print STDERR sprintf("[DIE]  [%s] %s", c->req->path_info, $_[0]) },
         %$view_conf
     });
     sub create_view { $view }
