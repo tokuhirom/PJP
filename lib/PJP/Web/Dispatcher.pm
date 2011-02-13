@@ -128,79 +128,76 @@ get '/func/*' => sub {
     };
 };
 
-use File::Spec::Functions qw/catfile abs2rel/;
+use File::Spec::Functions qw/catfile abs2rel catdir/;
 use Cwd ();
 use File::Find qw/finddepth/;
-get '/docs{path:/|/.+}' => sub {
+get '/docs/modules/{dist:[A-Za-z0-9._-]+}{trailingslash:/?}' => sub {
     my ($c, $p) = @_;
-    my @bases = qw(
-        assets/perldoc.jp/docs/
-        assets/module-pod-jp/docs/
-    );
-    my $path;
-    for my $dir (@bases) {
-        $path = Cwd::realpath(catfile($dir, $p->{path}));
-        last if -e $path;
-    }
-    unless ($path) {
+    my ($path, ) = glob(catdir($c->base_dir(), 'assets', '*', 'docs', 'modules', $p->{dist}));
+    unless (-d $path) {
         warnf("path '%s' is missing", $p->{path});
         return $c->res_404();
     }
 
-    my $container_regex =
-      join( '|', map { quotemeta Cwd::realpath($_) } @bases );
-
-    if ($path =~ m{/CVS(/|$)} || $path !~ m{^($container_regex)} || $p->{path} =~ /\.\./) {
-        warnf("forbidden: %s, %s", $path, $container_regex);
-        return $c->create_response(403, ['Content-Type' => 'text/html; charset=utf-8'], ['forbidden']);
-    }
-
-    if ($path =~ m{/([^/]+)/[^/]+\.pod$}) {
-        my $distvname = $1;
-        my ($html, $package, $description) = @{$c->cache->file_cache("path:19", $path, sub {
-            infof("rendering %s", $path);
-            [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
-        })};
-        return $c->render(
-            'pod.tt' => {
-                body      => $html,
-                distvname => $distvname,
-                subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
-                package   => $package,
-                description => $description,
-                'PodVersion' => $distvname,
-                'title' => "$package - $description 【perldoc.jp】",
-            }
-        );
-    } elsif (-f $path) {
-        return $c->show_error("未知のファイル形式です: $p->{path}");
-    } else {
-        # directory index
-        my @index;
-        finddepth(sub {
-            unless (/^\./ || /^CVS$/ || $File::Find::name =~ m{/CVS/} || -d $_) {
+    # directory index
+    my @index;
+    finddepth(sub {
+        unless (/^\./ || /^CVS$/ || $File::Find::name =~ m{/CVS/} || -d $_) {
+            if (/\.pod$/) {
                 my ($package, $desc) = PJP::M::Pod->parse_name_section($File::Find::name);
                 push @index,
-                  [
+                    [
                     abs2rel( $File::Find::name, $path ),
                     $package || abs2rel($File::Find::name, $path),
                     $desc
-                  ];
+                    ];
             }
-            return 1; # need true value
-        }, $path);
+        }
+        return 1; # need true value
+    }, $path);
 
-        my $distvname = $c->req->path_info;
-        $distvname =~ s!\/$!!;
-        $distvname =~ s!.+\/!!;
-        return $c->render(
-            'directory_index.tt' => {
-                index     => [ sort { $a->[0] cmp $b->[0] } @index ],
-                distvname => $distvname,
-                'title' => "$distvname 【perldoc.jp】",
-            }
-        );
+    my $distvname = $c->req->path_info;
+    $distvname =~ s!\/$!!;
+    $distvname =~ s!.+\/!!;
+    return $c->render(
+        'directory_index.tt' => {
+            index     => [ sort { $a->[0] cmp $b->[0] } @index ],
+            distvname => $distvname,
+            'title' => "$distvname 【perldoc.jp】",
+        }
+    );
+};
+
+get '/docs/modules/{path:.+\.pod}' => sub {
+    my ($c, $p) = @_;
+
+    my ($path, ) = map { Cwd::realpath($_) } glob(catdir($c->base_dir(), 'assets', '*', 'docs', 'modules', $p->{path}));
+    unless (-f $path) {
+        warnf("path '%s' is missing", $p->{path});
+        return $c->res_404();
     }
+
+    return $c->show_403() if $path      =~ m{/CVS(/|$)};
+    return $c->show_403() if $p->{path} =~ m{\.\.};
+    my $base = Cwd::realpath(catdir($c->base_dir(), 'assets'));
+    return $c->show_403() unless $path =~ qr{^\Q$base\E/[a-zA-Z0-9._-]+/docs/modules/([^/]+)/};
+    my $distvname = $1;
+
+    my ($html, $package, $description) = @{$c->cache->file_cache("path:19", $path, sub {
+        infof("rendering %s", $path);
+        [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
+    })};
+    return $c->render(
+        'pod.tt' => {
+            body      => $html,
+            distvname => $distvname,
+            subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
+            package   => $package,
+            description => $description,
+            'PodVersion' => $distvname,
+            'title' => "$package - $description 【perldoc.jp】",
+        }
+    );
 };
 
 get '/perl*' => sub {
