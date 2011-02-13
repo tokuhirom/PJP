@@ -32,8 +32,8 @@ sub get_latest {
 	my $c = c();
     my @versions =
       map  { $_->[0] }
-      sort { $a->[1] <=> $b->[1] }
-      map  { [ $_, version->parse(CPAN::DistnameInfo->new($_)->version) ] } map { @$_ } @{
+      reverse sort { $a->[1] <=> $b->[1] }
+      map  { [ $_, version->parse($_) ] } map { @$_ } @{
         $c->dbh->selectall_arrayref( q{SELECT distvname FROM pod WHERE package=?},
             {}, $package )
       };
@@ -65,7 +65,7 @@ sub generate {
 		for my $file (@files) {
 			infof("Processing: %s", $file);
             my $args = $c->cache->file_cache(
-                "path:20",
+                "path:21",
                 $file,
                 sub {
                     my $html = PJP::M::Pod->pod2html($file);
