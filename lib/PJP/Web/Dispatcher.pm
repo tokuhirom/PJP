@@ -13,6 +13,7 @@ use Text::Xslate::Util qw/mark_raw/;
 use PJP::M::TOC;
 use PJP::M::Index::Module;
 use PJP::M::Pod;
+use PJP::M::PodFile;
 
 get '/' => sub {
     my $c = shift;
@@ -64,31 +65,15 @@ get '/index/module' => sub {
 # 添付 pod の表示
 get '/pod/*' => sub {
     my ($c, $p) = @_;
-    my ($splat) = @{$p->{splat}};
+    my ($package) = @{$p->{splat}};
 
-    my $path_info = PJP::M::Pod->get_latest_file_path($splat);
-    unless ($path_info) {
-        warnf("missing %s, %s", $splat);
-        return $c->render(
-            'please-translate.tt' => {
-                name => $splat
-            },
-        );
-    }
+    my $path = PJP::M::PodFile->get_latest(
+        $package
+    );
+    return $c->res_404() unless $path;
+    # my $is_old = $path !~ /delta/ && eval { version->parse($version) } < eval { version->parse("5.8.5") };
 
-    my ($path, $version) = @$path_info;
-    my ($html, $package, $description) = @{$c->cache->file_cache("pod:17", $path, sub {
-        [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
-    })};
-    my $is_old = $path !~ /delta/ && eval { version->parse($version) } < eval { version->parse("5.8.5") };
-
-    return $c->render('pod.tt' => {
-        is_old    => $is_old,
-        version   => $version,
-        'title' => "$package - $description 【perldoc.jp】",
-        'PodVersion' => "perl-$version",
-        'body' => $html,
-    });
+    return $c->redirect("/docs/$path");
 };
 
 use PJP::M::BuiltinFunction;
@@ -112,76 +97,49 @@ get '/func/*' => sub {
     }
 };
 
-use File::Spec::Functions qw/catfile abs2rel catdir/;
-use Cwd ();
-use File::Find qw/finddepth/;
-get '/docs/modules/{dist:[A-Za-z0-9._-]+}{trailingslash:/?}' => sub {
+get '/docs/modules/{distvname:[A-Za-z0-9._-]+}{trailingslash:/?}' => sub {
     my ($c, $p) = @_;
-    my ($path, ) = glob(catdir($c->base_dir(), 'assets', '*', 'docs', 'modules', $p->{dist}));
-    unless (-d $path) {
-        warnf("path '%s' is missing", $p->{path});
-        return $c->res_404();
-    }
+    my $distvname = $p->{distvname};
 
-    # directory index
-    my @index;
-    finddepth(sub {
-        unless (/^\./ || /^CVS$/ || $File::Find::name =~ m{/CVS/} || -d $_) {
-            if (/\.pod$/) {
-                my ($package, $desc) = PJP::M::Pod->parse_name_section($File::Find::name);
-                push @index,
-                    [
-                    abs2rel( $File::Find::name, $path ),
-                    $package || abs2rel($File::Find::name, $path),
-                    $desc
-                    ];
-            }
-        }
-        return 1; # need true value
-    }, $path);
+    my @rows = PJP::M::PodFile->search_by_distvname($distvname);
+    return $c->res_404() unless @rows;
 
-    my $distvname = $c->req->path_info;
-    $distvname =~ s!\/$!!;
-    $distvname =~ s!.+\/!!;
     return $c->render(
         'directory_index.tt' => {
-            index     => [ sort { $a->[0] cmp $b->[0] } @index ],
+            index     => \@rows,
             distvname => $distvname,
-            'title' => "$distvname 【perldoc.jp】",
+            'title'   => "$distvname 【perldoc.jp】",
         }
     );
 };
 
-get '/docs/modules/{path:.+\.pod}' => sub {
+get '/docs/{path:(modules|perl)/.+\.pod}' => sub {
     my ($c, $p) = @_;
 
-    my ($path, ) = map { Cwd::realpath($_) } glob(catdir($c->base_dir(), 'assets', '*', 'docs', 'modules', $p->{path}));
-    unless (-f $path) {
-        warnf("path '%s' is missing", $p->{path});
+    my $pod = PJP::M::PodFile->retrieve($p->{path});
+    if ($pod) {
+        my @others = do {
+            if ($pod->{package}) {
+                grep { $_->{distvname} ne $pod->{distvname} }
+                  PJP::M::PodFile->other_versions( $pod->{package} );
+            } else {
+                ();
+            }
+        };
+        return $c->render(
+            'pod.tt' => {
+                body         => mark_raw( $pod->{html} ),
+                others       => \@others,
+                distvname    => $pod->{distvname},
+                package      => $pod->{package},
+                description  => $pod->{description},
+                'PodVersion' => $pod->{distvname},
+                'title' => "$pod->{package} - $pod->{description} 【perldoc.jp】",
+            }
+        );
+    } else {
         return $c->res_404();
     }
-
-    return $c->show_403() if $path      =~ m{/CVS(/|$)};
-    return $c->show_403() if $p->{path} =~ m{\.\.};
-    my $base = Cwd::realpath(catdir($c->base_dir(), 'assets'));
-    return $c->show_403() unless $path =~ qr{^\Q$base\E/[a-zA-Z0-9._-]+/docs/modules/([^/]+)/};
-    my $distvname = $1;
-
-    my ($html, $package, $description) = @{$c->cache->file_cache("path:19", $path, sub {
-        infof("rendering %s", $path);
-        [PJP::M::Pod->pod2html($path), PJP::M::Pod->parse_name_section($path)];
-    })};
-    return $c->render(
-        'pod.tt' => {
-            body      => $html,
-            distvname => $distvname,
-            subtitle  => do { ( my $subtitle = $path ) =~ s!/modules/!!; $subtitle },
-            package   => $package,
-            description => $description,
-            'PodVersion' => $distvname,
-            'title' => "$package - $description 【perldoc.jp】",
-        }
-    );
 };
 
 get '/perl*' => sub {

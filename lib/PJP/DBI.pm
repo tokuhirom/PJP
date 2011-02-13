@@ -8,8 +8,11 @@ use parent qw/DBI/;
 
 sub connect {
 	my ($self, $dsn, $user, $pass, $attr) = @_;
-    $attr->{RaiseError}          = 1;
-    $attr->{AutoInactiveDestroy} = 1;
+    $attr->{RaiseError}          //= 1;
+    $attr->{AutoInactiveDestroy} //= 1;
+	if ($dsn =~ /^dbi:SQLite:/) {
+		$attr->{sqlite_unicode} //= 1;
+	}
 	return $self->SUPER::connect($dsn, $user, $pass, $attr);
 }
 
@@ -39,6 +42,14 @@ sub do_i {
 sub insert {
     my ($self, @args) = @_;
     my ($sql, @bind) = $self->sql_maker->insert(@args);
+    $self->do($sql, {}, @bind);
+}
+
+sub replace {
+    my ($self, $table, $vars, $attr) = @_;
+	$attr //= {};
+	$attr->{prefix} = 'REPLACE ';
+    my ($sql, @bind) = $self->sql_maker->insert($table, $vars, $attr);
     $self->do($sql, {}, @bind);
 }
 

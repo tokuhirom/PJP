@@ -376,6 +376,8 @@ body {
   float: right;
   text-align: right;
   overflow: visible; }
+  .PodPage .PodInfo .OtherVersions {
+    margin-top: 20px; }
 .PodPage .PodBody ul.pod_toc {
   list-style: none;
   margin-bottom: 10px; }
