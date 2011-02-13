@@ -7,6 +7,14 @@
         [% IF package %]
             <div class="CheckAtCPAN"><a href="http://search.cpan.org/perldoc?[% package %]">CPANで確認する</a></div>
         [% END %]
+        [% IF others.size() > 0 %]
+            <div class="OtherVersions">
+            Other versions:<br />
+            [% FOR v IN others %]
+                <a href="/docs/[% v.path %]">[% v.distvname %]</a><br />
+            [% END %]
+            </div>
+        [% END %]
         </div>
 
         [% IF is_old %]

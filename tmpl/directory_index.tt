@@ -8,8 +8,8 @@
     <table>
     [% FOR v IN index %]
         <tr>
-            <td><a href="./[% v.0 %]">[% v.1 %]</a></td>
-            <td>[% v.2 %]</td>
+            <td><a href="/docs/[% v.path %]">[% v.package || v.path %]</a></td>
+            <td>[% v.description %]</td>
         </tr>
     [% END %]
     </table>

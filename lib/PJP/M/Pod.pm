@@ -135,7 +135,7 @@ sub get_latest_file_path {
             s/^\s+//; s/\s+$//;      # Strip white space.
             s/^([^a-zA-Z]+)$/pod$1/; # Prepend "pod" if no valid chars.
 #           s/^[^a-zA-Z]+//;         # First char must be a letter.
-            s/([^-a-zA-Z0-9_:.]+)/unpack('H*', $1)/eg; # All other chars must be valid.
+            s/([^-a-zA-Z0-9_:.]+)/unpack("U*", $1)/eg; # All other chars must be valid.
         }
         return $t if $not_unique;
         my $i = '';
