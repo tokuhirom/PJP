@@ -2,6 +2,22 @@
 @import "typography";
 @import "../prettify/prettify.css";
 
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    display: block; 
+    height: 0; 
+    visibility: hidden; 
+    content: "\0020"; 
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
 /* ----------------------------------------------- */
 /* sites css                                       */
 /* ----------------------------------------------- */
@@ -199,13 +215,13 @@ body {
 
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
-    body { margin: 1.5em; }
     #Container {
         width: 100%;
         line-height: 1.5em;
         word-wrap:break-word;
     }
     #content {
+        margin-left: 2px;
         .about { font-size: normal; margin-bottom: 20px; }
     }
     pre { overflow:auto; }
@@ -218,6 +234,14 @@ body {
     .IndexModuleContent {
         .old   { display: block; }
         .fresh { display: block; }
+    }
+    .PodPage {
+        .PodInfo {
+            display: none;
+        }
+        .PodBody {
+            clear: both;
+        }
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 110%;

@@ -452,17 +452,16 @@ body {
 
 /* media queries for iPhone */
 @media screen and (max-device-width: 480px) {
-  body {
-    margin: 1.5em; }
-
   #Container {
     width: 100%;
     line-height: 1.5em;
     word-wrap: break-word; }
 
-  #content .about {
-    font-size: normal;
-    margin-bottom: 20px; }
+  #content {
+    margin-left: 2px; }
+    #content .about {
+      font-size: normal;
+      margin-bottom: 20px; }
 
   pre {
     overflow: auto; }
@@ -478,6 +477,11 @@ body {
     display: block; }
   .IndexModuleContent .fresh {
     display: block; }
+
+  .PodPage .PodInfo {
+    display: none; }
+  .PodPage .PodBody {
+    clear: both; }
 
   h1, h2, h3, h4, h5, h6 {
     font-size: 110%; } }
