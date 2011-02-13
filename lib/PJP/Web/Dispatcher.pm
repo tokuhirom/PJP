@@ -91,42 +91,25 @@ get '/pod/*' => sub {
     });
 };
 
-use Pod::Perldoc;
+use PJP::M::BuiltinFunction;
 get '/func/*' => sub {
     my ($c, $p) = @_;
     my ($name) = @{$p->{splat}};
 
-    my $path_info = PJP::M::Pod->get_latest_file_path('perlfunc');
-    my ($path, $version) = @$path_info;
-
-    try {
-        my $out = $c->cache->file_cache("func:$name:5", $path, sub {
-            infof("rendering %s from %s", $name, $path);
-            my @dynamic_pod;
-            my $perldoc = Pod::Perldoc->new(opt_f => $name);
-            $perldoc->search_perlfunc([$path], \@dynamic_pod);
-            my $pod = join("", "=encoding euc-jp\n\n=over 4\n\n", @dynamic_pod, "=back\n");
-            $pod =~ s!L</([a-z]+)>!L<$1|http://perldoc.jp/func/$1>!g;
-            PJP::M::Pod->pod2html(\$pod);
-        });
-
+    my ($version, $html) = PJP::M::BuiltinFunction->retrieve($name);
+    if ($version && $html) {
         return $c->render(
             'pod.tt' => {
-                body => $out,
-                version => $version,
-                title => "$name 【perldoc.jp】",
+                body         => mark_raw($html),
+                title        => "$name 【perldoc.jp】",
                 'PodVersion' => "perl-$version",
             },
         );
-    } catch {
-        if (/No documentation for perl function/) {
-            my $res = $c->show_error("'$name' は Perl の組み込み関数ではありません。");
-            $res->code(404);
-            return $res;
-        } else {
-            die $_;
-        }
-    };
+    } else {
+        my $res = $c->show_error("'$name' は Perl の組み込み関数ではありません。");
+        $res->code(404);
+        return $res;
+    }
 };
 
 use File::Spec::Functions qw/catfile abs2rel catdir/;

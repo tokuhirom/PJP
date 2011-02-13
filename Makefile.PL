@@ -15,6 +15,9 @@ requires 'CPAN::DistnameInfo';
 requires 'LWP::UserAgent';
 requires 'URI::Escape';
 requires 'Try::Tiny';
+requires 'DBD::SQLite';
+requires 'SQL::Maker';
+requires 'DBIx::TransactionManager';
 
 test_requires 'Test::Requires';
 

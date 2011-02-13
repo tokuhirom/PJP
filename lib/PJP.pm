@@ -12,4 +12,11 @@ use PJP::Cache;
 my $cache = PJP::Cache->new();
 sub cache { $cache }
 
+use PJP::DBI;
+sub dbh {
+	my $c = shift;
+	my $conf = $c->config->{DB} // die "Missing mandatory configuraion parameter: DB";
+	return PJP::DBI->connect(@$conf);
+}
+
 1;
