@@ -4,14 +4,15 @@ use warnings;
 use utf8;
 
 use Amon2::Web::Dispatcher::Lite;
-use Pod::Simple::XHTML;
+
 use Log::Minimal;
-use PJP::M::TOC;
-use PJP::M::Index::Module;
-use PJP::M::Pod;
 use File::stat;
 use Try::Tiny;
 use Text::Xslate::Util qw/mark_raw/;
+
+use PJP::M::TOC;
+use PJP::M::Index::Module;
+use PJP::M::Pod;
 
 get '/' => sub {
     my $c = shift;
