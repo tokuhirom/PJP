@@ -33,7 +33,7 @@ sub get_latest {
     my @versions =
       map  { $_->[0] }
       reverse sort { $a->[1] <=> $b->[1] }
-      map  { [ $_, version->parse($_) ] } map { @$_ } @{
+      map  { [ $_, eval { version->parse($_) } || 0 ] } map { @$_ } @{
         $c->dbh->selectall_arrayref( q{SELECT distvname FROM pod WHERE package=?},
             {}, $package )
       };
