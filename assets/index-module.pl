@@ -364,34 +364,6 @@
   {
     'versions' => [
       {
-        'version' => '0.048',
-        'distvname' => 'CPANPLUS-0.048',
-        'latest_version' => '0.91',
-        'name' => 'CPANPLUS',
-        'abstract' => 'Ameliorated interface to the CPAN'
-      },
-      {
-        'version' => '0.044',
-        'distvname' => 'CPANPLUS-0.044',
-        'latest_version' => '0.91',
-        'name' => 'CPANPLUS',
-        'abstract' => 'Ameliorated interface to the CPAN'
-      },
-      {
-        'version' => '0.043',
-        'distvname' => 'CPANPLUS-0.043',
-        'latest_version' => '0.91',
-        'name' => 'CPANPLUS',
-        'abstract' => 'Ameliorated interface to the CPAN'
-      }
-    ],
-    'latest_version' => '0.91',
-    'name' => 'CPANPLUS',
-    'abstract' => 'Ameliorated interface to the CPAN'
-  },
-  {
-    'versions' => [
-      {
         'version' => '1.01',
         'distvname' => 'Cache-Cache-1.01',
         'latest_version' => '1.06',
