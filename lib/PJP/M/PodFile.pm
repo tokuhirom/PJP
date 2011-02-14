@@ -8,6 +8,7 @@ use File::Spec::Functions qw/abs2rel catfile catdir/;
 use File::Find::Rule;
 use PJP::M::Pod;
 use Log::Minimal;
+use File::Basename;
 
 sub retrieve {
 	my ($class, $path) = @_;
@@ -58,6 +59,8 @@ sub generate {
 	$c->dbh->do(q{DELETE FROM pod});
     my @bases = glob(catdir($c->base_dir(), 'assets', '*', 'docs'));
 	for my $base (@bases) {
+		my $repository = (File::Spec->splitdir($base))[-2];
+
 		my @files = File::Find::Rule->file()
 									->name('*.pod')
 									->in($base);
@@ -90,7 +93,10 @@ sub generate {
                 }
             );
             $c->dbh->replace(
-                pod => $args
+                pod => +{
+					repository => $repository,
+					%$args
+				},
             );
 		}
 	}
