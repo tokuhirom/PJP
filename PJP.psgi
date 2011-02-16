@@ -7,11 +7,9 @@ use Plack::Builder;
 use Log::Minimal;
 
 builder {
-    if ($ENV{PLACK_MODE} ne 'production') {
-        enable 'Plack::Middleware::Static',
-            path => qr{^(/static/|favicon\.ico|robots\.txt)},
-            root => './htdocs/';
-    }
+    enable 'Plack::Middleware::Static',
+        path => qr{^(/static/|favicon\.ico|robots\.txt)},
+        root => './htdocs/';
     enable 'Plack::Middleware::ReverseProxy';
     enable sub {
         my $app = shift;
