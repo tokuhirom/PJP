@@ -16,6 +16,9 @@
             </div>
         [% END %]
             <div class="Source"><a href="[% c().req.uri() %].pod">Source</a></div>
+            [% IF repository=="module-pod-jp" %]
+            <div class="Edit"><a href="https://github.com/perldoc-jp/module-pod-jp/blob/master/docs/[% path %]">edit on github</a></div>
+            [% END %]
         </div>
 
         [% IF is_old %]

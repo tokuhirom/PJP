@@ -153,7 +153,10 @@ get '/docs/{path:(modules|perl)/.+\.pod}' => sub {
                 package      => $pod->{package},
                 description  => $pod->{description},
                 'PodVersion' => $pod->{distvname},
-                'title' => "$pod->{package} - $pod->{description} 【perldoc.jp】",
+                'title' =>
+                  "$pod->{package} - $pod->{description} 【perldoc.jp】",
+                repository => $pod->{repository},
+                path       => $pod->{path},
             }
         );
     } else {
