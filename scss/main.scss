@@ -136,7 +136,14 @@ body {
         }
     }
 
+    .BreadList {
+        margin-bottom: 10px;
+        float: left;
+    }
+
     .PodBody {
+        clear: left;
+
         ul.pod_toc {
             list-style: none;
             margin-bottom: 10px;
