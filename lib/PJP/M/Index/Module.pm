@@ -93,6 +93,7 @@ sub generate {
             +{
                 name     => $_,
                 abstract => $module2versions{$_}->[0]->{abstract},
+                repository => $module2versions{$_}->[0]->{repository},
                 latest_version => $module2versions{$_}->[0]->{latest_version},
                 versions => $module2versions{$_}
               }
@@ -105,6 +106,13 @@ sub generate {
 sub _generate {
     my ($class, $c, $base) = @_;
     state $ua = LWP::UserAgent->new(agent => 'PJP', timeout => 1);
+
+    my $repository = do {
+        local $_ = $base;
+        s!assets/!!;
+        s!/.+!!;
+        $_;
+    };
 
     my @mods;
     opendir(my $dh, $base);
@@ -122,7 +130,7 @@ sub _generate {
                 infof("api response: %s", ddf($data));
                 $data;
             } else {
-                warnf("Cannot get latest version info from frepan API: %s", $res->status_line);
+                warnf("Cannot get latest version info from frepan API: %s, %s", $res->status_line, $res->content);
                 undef;
             }
         });
@@ -146,6 +154,8 @@ sub _generate {
             infof("Japanese Description: %s, %s", $name, $desc);
             $row->{abstract} = $desc;
         }
+
+        $row->{repository} = $repository;
 
         push @mods, $row;
     }
