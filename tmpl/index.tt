@@ -2,15 +2,24 @@
 
 <p>
 このサイトは Perl の公式ドキュメントを日本語翻訳したものを表示するサイトです。<br />
-翻訳データは、 Japanized Perl Resources Project からとってきたものです。<br />
+<br /><br />
+翻訳データは、 Japanized Perl Resources Project(通称JPRP) からとってきたものが主です。<br />
+<br />
+現在、perldoc.jp の運営は tokuhirom 個人がひきついでおこなっています。
 </p>
 
-<h2>翻訳に参加したいな、とおもったら</h2>
+<h2>JPRP のサイト</h2>
 <ul>
     <li><a href="http://sourceforge.jp/projects/perldocjp/">Japanized Perl Resources Project(sf.jp のプロジェクトページ)</a></li>
     <li><a href="http://perldocjp.sourceforge.jp/">Japanized Perl Resources Project</a></li>
-    <li><a href="https://github.com/perldoc-jp/module-pod-jp">git がいいという場合はこちら</a></li>
 </ul>
+
+<h2>git のレポジトリ</h2>
+<p>
+    git がいいという場合は<a href="https://github.com/perldoc-jp/module-pod-jp">github のレポジトリ</a>においてください。<br />
+    <br />
+    このリポジトリは、JPRP とは関係がありません。こちらの方がよりゆるい管理態勢になっています。
+</p>
 
 <h2>このサイトをいじりたいな、とおもったら</h2>
 <ul>
