@@ -10,6 +10,22 @@ use PJP::M::Pod;
 use Log::Minimal;
 use File::Basename;
 
+sub slurp {
+    my ($class, $path) = @_;
+    my $c = c();
+
+    # インデックスされてるか確認する
+    infof("PATH: %s", $path);
+    my ($cnt) = $c->dbh->selectrow_array(q{SELECT COUNT(*) FROM pod WHERE path=?}, {}, $path);
+    return undef unless $cnt;
+
+    my ($fullpath) = glob(catdir($c->base_dir(), 'assets', '*', 'docs', $path));
+    return undef unless -f $fullpath;
+
+    open my $fh, '<', $fullpath or die "Cannot open file: $fullpath";
+    return scalar(do { local $/; <$fh> });
+}
+
 sub retrieve {
 	my ($class, $path) = @_;
 

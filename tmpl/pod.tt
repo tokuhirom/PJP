@@ -15,6 +15,7 @@
             [% END %]
             </div>
         [% END %]
+            <div class="Source"><a href="[% c().req.uri() %].pod">Source</a></div>
         </div>
 
         [% IF is_old %]

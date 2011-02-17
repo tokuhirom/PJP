@@ -113,6 +113,25 @@ get '/docs/modules/{distvname:[A-Za-z0-9._-]+}{trailingslash:/?}' => sub {
     );
 };
 
+# .pod.pod の場合は生のソースを表示する
+get '/docs/{path:(modules|perl)/.+\.pod}.pod' => sub {
+    my ($c, $p) = @_;
+
+    my $content = PJP::M::PodFile->slurp($p->{path}) // return $c->res_404();
+
+    my ($charset) = ($content =~ /=encoding\s+(euc-jp|utf-?8)/);
+        $charset //= 'utf-8';
+
+    $c->create_response(
+        200,
+        [
+            'Content-Type'           => "text/plain; charset=$charset",
+            'Content-Length'         => length($content),
+        ],
+        [$content]
+    );
+};
+
 get '/docs/{path:(modules|perl)/.+\.pod}' => sub {
     my ($c, $p) = @_;
 
