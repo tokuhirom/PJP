@@ -379,65 +379,60 @@ body {
   overflow: visible; }
   .PodPage .PodInfo .OtherVersions {
     margin-top: 20px; }
-.PodPage .BreadList {
-  margin-bottom: 10px;
-  float: left; }
-.PodPage .PodBody {
-  clear: left; }
-  .PodPage .PodBody ul.pod_toc {
+.PodPage .PodBody ul.pod_toc {
+  list-style: none;
+  margin-bottom: 10px; }
+  .PodPage .PodBody ul.pod_toc ul {
     list-style: none;
-    margin-bottom: 10px; }
-    .PodPage .PodBody ul.pod_toc ul {
-      list-style: none;
-      margin: 0; }
-  .PodPage .PodBody .pod_content_body div.original {
-    display: none; }
-  .PodPage .PodBody .pod_content_body .toc_link {
-    text-decoration: none;
-    font-size: 70%;
-    vertical-align: top; }
-  .PodPage .PodBody .pod_content_body pre {
-    background-color: white;
-    border: 0;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    padding: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px; }
-  .PodPage .PodBody .pod_content_body h1 {
-    font-size: 2em;
-    line-height: 1;
-    margin-bottom: 0.5em; }
-  .PodPage .PodBody .pod_content_body h2 {
-    font-size: 1.8em;
-    margin-bottom: 0.75em; }
-  .PodPage .PodBody .pod_content_body h3 {
-    font-size: 1.5em;
-    line-height: 1;
-    margin-bottom: 1em; }
-  .PodPage .PodBody .pod_content_body h4 {
-    font-size: 1.2em;
-    line-height: 1.25;
-    margin-bottom: 1.25em; }
-  .PodPage .PodBody .pod_content_body h5 {
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 1.5em; }
-  .PodPage .PodBody .pod_content_body h6 {
-    font-size: 1em;
-    font-weight: bold; }
-  .PodPage .PodBody .pod_content_body p {
-    margin-left: 10px; }
-  .PodPage .PodBody .pod_content_body ul {
-    margin-left: 20px; }
-  .PodPage .PodBody .pod_content_body dl {
-    margin-left: 30px; }
-  .PodPage .PodBody .pod_content_body dt {
-    margin-top: 10px; }
-  .PodPage .PodBody .pod_content_body dd {
-    margin-left: 30px; }
+    margin: 0; }
+.PodPage .PodBody .pod_content_body div.original {
+  display: none; }
+.PodPage .PodBody .pod_content_body .toc_link {
+  text-decoration: none;
+  font-size: 70%;
+  vertical-align: top; }
+.PodPage .PodBody .pod_content_body pre {
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+.PodPage .PodBody .pod_content_body h1 {
+  font-size: 2em;
+  line-height: 1;
+  margin-bottom: 0.5em; }
+.PodPage .PodBody .pod_content_body h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.75em; }
+.PodPage .PodBody .pod_content_body h3 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em; }
+.PodPage .PodBody .pod_content_body h4 {
+  font-size: 1.2em;
+  line-height: 1.25;
+  margin-bottom: 1.25em; }
+.PodPage .PodBody .pod_content_body h5 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1.5em; }
+.PodPage .PodBody .pod_content_body h6 {
+  font-size: 1em;
+  font-weight: bold; }
+.PodPage .PodBody .pod_content_body p {
+  margin-left: 10px; }
+.PodPage .PodBody .pod_content_body ul {
+  margin-left: 20px; }
+.PodPage .PodBody .pod_content_body dl {
+  margin-left: 30px; }
+.PodPage .PodBody .pod_content_body dt {
+  margin-top: 10px; }
+.PodPage .PodBody .pod_content_body dd {
+  margin-left: 30px; }
 
 .DirectoryIndexContainer h1 {
   font-size: 120%;

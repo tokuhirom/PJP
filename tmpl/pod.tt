@@ -2,6 +2,12 @@
 
 <div class="content">
     <div class="PodPage">
+        [% IF distvname AND !package.match('^perl') %]
+        <div class="BreadList">
+            <a href="/docs/modules/[% distvname %]">[% distvname %]</a> &gt; [% package %]
+        </div>
+        [% END %]
+
         <div class="PodInfo">
             <div class="PodVersion">[% PodVersion %]</div>
         [% IF package %]
