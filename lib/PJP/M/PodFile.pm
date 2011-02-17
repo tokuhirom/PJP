@@ -15,7 +15,6 @@ sub slurp {
     my $c = c();
 
     # インデックスされてるか確認する
-    infof("PATH: %s", $path);
     my ($cnt) = $c->dbh->selectrow_array(q{SELECT COUNT(*) FROM pod WHERE path=?}, {}, $path);
     return undef unless $cnt;
 
