@@ -9,6 +9,8 @@ use Amon2::Declare;
 
 # 5.12.3 時点でのもの
 our @FUNCTIONS = qw(
+  -r -w -x -o -R -W -X -O -e -z -s -f -d -l -p
+  -S -b -c -t -u -g -k -T -B -M -A -C
   abs accept alarm atan2 bind binmode bless break caller chdir chmod chomp chop chown chr chroot close closedir connect
   continue cos crypt dbmclose dbmopen defined delete die do dump each endgrent endhostent endnetent endprotoent endpwent
   endservent eof eval getprotoent getpwent getpwnam getpwuid getservbyname getservbyport getservent
