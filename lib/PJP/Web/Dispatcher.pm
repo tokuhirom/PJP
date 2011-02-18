@@ -171,6 +171,8 @@ get '/perl*' => sub {
 };
 
 my $re = join('|', qw(
+  -r -w -x -o -R -W -X -O -e -z -s -f -d -l -p
+  -S -b -c -t -u -g -k -T -B -M -A -C
   abs accept alarm atan bind binmode bless break caller chdir chmod chomp chop chown chr chroot close closedir connect
   continue cos crypt dbmclose dbmopen defined delete die do dump each endgrent endhostent endnetent endprotoent endpwent
   endservent eof eval bynumber getprotoent getpwent getpwnam getpwuid getservbyname getservbyport getservent
