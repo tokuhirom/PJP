@@ -45,7 +45,7 @@ a {
 }
 
 body {
-    background: whiteSmoke;
+    background: white;
 }
 
 #Container {
@@ -156,6 +156,14 @@ body {
 
         .pod_content_body {
             div.original { display: none; }
+
+            a.toc_link {
+                color: white;
+
+                &:hover {
+                    color:#eccc01;
+                }
+            }
 
             .toc_link {
                 text-decoration: none;
