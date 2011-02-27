@@ -306,7 +306,7 @@ a:hover {
   color: #036; }
 
 body {
-  background: whiteSmoke; }
+  background: white; }
 
 #Container {
   margin: 0 auto;
@@ -392,6 +392,10 @@ body {
       margin: 0; }
   .PodPage .PodBody .pod_content_body div.original {
     display: none; }
+  .PodPage .PodBody .pod_content_body a.toc_link {
+    color: white; }
+    .PodPage .PodBody .pod_content_body a.toc_link:hover {
+      color: #eccc01; }
   .PodPage .PodBody .pod_content_body .toc_link {
     text-decoration: none;
     font-size: 70%;
