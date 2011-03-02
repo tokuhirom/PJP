@@ -6,6 +6,7 @@
     <title>[% title || 'perldoc.jp' %]</title>
     <meta http-equiv="Content-Style-Type" content="text/css" />  
     <meta http-equiv="Content-Script-Type" content="text/javascript" />  
+    <link href="/static/css/screen.css?v=22" rel="stylesheet" type="text/css" media="screen" />
     <link href="/static/css/main.css?v=22" rel="stylesheet" type="text/css" media="screen" />
     <link rel="stylesheet" href="/static/css/print.css" type="text/css" media="print" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -25,11 +26,11 @@
     </script>
 </head>
 <body onload="prettyPrint();return true;">
-    <div id="Container">
-        <div class="header">
+    <div class="container">
+        <div class="header span-24 last">
             <a class="SiteLogo" href="/">perldoc.jp</a>
         </div>
-        <div class="nav">
+        <div class="nav span-24 last">
             <ul>
             <li><a href="/">トップ</a></li>
             <li><a href="/index/core">本体</a></li>
@@ -49,10 +50,10 @@
             </form>
             <!-- SiteSearch Google -->
         </div>
-        <div id="main">
+        <div id="main" class="span-24 last">
             <div id="content">[% content %]</div>
         </div>
-        <div class="footer">
+        <div class="footer span-24 last">
             Powered by Amon2, <a href="http://sourceforge.jp/projects/perldocjp/">perldocjp project</a>
         </div>
     </div>
