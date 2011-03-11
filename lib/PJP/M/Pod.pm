@@ -25,10 +25,13 @@ sub parse_name_section {
     $src =~ s/=begin\s+original.+?=end\s+original\n//gsm;
     $src =~ s/X<[^>]+>//g;
     $src =~ s/=encoding\s+\S+\n//gsm;
+    $src =~ s/\r\n/\n/g;
+
     my ($package, $description) = ($src =~ m/
-        ^=head1\s+(?:NAME|名前|名前\ \(NAME\))[ \t]*\n(?:名前\n)?\n+
+        ^=head1\s+(?:NAME|名前|名前\ \(NAME\))[ \t]*\n(?:名前\n)?\s*\n+\s*
         \s*(\S+)(?:\s*-+\s*([^\n]+))?
     /msx);
+
     $package     =~ s/[A-Z]<(.+?)>/$1/g if $package;        # remove tags
     $description =~ s/[A-Z]<(.+?)>/$1/g if $description;    # remove tags
     return ($package, $description || '');

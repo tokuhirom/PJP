@@ -1,5 +1,4 @@
 /perl.pod/1.5/Wed Jan 26 02:21:40 2011/-ko/
-/perl582delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl583delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl584delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl585delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
@@ -7,7 +6,6 @@
 /perl587delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perl588delta.pod/1.2/Wed Jan 26 06:23:27 2011/-ko/
 /perl58delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
-/perl595delta.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perlapi.pod/1.9/Wed Jan 26 02:21:40 2011/-ko/
 /perlapio.pod/1.7/Wed Jan 26 02:21:40 2011//
 /perlboot.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
@@ -18,7 +16,6 @@
 /perldebtut.pod/1.5/Wed Jan 26 02:21:40 2011/-ko/
 /perldebug.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perldiag.pod/1.13/Wed Jan 26 02:21:40 2011/-ko/
-/perldsc.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perlembed.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
 /perlfaq.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
 /perlfaq1.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
@@ -53,7 +50,6 @@
 /perlsec.pod/1.4/Wed Jan 26 02:21:40 2011/-ko/
 /perlstyle.pod/1.2/Wed Jan 26 02:21:40 2011/-ko/
 /perlsub.pod/1.8/Wed Jan 26 02:21:40 2011/-ko/
-/perlsyn.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
 /perlthrtut.pod/1.4/Wed Jan 26 02:21:40 2011/-ko/
 /perltie.pod/1.2/Wed Jan 26 02:21:40 2011/-ko/
 /perltooc.pod/1.4/Wed Jan 26 02:21:40 2011/-ko/
@@ -63,11 +59,16 @@
 /perlunifaq.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
 /perluniintro.pod/1.6/Wed Jan 26 02:21:40 2011/-ko/
 /perlunitut.pod/1.2/Wed Jan 26 02:21:40 2011/-ko/
-/perlxs.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perlxstut.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
-/perlfunc.pod/1.9/Sun Feb  6 05:10:01 2011/-ko/
 /perlopentut.pod/1.8/Mon Feb  7 13:30:01 2011/-ko/
 /perl581delta.pod/1.2/Mon Feb  7 13:40:01 2011/-ko/
 /perlfaq4.pod/1.12/Mon Feb  7 13:40:01 2011/-ko/
 /perlvar.pod/1.14/Mon Feb  7 13:40:01 2011/-ko/
+/perlxs.pod/1.2/Fri Feb 25 08:30:02 2011/-ko/
+/perlsyn.pod/1.4/Fri Feb 25 08:40:01 2011/-ko/
+/perlfunc.pod/1.10/Fri Feb 25 09:30:02 2011/-ko/
+/perlcheat.pod/1.1/Sun Mar  6 06:47:46 2011/-ko/
+/perldsc.pod/1.2/Sun Mar  6 07:10:02 2011/-ko/
+/perl582delta.pod/1.2/Fri Mar 11 03:50:02 2011/-ko/
+/perl595delta.pod/1.3/Fri Mar 11 04:50:02 2011/-ko/
 D

@@ -22,11 +22,10 @@ with parsing and rendering Pod.
 
 =end original
 
-This document is detailed notes on the Pod markup language.  Most
-people will only have to read L<perlpod|perlpod> to know how to write
-in Pod, but this document may answer some incidental questions to do
-with parsing and rendering Pod.
-(TBT)
+この文書は、Pod マークアップ言語の詳細なメモです。
+ほとんどの人にとっては、Pod の書き方を知るには L<perlpod|perlpod> だけを
+読む必要がありますが、この文書は Pod のパースとレンダリングに関する
+付随的な質問に答えているかも知れません。
 
 =begin original
 
@@ -42,16 +41,18 @@ really I<bother> me if X did Y").
 
 =end original
 
-In this document, "must" / "must not", "should" /
-"should not", and "may" have their conventional (cf. RFC 2119)
-meanings: "X must do Y" means that if X doesn't do Y, it's against
-this specification, and should really be fixed.  "X should do Y"
-means that it's recommended, but X may fail to do Y, if there's a
-good reason.  "X may do Y" is merely a note that X can do Y at
-will (although it is up to the reader to detect any connotation of
-"and I think it would be I<nice> if X did Y" versus "it wouldn't
-really I<bother> me if X did Y").
-(TBT)
+この文書では、"must" / "must not", "should" /
+"should not", "may" は形式的な意味 (RFC 2119 参照) を持ちます:
+"X must do Y" は、もし X は Y していない場合、これは仕様に反しているので、
+本当に修正されるべきということを意味します。
+"X should do Y" は、推奨はしますが、もし適切な理由があるなら、
+X が Y しないこともあることを意味します。
+"X may do Y" は、単に X が自分の意志で Y できることを示しています
+(しかし、これは読者が
+「そして、私はもし X が Y するなら I<すてきだ> と思う」と、
+「X が Y するかどうかは I<どうでもいい>」という言外の意味を識別できるように
+するようにしています)。
+(訳注: 原文がどの表現を用いているかは文末にかっこで示します。)
 
 =begin original
 
@@ -65,14 +66,15 @@ it implicates that such an option I<may> be provided.
 
 =end original
 
-Notably, when I say "the parser should do Y", the
-parser may fail to do Y, if the calling application explicitly
-requests that the parser I<not> do Y.  I often phrase this as
-"the parser should, by default, do Y."  This doesn't I<require>
-the parser to provide an option for turning off whatever
-feature Y is (like expanding tabs in verbatim paragraphs), although
-it implicates that such an option I<may> be provided.
-(TBT)
+特に、「パーサは Y するべきです(should)」と書いた場合、
+呼び出し元のアプリケーションが明示的に Y I<しない> ように指定した場合、
+Y しないかもしれません。
+これはしばしば、「パーサはデフォルトでは Y するべきです(should)」と
+表現されます。
+これはパーサが(そのままの段落でタブを展開するといった)機能 Y を
+オフにするかどうかのオプションを提供することをI<要求している>
+わけではありませんが、
+このようなオプションが提供されている I<かもしれない> ことを示しています。
 
 =head1 Pod Definitions
 
@@ -83,9 +85,8 @@ can write a file that's nothing but Pod.
 
 =end original
 
-Pod is embedded in files, typically Perl source files, although you
-can write a file that's nothing but Pod.
-(TBT)
+Pod は他のファイル (典型的には Perl ソースファイル) に埋め込まれていますが、
+Pod 以外のことは全く知らなくても Pod を書けます。
 
 =begin original
 
@@ -94,9 +95,8 @@ terminated by either a newline or the end of the file.
 
 =end original
 
-A B<line> in a file consists of zero or more non-newline characters,
-terminated by either a newline or the end of the file.
-(TBT)
+ファイルの B<行> (line) は 0 個以上の改行でない文字で構成され、
+改行かファイルの終わりで終端されます。
 
 =begin original
 
@@ -109,13 +109,12 @@ newline sequence for parsing the rest of the file.
 
 =end original
 
-A B<newline sequence> is usually a platform-dependent concept, but
-Pod parsers should understand it to mean any of CR (ASCII 13), LF
-(ASCII 10), or a CRLF (ASCII 13 followed immediately by ASCII 10), in
-addition to any other system-specific meaning.  The first CR/CRLF/LF
-sequence in the file may be used as the basis for identifying the
-newline sequence for parsing the rest of the file.
-(TBT)
+B<改行シーケンス> (newline sequence) は普通プラットフォーム依存の
+概念ですが、Pod パーサは CR (ASCII 13), LF
+(ASCII 10), CRLF (ASCII 13 の直後に ASCII 10) に加えて、その他の
+システム固有の意味ののどれでも認識するべきです(should)。
+ファイルの最初の CR/CRLF/LF シーケンスを、ファイルの残りをパースするための
+改行を識別するための基準として使ってもかまいません(may)。
 
 =begin original
 
@@ -126,11 +125,10 @@ than space or tab (and terminated by a newline or end-of-file).
 
 =end original
 
-A B<blank line> is a line consisting entirely of zero or more spaces
-(ASCII 32) or tabs (ASCII 9), and terminated by a newline or end-of-file.
-A B<non-blank line> is a line containing one or more characters other
-than space or tab (and terminated by a newline or end-of-file).
-(TBT)
+B<空行> (blank line) は 0 個以上のスペース (ASCII 32) かタブ (ASCII 9) のみで
+構成され、改行かファイルの終わりで終端されます。
+B<非空行> (non-blank line) はスペースとタブ以外の文字 1 個以上を含みます
+(そして改行かファイルの終わりで終端されます)。
 
 =begin original
 
@@ -141,11 +139,10 @@ terminated by a newline.)
 
 =end original
 
-(I<Note:> Many older Pod parsers did not accept a line consisting of
-spaces/tabs and then a newline as a blank line. The only lines they
-considered blank were lines consisting of I<no characters at all>,
-terminated by a newline.)
-(TBT)
+(I<注意:> 古い Pod パーサの多くはスペースとタブで構成される行を
+受け付けず、改行を空行として扱います。
+これらのパーサは I<何の文字も含まれていない> 行だけを空行として
+扱います。)
 
 =begin original
 
@@ -157,9 +154,10 @@ code that I<denotes> a whitespace character.)
 
 =end original
 
-B<Whitespace> is used in this document as a blanket term for spaces,
-tabs, and newline sequences.  (By itself, this term usually refers
-to literal whitespace.  That is, sequences of whitespace characters
+B<空白> (whitespace) は、この文書ではスペース、タブ、改行シーケンスを
+総称する用語です。
+(それ自体、この用語は普通リテラルな空白を参照します。
+That is, sequences of whitespace characters
 in Pod source, as opposed to "EE<lt>32>", which is a formatting
 code that I<denotes> a whitespace character.)
 (TBT)
@@ -177,15 +175,15 @@ etc.).
 
 =end original
 
-A B<Pod parser> is a module meant for parsing Pod (regardless of
-whether this involves calling callbacks or building a parse tree or
-directly formatting it).  A B<Pod formatter> (or B<Pod translator>)
-is a module or program that converts Pod to some other format (HTML,
-plaintext, TeX, PostScript, RTF).  A B<Pod processor> might be a
-formatter or translator, or might be a program that does something
-else with the Pod (like counting words, scanning for index points,
-etc.).
-(TBT)
+B<Pod パーサ> (Pod parser) は Pod をパースするためのモジュールです
+(これはコールバックを呼び出すかパース木を構築するか直接フォーマットするかに
+関わりません)。
+B<Pod フォーマッタ> (Pod formatter) (または B<Pod トランスレータ>
+(Pod translator)) は Pod を他の形式 (HTML, プレーンテキスト、Tex,
+PostScript, RTF) に変換するモジュールかプログラムです。
+B<Pod プロセッサ> (Pod processor) はフォーマッタあるいはトランスレータか、
+あるいは Pod に何かの処理(単語を数える、インデックスをスキャンする、など)を
+行うプログラムかも知れません。
 
 =begin original
 
@@ -196,11 +194,10 @@ no C<m/\A=cut/> line.
 
 =end original
 
-Pod content is contained in B<Pod blocks>.  A Pod block starts with a
-line that matches <m/\A=[a-zA-Z]/>, and continues up to the next line
-that matches C<m/\A=cut/> or up to the end of the file if there is
-no C<m/\A=cut/> line.
-(TBT)
+Pod の内容は B<Pod ブロック> (Pod blocks) に含まれています。
+一つの Pod ブロックは <m/\A=[a-zA-Z]/> にマッチングする行で開始し、
+C<m/\A=cut/> にマッチングする次の行までか、もし
+C<m/\A=cut/> 行がなければファイルの最後まで続きます。
 
 =for comment
  The current perlsyn says:
@@ -234,10 +231,8 @@ lines.
 
 =end original
 
-Within a Pod block, there are B<Pod paragraphs>.  A Pod paragraph
-consists of non-blank lines of text, separated by one or more blank
-lines.
-(TBT)
+Pod ブロックの内部は、B<Pod 段落>(Pod paragraphs) です。
+一つの Pod 段落は、1 以上の空行で分割された非空行のテキストで構成されます。
 
 =begin original
 
@@ -246,9 +241,7 @@ a Pod block:
 
 =end original
 
-For purposes of Pod processing, there are four types of paragraphs in
-a Pod block:
-(TBT)
+Pod 処理のために、Pod ブロックには 4 種類の段落があります:
 
 =over
 
@@ -262,10 +255,9 @@ typically one line, as in:
 
 =end original
 
-A command paragraph (also called a "directive").  The first line of
-this paragraph must match C<m/\A=[a-zA-Z]/>.  Command paragraphs are
-typically one line, as in:
-(TBT)
+コマンド段落 (command paragraph) (「指示子」(directive) とも呼ばれます)。
+段落の最初の行は C<m/\A=[a-zA-Z]/> にマッチングしなければなりません(must)。
+コマンド段落は典型的には以下のように 1 行です:
 
   =head1 NOTES
 
@@ -277,8 +269,7 @@ But they may span several (non-blank) lines:
 
 =end original
 
-But they may span several (non-blank) lines:
-(TBT)
+しかし複数の (非空行の) 行にわたるかもしれません(may):
 
   =for comment
   Hm, I wonder what it would look like if
@@ -294,9 +285,9 @@ I<Some> command paragraphs allow formatting codes in their content
 
 =end original
 
-I<Some> command paragraphs allow formatting codes in their content
-(i.e., after the part that matches C<m/\A=[a-zA-Z]\S*\s*/>), as in:
-(TBT)
+I<一部の> コマンド段落は、以下のように、内容 (つまり、
+C<m/\A=[a-zA-Z]\S*\s*/> にマッチングする部分の後)にフォーマッティングコードを
+許しています:
 
   =head1 Did You Remember to C<use strict;>?
 
@@ -311,7 +302,8 @@ significant.
 
 =end original
 
-In other words, the Pod processing handler for "head1" will apply the
+言い換えると、"head1" の Pod 処理ハンドラは、
+apply the
 same processing to "Did You Remember to CE<lt>use strict;>?" that it
 would to an ordinary paragraph (i.e., formatting codes like
 "CE<lt>...>") are parsed and presumably formatted appropriately, and
@@ -333,14 +325,14 @@ a data paragraph, unless "I<identifier>" begins with a colon.
 
 =end original
 
-A B<verbatim paragraph>.  The first line of this paragraph must be a
-literal space or tab, and this paragraph must not be inside a "=begin
-I<identifier>", ... "=end I<identifier>" sequence unless
-"I<identifier>" begins with a colon (":").  That is, if a paragraph
-starts with a literal space or tab, but I<is> inside a
-"=begin I<identifier>", ... "=end I<identifier>" region, then it's
-a data paragraph, unless "I<identifier>" begins with a colon.
-(TBT)
+B<そのままの段落> (verbatim paragraph)。
+この段落の最初の行はリテラルのスペースかタブでなければならず(must)、
+この段落は "I<identifier>" がコロン (":") で始まっていない限り
+"=begin I<identifier>", ... "=end I<identifier>" を内部に
+含んではいけません(must not)。
+つまり、もし段落がリテラルのスペースかタブで始まっているけれども、
+内部に "=begin I<identifier>", ... "=end I<identifier>" 領域がある場合、
+"I<identifier>" がコロンで始まっていない限りデータ段落です。
 
 =begin original
 
@@ -349,9 +341,8 @@ processing, tabs are probably expanded).
 
 =end original
 
-Whitespace I<is> significant in verbatim paragraphs (although, in
-processing, tabs are probably expanded).
-(TBT)
+空白はそのままの段落では I<意味を持ちます> (しかし、処理中に、タブは
+おそらく展開されます)。
 
 =item *
 
@@ -365,7 +356,8 @@ a colon (":").
 
 =end original
 
-An B<ordinary paragraph>.  A paragraph is an ordinary paragraph
+B<通常の段落> (ordinary paragraph)。
+A paragraph is an ordinary paragraph
 if its first line matches neither C<m/\A=[a-zA-Z]/> nor
 C<m/\A[ \t]/>, I<and> if it's not inside a "=begin I<identifier>",
 ... "=end I<identifier>" sequence unless "I<identifier>" begins with
@@ -387,15 +379,15 @@ form in a parse tree, or at least just parse I<around> it.
 
 =end original
 
-A B<data paragraph>.  This is a paragraph that I<is> inside a "=begin
-I<identifier>" ... "=end I<identifier>" sequence where
-"I<identifier>" does I<not> begin with a literal colon (":").  In
-some sense, a data paragraph is not part of Pod at all (i.e.,
-effectively it's "out-of-band"), since it's not subject to most kinds
-of Pod parsing; but it is specified here, since Pod
-parsers need to be able to call an event for it, or store it in some
-form in a parse tree, or at least just parse I<around> it.
-(TBT)
+B<データ段落> (data paragraph)。
+これは "=begin I<identifier>" ... "=end I<identifier>" シーケンスの
+内部で、"I<identifier>" がリテラルのコロン (":") で
+始まって I<いない> ものです。
+ある意味では、データ段落は Pod の一部ではありません
+(事実上「帯域外」です); なぜならほとんどの種類の Pod パーサが
+想定していないからです; しかし、Pod パーサはこれのためのイベントを
+呼び出したり、パース木に何らかの形で補完したり、あるいは少なくとも
+単にその I<周り> をパースする必要があるからです。
 
 =back
 
@@ -405,8 +397,7 @@ For example: consider the following paragraphs:
 
 =end original
 
-For example: consider the following paragraphs:
-(TBT)
+例えば: 以下の段落を考えます:
 
   # <- that's the 0th column
 
@@ -427,11 +418,10 @@ whitespace character (and there's no "=begin"..."=end" region around).
 
 =end original
 
-Here, "=head1 Foo" and "=cut" are command paragraphs because the first
-line of each matches C<m/\A=[a-zA-Z]/>.  "I<[space][space]>$foo->bar"
-is a verbatim paragraph, because its first line starts with a literal
-whitespace character (and there's no "=begin"..."=end" region around).
-(TBT)
+ここで、"=head1 Foo" と "=cut" は、それぞれ最初の行が C<m/\A=[a-zA-Z]/> に
+マッチングするのでコマンド段落です。
+"I<[space][space]>$foo->bar" は、最初の行がリテラルの空白文字で始まる
+(そして周りに "=begin"..."=end" 領域がない)のでそのままの段落です。
 
 =begin original
 
@@ -445,13 +435,16 @@ L</About Data Paragraphs and "=beginE<sol>=end" Regions>.
 
 The "=begin I<identifier>" ... "=end I<identifier>" commands stop
 paragraphs that they surround from being parsed as ordinary or verbatim
-paragraphs, if I<identifier> doesn't begin with a colon.  This
-is discussed in detail in the section
-L</About Data Paragraphs and "=beginE<sol>=end" Regions>.
+paragraphs, if I<identifier> doesn't begin with a colon.
+これは
+L</About Data Paragraphs and "=beginE<sol>=end" Regions> の章で
+詳細に議論されています。
 (TBT)
 
 =head1 Pod Commands
 
+(Pod コマンド)
+
 =begin original
 
 This section is intended to supplement and clarify the discussion in
@@ -460,10 +453,9 @@ Pod commands:
 
 =end original
 
-This section is intended to supplement and clarify the discussion in
-L<perlpod/"Command Paragraph">.  These are the currently recognized
-Pod commands:
-(TBT)
+この章は L<perlpod/"Command Paragraph"> での議論を補完して明確化することを
+目的にしています。
+現在認識されている Pod コマンドは以下の通りです:
 
 =over
 
@@ -476,9 +468,9 @@ is a heading.  That text may contain formatting codes.  Examples:
 
 =end original
 
-This command indicates that the text in the remainder of the paragraph
-is a heading.  That text may contain formatting codes.  Examples:
-(TBT)
+このコマンドは、この段落の残りの文章が見出しであることを示します。
+この文章にはフォーマッティングコードを含むことができます。
+例:
 
   =head1 Object Attributes
 
@@ -495,11 +487,12 @@ it must be ignored.  Examples:
 
 =end original
 
-This command indicates that this paragraph begins a Pod block.  (If we
-are already in the middle of a Pod block, this command has no effect at
-all.)  If there is any text in this command paragraph after "=pod",
-it must be ignored.  Examples:
-(TBT)
+このコマンドは、この段落から Pod ブロックが始まることを示します。
+(すでに Pod ブロックの内部である場合は、このコマンドは何の効果も
+ありません。)
+もしこのコマンド段落の "=pod" の後に何らかの文章がある場合、
+無視しなければなりません(must)。
+例:
 
   =pod
 
@@ -696,8 +689,7 @@ This is synonymous with:
 
 =end original
 
-This is synonymous with:
-(TBT)
+これは以下と同等です:
 
      =begin formatname
 
@@ -812,14 +804,12 @@ commands.
 
 =end original
 
-Future versions of this specification may add additional
-commands.
-(TBT)
-
-
+この仕様の将来のバージョンでは追加のコマンドが追加されるかもしれません。
 
 =head1 Pod Formatting Codes
 
+(Pod フォーマッティングコード)
+
 =begin original
 
 (Note that in previous drafts of this document and of perlpod,
@@ -829,11 +819,10 @@ and in error messages from Pod processors.)
 
 =end original
 
-(Note that in previous drafts of this document and of perlpod,
-formatting codes were referred to as "interior sequences", and
-this term may still be found in the documentation for Pod parsers,
-and in error messages from Pod processors.)
-(TBT)
+(この文書の以前の草案と以前の perlpod では、フォーマッティングコードは
+「内部シーケンス」(interior sequences) として参照されていて、
+この用語は Pod パーサの文書や、Pod プロセッサのエラーメッセージに
+まだ残っていることに注意してください。)
 
 =begin original
 
@@ -841,8 +830,7 @@ There are two syntaxes for formatting codes:
 
 =end original
 
-There are two syntaxes for formatting codes:
-(TBT)
+フォーマッティングコードには二つの文法があります:
 
 =over
 
@@ -856,10 +844,10 @@ matching ">".  Examples:
 
 =end original
 
-A formatting code starts with a capital letter (just US-ASCII [A-Z])
-followed by a "<", any number of characters, and ending with the first
-matching ">".  Examples:
-(TBT)
+英大文字 (ちょうど US-ASCII [A-Z]) で始まり、次に "<"、その次に
+任意の数の文字が続き、最初にマッチングする ">" で終わる
+フォーマッティングコード。
+例:
 
     That's what I<you> think!
 
@@ -880,13 +868,11 @@ formatting code.  Examples:
 
 =end original
 
-A formatting code starts with a capital letter (just US-ASCII [A-Z])
-followed by two or more "<"'s, one or more whitespace characters,
-any number of characters, one or more whitespace characters,
-and ending with the first matching sequence of two or more ">"'s, where
-the number of ">"'s equals the number of "<"'s in the opening of this
-formatting code.  Examples:
-(TBT)
+英大文字 (ちょうど US-ASCII [A-Z]) で始まり、2 個以上の "<"、
+1 個以上の空白文字、任意の数の文字、1 個以上の空白文字が続き、
+このフォーマッティングコードの最初にあった "<" と同じ数の ">" で
+終わるフォーマッティングコード。
+例:
 
     That's what I<< you >> think!
 
@@ -903,11 +889,10 @@ themselves.  That is, these are all synonymous:
 
 =end original
 
-With this syntax, the whitespace character(s) after the "CE<lt><<"
-and before the ">>" (or whatever letter) are I<not> renderable. They
-do not signify whitespace, are merely part of the formatting codes
-themselves.  That is, these are all synonymous:
-(TBT)
+この文法では、"CE<lt><<" の後ろと ">>" (やその他の文字) の前の空白文字は
+レンダリング I<されません> 。
+空白は認識せず、単にフォーマッティングコード自身の一部となります。
+つまり、以下のものは全て同じ意味です:
 
     C<thing>
     C<< thing >>
@@ -923,8 +908,7 @@ and so on.
 
 =end original
 
-and so on.
-(TBT)
+および同様なものです。
 
 =begin original
 
@@ -934,10 +918,8 @@ identical in meaning:
 
 =end original
 
-Finally, the multiple-angle-bracket form does I<not> alter the interpretation
-of nested formatting codes, meaning that the following four example lines are
-identical in meaning:
-(TBT)
+最後に、複数山かっこ形式はネストしたフォーマッティングコードの解釈を
+変更 I<しません>; つまり、以下の四つの例は意味としては同じです:
 
   B<example: C<$a E<lt>=E<gt> $b>>
 
@@ -958,68 +940,72 @@ example of a correct implementation.
 
 =end original
 
-In parsing Pod, a notably tricky part is the correct parsing of
-(potentially nested!) formatting codes.  Implementors should
-consult the code in the C<parse_text> routine in Pod::Parser as an
-example of a correct implementation.
-(TBT)
+Pod をパースするときに特にトリッキーな部分は、(ネストしているかもしれない!)
+フォーマッティングコードを正しくパースすることです。
+実装者は正しい実装の例として、Pod::Parsar の C<parse_text> ルーチンの
+コードを参考にするべきです。
 
 =over
 
 =item C<IE<lt>textE<gt>> -- italic text
 
+(C<IE<lt>textE<gt>> -- イタリック文字)
+
 =begin original
 
 See the brief discussion in L<perlpod/"Formatting Codes">.
 
 =end original
 
-See the brief discussion in L<perlpod/"Formatting Codes">.
-(TBT)
+L<perlpod/"Formatting Codes"> にある簡潔な議論を参照してください。
 
 =item C<BE<lt>textE<gt>> -- bold text
 
+(C<BE<lt>textE<gt>> -- ボールド文字)
+
 =begin original
 
 See the brief discussion in L<perlpod/"Formatting Codes">.
 
 =end original
 
-See the brief discussion in L<perlpod/"Formatting Codes">.
-(TBT)
+L<perlpod/"Formatting Codes"> にある簡潔な議論を参照してください。
 
 =item C<CE<lt>codeE<gt>> -- code text
 
+(C<CE<lt>codeE<gt>> -- コード文字)
+
 =begin original
 
 See the brief discussion in L<perlpod/"Formatting Codes">.
 
 =end original
 
-See the brief discussion in L<perlpod/"Formatting Codes">.
-(TBT)
+L<perlpod/"Formatting Codes"> にある簡潔な議論を参照してください。
 
 =item C<FE<lt>filenameE<gt>> -- style for filenames
 
+(C<FE<lt>filenameE<gt>> -- ファイル名用のスタイル)
+
 =begin original
 
 See the brief discussion in L<perlpod/"Formatting Codes">.
 
 =end original
 
-See the brief discussion in L<perlpod/"Formatting Codes">.
-(TBT)
+L<perlpod/"Formatting Codes"> にある簡潔な議論を参照してください。
 
 =item C<XE<lt>topic nameE<gt>> -- an index entry
 
+(C<XE<lt>topic nameE<gt>> -- インデックスエントリ)
+
 =begin original
 
 See the brief discussion in L<perlpod/"Formatting Codes">.
 
 =end original
 
-See the brief discussion in L<perlpod/"Formatting Codes">.
-(TBT)
+L<perlpod/"Formatting Codes"> にある簡潔な議論を参照してください。
 
 =begin original
 
@@ -1030,11 +1016,10 @@ the current document.
 
 =end original
 
-This code is unusual in that most formatters completely discard
-this code and its content.  Other formatters will render it with
-invisible codes that can be used in building an index of
-the current document.
-(TBT)
+このコードは特殊で、ほとんどのフォーマッタはこのコードとその内容は
+完全に捨てられます。
+その他のフォーマッタは現在の文書のインデックス構築に使える
+見えないコードとしてレンダリングされます。
 
 =item C<ZE<lt>E<gt>> -- a null (zero-effect) formatting code
 
@@ -1044,8 +1029,7 @@ Discussed briefly in L<perlpod/"Formatting Codes">.
 
 =end original
 
-Discussed briefly in L<perlpod/"Formatting Codes">.
-(TBT)
+L<perlpod/"Formatting Codes"> で簡潔に議論されています。
 
 =begin original
 
@@ -1055,13 +1039,16 @@ or not it complains, the I<potatoes> text should ignored.
 
 =end original
 
-This code is unusual is that it should have no content.  That is,
-a processor may complain if it sees C<ZE<lt>potatoesE<gt>>.  Whether
-or not it complains, the I<potatoes> text should ignored.
-(TBT)
+このコードは特殊で、内容はなしであるべきです(should)。
+つまり、プロセッサが C<ZE<lt>potatoesE<gt>> を見ると異常とみなすかも
+しれません(may)。
+異常とみなすかどうかに関わらず、I<potatoes> という文字は
+無視されるべきです(should)。
 
 =item C<LE<lt>nameE<gt>> -- a hyperlink
 
+(C<LE<lt>nameE<gt>> -- ハイパーリンク)
+
 =begin original
 
 The complicated syntaxes of this code are discussed at length in
@@ -1074,17 +1061,18 @@ I<before> EE<lt>...> codes are resolved.
 
 =end original
 
-The complicated syntaxes of this code are discussed at length in
-L<perlpod/"Formatting Codes">, and implementation details are
-discussed below, in L</"About LE<lt>...E<gt> Codes">.  Parsing the
-contents of LE<lt>content> is tricky.  Notably, the content has to be
-checked for whether it looks like a URL, or whether it has to be split
-on literal "|" and/or "/" (in the right order!), and so on,
-I<before> EE<lt>...> codes are resolved.
-(TBT)
+このコードの複雑な文法は L<perlpod/"Formatting Codes"> で詳細に
+議論されていて、実装の詳細は後述する L</"About LE<lt>...E<gt> Codes"> に
+あります。
+LE<lt>content> の内容のパースはトリッキーです。
+特に、EE<lt>...> コードが解決される I<前に> 、
+内容が URL のように見えるか、あるいは内容が "|" や "/" で
+分割する必要があるか (右順序で!) などです。 
 
 =item C<EE<lt>escapeE<gt>> -- a character escape
 
+(C<EE<lt>escapeE<gt>> -- 文字エスケープ)
+
 =begin original
 
 See L<perlpod/"Formatting Codes">, and several points in
@@ -1092,12 +1080,15 @@ L</Notes on Implementing Pod Processors>.
 
 =end original
 
-See L<perlpod/"Formatting Codes">, and several points in
-L</Notes on Implementing Pod Processors>.
+L<perlpod/"Formatting Codes"> と、
+L</Notes on Implementing Pod Processors> にあるいくつかのポイントを
+参照してください。
 (TBT)
 
 =item C<SE<lt>textE<gt>> -- text contains non-breaking spaces
 
+(C<SE<lt>textE<gt>> -- ノーブレークスペースを含む文字列)
+
 =begin original
 
 This formatting code is syntactically simple, but semantically
@@ -1106,10 +1097,9 @@ content of this code signifies a non-breaking space.
 
 =end original
 
-This formatting code is syntactically simple, but semantically
-complex.  What it means is that each space in the printable
-content of this code signifies a non-breaking space.
-(TBT)
+このフォーマッティングコードは文法的には単純ですが、意味論的には複雑です。
+これが意味することは、このコードの内容にあるそれぞれのスペースは
+ノーブレークスペースとして認識されるということです。
 
 =begin original
 
@@ -1117,8 +1107,7 @@ Consider:
 
 =end original
 
-Consider:
-(TBT)
+以下のものを考えます:
 
     C<$x ? $y    :  $z>
 
@@ -1133,14 +1122,12 @@ are not "normal" spaces, but instead are non-breaking spaces.
 
 =end original
 
-Both signify the monospace (c[ode] style) text consisting of
-"$x", one space, "?", one space, ":", one space, "$z".  The
-difference is that in the latter, with the S code, those spaces
-are not "normal" spaces, but instead are non-breaking spaces.
-(TBT)
+どちらも "$x"、一つのスペース、"?"、一つのスペース、":"、一つのスペース、
+"$z" からなる、固定幅 (コードスタイル) 文字列として認識されます。
+違いは、S コードの付いている後者は、これらのスペースは「普通の」
+スペースではなく、ノーブレークスペースであるということです。
 
 =back
-
 
 =begin original
 
@@ -1329,7 +1316,7 @@ formats: CR, LF, and CRLF.  See L<perlport|perlport>.
 =end original
 
 Pod パーサは 3 種類のよく知られた改行 (CR, LF, CRLF) の I<全て> を
-認識しなければなりません。
+認識しなければなりません(must)。
 L<perlport|perlport> を参照してください。
 
 =item *
@@ -1340,7 +1327,7 @@ Pod parsers should accept input lines that are of any length.
 
 =end original
 
-Pod パーサは任意の長さの入力行を受け付けるべきです。
+Pod パーサは任意の長さの入力行を受け付けるべきです(should)。
 
 =item *
 
@@ -1487,7 +1474,7 @@ formatter will nevertheless treat them the same.)
 
 Pod プロセッサは、"=for [label] [content...]" 段落を、
 "=begin [label]" 段落、内容、"=end [label]" 段落と同じように
-扱わなければなりません。
+扱わなければなりません(must)。
 (The parser may conflate these two
 constructs, or may leave them distinct, in the expectation that the
 formatter will nevertheless treat them the same.)
@@ -1509,7 +1496,7 @@ Pod を、コメントが許されるフォーマット (つまり、ほぼ、プレーンテキスト以外の
 あらゆるフォーマット) にレンダリングするとき、
 Pod フォーマッタは、自身の名前とバージョン番号、および Pod を
 処理するときに使った全てのモジュールの名前とバージョン番号が識別できる
-コメントを挿入しなければなりません。
+コメントを挿入しなければなりません(must)。
 最小限の例:
 
   %% POD::Pod2PS v3.14159, using POD::Parser v1.92
@@ -1529,11 +1516,10 @@ file, the formatting options in effect, version of Perl used, etc.
 
 =end original
 
-Formatters may also insert additional comments, including: the
-release date of the Pod formatter program, the contact address for
-the author(s) of the formatter, the current time, the name of input
-file, the formatting options in effect, version of Perl used, etc.
-(TBT)
+フォーマッタは、Pod フォーマッタプログラムのリリース日、フォーマッタの
+作者への連絡アドレス、現在時刻、入力ファイル名、適用された
+フォーマットオプション、使われた Perl のバージョンといった
+追加のコメントを挿入してもかまいません(may)。
 
 =begin original
 
@@ -1587,12 +1573,10 @@ and add text like "*** Formatting Aborted ***" to the end of the
 
 =end original
 
-極端に異常な文書の場合は、Pod パーサはパースを中断してもかまいません。
-それでも、C<die>/C<croak> の使用は避けます; where
-possible, the parser library may simply close the input file
-and add text like "*** Formatting Aborted ***" to the end of the
-(partial) in-memory document.
-(TBT)
+極端に異常な文書の場合は、Pod パーサはパースを中断してもかまいません(may)。
+それでも、C<die>/C<croak> の使用は避けます; 可能なら、パーサは単に
+入力ファイルを閉じて、メモリにある文書(の一部)の末尾に
+"*** Formatting Aborted ***" のような文章を追加できます(may)。
 
 =item *
 
@@ -1669,7 +1653,7 @@ that's a non-breaking hyphen, and another that's a breakable hyphen
 "object-", newline, "oriented"),
 フォーマッタは一般的に "-" を改行なしのハイフンに変換することが
 推奨されますが、これらの一部を改行するハイフンに変換するための
-発見的手法を適用してもかまいません。
+発見的手法を適用してもかまいません(may)。
 (TBT)
 
 =item *
@@ -1689,7 +1673,7 @@ zero-width spaces between every pair of characters in a word.)
 =end original
 
 Pod フォーマッタは、Perl コードの単語が行をまたがないように
-合理的な努力を行うべきです。
+合理的な努力を行うべきです(should)。
 For example, "Foo::Bar" in some
 formatting systems is seen as eligible for being broken across lines
 as "Foo::" newline "Bar" or even "Foo::-" newline "Bar".  This should
@@ -1711,8 +1695,8 @@ processor.  Parsers may also allow an option for overriding this.
 =end original
 
 Pod パーサは、デフォルトでは、フォーマッタやその他のプロセッサに
-渡す前に、そのままの段落のタブを展開するべきです。
-パーサはこれを上書きするオプションを許してもかまいません。
+渡す前に、そのままの段落のタブを展開するべきです(should)。
+パーサはこれを上書きするオプションを許してもかまいません(may)。
 
 =item *
 
@@ -1728,7 +1712,7 @@ the newline(s) that end it, it should be processed as ending with
 =end original
 
 Pod パーサは、デフォルトでは、通常の段落とそのままの段落の末尾の
-改行を、フォーマッタに渡す前に削除するべきです。
+改行を、フォーマッタに渡す前に削除するべきです(should)。
 For example, while the paragraph you're reading now
 could be considered, in Pod source, to end with (and contain)
 the newline(s) that end it, it should be processed as ending with
@@ -1754,11 +1738,11 @@ Pod パーサは、エラーを報告するときは、単に段落番号を報告する
 ("Nested EE<lt>>'s in Paragraph #52 of Thing/Foo.pm!") のではなく、
 およその行番号を報告するための
 努力を行うべきです ("Nested EE<lt>>'s in Paragraph #52, near
-line 633 of Thing/Foo.pm!")。
+line 633 of Thing/Foo.pm!")(should)。
 これが難しいところでは、段落番号は少なくとも段落の抜粋と共に
 報告されるべきです ("Nested EE<lt>>'s in
 Paragraph #52 of Thing/Foo.pm, which begins 'Read/write accessor for
-the CE<lt>interest rate> attribute...'") 。
+the CE<lt>interest rate> attribute...'")(should)。
 
 =item *
 
@@ -1772,7 +1756,7 @@ lines, which have a blank line between them:
 =end original
 
 Pod パーサは、連続したそのままの段落を処理するときには、
-たまたま空行を含んでいる大きな一つのそのままの段落として扱うべきです。
+たまたま空行を含んでいる大きな一つのそのままの段落として扱うべきです(should)。
 つまり、以下のような、空行を挟んだ 2 つの行は:
 
 	use Foo;
@@ -1788,8 +1772,8 @@ processor.  Parsers may also allow an option for overriding this.
 =end original
 
 フォーマッタや他のプロセッサに渡される前に一つの段落
-("\tuse Foo;\n\n\tprint Foo->VERSION") 統合されるべきです。
-パーサはこれを上書きするオプションを許してもかまいません。
+("\tuse Foo;\n\n\tprint Foo->VERSION") 統合されるべきです(should)。
+パーサはこれを上書きするオプションを許してもかまいません(may)。
 
 =begin original
 
@@ -3061,9 +3045,8 @@ term for everything from the "=over" to the matching "=back".)
 =end original
 
 "=over"..."=back" 領域は、様々な種類のリスト風の構造に使われます。
-(I use the term "region" here simply as a collective
-term for everything from the "=over" to the matching "=back".)
-(TBT)
+(ここでは、「領域」という用語は単に "=over" からそれに対応する
+"=back" までの全てを含むものという意味使っています。)
 
 =over
 
@@ -3125,7 +3108,7 @@ Each "=over" ... "=back" region should be one of the following:
 
 =end original
 
-それぞれの "=over" ... "=back" 領域は以下のうちの一つであるべきです:
+それぞれの "=over" ... "=back" 領域は以下のうちの一つであるべきです(should):
 
 =over
 
@@ -3155,7 +3138,7 @@ and may depend on the level of nesting.
 =end original
 
 (Pod プロセッサは、生の "=item" を、"=item *" であるかのように
-扱わなければなりません。)
+扱わなければなりません(must)。)
 "*" をそのままアスタリスクとして表示するか、"o" を使うか、あるいは
 ある種の実際の黒丸を使うかは Pod フォーマッタに任されていて、
 これはネストレベルに依存するかも知れません。
@@ -3189,7 +3172,7 @@ C<m/\A=item\s+\d+\.?\s*\z/> 段落および、
 =end original
 
 (Pod プロセッサは、"=item 1" のような行を、ピリオド付きの
-"=item 1." であるかのように扱わなければなりません。)
+"=item 1." であるかのように扱わなければなりません(must)。)
 
 =item *
 
@@ -3215,10 +3198,9 @@ match just C<m/\A=item\s*\z/>.
 
 =end original
 
-The "=item [text]" paragraph should not match
-C<m/\A=item\s+\d+\.?\s*\z/> or C<m/\A=item\s+\*\s*\z/>, nor should it
-match just C<m/\A=item\s*\z/>.
-(TBT)
+"=item [text]" 段落は、
+C<m/\A=item\s+\d+\.?\s*\z/>, C<m/\A=item\s+\*\s*\z/>,
+match just C<m/\A=item\s*\z/> にマッチングするべきではありません。
 
 =item *
 
@@ -3267,10 +3249,9 @@ paragraphs are short, as in:
 
 =end original
 
-Pod formatters I<must> tolerate arbitrarily large amounts of text
-in the "=item I<text...>" paragraph.  In practice, most such
-paragraphs are short, as in:
-(TBT)
+Pod フォーマッタは "=item I<text...>" に任意の長さのテキストを
+許容 I<しなければなりません> (must)。
+実際には、このような段落のほとんどは以下のような短いものです:
 
   =item For cutting off our trade with all parts of the world
 
@@ -3280,8 +3261,7 @@ But they may be arbitrarily long:
 
 =end original
 
-But they may be arbitrarily long:
-(TBT)
+しかし任意に長くなるかも知れません:
 
   =item For transporting us beyond seas to be tried for pretended
   offenses
@@ -3301,9 +3281,9 @@ with no accompanying paragraph.  The middle item is an example:
 
 =end original
 
-Pod processors should tolerate "=item *" / "=item I<number>" commands
-with no accompanying paragraph.  The middle item is an example:
-(TBT)
+Pod プロセッサは、対応する段落のない "=item *" / "=item I<number>"
+コマンドを許容するべきです(should)。
+中間の item が例です:
 
   =over
 
@@ -3329,7 +3309,7 @@ treat such a heading as an error.
 =end original
 
 "=over" ... "=back" 領域に見出しを含めることはできません。
-プロセッサはそのような見出しをエラーとして扱うことができます。
+プロセッサはそのような見出しをエラーとして扱うことができます(may)。
 
 =item *
 
@@ -3355,7 +3335,8 @@ may ignore it, or may report it as an error.
 =end original
 
 Pod プロセッサがこのような、内容のない "=over" ... "=back" 領域を
-発見した場合、無視してもかまいませんし、エラーとして報告してもかまいません。
+発見した場合、無視してもかまいません(may)し、エラーとして
+報告してもかまいません(may)。
 
 =item *
 
@@ -3368,8 +3349,8 @@ about such a list.
 =end original
 
 プロセッサは、文書の末尾まで続く(つまり対応する "=back" がない)
-"=over" リストを許容しなければなりませんが、そのようなリストに
-警告を出すことができます。
+"=over" リストを許容しなければなりません(must)が、そのようなリストに
+警告を出してもかまいません(may)。
 
 =item *
 
@@ -3501,6 +3482,8 @@ be actually contrary to the author's intent.
 
 =head1 About Data Paragraphs and "=begin/=end" Regions
 
+(データ段落と "=begin/=end" 領域について)
+
 =begin original
 
 Data paragraphs are typically used for inlining non-Pod data that is
@@ -3509,7 +3492,7 @@ a specific format:
 
 =end original
 
-Data paragraphs are typically used for inlining non-Pod data that is
+データ段落は典型的には used for inlining non-Pod data that is
 to be used (typically passed through) when rendering the document to
 a specific format:
 (TBT)
@@ -3527,9 +3510,7 @@ The exact same effect could, incidentally, be achieved with a single
 
 =end original
 
-The exact same effect could, incidentally, be achieved with a single
-"=for" paragraph:
-(TBT)
+正確に同じ効果は、偶然ながら、単一の "=for" 段落でも達成できます:
 
   =for rtf \par{\pard\qr\sa4500{\i Printed\~\chdate\~\chtime}\par}
 
@@ -3540,9 +3521,8 @@ meaning as one, and Pod parsers may parse it as one.)
 
 =end original
 
-(Although that is not formally a data paragraph, it has the same
-meaning as one, and Pod parsers may parse it as one.)
-(TBT)
+(これは形式的にはデータ段落ではありませんが、同じ意味を持ち、
+Pod パーサは同じようにパースするでしょう。)
 
 =begin original
 
@@ -3550,8 +3530,7 @@ Another example of a data paragraph:
 
 =end original
 
-Another example of a data paragraph:
-(TBT)
+データ段落のもう一つの例です:
 
   =begin html
 
@@ -3574,15 +3553,14 @@ and/or tabs, as verbatim paragraphs).
 
 =end original
 
-If these were ordinary paragraphs, the Pod parser would try to
-expand the "EE<lt>/em>" (in the first paragraph) as a formatting
-code, just like "EE<lt>lt>" or "EE<lt>eacute>".  But since this
-is in a "=begin I<identifier>"..."=end I<identifier>" region I<and>
-the identifier "html" doesn't begin have a ":" prefix, the contents
-of this region are stored as data paragraphs, instead of being
-processed as ordinary paragraphs (or if they began with a spaces
-and/or tabs, as verbatim paragraphs).
-(TBT)
+通常の段落の場合、Pod パーサは (最初の段落にある) "EE<lt>/em>" を
+"EE<lt>lt>" や "EE<lt>eacute>" と同じように、
+フォーマッティングコードとして展開しようとします。
+しかし、これは "=begin I<identifier>"..."=end I<identifier>" 領域の
+中にあり、I<かつ> 識別子 "html" は ":" 接頭辞で始まっていないので、
+この領域の内容は、通常の段落(あるいは、もしスペースやタブで
+始まっている場合はそのままの段落)としてされるのではなく、データ段落として
+保管されます。
 
 =begin original
 
@@ -3655,9 +3633,10 @@ I<identifier> begins with a colon, I<can> contain commands.  For example:
 
 =end original
 
-Note that a "=begin I<identifier>"..."=end I<identifier>" region where
-I<identifier> begins with a colon, I<can> contain commands.  For example:
-(TBT)
+I<identifier> がコロンで始まっている
+"=begin I<identifier>"..."=end I<identifier>" 領域は、コマンドを含むことが
+I<できる> ことに注意してください。
+例えば:
 
   =begin :biblio
 
@@ -3741,8 +3720,7 @@ And this too is valid:
 
 =end original
 
-And this too is valid:
-(TBT)
+そしてこれも正当です:
 
   =begin someformat
 
@@ -3805,8 +3783,7 @@ Also consider this valid structure:
 
 =end original
 
-Also consider this valid structure:
-(TBT)
+また、以下の正当な構造を考えてみます:
 
   =begin :biblio
 
@@ -3947,8 +3924,7 @@ The situation where this is necessary, is presumably quite rare.
 
 =end original
 
-The situation where this is necessary, is presumably quite rare.
-(TBT)
+これが必要な状況は、おそらくかなり稀です。
 
 =begin original
 
@@ -3957,9 +3933,10 @@ is, they must properly nest.  For example, this is valid:
 
 =end original
 
-Note that =end commands must match the currently open =begin command.  That
-is, they must properly nest.  For example, this is valid:
-(TBT)
+=end コマンドは現在開いている =begin コマンドと一致しなければならないことに
+注意してください。
+これは、適切にネストしなければならないということです。
+例えば、以下は正当です:
 
   =begin outer
 
@@ -3981,8 +3958,7 @@ while this is invalid:
 
 =end original
 
-while this is invalid:
-(TBT)
+一方、以下は不正です:
 
   =begin outer
 
@@ -4031,8 +4007,7 @@ Similarly, this is invalid:
 
 =end original
 
-Similarly, this is invalid:
-(TBT)
+同様に、以下のものも不正です:
 
   =begin thing
 
@@ -4045,9 +4020,8 @@ tries to close "hting" [sic].
 
 =end original
 
-This is an error because the region is opened by "thing", and the "=end"
-tries to close "hting" [sic].
-(TBT)
+これは、領域が "thing" で開かれていて "=end" が "hting" (原文のまま) を
+閉じようとしているので、エラーです。
 
 =begin original
 
@@ -4055,8 +4029,7 @@ This is also invalid:
 
 =end original
 
-This is also invalid:
-(TBT)
+また、以下のものも不正です:
 
   =begin thing
 
@@ -4069,9 +4042,8 @@ parameter.
 
 =end original
 
-This is invalid because every "=end" command must have a formatname
-parameter.
-(TBT)
+これは、全ての "=end" コマンドにはフォーマット名引数が必要なので、
+不正です。
 
 =head1 SEE ALSO
 

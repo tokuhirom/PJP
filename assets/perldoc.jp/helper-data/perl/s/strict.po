@@ -1,0 +1,294 @@
+# strict pragma for Perl
+# This file is distributed under the same license as the Perl package.
+# IWAI, Masaharu <iwaim.sub@gmail.com>, 2003, 2011.
+# argrath, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: strict pragma\n"
+"POT-Creation-Date: 2011-02-28 08:02+0900\n"
+"PO-Revision-Date: 2011-02-28 08:24+0900\n"
+"Last-Translator: IWAI, Masaharu <iwaim.sub@gmail.com>\n"
+"Language-Team: JPRP <perldocjp@freeml.com>\n"
+"Language: Japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=euc-jp\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: =head1
+#: strict.pod:1
+msgid "NAME"
+msgstr "NAME"
+
+#. type: textblock
+#: strict.pod:3
+msgid "strict - Perl pragma to restrict unsafe constructs"
+msgstr "strict - 安全ではないコンストラクトを制限する Perl プラグマ"
+
+#. type: =head1
+#: strict.pod:5
+msgid "SYNOPSIS"
+msgstr "SYNOPSIS"
+
+#. type: verbatim
+#: strict.pod:7
+#, no-wrap
+msgid ""
+"    use strict;\n"
+"\n"
+msgstr ""
+"    use strict;\n"
+"\n"
+
+#. type: verbatim
+#: strict.pod:9
+#, no-wrap
+msgid ""
+"    use strict \"vars\";\n"
+"    use strict \"refs\";\n"
+"    use strict \"subs\";\n"
+"\n"
+msgstr ""
+"    use strict \"vars\";\n"
+"    use strict \"refs\";\n"
+"    use strict \"subs\";\n"
+"\n"
+
+#. type: verbatim
+#: strict.pod:13
+#, no-wrap
+msgid ""
+"    use strict;\n"
+"    no strict \"vars\";\n"
+"\n"
+msgstr ""
+"    use strict;\n"
+"    no strict \"vars\";\n"
+"\n"
+
+#. type: =head1
+#: strict.pod:16
+msgid "DESCRIPTION"
+msgstr "DESCRIPTION"
+
+#. type: textblock
+#: strict.pod:18
+msgid ""
+"If no import list is supplied, all possible restrictions are assumed.  (This "
+"is the safest mode to operate in, but is sometimes too strict for casual "
+"programming.)  Currently, there are three possible things to be strict "
+"about: \"subs\", \"vars\", and \"refs\"."
+msgstr ""
+"インポートリストを与えない場合は、可能な限り全ての制約を受けます。 （これは、"
+"最も安全な動作モードです。ただ、カジュアルプログラミング のためには厳しすぎま"
+"す。）今のところ、\"subs\"、\"vars\"、\"refs\" の 3つの制約が用意されていま"
+"す。"
+
+#. type: =item
+#: strict.pod:25
+msgid "C<strict refs>"
+msgstr "C<strict refs>"
+
+#. type: textblock
+#: strict.pod:27
+msgid ""
+"This generates a runtime error if you use symbolic references (see "
+"L<perlref>)."
+msgstr ""
+"シンボリックリファレンスが使われたときにランタイムエラーになります。 "
+"（L<perlref> を見てください。）"
+
+#. type: verbatim
+#: strict.pod:30
+#, no-wrap
+msgid ""
+"    use strict 'refs';\n"
+"    $ref = \\$foo;\n"
+"    print $$ref;\t# ok\n"
+"    $ref = \"foo\";\n"
+"    print $$ref;\t# runtime error; normally ok\n"
+"    $file = \"STDOUT\";\n"
+"    print $file \"Hi!\";\t# error; note: no comma after $file\n"
+"\n"
+msgstr ""
+"    use strict 'refs';\n"
+"    $ref = \\$foo;\n"
+"    print $$ref;\t# ok\n"
+"    $ref = \"foo\";\n"
+"    print $$ref;\t# ランタイムエラー; 普段は ok\n"
+"    $file = \"STDOUT\";\n"
+"    print $file \"Hi!\";\t# エラー; note: $file の後にコンマがない。\n"
+"\n"
+
+#. type: textblock
+#: strict.pod:38
+msgid "There is one exception to this rule:"
+msgstr "このルールには 1つの例外があります。"
+
+#. type: verbatim
+#: strict.pod:40
+#, no-wrap
+msgid ""
+"    $bar = \\&{'foo'};\n"
+"    &$bar;\n"
+"\n"
+msgstr ""
+"    $bar = \\&{'foo'};\n"
+"    &$bar;\n"
+"\n"
+
+#. type: textblock
+#: strict.pod:43
+msgid "is allowed so that C<goto &$AUTOLOAD> would not break under stricture."
+msgstr ""
+"上記のものは許容されます。だから C<goto &$AUTOLOAD> はこの制約下でも 動きま"
+"す。"
+
+#. type: =item
+#: strict.pod:46
+msgid "C<strict vars>"
+msgstr "C<strict vars>"
+
+#. type: textblock
+#: strict.pod:48
+msgid ""
+"This generates a compile-time error if you access a variable that wasn't "
+"declared via C<our> or C<use vars>, localized via C<my()>, or wasn't fully "
+"qualified.  Because this is to avoid variable suicide problems and subtle "
+"dynamic scoping issues, a merely local() variable isn't good enough.  See "
+"L<perlfunc/my> and L<perlfunc/local>."
+msgstr ""
+"C<our> や C<use vars>、C<my()> で宣言された変数や完全に修飾された 変数以外に"
+"アクセスしたときにコンパイル時エラーを出します。 変数が自殺してしまう問題や微"
+"表な動的スコープの問題があるため、 local() 変数だけでは十分ではありません。"
+"L<perlfunc/my> や L<perlfunc/local> を見てください。"
+
+#. type: verbatim
+#: strict.pod:55
+#, no-wrap
+msgid ""
+"    use strict 'vars';\n"
+"    $X::foo = 1;\t # ok, fully qualified\n"
+"    my $foo = 10;\t # ok, my() var\n"
+"    local $foo = 9;\t # blows up\n"
+"\n"
+msgstr ""
+"    use strict 'vars';\n"
+"    $X::foo = 1;\t # ok, 完全に修飾されています\n"
+"    my $foo = 10;\t # ok, my() 変数\n"
+"    local $foo = 9;\t # ダメ\n"
+"\n"
+
+#. type: verbatim
+#: strict.pod:60
+#, no-wrap
+msgid ""
+"    package Cinna;\n"
+"    our $bar;\t\t\t# Declares $bar in current package\n"
+"    $bar = 'HgS';\t\t# ok, global declared via pragma\n"
+"\n"
+msgstr ""
+"    package Cinna;\n"
+"    our $bar;\t\t\t# パッケージ内で宣言された $bar\n"
+"    $bar = 'HgS';\t\t# ok, プラグマでグローバルに宣言された\n"
+"\n"
+
+#. type: textblock
+#: strict.pod:64
+msgid ""
+"The local() generated a compile-time error because you just touched a global "
+"name without fully qualifying it."
+msgstr ""
+"local() は、完全な修飾無しにグローバルな名前を触ってしまうため コンパイル時エ"
+"ラーを出します。"
+
+#. type: textblock
+#: strict.pod:67
+msgid ""
+"Because of their special use by sort(), the variables $a and $b are exempted "
+"from this check."
+msgstr ""
+"sort() によって使われるという理由で $a と $b はこのチェックの 適用外という特"
+"別扱いになっています。"
+
+#. type: =item
+#: strict.pod:70
+msgid "C<strict subs>"
+msgstr "C<strict subs>"
+
+#. type: textblock
+#: strict.pod:72
+msgid ""
+"This disables the poetry optimization, generating a compile-time error if "
+"you try to use a bareword identifier that's not a subroutine, unless it is a "
+"simple identifier (no colons) and that it appears in curly braces or on the "
+"left hand side of the C<< => >> symbol."
+msgstr ""
+"詩的な最適化を禁止し、サブルーチン以外の裸の識別子を使おうとしたときか、 （コ"
+"ロンのない）単純な識別子や中括弧の中 C<< => >> シンボルの左側に 無いときにコ"
+"ンパイル時エラーを出します。"
+
+#. type: verbatim
+#: strict.pod:77
+#, no-wrap
+msgid ""
+"    use strict 'subs';\n"
+"    $SIG{PIPE} = Plumber;   \t# blows up\n"
+"    $SIG{PIPE} = \"Plumber\"; \t# just fine: quoted string is always ok\n"
+"    $SIG{PIPE} = \\&Plumber; \t# preferred form\n"
+"\n"
+msgstr ""
+"    use strict 'subs';\n"
+"    $SIG{PIPE} = Plumber;   \t# ダメ\n"
+"    $SIG{PIPE} = \"Plumber\"; \t# 問題なし: クオートされた文字列なら常に ok\n"
+"    $SIG{PIPE} = \\&Plumber; \t# 好ましい方法\n"
+"\n"
+
+#. type: textblock
+#: strict.pod:84
+msgid "See L<perlmodlib/Pragmatic Modules>."
+msgstr "L<perlmodlib/Pragmatic Modules> を見てください。"
+
+#. type: =head1
+#: strict.pod:86
+msgid "HISTORY"
+msgstr "HISTORY"
+
+#. type: textblock
+#: strict.pod:88
+msgid ""
+"C<strict 'subs'>, with Perl 5.6.1, erroneously permitted to use an unquoted "
+"compound identifier (e.g. C<Foo::Bar>) as a hash key (before C<< => >> or "
+"inside curlies), but without forcing it always to a literal string."
+msgstr ""
+"Perl 5.6.1 での C<strict 'subs'> は、（C<< => >> の前や中括弧の中での） ハッ"
+"シュのキーのとしてクオートすることなしに（C<Foo::Bar> のような） 複合の識別子"
+"を使えるようにしてしまっています。このことは間違いでした。 それは、いつでもリ"
+"テラル文字列です。"
+
+#. type: textblock
+#: strict.pod:92
+msgid ""
+"Starting with Perl 5.8.1 strict is strict about its restrictions: if unknown "
+"restrictions are used, the strict pragma will abort with"
+msgstr ""
+"Perl 5.8.1 からの strict は、それらの制約事項について厳格です: もし、知られて"
+"いない制約事項が使われるならば、strict プラグマは、 次にある記述と共に中断す"
+"るでしょう。"
+
+#. type: verbatim
+#: strict.pod:95
+#, no-wrap
+msgid ""
+"    Unknown 'strict' tag(s) '...'\n"
+"\n"
+msgstr ""
+"    Unknown 'strict' tag(s) '...'\n"
+"\n"
+
+#. type: textblock
+#: strict.pod:97
+msgid ""
+"As of version 1.04 (Perl 5.10), strict verifies that it is used as \"strict"
+"\" to avoid the dreaded Strict trap on case insensitive file systems."
+msgstr "バージョン 1.04 (Perl 5.10) から、大文字小文字の区別のない ファイルシステムでの恐ろしい \"Strict\" の罠 (Strict trap) を避けるために、strict は \"strict\" として使われているかを検証します。"

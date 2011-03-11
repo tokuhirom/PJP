@@ -181,13 +181,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.10',
         'distvname' => 'App-perlbrew-0.10',
-        'latest_version' => '0.15',
+        'latest_version' => '0.17',
         'name' => 'App-perlbrew',
         'abstract' => "Perl \x{74b0}\x{5883}\x{30de}\x{30cd}\x{30fc}\x{30b8}\x{30e3}\x{30fc}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.15',
+    'latest_version' => '0.17',
     'name' => 'App-perlbrew',
     'abstract' => "Perl \x{74b0}\x{5883}\x{30de}\x{30cd}\x{30fc}\x{30b8}\x{30e3}\x{30fc}"
   },
@@ -325,13 +325,13 @@
         'distvname' => 'CGI-Kwiki-0.18',
         'latest_version' => '0.18',
         'name' => 'CGI-Kwiki',
-        'abstract' => 'A Quickie Wiki that\'s not too Tricky'
+        'abstract' => "\x{30c8}\x{30ea}\x{30c3}\x{30ad}\x{30fc}\x{3059}\x{304e}\x{306a}\x{3044}\x{304a}\x{624b}\x{8efd}\x{306a}Wiki\x{3002}"
       }
     ],
     'repository' => 'perldoc.jp',
     'latest_version' => '0.18',
     'name' => 'CGI-Kwiki',
-    'abstract' => 'A Quickie Wiki that\'s not too Tricky'
+    'abstract' => "\x{30c8}\x{30ea}\x{30c3}\x{30ad}\x{30fc}\x{3059}\x{304e}\x{306a}\x{3044}\x{304a}\x{624b}\x{8efd}\x{306a}Wiki\x{3002}"
   },
   {
     'versions' => [
@@ -1051,13 +1051,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.05',
         'distvname' => 'DBD-ODBC-1.05',
-        'latest_version' => '1.28_2',
+        'latest_version' => '1.29',
         'name' => 'DBD-ODBC',
         'abstract' => "DBI\x{306e}\x{305f}\x{3081}\x{306e}ODBC\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.28_2',
+    'latest_version' => '1.29',
     'name' => 'DBD-ODBC',
     'abstract' => "DBI\x{306e}\x{305f}\x{3081}\x{306e}ODBC\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
   },
@@ -1252,6 +1252,22 @@
     'latest_version' => '1.06',
     'name' => 'Data-Pageset',
     'abstract' => "\x{30da}\x{30fc}\x{30b8}\x{306e}\x{756a}\x{53f7}\x{4ed8}\x{3051}\x{3068}\x{30da}\x{30fc}\x{30b8}\x{30bb}\x{30c3}\x{30c8}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '0.02',
+        'distvname' => 'Data-Section-Simple-0.02',
+        'latest_version' => '0.02',
+        'name' => 'Data-Section-Simple',
+        'abstract' => "__DATA__\x{30bb}\x{30af}\x{30b7}\x{30e7}\x{30f3}\x{304b}\x{3089}\x{306e}\x{30c7}\x{30fc}\x{30bf}\x{306e}\x{8aad}\x{307f}\x{51fa}\x{3057}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => '0.02',
+    'name' => 'Data-Section-Simple',
+    'abstract' => "__DATA__\x{30bb}\x{30af}\x{30b7}\x{30e7}\x{30f3}\x{304b}\x{3089}\x{306e}\x{30c7}\x{30fc}\x{30bf}\x{306e}\x{8aad}\x{307f}\x{51fa}\x{3057}"
   },
   {
     'versions' => [
@@ -1875,13 +1891,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.20',
         'distvname' => 'File-Remove-0.20',
-        'latest_version' => '1.42',
+        'latest_version' => '1.47_01',
         'name' => 'File-Remove',
         'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3084}\x{30c7}\x{30a3}\x{30ec}\x{30af}\x{30c8}\x{30ea}\x{3092}\x{524a}\x{9664}\x{3059}\x{308b}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.42',
+    'latest_version' => '1.47_01',
     'name' => 'File-Remove',
     'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3084}\x{30c7}\x{30a3}\x{30ec}\x{30af}\x{30c8}\x{30ea}\x{3092}\x{524a}\x{9664}\x{3059}\x{308b}"
   },
@@ -2073,13 +2089,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.24',
         'distvname' => 'Furl-0.24',
-        'latest_version' => '0.25',
+        'latest_version' => '0.31',
         'name' => 'Furl',
         'abstract' => "\x{8efd}\x{91cf}\x{3067}\x{901f}\x{3044} URL fecher"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.25',
+    'latest_version' => '0.31',
     'name' => 'Furl',
     'abstract' => "\x{8efd}\x{91cf}\x{3067}\x{901f}\x{3044} URL fecher"
   },
@@ -2335,13 +2351,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.97',
         'distvname' => 'HTTP-BrowserDetect-0.97',
-        'latest_version' => '1.21',
+        'latest_version' => '1.22',
         'name' => 'HTTP-BrowserDetect',
         'abstract' => "HTTP\x{30e6}\x{30fc}\x{30b6}\x{30fc}\x{30fb}\x{30a8}\x{30fc}\x{30b8}\x{30a7}\x{30f3}\x{30c8}\x{6587}\x{5b57}\x{5217}\x{304b}\x{3089}Web\x{30d6}\x{30e9}\x{30a6}\x{30b6}\x{3001}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.21',
+    'latest_version' => '1.22',
     'name' => 'HTTP-BrowserDetect',
     'abstract' => "HTTP\x{30e6}\x{30fc}\x{30b6}\x{30fc}\x{30fb}\x{30a8}\x{30fc}\x{30b8}\x{30a7}\x{30f3}\x{30c8}\x{6587}\x{5b57}\x{5217}\x{304b}\x{3089}Web\x{30d6}\x{30e9}\x{30a6}\x{30b6}\x{3001}"
   },
@@ -2422,13 +2438,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.91',
         'distvname' => 'IO-Socket-SSL-0.91',
-        'latest_version' => '1.38',
+        'latest_version' => '1.39',
         'name' => 'IO-Socket-SSL',
         'abstract' => "IO::Socket::INET\x{306e}\x{305f}\x{3081}\x{306e}\x{307b}\x{3068}\x{3093}\x{3069}\x{900f}\x{904e}\x{7684}\x{306a}SSL\x{306e}\x{30ab}\x{30d7}\x{30bb}\x{30eb}\x{5316}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.38',
+    'latest_version' => '1.39',
     'name' => 'IO-Socket-SSL',
     'abstract' => "IO::Socket::INET\x{306e}\x{305f}\x{3081}\x{306e}\x{307b}\x{3068}\x{3093}\x{3069}\x{900f}\x{904e}\x{7684}\x{306a}SSL\x{306e}\x{30ab}\x{30d7}\x{30bb}\x{30eb}\x{5316}"
   },
@@ -2454,13 +2470,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.43',
         'distvname' => 'Inline-0.43',
-        'latest_version' => '0.47_02',
+        'latest_version' => '0.48',
         'name' => 'Inline',
         'abstract' => "C\x{3067}Perl\x{30b5}\x{30d6}\x{30eb}\x{30fc}\x{30c1}\x{30f3}\x{3092}\x{4f5c}\x{6210}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.47_02',
+    'latest_version' => '0.48',
     'name' => 'Inline',
     'abstract' => "C\x{3067}Perl\x{30b5}\x{30d6}\x{30eb}\x{30fc}\x{30c1}\x{30f3}\x{3092}\x{4f5c}\x{6210}"
   },
@@ -2598,15 +2614,47 @@
         'repository' => 'perldoc.jp',
         'version' => '1.011',
         'distvname' => 'Math-BaseCalc-1.011',
-        'latest_version' => '1.013',
+        'latest_version' => '1.014',
         'name' => 'Math-BaseCalc',
         'abstract' => "\x{69d8}\x{3005}\x{306a}\x{57fa}\x{6570}\x{9593}\x{3067}\x{6570}\x{5024}\x{3092}\x{5909}\x{63db}\x{3059}\x{308b}\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.013',
+    'latest_version' => '1.014',
     'name' => 'Math-BaseCalc',
     'abstract' => "\x{69d8}\x{3005}\x{306a}\x{57fa}\x{6570}\x{9593}\x{3067}\x{6570}\x{5024}\x{3092}\x{5909}\x{63db}\x{3059}\x{308b}\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '0.12',
+        'distvname' => 'Module-Install-ReadmeFromPod-0.12',
+        'latest_version' => '0.12',
+        'name' => 'Module-Install-ReadmeFromPod',
+        'abstract' => "POD\x{304b}\x{3089} README\x{306e}\x{81ea}\x{52d5}\x{5909}\x{63db}\x{3092}\x{884c}\x{3046}\x{305f}\x{3081}\x{306e} Module::Install\x{62e1}\x{5f35}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => '0.12',
+    'name' => 'Module-Install-ReadmeFromPod',
+    'abstract' => "POD\x{304b}\x{3089} README\x{306e}\x{81ea}\x{52d5}\x{5909}\x{63db}\x{3092}\x{884c}\x{3046}\x{305f}\x{3081}\x{306e} Module::Install\x{62e1}\x{5f35}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '0.03',
+        'distvname' => 'Module-Install-ReadmeMarkdownFromPod-0.03',
+        'latest_version' => '0.03',
+        'name' => 'Module-Install-ReadmeMarkdownFromPod',
+        'abstract' => "POD\x{304b}\x{3089} README.mkdn\x{306e}\x{751f}\x{6210}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => '0.03',
+    'name' => 'Module-Install-ReadmeMarkdownFromPod',
+    'abstract' => "POD\x{304b}\x{3089} README.mkdn\x{306e}\x{751f}\x{6210}"
   },
   {
     'versions' => [
@@ -2614,13 +2662,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.37',
         'distvname' => 'Net-Daemon-0.37',
-        'latest_version' => '0.43',
+        'latest_version' => '0.48',
         'name' => 'Net-Daemon',
         'abstract' => "\x{79fb}\x{690d}\x{53ef}\x{80fd}\x{306a}\x{30c7}\x{30fc}\x{30e2}\x{30f3}\x{306e}\x{305f}\x{3081}\x{306e}Perl\x{62e1}\x{5f35}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.43',
+    'latest_version' => '0.48',
     'name' => 'Net-Daemon',
     'abstract' => "\x{79fb}\x{690d}\x{53ef}\x{80fd}\x{306a}\x{30c7}\x{30fc}\x{30e2}\x{30f3}\x{306e}\x{305f}\x{3081}\x{306e}Perl\x{62e1}\x{5f35}"
   },
@@ -2742,13 +2790,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.03',
         'distvname' => 'Number-Phone-JP-0.03',
-        'latest_version' => '0.20110201',
+        'latest_version' => '0.20110301',
         'name' => 'Number-Phone-JP',
         'abstract' => "\x{65e5}\x{672c}\x{306e}\x{96fb}\x{8a71}\x{756a}\x{53f7}\x{306e}\x{78ba}\x{8a8d}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.20110201',
+    'latest_version' => '0.20110301',
     'name' => 'Number-Phone-JP',
     'abstract' => "\x{65e5}\x{672c}\x{306e}\x{96fb}\x{8a71}\x{756a}\x{53f7}\x{306e}\x{78ba}\x{8a8d}"
   },
@@ -3198,7 +3246,7 @@
         'repository' => 'perldoc.jp',
         'version' => '0.96',
         'distvname' => 'Test-Simple-0.96',
-        'latest_version' => '2.00_06',
+        'latest_version' => '2.00_07',
         'name' => 'Test-Simple',
         'abstract' => "\x{30c6}\x{30b9}\x{30c8}\x{3092}\x{66f8}\x{304f}\x{305f}\x{3081}\x{306e}\x{3082}\x{3046}\x{4e00}\x{3064}\x{306e}\x{30d5}\x{30ec}\x{30fc}\x{30e0}\x{30ef}\x{30fc}\x{30af}"
       },
@@ -3206,7 +3254,7 @@
         'repository' => 'perldoc.jp',
         'version' => '0.94',
         'distvname' => 'Test-Simple-0.94',
-        'latest_version' => '2.00_06',
+        'latest_version' => '2.00_07',
         'name' => 'Test-Simple',
         'abstract' => "\x{30c6}\x{30b9}\x{30c8}\x{3092}\x{66f8}\x{304f}\x{305f}\x{3081}\x{306e}\x{3082}\x{3046}\x{4e00}\x{3064}\x{306e}\x{30d5}\x{30ec}\x{30fc}\x{30e0}\x{30ef}\x{30fc}\x{30af}"
       },
@@ -3214,13 +3262,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.47',
         'distvname' => 'Test-Simple-0.47',
-        'latest_version' => '2.00_06',
+        'latest_version' => '2.00_07',
         'name' => 'Test-Simple',
         'abstract' => "\x{30c6}\x{30b9}\x{30c8}\x{3092}\x{66f8}\x{304f}\x{305f}\x{3081}\x{306e}\x{3082}\x{3046}\x{4e00}\x{3064}\x{306e}\x{30d5}\x{30ec}\x{30fc}\x{30e0}\x{30ef}\x{30fc}\x{30af}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '2.00_06',
+    'latest_version' => '2.00_07',
     'name' => 'Test-Simple',
     'abstract' => "\x{30c6}\x{30b9}\x{30c8}\x{3092}\x{66f8}\x{304f}\x{305f}\x{3081}\x{306e}\x{3082}\x{3046}\x{4e00}\x{3064}\x{306e}\x{30d5}\x{30ec}\x{30fc}\x{30e0}\x{30ef}\x{30fc}\x{30af}"
   },
@@ -3239,6 +3287,22 @@
     'latest_version' => '0.25',
     'name' => 'Test-Unit',
     'abstract' => "PerlUnit \x{30c6}\x{30b9}\x{30c6}\x{30a3}\x{30f3}\x{30b0}\x{30d5}\x{30ec}\x{30fc}\x{30e0}\x{30ef}\x{30fc}\x{30af}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '0.23',
+        'distvname' => 'Test-Warn-0.23',
+        'latest_version' => '0.23',
+        'name' => 'Test-Warn',
+        'abstract' => "\x{8b66}\x{544a}\x{306b}\x{3064}\x{3044}\x{3066}\x{30c6}\x{30b9}\x{30c8}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e} Perl\x{62e1}\x{5f35}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => '0.23',
+    'name' => 'Test-Warn',
+    'abstract' => "\x{8b66}\x{544a}\x{306b}\x{3064}\x{3044}\x{3066}\x{30c6}\x{30b9}\x{30c8}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e} Perl\x{62e1}\x{5f35}"
   },
   {
     'versions' => [
@@ -3273,18 +3337,34 @@
   {
     'versions' => [
       {
+        'repository' => 'module-pod-jp',
+        'version' => '0.09',
+        'distvname' => 'Text-Glob-0.09',
+        'latest_version' => '0.09',
+        'name' => 'Text-Glob',
+        'abstract' => "\x{30b0}\x{30ed}\x{30d3}\x{30f3}\x{30b0}\x{30d1}\x{30bf}\x{30fc}\x{30f3}\x{306b}\x{3088}\x{308b}\x{30c6}\x{30ad}\x{30b9}\x{30c8}\x{30de}\x{30c3}\x{30c1}\x{30f3}\x{30b0}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => '0.09',
+    'name' => 'Text-Glob',
+    'abstract' => "\x{30b0}\x{30ed}\x{30d3}\x{30f3}\x{30b0}\x{30d1}\x{30bf}\x{30fc}\x{30f3}\x{306b}\x{3088}\x{308b}\x{30c6}\x{30ad}\x{30b9}\x{30c8}\x{30de}\x{30c3}\x{30c1}\x{30f3}\x{30b0}"
+  },
+  {
+    'versions' => [
+      {
         'repository' => 'perldoc.jp',
         'version' => '1.2',
         'distvname' => 'Text-Iconv-1.2',
         'latest_version' => '1.7',
         'name' => 'Text-Iconv',
-        'abstract' => undef
+        'abstract' => "\x{30b3}\x{30fc}\x{30c9}\x{30bb}\x{30c3}\x{30c8}\x{5909}\x{63db}\x{95a2}\x{6570}iconv()\x{3078}\x{306e}Perl\x{30a4}\x{30f3}\x{30bf}\x{30fc}\x{30d5}\x{30a7}\x{30fc}\x{30b9}"
       }
     ],
     'repository' => 'perldoc.jp',
     'latest_version' => '1.7',
     'name' => 'Text-Iconv',
-    'abstract' => undef
+    'abstract' => "\x{30b3}\x{30fc}\x{30c9}\x{30bb}\x{30c3}\x{30c8}\x{5909}\x{63db}\x{95a2}\x{6570}iconv()\x{3078}\x{306e}Perl\x{30a4}\x{30f3}\x{30bf}\x{30fc}\x{30d5}\x{30a7}\x{30fc}\x{30b9}"
   },
   {
     'versions' => [
@@ -3911,13 +3991,13 @@
         'repository' => 'perldoc.jp',
         'version' => '5.813',
         'distvname' => 'libwww-perl-5.813',
-        'latest_version' => '5.837',
+        'latest_version' => '6.01',
         'name' => 'libwww-perl',
         'abstract' => "Perl \x{3067}\x{306e} WWW \x{30a2}\x{30af}\x{30bb}\x{30b9}\x{306e}\x{305f}\x{3081}\x{306e}\x{30e9}\x{30a4}\x{30d6}\x{30e9}\x{30ea}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '5.837',
+    'latest_version' => '6.01',
     'name' => 'libwww-perl',
     'abstract' => "Perl \x{3067}\x{306e} WWW \x{30a2}\x{30af}\x{30bb}\x{30b9}\x{306e}\x{305f}\x{3081}\x{306e}\x{30e9}\x{30a4}\x{30d6}\x{30e9}\x{30ea}"
   },
