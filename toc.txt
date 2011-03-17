@@ -60,7 +60,7 @@ XS
     # ↑ autodoc.pl の警告がみえちゃってる
     perlapio - perl の抽象入出力インターフェース
     perlxs - XS 言語リファレンスマニュアル
-    perlxstut - XSUB を書くためのチュートリアル
+    perlXStut - XSUB を書くためのチュートリアル
     perlembed - C プログラムへの Perl の埋め込み方
     perlguts - Perl API の紹介
 

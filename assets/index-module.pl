@@ -181,13 +181,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.10',
         'distvname' => 'App-perlbrew-0.10',
-        'latest_version' => '0.17',
+        'latest_version' => '0.18',
         'name' => 'App-perlbrew',
         'abstract' => "Perl \x{74b0}\x{5883}\x{30de}\x{30cd}\x{30fc}\x{30b8}\x{30e3}\x{30fc}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.17',
+    'latest_version' => '0.18',
     'name' => 'App-perlbrew',
     'abstract' => "Perl \x{74b0}\x{5883}\x{30de}\x{30cd}\x{30fc}\x{30b8}\x{30e3}\x{30fc}"
   },
@@ -1195,13 +1195,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.805',
         'distvname' => 'DB_File-1.805',
-        'latest_version' => '1.821',
+        'latest_version' => '1.822',
         'name' => 'DB_File',
         'abstract' => "Berkeley DB \x{30d0}\x{30fc}\x{30b8}\x{30e7}\x{30f3} 1.x\x{3078}\x{306e}Perl5\x{30a2}\x{30af}\x{30bb}\x{30b9}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.821',
+    'latest_version' => '1.822',
     'name' => 'DB_File',
     'abstract' => "Berkeley DB \x{30d0}\x{30fc}\x{30b8}\x{30e7}\x{30f3} 1.x\x{3078}\x{306e}Perl5\x{30a2}\x{30af}\x{30bb}\x{30b9}"
   },
@@ -1284,6 +1284,22 @@
     'latest_version' => '0.09',
     'name' => 'Data-TemporaryBag',
     'abstract' => "\x{30c6}\x{30f3}\x{30dd}\x{30e9}\x{30ea}\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3092}\x{7528}\x{3044}\x{3066}\x{5927}\x{304d}\x{306a}\x{30c7}\x{30fc}\x{30bf}\x{3092}\x{53d6}\x{308a}\x{6271}\x{3046}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '0.06',
+        'distvname' => 'Data-Validator-0.06',
+        'latest_version' => '0.06',
+        'name' => 'Data-Validator',
+        'abstract' => "\x{30eb}\x{30fc}\x{30eb}\x{306b}\x{57fa}\x{3065}\x{3044}\x{305f}\x{578b}\x{5236}\x{7d04}\x{30b7}\x{30b9}\x{30c6}\x{30e0}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => '0.06',
+    'name' => 'Data-Validator',
+    'abstract' => "\x{30eb}\x{30fc}\x{30eb}\x{306b}\x{57fa}\x{3065}\x{3044}\x{305f}\x{578b}\x{5236}\x{7d04}\x{30b7}\x{30b9}\x{30c6}\x{30e0}"
   },
   {
     'versions' => [
@@ -1891,13 +1907,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.20',
         'distvname' => 'File-Remove-0.20',
-        'latest_version' => '1.47_01',
+        'latest_version' => '1.49',
         'name' => 'File-Remove',
         'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3084}\x{30c7}\x{30a3}\x{30ec}\x{30af}\x{30c8}\x{30ea}\x{3092}\x{524a}\x{9664}\x{3059}\x{308b}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.47_01',
+    'latest_version' => '1.49',
     'name' => 'File-Remove',
     'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3084}\x{30c7}\x{30a3}\x{30ec}\x{30af}\x{30c8}\x{30ea}\x{3092}\x{524a}\x{9664}\x{3059}\x{308b}"
   },
@@ -3867,13 +3883,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.03',
         'distvname' => 'autobox-1.03',
-        'latest_version' => '2.72',
+        'latest_version' => '2.73',
         'name' => 'autobox',
         'abstract' => "\x{7d44}\x{307f}\x{8fbc}\x{307f}\x{578b}\x{3092}\x{30d5}\x{30a1}\x{30fc}\x{30b9}\x{30c8}\x{30af}\x{30e9}\x{30b9}\x{30aa}\x{30d6}\x{30b8}\x{30a7}\x{30af}\x{30c8}\x{3068}\x{3057}\x{3066}\x{5229}\x{7528}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '2.72',
+    'latest_version' => '2.73',
     'name' => 'autobox',
     'abstract' => "\x{7d44}\x{307f}\x{8fbc}\x{307f}\x{578b}\x{3092}\x{30d5}\x{30a1}\x{30fc}\x{30b9}\x{30c8}\x{30af}\x{30e9}\x{30b9}\x{30aa}\x{30d6}\x{30b8}\x{30a7}\x{30af}\x{30c8}\x{3068}\x{3057}\x{3066}\x{5229}\x{7528}"
   },

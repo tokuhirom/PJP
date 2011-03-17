@@ -7,6 +7,7 @@ use Pod::Simple::XHTML;
 use Log::Minimal;
 use Text::Xslate::Util qw/mark_raw html_escape/;
 use Encode ();
+use HTML::Entities ();
 
 sub parse_name_section {
     my ($class, $stuff) = @_;
@@ -41,9 +42,8 @@ sub pod2html {
 	my ($class, $stuff) = @_;
 	$stuff or die "missing mandatory argument: $stuff";
 
-    no warnings 'redefine';
-    local *Pod::Simple::XHTML::encode_entities = \&Text::Xslate::Util::html_escape;
     my $parser = PJP::Pod::Parser->new();
+    $parser->html_encode_chars(q{&<>"'});
     $parser->accept_targets_as_text('original');
     $parser->html_header('');
     $parser->html_footer('');

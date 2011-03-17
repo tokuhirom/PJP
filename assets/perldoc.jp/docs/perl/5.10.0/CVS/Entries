@@ -10,9 +10,7 @@
 /perlapio.pod/1.7/Wed Jan 26 02:21:40 2011//
 /perlboot.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perlbot.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
-/perlcall.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perlcompile.pod/1.3/Wed Jan 26 06:29:15 2011//
-/perldata.pod/1.3/Wed Jan 26 02:21:40 2011/-ko/
 /perldebtut.pod/1.5/Wed Jan 26 02:21:40 2011/-ko/
 /perldebug.pod/1.1/Wed Jan 26 02:21:40 2011/-ko/
 /perldiag.pod/1.13/Wed Jan 26 02:21:40 2011/-ko/
@@ -71,4 +69,6 @@
 /perldsc.pod/1.2/Sun Mar  6 07:10:02 2011/-ko/
 /perl582delta.pod/1.2/Fri Mar 11 03:50:02 2011/-ko/
 /perl595delta.pod/1.3/Fri Mar 11 04:50:02 2011/-ko/
+/perlcall.pod/1.2/Fri Mar 11 05:10:01 2011/-ko/
+/perldata.pod/1.4/Wed Mar 16 09:00:02 2011/-ko/
 D
