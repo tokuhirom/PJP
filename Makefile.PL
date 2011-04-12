@@ -8,6 +8,7 @@ requires 'Text::Xslate';
 requires 'Text::Xslate::Bridge::TT2Like';
 requires 'Plack::Middleware::ReverseProxy';
 requires 'Time::Piece';
+requires 'Pod::Simple' => 3.16;
 requires 'Pod::Simple::XHTML';
 requires 'Log::Minimal';
 requires 'Cache::FileCache';
@@ -18,9 +19,13 @@ requires 'Try::Tiny';
 requires 'DBD::SQLite';
 requires 'SQL::Maker';
 requires 'DBIx::TransactionManager';
+requires 'SQL::Interp';
+requires 'Carp::Clan';
+requires 'File::Find::Rule';
+requires 'Tiffany';
 
 test_requires 'Test::Requires';
 
-recursive_author_tests('xt');
+# recursive_author_tests('xt');
 
 WriteAll;

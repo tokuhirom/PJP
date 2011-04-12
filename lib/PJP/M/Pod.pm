@@ -76,6 +76,7 @@ sub get_latest_file_path {
 
 {
     package PJP::Pod::Parser;
+    use Pod::Simple::XHTML;
     use parent qw/Pod::Simple::XHTML/;
     use URI::Escape qw/uri_escape_utf8/;
 
