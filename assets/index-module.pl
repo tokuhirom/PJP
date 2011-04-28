@@ -1061,12 +1061,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.00',
         'distvname' => 'DBD-Sybase-1.00',
+        'latest_version' => '1.12',
         'name' => 'DBD-Sybase',
         'abstract' => "DBI\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}\x{306e}\x{305f}\x{3081}\x{306e}Sybase\x{30c7}\x{30fc}\x{30bf}\x{30d9}\x{30fc}\x{30b9}\x{30fb}\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.12',
     'name' => 'DBD-Sybase',
     'abstract' => "DBI\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}\x{306e}\x{305f}\x{3081}\x{306e}Sybase\x{30c7}\x{30fc}\x{30bf}\x{30d9}\x{30fc}\x{30b9}\x{30fb}\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
   },
@@ -1337,12 +1338,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.58',
         'distvname' => 'Devel-Size-0.58',
+        'latest_version' => '0.74_52',
         'name' => 'Devel-Size',
         'abstract' => "Perl\x{5909}\x{6570}\x{306e}\x{30e1}\x{30e2}\x{30ea}\x{4f7f}\x{7528}\x{91cf}\x{3092}\x{8abf}\x{3079}\x{308b}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '0.74_52',
     'name' => 'Devel-Size',
     'abstract' => "Perl\x{5909}\x{6570}\x{306e}\x{30e1}\x{30e2}\x{30ea}\x{4f7f}\x{7528}\x{91cf}\x{3092}\x{8abf}\x{3079}\x{308b}"
   },
@@ -1546,6 +1548,21 @@
     'latest_version' => undef,
     'name' => 'Error',
     'abstract' => "\x{30a8}\x{30e9}\x{30fc}\x{3084}\x{4f8b}\x{5916}\x{3092}\x{30aa}\x{30d6}\x{30b8}\x{30a7}\x{30af}\x{30c8}\x{6307}\x{5411}\x{7684}\x{306b}\x{6271}\x{3046}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '0.07',
+        'distvname' => 'Feed-Find-0.07',
+        'name' => 'Feed-Find',
+        'abstract' => "\x{914d}\x{4fe1}\x{30d5}\x{30a3}\x{30fc}\x{30c9}\x{306e}\x{81ea}\x{52d5}\x{691c}\x{51fa}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => undef,
+    'name' => 'Feed-Find',
+    'abstract' => "\x{914d}\x{4fe1}\x{30d5}\x{30a3}\x{30fc}\x{30c9}\x{306e}\x{81ea}\x{52d5}\x{691c}\x{51fa}"
   },
   {
     'versions' => [
@@ -1822,6 +1839,7 @@
         'repository' => 'perldoc.jp',
         'version' => '9999.01',
         'distvname' => 'File-Slurp-9999.01',
+        'latest_version' => '9999.16',
         'name' => 'File-Slurp',
         'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{5168}\x{4f53}\x{306e}\x{52b9}\x{7387}\x{7684}\x{306a}\x{8aad}\x{8fbc}/\x{66f8}\x{8fbc}"
       },
@@ -1829,12 +1847,13 @@
         'repository' => 'perldoc.jp',
         'version' => '2004.0904',
         'distvname' => 'File-Slurp-2004.0904',
+        'latest_version' => '9999.16',
         'name' => 'File-Slurp',
         'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3092}\x{4e00}\x{56de}\x{306e}\x{8aad}\x{307f}\x{8fbc}\x{307f}\x{3001}\x{66f8}\x{304d}\x{8fbc}\x{3080}\x{30eb}\x{30fc}\x{30c1}\x{30f3};\x{30c7}\x{30a3}\x{30ec}\x{30af}\x{30c8}\x{30ea}\x{3092}\x{8aad}\x{307f}\x{8fbc}\x{307f}\x{307e}\x{3059}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '9999.16',
     'name' => 'File-Slurp',
     'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{5168}\x{4f53}\x{306e}\x{52b9}\x{7387}\x{7684}\x{306a}\x{8aad}\x{8fbc}/\x{66f8}\x{8fbc}"
   },
@@ -2729,12 +2748,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.26',
         'distvname' => 'POE-0.26',
+        'latest_version' => '1.310',
         'name' => 'POE',
         'abstract' => 'multitasking and networking framework for perl'
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.310',
     'name' => 'POE',
     'abstract' => 'multitasking and networking framework for perl'
   },
@@ -3539,13 +3559,12 @@
         'repository' => 'perldoc.jp',
         'version' => '1.02',
         'distvname' => 'WWW-Mechanize-1.02',
-        'latest_version' => '1.67_01',
         'name' => 'WWW-Mechanize',
         'abstract' => "WWW::Mechanize\x{306e}\x{826f}\x{304f}\x{3042}\x{308b}\x{8cea}\x{554f}\x{3068}\x{56de}\x{7b54}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.67_01',
+    'latest_version' => undef,
     'name' => 'WWW-Mechanize',
     'abstract' => "WWW::Mechanize\x{306e}\x{826f}\x{304f}\x{3042}\x{308b}\x{8cea}\x{554f}\x{3068}\x{56de}\x{7b54}"
   },
@@ -3661,6 +3680,7 @@
         'repository' => 'perldoc.jp',
         'version' => '0.62',
         'distvname' => 'YAML-0.62',
+        'latest_version' => '0.73',
         'name' => 'YAML',
         'abstract' => 'The YAML Test Shell'
       },
@@ -3668,12 +3688,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.35',
         'distvname' => 'YAML-0.35',
+        'latest_version' => '0.73',
         'name' => 'YAML',
         'abstract' => 'YAML Ain\'t Markup Language (tm)'
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '0.73',
     'name' => 'YAML',
     'abstract' => 'The YAML Test Shell'
   },
@@ -3923,6 +3944,7 @@
         'repository' => 'perldoc.jp',
         'version' => '1.67',
         'distvname' => 'threads-1.67',
+        'latest_version' => '1.83',
         'name' => 'threads',
         'abstract' => "Perl \x{306e}\x{30a4}\x{30f3}\x{30bf}\x{30d7}\x{30ea}\x{30bf}\x{30d9}\x{30fc}\x{30b9}\x{306e}\x{30b9}\x{30ec}\x{30c3}\x{30c9}"
       },
@@ -3930,12 +3952,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.99',
         'distvname' => 'threads-0.99',
+        'latest_version' => '1.83',
         'name' => 'threads',
         'abstract' => "\x{30a4}\x{30f3}\x{30bf}\x{30d7}\x{30ea}\x{30bf}\x{30b9}\x{30ec}\x{30c3}\x{30c9}\x{306e}\x{4f7f}\x{7528}\x{3092}\x{53ef}\x{80fd}\x{306b}\x{3059}\x{308b}Perl\x{62e1}\x{5f35}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.83',
     'name' => 'threads',
     'abstract' => "Perl \x{306e}\x{30a4}\x{30f3}\x{30bf}\x{30d7}\x{30ea}\x{30bf}\x{30d9}\x{30fc}\x{30b9}\x{306e}\x{30b9}\x{30ec}\x{30c3}\x{30c9}"
   },
@@ -3945,12 +3968,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.14',
         'distvname' => 'threads-shared-1.14',
+        'latest_version' => '1.37',
         'name' => 'threads-shared',
         'abstract' => "\x{30b9}\x{30ec}\x{30c3}\x{30c9}\x{9593}\x{3067}\x{30c7}\x{30fc}\x{30bf}\x{69cb}\x{9020}\x{3092}\x{5171}\x{6709}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e} Perl \x{30a8}\x{30af}\x{30b9}\x{30c6}\x{30f3}\x{30b7}\x{30e7}\x{30f3}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.37',
     'name' => 'threads-shared',
     'abstract' => "\x{30b9}\x{30ec}\x{30c3}\x{30c9}\x{9593}\x{3067}\x{30c7}\x{30fc}\x{30bf}\x{69cb}\x{9020}\x{3092}\x{5171}\x{6709}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e} Perl \x{30a8}\x{30af}\x{30b9}\x{30c6}\x{30f3}\x{30b7}\x{30e7}\x{30f3}"
   },
