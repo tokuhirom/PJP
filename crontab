@@ -1,0 +1,1 @@
+*/10 *  *   *   *     semaphore --max=1 --file=/tmp/update.semaphore -- cronlog  --logfile=/tmp/update.cronlog --timestamp perl /home/dotcloud/code/script/update.sh
