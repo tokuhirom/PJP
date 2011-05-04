@@ -18,7 +18,10 @@ requires 'Try::Tiny';
 requires 'DBD::SQLite';
 requires 'SQL::Maker';
 requires 'DBIx::TransactionManager';
-requires 'SQL::Interp';
+requires(
+	'SQL::Interp' => 0,
+	'Carp::Clan' => 0,
+);
 
 test_requires 'Test::Requires';
 
