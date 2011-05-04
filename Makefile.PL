@@ -21,6 +21,7 @@ requires 'DBIx::TransactionManager';
 requires(
 	'SQL::Interp' => 0,
 	'Carp::Clan' => 0,
+	'JSON' => 0,
 );
 
 test_requires 'Test::Requires';
