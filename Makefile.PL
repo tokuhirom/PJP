@@ -1,4 +1,5 @@
 use inc::Module::Install;
+use autodie;
 all_from "lib/PJP.pm";
 license 'perl';
 
@@ -30,6 +31,14 @@ can_run('cronlog') or do {
 	my $tmp = File::Temp->new(UNLINK => 1);
 	system "curl -L --output $tmp http://github.com/kazuho/kaztools/tarball/master";
 	system "cpanm -nv $tmp";
+};
+can_run('git') or do {
+	system "curl -LO http://kernel.org/pub/software/scm/git/git-1.7.5.tar.bz2";
+	system "tar xzvf git-1.7.5.tar.bz2";
+	system "cd git-1.7.5/";
+	system "./configure --prefix=/home/dotcloud/perl5/";
+	system "make";
+	system "make install";
 };
 
 test_requires 'Test::Requires';
