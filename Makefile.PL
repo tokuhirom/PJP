@@ -34,7 +34,7 @@ can_run('cronlog') or do {
 };
 can_run('git') or do {
 	system "curl -LO http://kernel.org/pub/software/scm/git/git-1.7.5.tar.bz2";
-	system "tar xzvf git-1.7.5.tar.bz2";
+	system "tar xjvf git-1.7.5.tar.bz2";
 	system "cd git-1.7.5/";
 	system "./configure --prefix=/home/dotcloud/perl5/";
 	system "make";

@@ -34,3 +34,13 @@ Scss の生成は gem の Sass が必要なので
 
 main.css の方を変更してはいけません。
 
+Dotcloud
+========
+
+    curl -LO http://ftp.gnu.org/non-gnu/cvs/source/stable/1.11.23/cvs-1.11.23.tar.bz2
+    tar xzvf cvs-*.tar.bz2
+    cd cvs-1.11.23/
+    ./configure --prefix=/home/dotcloud/perl5/
+    make
+    make install
+
