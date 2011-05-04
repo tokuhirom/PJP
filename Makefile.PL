@@ -18,6 +18,7 @@ requires 'Try::Tiny';
 requires 'DBD::SQLite';
 requires 'SQL::Maker';
 requires 'DBIx::TransactionManager';
+requires 'SQL::Interp';
 
 test_requires 'Test::Requires';
 
