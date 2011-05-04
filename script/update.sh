@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 cd /usr/local/webapp/PJP/assets/perldoc.jp
 cvs upd -dP
 
