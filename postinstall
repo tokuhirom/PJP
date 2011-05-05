@@ -15,3 +15,8 @@ PLACK_ENV=$ENV{PLACK_ENV}
     print `cat crontab`;
 END_OF_PERL
 echo installed crontab
+
+git submodule init
+git submodule update
+echo initialized submodules
+
