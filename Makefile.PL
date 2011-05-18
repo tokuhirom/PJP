@@ -17,7 +17,7 @@ requires 'LWP::UserAgent';
 requires 'URI::Escape';
 requires 'Try::Tiny';
 requires 'DBD::SQLite';
-requires 'SQL::Maker';
+requires 'SQL::Maker' => 0.14;
 requires 'DBIx::TransactionManager';
 requires 'SQL::Interp';
 requires 'Carp::Clan';
