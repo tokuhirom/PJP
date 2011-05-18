@@ -103,9 +103,8 @@ most popular mistakes made by CPAN authors.
 このドキュメントの最初のセクションでは項目別のチェックリストを
 提供します; その後のセクションではリストの各項目について
 より詳しい説明を行います。
-そして最後のセクション、「よくある落とし穴」で
-CPAN 作者がよくやってしまう特にメジャーな失敗をいくつか
-説明します。
+そして最後のセクション、「よくある落とし穴」で CPAN 作者が
+よくやってしまう、特にメジャーな失敗をいくつか説明します。
 
 =head1 QUICK CHECKLIST
 
@@ -134,7 +133,7 @@ Don't re-invent the wheel
 
 =end original
 
-車輪の再発明をするな
+車輪の再発明をしない
 
 =item *
 
@@ -145,7 +144,7 @@ Patch, extend or subclass an existing module where possible
 =end original
 
 可能であるのなら既存のモジュールにパッチ、拡張、 
-サブクラス化を行え
+サブクラス化を行う
 
 =item *
 
@@ -155,7 +154,7 @@ Do one thing and do it well
 
 =end original
 
-一つのことを行いそれがちゃんと動くようにせよ
+一つのことをうまくやる
 
 =item *
 
@@ -165,7 +164,7 @@ Choose an appropriate name
 
 =end original
 
-ふさわしい名前を選べ
+ふさわしい名前を選ぶ
 
 =back
 
@@ -183,7 +182,7 @@ API should be understandable by the average programmer
 
 =end original
 
-API は平均的なプログラマが理解できるようにするべきである
+API は平均的なプログラマが理解できるようにするべき
 
 =item *
 
@@ -203,7 +202,7 @@ Separate functionality from output
 
 =end original
 
-機能を出力から分離せよ
+機能を出力から分離する
 
 =item *
 
@@ -213,7 +212,7 @@ Consistent naming of subroutines or methods
 
 =end original
 
-関数やメソッドには一貫性のある名前を付けよ
+関数やメソッドには一貫性のある名前を付ける
 
 =item *
 
@@ -225,7 +224,7 @@ parameters
 =end original
 
 二つ以上の引数ををとるのなら
-名前付きの引数(ハッシュまたはハッシュリファレンス)を使え
+名前付きの引数(ハッシュまたはハッシュリファレンス)を使う
 
 =back
 
@@ -244,7 +243,7 @@ Ensure your module works under C<use strict> and C<-w>
 =end original
 
 C<use strict> 及び C<-w> の環境下で動作することを
-保証しろ
+保証する
 
 =item *
 
@@ -254,7 +253,7 @@ Stable modules should maintain backwards compatibility
 
 =end original
 
-安定したモジュールは後方互換を維持するべきである
+安定したモジュールは後方互換性を維持するべき
 
 =back
 
@@ -272,7 +271,7 @@ Write documentation in POD
 
 =end original
 
-ドキュメントを POD 形式で書け
+文書を POD 形式で書く
 
 =item *
 
@@ -282,8 +281,7 @@ Document purpose, scope and target applications
 
 =end original
 
-
-目的、範囲、及び対象となるアプリケーションを記述せよ
+目的、範囲、及び対象となるアプリケーションを記述する
 
 =item *
 
@@ -294,7 +292,7 @@ Document each publically accessible method or subroutine, including params and r
 =end original
 
 個々の公開されているアクセスメソッドまたは関数を、
-パラメータ及び復帰値も含めて記述せよ
+パラメータ及び返り値も含めて記述する
 
 =item *
 
@@ -304,7 +302,7 @@ Give examples of use in your documentation
 
 =end original
 
-ドキュメントに使い方を例示せよ
+文書に使い方を例示する
 
 =item *
 
@@ -314,8 +312,7 @@ Provide a README file and perhaps also release notes, changelog, etc
 
 =end original
 
-README ファイルを提供せよ; またリリースノート、
-更新履歴もできれば.
+README ファイルを提供する; またできればリリースノート、更新履歴も
 
 =item *
 
@@ -325,7 +322,7 @@ Provide links to further information (URL, email)
 
 =end original
 
-より詳細な情報へのリンク(URL, email)を提供せよ
+さらなる情報へのリンク(URL, email)を提供する
 
 =back
 
@@ -343,7 +340,7 @@ Specify pre-requisites in Makefile.PL or Build.PL
 
 =end original
 
-Makefile.PL または Build.PL に依存(pre-requisites)を記述せよ
+Makefile.PL または Build.PL に依存(pre-requisites)を記述する
 
 =item *
 
@@ -353,7 +350,7 @@ Specify Perl version requirements with C<use>
 
 =end original
 
-動作に必要な Perl のバージョンを C<use> で記述せよ
+動作に必要な Perl のバージョンを C<use> で記述する
 
 =item *
 
@@ -363,7 +360,7 @@ Include tests with your module
 
 =end original
 
-モジュールにはテストを含めよ
+モジュールにはテストを含める
 
 =item *
 
@@ -373,7 +370,7 @@ Choose a sensible and consistent version numbering scheme (X.YY is the common Pe
 
 =end original
 
-バージョン番号の採番には一般的で矛盾の起きない形式を選べ
+バージョン番号の採番には一般的で矛盾の起きない形式を選ぶ
 (Perl モジュールでは一般的に X.YY が使われている)
 
 =item *
@@ -384,7 +381,7 @@ Increment the version number for every change, no matter how small
 
 =end original
 
-たとえそれがどんなに小さな変更であっても、変更毎にバージョン番号を増やせ
+たとえそれがどんなに小さな変更であっても、変更毎にバージョン番号を増やす
 
 =item *
 
@@ -394,7 +391,7 @@ Package the module using "make dist"
 
 =end original
 
-モジュールのパッケージングには "make dist" を使え
+モジュールのパッケージングには "make dist" を使う
 
 =item *
 
@@ -404,7 +401,7 @@ Choose an appropriate license (GPL/Artistic is a good default)
 
 =end original
 
-適切なライセンスを選べ (GPL/Artistic はよいデフォルトです)
+適切なライセンスを選ぶ (GPL/Artistic はよいデフォルトです)
 
 =back
 
@@ -554,10 +551,9 @@ with your module more intuitive.
 
 =end original
 
-Make sure you choose an appropriate name for your module early on.  This
-will help people find and remember your module, and make programming
-with your module more intuitive.
-(TBT)
+前もって、モジュールのための適切な名前を選んでください。
+これは人々がモジュールを探したり覚えたりする助けになり、モジュールを
+使ったプログラミングがより直観的になります。
 
 =begin original
 
@@ -565,8 +561,7 @@ When naming your module, consider the following:
 
 =end original
 
-When naming your module, consider the following:
-(TBT)
+モジュールに名前を付けるときには、以下のことを考慮してください:
 
 =over 4
 
@@ -578,8 +573,7 @@ Be descriptive (i.e. accurately describes the purpose of the module).
 
 =end original
 
-Be descriptive (i.e. accurately describes the purpose of the module).
-(TBT)
+説明的にする (モジュールの目的を正確に表現する)。
 
 =item * 
 
@@ -589,8 +583,7 @@ Be consistent with existing modules.
 
 =end original
 
-Be consistent with existing modules.
-(TBT)
+すでにあるモジュールと一貫性をもつ。
 
 =item *
 
@@ -600,8 +593,7 @@ Reflect the functionality of the module, not the implementation.
 
 =end original
 
-Reflect the functionality of the module, not the implementation.
-(TBT)
+モジュールの実装ではなく、モジュールの機能を反映させる。
 
 =item *
 
@@ -612,9 +604,8 @@ hierarchy already exists under which you could place your module.
 
 =end original
 
-Avoid starting a new top-level hierarchy, especially if a suitable
-hierarchy already exists under which you could place your module.
-(TBT)
+新しいトップレベル階層を作るのを避ける(特にモジュールを置くのに
+適切な階層がすでにある場合は)。
 
 =back
 
@@ -637,17 +628,20 @@ names, may be a good place to start.
 
 =head1 DESIGNING AND WRITING YOUR MODULE
 
+(モジュールの設計と作成)
+
 =begin original
 
 Considerations for module design and coding:
 
 =end original
 
-Considerations for module design and coding:
-(TBT)
+モジュールの設計とコーディングで考慮すること:
 
 =head2 To OO or not to OO?
 
+(OO か非 OO か?)
+
 =begin original
 
 Your module may be object oriented (OO) or not, or it may have both kinds 
@@ -656,10 +650,10 @@ should be considered when you design your API.
 
 =end original
 
-Your module may be object oriented (OO) or not, or it may have both kinds 
-of interfaces available.  There are pros and cons of each technique, which 
-should be considered when you design your API.
-(TBT)
+モジュールはオブジェクト指向 (OO) にするかしないか、あるいは両方の
+インターフェースを持つようにもできます。
+それぞれの技術には、API を設計するときに検討するべき
+メリットデメリットがあります。
 
 =begin original
 
@@ -667,8 +661,7 @@ According to Damian Conway, you should consider using OO:
 
 =end original
 
-According to Damian Conway, you should consider using OO:
-(TBT)
+Damian Conway によれば、以下のような場合に OO を考慮するべきです:
 
 =over 4
 
@@ -680,8 +673,7 @@ When the system is large or likely to become so
 
 =end original
 
-When the system is large or likely to become so
-(TBT)
+システムが大きかったり大きくなりそうなとき
 
 =item * 
 
@@ -811,6 +803,8 @@ difficult for the average module user to understand or use.
 
 =head2 Designing your API
 
+(API の設計)
+
 =begin original
 
 Your interfaces should be understandable by an average Perl programmer.  
@@ -828,6 +822,8 @@ sufficiently straightforward:
 
 =item Write simple routines to do simple things.
 
+(単純なことをする単純なルーチンを書く。)
+
 =begin original
 
 It's better to have numerous simple routines than a few monolithic ones.
@@ -844,6 +840,8 @@ routines.
 (TBT)
 
 =item Separate functionality from output.  
+
+(機能を出力から分離する。)
 
 =begin original
 
@@ -879,6 +877,8 @@ C<find(\&wanted, $dir)> syntax.
 
 =item Provide sensible shortcuts and defaults.
 
+(実用的なショートカットやデフォルトを提供する。)
+
 =begin original
 
 Don't require every module user to jump through the same hoops to achieve a
@@ -901,6 +901,8 @@ users call your routines with the same arguments.
 (TBT)
 
 =item Naming conventions
+
+(命名規則)
 
 =begin original
 
@@ -941,14 +943,16 @@ which is visible to the user (and most things that aren't!)
 
 =item Parameter passing
 
+(パラメータの渡し方)
+
 =begin original
 
 Use named parameters. It's easier to use a hash like this:
 
 =end original
 
-Use named parameters. It's easier to use a hash like this:
-(TBT)
+名前付き引数を使いましょう。
+これは以下のようにハッシュを使えばより簡単です:
 
     $obj->do_something(
 	    name => "wibble",
@@ -1037,6 +1041,8 @@ consistent!
 
 =head2 Strictness and warnings
 
+(strict と warnings)
+
 =begin original
 
 Your module should run successfully under the strict pragma and should
@@ -1054,6 +1060,8 @@ many cases.
 
 =head2 Backwards compatibility
 
+(後方互換性)
+
 =begin original
 
 Modules which are "stable" should not break backwards compatibility
@@ -1069,14 +1077,15 @@ number.
 
 =head2 Error handling and messages
 
+(エラーハンドリングとメッセージ)
+
 =begin original
 
 When your module encounters an error it should do one or more of:
 
 =end original
 
-When your module encounters an error it should do one or more of:
-(TBT)
+モジュールがエラーに遭遇した場合、以下の一つあるいは複数を行うべきです:
 
 =over 4
 
@@ -1088,8 +1097,7 @@ Return an undefined value.
 
 =end original
 
-Return an undefined value.
-(TBT)
+未定義値を返す。
 
 =item *
 
@@ -1114,8 +1122,7 @@ C<warn()> or C<carp()> a message to STDERR.
 
 =end original
 
-C<warn()> or C<carp()> a message to STDERR.  
-(TBT)
+C<warn()> や C<carp()> を使ってメッセージを STDERR に出力する。
 
 =item *
 
@@ -1169,6 +1176,8 @@ to the commonest use.
 (TBT)
 
 =head1 DOCUMENTING YOUR MODULE
+
+(モジュールを文書化する)
 
 =head2 POD
 
@@ -1300,8 +1309,7 @@ The recommended order of sections in Perl module documentation is:
 
 =end original
 
-The recommended order of sections in Perl module documentation is:
-(TBT)
+推奨する Perl モジュール文書の章の順序は:
 
 =over 4
 
@@ -1378,6 +1386,8 @@ POD and once in comments).
 (TBT)
 
 =head2 README, INSTALL, release notes, changelogs
+
+(README, INSTALL, リリースノート, changelogs)
 
 =begin original
 
@@ -1464,8 +1474,9 @@ patches.
 
 =end original
 
-Version numbers should indicate at least major and minor releases, and
-possibly sub-minor releases.  A major release is one in which most of
+バージョン番号は少なくともメジャーリリースとマイナーリリース、そして
+場合により副マイナーリリースを示すべきです。
+A major release is one in which most of
 the functionality has changed, or in which major new functionality is
 added.  A minor release is one in which a small amount of functionality
 has been added or changed.  Sub-minor version numbers are usually used
@@ -1479,8 +1490,7 @@ The most common CPAN version numbering scheme looks like this:
 
 =end original
 
-The most common CPAN version numbering scheme looks like this:
-(TBT)
+最も一般的な CPAN のバージョン番号付け方式は次のようなものです:
 
     1.00, 1.10, 1.11, 1.20, 1.30, 1.31, 1.32
 
@@ -1492,10 +1502,9 @@ using
 
 =end original
 
-A correct CPAN version number is a floating point number with at least 
-2 digits after the decimal. You can test whether it conforms to CPAN by 
-using
-(TBT)
+正しい CPAN バージョン番号は、小数点の後に少なくとも 2 桁の数字がある
+浮動小数点数です。
+CPAN に準拠しているかどうかは以下のようにしてテストできます
 
     perl -MExtUtils::MakeMaker -le 'print MM->parse_version(shift)' 'Foo.pm'
 
@@ -1714,6 +1723,8 @@ style. These include ExtUtils::ModuleMaker and h2xs.  See also L<perlnewmod>.
 
 =head2 Licensing
 
+(ライセンス)
+
 =begin original
 
 Make sure that your module has a license, and that the full text of it
@@ -1722,10 +1733,9 @@ of the license don't require you to include it).
 
 =end original
 
-Make sure that your module has a license, and that the full text of it
-is included in the distribution (unless it's a common one and the terms
-of the license don't require you to include it).
-(TBT)
+モジュールにはライセンスを付け、(そのライセンスが一般的なもので、
+そのライセンスがライセンスの全文を配布物に含めることを要求していないのでない
+限り)、その全文を配布に含めるようにしてください。
 
 =begin original
 
@@ -1735,10 +1745,10 @@ See L<perlgpl> and L<perlartistic>.
 
 =end original
 
-If you don't know what license to use, dual licensing under the GPL
-and Artistic licenses (the same as Perl itself) is a good idea.
-See L<perlgpl> and L<perlartistic>.
-(TBT)
+もしどのライセンスを使えばいいかわからない場合は、GPL と
+Artistic licenses のデュアルライセンス (Perl 自身と同じ) にするというのが
+いい考えです。
+L<perlgpl> と L<perlartistic> を参照してください。
 
 =head1 COMMON PITFALLS
 
@@ -1900,8 +1910,8 @@ Kirrily "Skud" Robert <skud@cpan.org>
 
 =begin meta
 
-Translated: 山科 氷魚 (YAMASHINA Hio) <hio@hio.jp> (5.10.0)
-Updated: SHIRAKATA Kentaro <argrath@ub32.org> (5.10.1)
+Translate: 山科 氷魚 (YAMASHINA Hio) <hio@hio.jp> (5.10.0)
+Update: SHIRAKATA Kentaro <argrath@ub32.org> (5.10.1)
 
 =end meta
 

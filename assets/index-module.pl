@@ -170,12 +170,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.10',
         'distvname' => 'App-perlbrew-0.10',
+        'latest_version' => '0.21',
         'name' => 'App-perlbrew',
         'abstract' => "Perl \x{74b0}\x{5883}\x{30de}\x{30cd}\x{30fc}\x{30b8}\x{30e3}\x{30fc}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '0.21',
     'name' => 'App-perlbrew',
     'abstract' => "Perl \x{74b0}\x{5883}\x{30de}\x{30cd}\x{30fc}\x{30b8}\x{30e3}\x{30fc}"
   },
@@ -574,6 +575,21 @@
     'latest_version' => undef,
     'name' => 'Config-Simple',
     'abstract' => "\x{7c21}\x{5358}\x{306a}\x{8a2d}\x{5b9a}\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{30af}\x{30e9}\x{30b9}"
+  },
+  {
+    'versions' => [
+      {
+        'repository' => 'module-pod-jp',
+        'version' => '2.14',
+        'distvname' => 'Config-Tiny-2.14',
+        'name' => 'Config-Tiny',
+        'abstract' => "\x{5fc5}\x{8981}\x{6700}\x{5c0f}\x{9650}\x{306e}\x{30b3}\x{30fc}\x{30c9}\x{3067} .ini\x{5f62}\x{5f0f}\x{306e}\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{306e}\x{8aad}\x{307f}\x{66f8}\x{304d}"
+      }
+    ],
+    'repository' => 'module-pod-jp',
+    'latest_version' => undef,
+    'name' => 'Config-Tiny',
+    'abstract' => "\x{5fc5}\x{8981}\x{6700}\x{5c0f}\x{9650}\x{306e}\x{30b3}\x{30fc}\x{30c9}\x{3067} .ini\x{5f62}\x{5f0f}\x{306e}\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{306e}\x{8aad}\x{307f}\x{66f8}\x{304d}"
   },
   {
     'versions' => [
@@ -986,12 +1002,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.05',
         'distvname' => 'DBD-ODBC-1.05',
+        'latest_version' => '1.30_3',
         'name' => 'DBD-ODBC',
         'abstract' => "DBI\x{306e}\x{305f}\x{3081}\x{306e}ODBC\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.30_3',
     'name' => 'DBD-ODBC',
     'abstract' => "DBI\x{306e}\x{305f}\x{3081}\x{306e}ODBC\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
   },
@@ -1016,12 +1033,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.22',
         'distvname' => 'DBD-Pg-1.22',
+        'latest_version' => '2.18.1',
         'name' => 'DBD-Pg',
         'abstract' => "DBI\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}\x{306e}\x{305f}\x{3081}\x{306e}PostgreSQL \x{30c7}\x{30fc}\x{30bf}\x{30d9}\x{30fc}\x{30b9}\x{30fb}\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '2.18.1',
     'name' => 'DBD-Pg',
     'abstract' => "DBI\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}\x{306e}\x{305f}\x{3081}\x{306e}PostgreSQL \x{30c7}\x{30fc}\x{30bf}\x{30d9}\x{30fc}\x{30b9}\x{30fb}\x{30c9}\x{30e9}\x{30a4}\x{30d0}"
   },
@@ -1046,12 +1064,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.19',
         'distvname' => 'DBD-SQLite-0.19',
+        'latest_version' => '1.32_03',
         'name' => 'DBD-SQLite',
         'abstract' => "DBI\x{30c9}\x{30e9}\x{30a4}\x{30d0}\x{3067}\x{306e}\x{81ea}\x{5df1}\x{5b8c}\x{7d50}\x{578b}(Self Contained)RDBMS"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.32_03',
     'name' => 'DBD-SQLite',
     'abstract' => "DBI\x{30c9}\x{30e9}\x{30a4}\x{30d0}\x{3067}\x{306e}\x{81ea}\x{5df1}\x{5b8c}\x{7d50}\x{578b}(Self Contained)RDBMS"
   },
@@ -1104,14 +1123,23 @@
     'versions' => [
       {
         'repository' => 'perldoc.jp',
+        'version' => '0.08127',
+        'distvname' => 'DBIx-Class-0.08127',
+        'latest_version' => '0.08192',
+        'name' => 'DBIx-Class',
+        'abstract' => "DBIx::Class \x{30a4}\x{30f3}\x{30c8}\x{30ed}\x{30c0}\x{30af}\x{30b7}\x{30e7}\x{30f3}"
+      },
+      {
+        'repository' => 'perldoc.jp',
         'version' => '0.07006',
         'distvname' => 'DBIx-Class-0.07006',
+        'latest_version' => '0.08192',
         'name' => 'DBIx-Class',
         'abstract' => "DBIx::Class \x{30a4}\x{30f3}\x{30c8}\x{30ed}\x{30c0}\x{30af}\x{30b7}\x{30e7}\x{30f3}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '0.08192',
     'name' => 'DBIx-Class',
     'abstract' => "DBIx::Class \x{30a4}\x{30f3}\x{30c8}\x{30ed}\x{30c0}\x{30af}\x{30b7}\x{30e7}\x{30f3}"
   },
@@ -1338,13 +1366,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.58',
         'distvname' => 'Devel-Size-0.58',
-        'latest_version' => '0.74_52',
+        'latest_version' => '0.77',
         'name' => 'Devel-Size',
         'abstract' => "Perl\x{5909}\x{6570}\x{306e}\x{30e1}\x{30e2}\x{30ea}\x{4f7f}\x{7528}\x{91cf}\x{3092}\x{8abf}\x{3079}\x{308b}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '0.74_52',
+    'latest_version' => '0.77',
     'name' => 'Devel-Size',
     'abstract' => "Perl\x{5909}\x{6570}\x{306e}\x{30e1}\x{30e2}\x{30ea}\x{4f7f}\x{7528}\x{91cf}\x{3092}\x{8abf}\x{3079}\x{308b}"
   },
@@ -1839,7 +1867,7 @@
         'repository' => 'perldoc.jp',
         'version' => '9999.01',
         'distvname' => 'File-Slurp-9999.01',
-        'latest_version' => '9999.16',
+        'latest_version' => '9999.18',
         'name' => 'File-Slurp',
         'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{5168}\x{4f53}\x{306e}\x{52b9}\x{7387}\x{7684}\x{306a}\x{8aad}\x{8fbc}/\x{66f8}\x{8fbc}"
       },
@@ -1847,13 +1875,13 @@
         'repository' => 'perldoc.jp',
         'version' => '2004.0904',
         'distvname' => 'File-Slurp-2004.0904',
-        'latest_version' => '9999.16',
+        'latest_version' => '9999.18',
         'name' => 'File-Slurp',
         'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{3092}\x{4e00}\x{56de}\x{306e}\x{8aad}\x{307f}\x{8fbc}\x{307f}\x{3001}\x{66f8}\x{304d}\x{8fbc}\x{3080}\x{30eb}\x{30fc}\x{30c1}\x{30f3};\x{30c7}\x{30a3}\x{30ec}\x{30af}\x{30c8}\x{30ea}\x{3092}\x{8aad}\x{307f}\x{8fbc}\x{307f}\x{307e}\x{3059}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '9999.16',
+    'latest_version' => '9999.18',
     'name' => 'File-Slurp',
     'abstract' => "\x{30d5}\x{30a1}\x{30a4}\x{30eb}\x{5168}\x{4f53}\x{306e}\x{52b9}\x{7387}\x{7684}\x{306a}\x{8aad}\x{8fbc}/\x{66f8}\x{8fbc}"
   },
@@ -2013,12 +2041,13 @@
         'repository' => 'perldoc.jp',
         'version' => '2.02',
         'distvname' => 'GD-2.02',
+        'latest_version' => '2.46',
         'name' => 'GD',
         'abstract' => "Gd\x{30b0}\x{30e9}\x{30d5}\x{30a3}\x{30c3}\x{30af}\x{30b9}\x{30fb}\x{30e9}\x{30a4}\x{30d6}\x{30e9}\x{30ea}\x{3078}\x{306e}\x{30a4}\x{30f3}\x{30bf}\x{30fc}\x{30d5}\x{30a7}\x{30fc}\x{30b9}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '2.46',
     'name' => 'GD',
     'abstract' => "Gd\x{30b0}\x{30e9}\x{30d5}\x{30a3}\x{30c3}\x{30af}\x{30b9}\x{30fb}\x{30e9}\x{30a4}\x{30d6}\x{30e9}\x{30ea}\x{3078}\x{306e}\x{30a4}\x{30f3}\x{30bf}\x{30fc}\x{30d5}\x{30a7}\x{30fc}\x{30b9}"
   },
@@ -2245,12 +2274,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.97',
         'distvname' => 'HTTP-BrowserDetect-0.97',
+        'latest_version' => '1.24',
         'name' => 'HTTP-BrowserDetect',
         'abstract' => "HTTP\x{30e6}\x{30fc}\x{30b6}\x{30fc}\x{30fb}\x{30a8}\x{30fc}\x{30b8}\x{30a7}\x{30f3}\x{30c8}\x{6587}\x{5b57}\x{5217}\x{304b}\x{3089}Web\x{30d6}\x{30e9}\x{30a6}\x{30b6}\x{3001}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.24',
     'name' => 'HTTP-BrowserDetect',
     'abstract' => "HTTP\x{30e6}\x{30fc}\x{30b6}\x{30fc}\x{30fb}\x{30a8}\x{30fc}\x{30b8}\x{30a7}\x{30f3}\x{30c8}\x{6587}\x{5b57}\x{5217}\x{304b}\x{3089}Web\x{30d6}\x{30e9}\x{30a6}\x{30b6}\x{3001}"
   },
@@ -2327,12 +2357,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.91',
         'distvname' => 'IO-Socket-SSL-0.91',
+        'latest_version' => '1.43_1',
         'name' => 'IO-Socket-SSL',
         'abstract' => "IO::Socket::INET\x{306e}\x{305f}\x{3081}\x{306e}\x{307b}\x{3068}\x{3093}\x{3069}\x{900f}\x{904e}\x{7684}\x{306a}SSL\x{306e}\x{30ab}\x{30d7}\x{30bb}\x{30eb}\x{5316}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.43_1',
     'name' => 'IO-Socket-SSL',
     'abstract' => "IO::Socket::INET\x{306e}\x{305f}\x{3081}\x{306e}\x{307b}\x{3068}\x{3093}\x{3069}\x{900f}\x{904e}\x{7684}\x{306a}SSL\x{306e}\x{30ab}\x{30d7}\x{30bb}\x{30eb}\x{5316}"
   },
@@ -2507,12 +2538,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.011',
         'distvname' => 'Math-BaseCalc-1.011',
+        'latest_version' => '1.016',
         'name' => 'Math-BaseCalc',
         'abstract' => "\x{69d8}\x{3005}\x{306a}\x{57fa}\x{6570}\x{9593}\x{3067}\x{6570}\x{5024}\x{3092}\x{5909}\x{63db}\x{3059}\x{308b}\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.016',
     'name' => 'Math-BaseCalc',
     'abstract' => "\x{69d8}\x{3005}\x{306a}\x{57fa}\x{6570}\x{9593}\x{3067}\x{6570}\x{5024}\x{3092}\x{5909}\x{63db}\x{3059}\x{308b}\x{30e2}\x{30b8}\x{30e5}\x{30fc}\x{30eb}"
   },
@@ -2748,13 +2780,13 @@
         'repository' => 'perldoc.jp',
         'version' => '0.26',
         'distvname' => 'POE-0.26',
-        'latest_version' => '1.310',
+        'latest_version' => '1.311',
         'name' => 'POE',
         'abstract' => 'multitasking and networking framework for perl'
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => '1.310',
+    'latest_version' => '1.311',
     'name' => 'POE',
     'abstract' => 'multitasking and networking framework for perl'
   },
@@ -3559,12 +3591,13 @@
         'repository' => 'perldoc.jp',
         'version' => '1.02',
         'distvname' => 'WWW-Mechanize-1.02',
+        'latest_version' => '1.67_01',
         'name' => 'WWW-Mechanize',
         'abstract' => "WWW::Mechanize\x{306e}\x{826f}\x{304f}\x{3042}\x{308b}\x{8cea}\x{554f}\x{3068}\x{56de}\x{7b54}"
       }
     ],
     'repository' => 'perldoc.jp',
-    'latest_version' => undef,
+    'latest_version' => '1.67_01',
     'name' => 'WWW-Mechanize',
     'abstract' => "WWW::Mechanize\x{306e}\x{826f}\x{304f}\x{3042}\x{308b}\x{8cea}\x{554f}\x{3068}\x{56de}\x{7b54}"
   },

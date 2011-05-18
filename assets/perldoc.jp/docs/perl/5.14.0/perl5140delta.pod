@@ -134,6 +134,8 @@ This release provides full functionality for C<use feature
 'unicode_strings'>.  Under its scope, all string operations executed and
 regular expressions compiled (even if executed outside its scope) have
 Unicode semantics.  See L<feature/"the 'unicode_strings' feature">.
+However, see L</Inverted bracketed character classes and multi-character folds>,
+below.
 
 =end original
 
@@ -142,6 +144,9 @@ Unicode semantics.  See L<feature/"the 'unicode_strings' feature">.
 このスコープ内では、全ての文字列操作の処理と正規表現のコンパイルは
 (たとえ実行はスコープ外でも) Unicode の意味論を持ちます。
 L<feature/"the 'unicode_strings' feature"> を参照してください。
+しかし、後述する
+L</Inverted bracketed character classes and multi-character folds> を
+参照してください。
 
 =begin original
 
@@ -413,9 +418,9 @@ expressions with fixed strings containing C<?-xism>.
 この変更は、文字列化された正規表現を C<?-xism> を含む固定文字列と
 比較しているコードを壊しそうです。
 
-=head3 C</d>, C</l>, C</u>, C</a>, and C</aa> modifiers
+=head3 C</d>, C</l>, C</u>, and C</a> modifiers
 
-(C</d>, C</l>, C</u>, C</a>, C</aa> 修飾子)
+(C</d>, C</l>, C</u>, C</a> 修飾子)
 
 =begin original
 
@@ -485,17 +490,15 @@ POSIX (C<[[:posix:]]>) 文字クラスを ASCII の範囲に制限します。
 その他では、C</a> は C</u> 修飾子と同様に振る舞うので、大文字小文字を
 無視するマッチングは Unicode の意味論を使います。
 
-=item *
-
 =begin original
 
-The C</aa> modifier is like C</a>, except that, in case-insensitive
+If the C</a> modifier is repeated, then additionally in case-insensitive
 matching, no ASCII character can match a non-ASCII character.
 For example,
 
 =end original
 
-C</aa> 修飾子は C</a> と同様ですが、大文字小文字を無視するマッチングでは
+C</a> 修飾子が繰り返されると、さらに、大文字小文字を無視するマッチングでは
 ASCII 文字でないものはマッチングしません。
 例えば、
 
@@ -1317,6 +1320,67 @@ In addition to the sections that follow, see L</C API Changes>.
 
 (正規表現と文字列のエスケープ)
 
+=head3 Inverted bracketed character classes and multi-character folds
+
+(反転させた大かっこ文字クラスと複数文字の折り畳み)
+
+=begin original
+
+Some characters match a sequence of two or three characters in C</i>
+regular expression matching under Unicode rules.  One example is
+C<LATIN SMALL LETTER SHARP S> which matches the sequence C<ss>.
+
+=end original
+
+いくつかの文字は、Unicode ルールでの C</i> 正規表現マッチングでは
+2 または 3 文字の並びにマッチングします。
+一つの例としては、C<LATIN SMALL LETTER SHARP S> は C<ss> という並びに
+マッチングします。
+
+ 'ss' =~ /\A[\N{LATIN SMALL LETTER SHARP S}]\z/i  # Matches
+
+=begin original
+
+This, however, can lead to very counter-intuitive results, especially
+when inverted.  Because of this, Perl 5.14 does not use multi-character C</i>
+matching in inverted character classes.
+
+=end original
+
+しかしこれは、特に反転させたときに、とても非直観的な結果を導いていました。
+これにより、Perl 5.14 は反転させた文字クラスでの複数文字の
+C</i> マッチングを使わなくなりました。
+
+ 'ss' =~ /\A[^\N{LATIN SMALL LETTER SHARP S}]+\z/i  # ???
+
+=begin original
+
+This should match any sequences of characters that aren't the C<SHARP S>
+nor what C<SHARP S> matches under C</i>.  C<"s"> isn't C<SHARP S>, but
+Unicode says that C<"ss"> is what C<SHARP S> matches under C</i>.  So
+which one "wins"? Do you fail the match because the string has C<ss> or
+accept it because it has an C<s> followed by another C<s>?
+
+=end original
+
+これは、C<SHARP S> や、C</i> の元で C<SHARP S> にマッチングしないあらゆる
+文字の並びにマッチングするべきです。
+C<"s"> は C<SHARP S> ではありませんが、Unicode は D</i> の元では C<"ss"> は
+C<SHARP S> にマッチングするとしています。
+そこで、どちらが「勝つ」べきでしょうか?
+文字列に C<ss> があるという理由でマッチングは失敗するでしょうか、それとも
+一つの C<s> に匹津津井で一つの C<s> があるので成功するでしょうか?
+
+=begin original
+
+Earlier releases of Perl did allow this multi-character matching,
+but due to bugs, it mostly did not work.
+
+=end original
+
+Perl の以前のリリースは複数文字のマッチングを許していましたが、バグにより、
+ほとんど動作していませんでした。
+
 =head3 \400-\777
 
 (\400-\777)
@@ -1397,14 +1461,12 @@ Details are in L<perlrecharclass/Unicode Properties>.
 
 これは以前は Unicode マッチングルールによって(これに関するいくつかのバグが
 ありましたが)非 ASCII 文字にマッチングします。
-Now
-matching under C</i> gives the same results as non-C</i> matching except
-for those few properties where people have come to expect differences,
-namely the ones where casing is an integral part of their meaning, such
-as C<m/\p{Uppercase}/i> and C<m/\p{Lowercase}/i>, both of which match
-the same code points as matched by C<m/\p{Cased}/i>.
+今では C</i> の下では、人々が違いを心に浮かべるようないくつかの
+特性(特に C<m/\p{Uppercase}/i> and C<m/\p{Lowercase}/i> (どちらも
+C<m/\p{Cased}/i> でマッチングする符号位置と同じものにマッチングします)
+のような、意味的に大文字小文字が不可欠な部分を占めるような名前のもの)を除いて、
+非 C</i> マッチングと同じ結果となります。
 詳細は L<perlrecharclass/Unicode Properties> にあります。
-(TBT)
 
 =begin original
 
@@ -1655,10 +1717,9 @@ to its typeglob and "foo::__ANON__" otherwise [perl #79208].
 作っていました。
 その結果、どこかでリファレンスされているサブルーチンも無名になり、
 C<caller> では "(unknown)" になります。
-They now retain their package names such that
-C<caller> returns the original sub name if there is still a reference
-to its typeglob and "foo::__ANON__" otherwise [perl #79208].
-(TBT)
+今ではパッケージ名を保持するようになったので、C<caller> は型グロブへの
+リファレンスがあれば元のサブルーチン名を、さもなければ
+"foo::__ANON__" を返します [perl #79208]。
 
 =head3 Dereferencing typeglobs
 
@@ -1935,7 +1996,7 @@ in the following example:
 使った関数は以前より高い優先順位でパースされます。
 従って、以下のようなコードは:
 
-  sub foo($);
+  sub foo(;$);
   foo $a < $b;
 
 =begin original
@@ -1959,6 +2020,7 @@ an unparenthesised argument:
   .. ...
   ?:
   = += -= *= etc.
+  , =>
 
 =head3 Smart-matching against array slices
 
@@ -2155,12 +2217,10 @@ can't be blocked on I/O.
 デッドロックを避けつつ、ホスティングプロセスを終了するための安全な
 機構を提供するために、SIGTERM シグナルを送られた子プロセスを
 待たなくなりました。
-It is up to the parent process to
-waitpid() for these children if child-cleanup processing must be
-allowed to finish.  However, it is also then the responsibility of the
-parent to avoid the deadlock by making sure the child process
-can't be blocked on I/O.
-(TBT)
+これは、子プロセスの後片付け処理が終了できるようにしなければならない
+場合にこれらの子プロセスに waitpid() をする親プロセス次第です。
+しかし、子プロセスが I/O をブロックできないことを確実にすることで
+デッドロックを避けるために親が責任を持ちます。
 
 =begin original
 
@@ -2302,9 +2362,24 @@ to allow for its future use by Perl itself.
 C<"\b"> や C<"\B{"> を続けることは、Perl 自身が将来使えるようにするために、
 非推奨となりました。
 
-=head2 Deprecation warning added for deprecated-in-core Perl 4-era .pl libraries
+=head2 Perl 4-era .pl libraries
 
-(コアにある Perl 4 時代の .pl ライブラリへの非推奨警告が追加されました)
+(Perl 4 時代の .pl ライブラリ)
+
+=begin original
+
+Perl bundles a handful of library files that predate Perl 5.
+This bundling is now deprecated for most of these files, which are now
+available from CPAN.  The affected files now warn when run, if they were
+installed as part of the core.
+
+=end original
+
+Perl は Perl 5 より前のライブラリファイルを少量同梱しています。
+同梱ファイルのほとんどは(今では CPAN から利用可能ですが)
+非推奨となりました。
+影響を受けるファイルは、コアの一部としてインストールされている場合は
+実行時に警告が出るようになりました。
 
 =begin original
 
@@ -2370,37 +2445,19 @@ parentheses like this:
 
 =begin original
 
-This is being deprecated because C<qw(a b c)> is supposed to mean
-C<"a", "b", "c"> not C<("a", "b", "c")>. In other words, this doesn't compile:
+This is being deprecated because the parentheses in C<for $i (1,2,3) { ... }>
+are not part of expression syntax.  They are part of the statement
+syntax, with the C<for> statement wanting literal parentheses.
+The synthetic parentheses that a C<qw> expression acquired were only
+intended to be treated as part of expression syntax.
 
 =end original
 
-C<qw(a b c)> は本来 C<("a", "b", "c")> ではなく C<"a", "b", "c"> を
-意味するので、非推奨です。
-言い換えると、これはコンパイル出来ません:
-
-    for my $i "a", "b", "c" { }
-
-=begin original
-
-So neither should this:
-
-=end original
-
-従ってこれも動作しません:
-
-    for my $i qw(a b c) {}
-
-=begin original
-
-But these both work:
-
-=end original
-
-しかし以下は両方とも動作します:
-
-    for my $i ("a", "b", "c") { }
-    for my $i (qw(a b c)) {}
+これは、C<for $i (1,2,3) { ... }> のかっこは式の文法の一部ではないので、
+非推奨となりました。
+これは文の文法の一部で、C<for> 文はリテラルなかっこが必要です。
+C<qw> 式が要求する合成されたかっこは、式文法の一部として扱うことを
+対象としているだけです。
 
 =begin original
 
@@ -2410,16 +2467,16 @@ Note that this does not change the behaviour of cases like:
 
 これは以下のような場合の振る舞いは変更しないことに注意してください:
 
-    use POSIX qw(setlocale localeconv)
+    use POSIX qw(setlocale localeconv);
     our @EXPORT = qw(foo bar baz);
 
 =begin original
 
-Where a list with or without parentheses could have been provided.
+where parentheses were never required around the expression.
 
 =end original
 
-ここではかっこがあってもなくてもリストが提供されます。
+ここでは式の回りにかっこは不要です。
 
 =head2 C<\N{BELL}>
 
@@ -2517,16 +2574,16 @@ L<perlunicode/User-Defined Case Mappings (for serious hackers only)> に
 
 =begin original
 
-The following modules will be removed from the core distribution in a
+The following module will be removed from the core distribution in a
 future release, and should be installed from CPAN instead.  Distributions
-on CPAN that require these should add them to their prerequisites.  The
-core versions of these modules now issue a deprecation warning.
+on CPAN that require this should add it to their prerequisites.  The
+core version of these module now issues a deprecation warning.
 
 =end original
 
 以下のモジュールは将来のリリースではコア配布からは取り除かれ、
 代わりに CPAN からインストールするようになります。
-CPAN での配布物のでこれらのモジュールが必要な場合は、事前条件に追加する
+CPAN での配布物のでこのモジュールが必要な場合は、事前条件に追加する
 必要があります。
 これらのモジュールのコア版は、非推奨警告を発生させます。
 
@@ -2535,15 +2592,15 @@ CPAN での配布物のでこれらのモジュールが必要な場合は、事
 If you ship a packaged version of Perl, either alone or as part of a
 larger system, then you should carefully consider the repercussions of
 core module deprecations.  You may want to consider shipping your default
-build of Perl with packages for some or all deprecated modules that
-install into C<vendor> or C<site> Perl library directories.  This will
+build of Perl with a package for the deprecated module that
+installs into C<vendor> or C<site> Perl library directories.  This will
 inhibit the deprecation warnings.
 
 =end original
 
 単独、あるいはより大きいシステムの一部として、パッケージ版の Perl を
 出荷する場合、非推奨のコアモジュールの影響を注意深く検討するべきです。
-いくつか、あるいは全ての非推奨モジュールを perl ライブラリディレクトリ
+非推奨モジュールを perl ライブラリディレクトリ
 C<vendor> か C<site> にインストールして Perl のデフォルトビルドを
 出荷したいかもしれません。
 これは非推奨警告を抑制します。
@@ -2569,9 +2626,9 @@ Perl の配布に固有の警告メッセージを提供したいかもしれま
 
 =begin original
 
-You can silence these deprecation warnings by installing the modules
-in question from CPAN.  To install the latest version of all of them,
-just install C<Task::Deprecations::5_14>.
+You can silence these deprecation warnings by installing the module
+in question from CPAN.  To install the latest version of it by role
+rather than by name, just install C<Task::Deprecations::5_14>.
 
 =end original
 
@@ -2587,7 +2644,7 @@ C<Task::Deprecations::5_14> をインストールしてください。
 =begin original
 
 We strongly recommend that you install and use L<Devel::NYTProf> instead
-of L<Devel::Dprof>, as L<Devel::NYTProf> offers significantly 
+of L<Devel::DProf>, as L<Devel::NYTProf> offers significantly
 improved profiling and reporting.
 
 =end original
@@ -2698,12 +2755,10 @@ faster.
 
 =end original
 
-C<sv_grow>, the function used to allocate more memory if necessary
-when appending to a string, has been taught to round up the memory
-it requests to a certain geometric progression, making it much faster on
-certain platforms and configurations.
+文字列を追加するときにもし必要ならより多くのメモリを割り当てていた
+C<sv_grow> 関数は、ある種の等比級数に切り上げたメモリを伝えるようになり、
+特定のプラットフォームと設定ではとても早くなりました。
 Win32 では、これは約 100 倍高速です。
-(TBT)
 
 =head2 Eliminate C<PL_*> accessor functions under ithreads
 
@@ -2813,10 +2868,9 @@ C<xhv_fill> は C<struct xpvhv> から削除され、ハッシュ毎に 1 IV 節
 一致するようになりました。
 このメモリ節約が他の場所での低速化を引き起こすことを避けるために、
 C<HvFILL> の真偽値での使用は代わりに (等価である) C<HvTOTALKEYS> を
-使うようになりました, so while the fill
-data when actually required are now calculated on demand, the cases when
-this needs to be done should be rare.
-(TBT)
+使うようになりました; それで実際に必要なときに埋められるデータは
+オンデマンドで計算されるようになりましたが、これが必要になるような状況は
+稀なはずです。
 
 =begin original
 
@@ -2949,9 +3003,9 @@ C<nextstate>, C<nextstate>, etc.
 
 =end original
 
-the ops for C<warn if DEBUG> would be folded to a C<null> op (C<ex-const>), but
-the C<nextstate> op would remain, resulting in a runtime op dispatch of
-C<nextstate>, C<nextstate>, etc.
+C<warn if DEBUG> のための op は C<null> op (C<ex-const>) に畳み込まれますが、
+C<nextstate> op はそのまま残るので、実行時に
+C<nextstate>, C<nextstate> といった op が発行されていました。
 
 =begin original
 
@@ -2965,10 +3019,9 @@ at compile time.
 
 連続した C<nextstate> op の実行は単なる最後の C<nextstate> op の実行と
 同じなので、覗き穴最適器は最初の C<nextstate> op の組を
-削除するようになりました; except when the first carries a label, since labels
-must not be eliminated by the optimizer, and label usage isn't conclusively known
-at compile time.
-(TBT)
+削除するようになりました; 先頭がラベルの場合は例外です; なぜならラベルは
+最適化器によって削除されてはならず、ラベルの利用法はコンパイル時には決定的には
+分かっていないからです。
 
 =head1 Modules and Pragmata
 
@@ -3013,14 +3066,11 @@ over time are given in L<CPAN::Meta::History>.
 =end original
 
 L<CPAN::Meta> バージョン 2.110440 が二重管理モジュールとして追加されました。
-It
-provides a standard library to read, interpret and write CPAN distribution
-metadata files (like F<META.json> and F<META.yml)> that describe a
-distribution, its contents, and the requirements for building it and
-installing it.  The latest CPAN distribution metadata specification is
-included as L<CPAN::Meta::Spec> and notes on changes in the specification
-over time are given in L<CPAN::Meta::History>.
-(TBT)
+これは、配布、内容、ビルドとインストールに必要なものを記述した
+(F<META.json> や F<META.yml> のような) CPAN 配布メタデータファイルを
+読み込み、解釈、書き込みするための標準ライブラリを提供します。
+最新の CPAN 配布メタデータ仕様は L<CPAN::Meta::Spec> に含まれていて、
+仕様の変更履歴は L<CPAN::Meta::History> に記録されています。
 
 =item *
 
@@ -3066,12 +3116,11 @@ favor of this module instead.
 =end original
 
 L<Module::Metadata> 1.000004 が二重管理モジュールとして追加されました。
-It gathers
-package and POD information from Perl module files.  It is a standalone module
-based on L<Module::Build::ModuleInfo> for use by other module installation
-toolchain components.  L<Module::Build::ModuleInfo> has been deprecated in
-favor of this module instead.
-(TBT)
+これは Perl のモジュールファイルからパッケージと POD の情報を集めます。
+これは他のも寿ル乃インストールツールチェーンの要素として使うための、
+L<Module::Build::ModuleInfo> を基にした単独のモジュールです。
+L<Module::Build::ModuleInfo> は非推奨となり、代わりにこのモジュールを
+使うべきです。
 
 =item *
 
@@ -3481,13 +3530,14 @@ backtraces (best case), or obscure fatal errors (worst case).
 
 =end original
 
-L<Carp> now detects incomplete L<caller()|perlfunc/"caller EXPR">
-overrides and avoids using bogus C<@DB::args>.  To provide backtraces,
-Carp relies on particular behaviour of the caller() builtin.
-L<Carp> now detects if other code has overridden this with an
-incomplete implementation, and modifies its backtrace accordingly.
-Previously incomplete overrides would cause incorrect values in
-backtraces (best case), or obscure fatal errors (worst case).
+L<Carp> は、不完全な L<caller()|perlfunc/"caller EXPR"> のオーバーライドを
+検出して、偽の C<@DB::args> の使用を回避するようになりました。
+バックトレースを提供するために、Carp は caller() 組み込み関数の
+特定の振る舞いに依存しています。
+L<Carp> は、この関数が不完全な実装のコードでオーバーライドされていることを
+検出して、そのバックトレースをそれに応じて修正します。
+以前は、不完全なオーバーライドによってバックトレースの値が間違ったり(最良の
+場合)、不明瞭な致命的エラーが発生したり(最悪の場合)していました。
 
 =begin original
 
@@ -3551,7 +3601,7 @@ It has been updated to use L<bzip2(1)> 1.0.6.
 
 =end original
 
-It has been updated to use L<bzip2(1)> 1.0.6.
+L<bzip2(1)> 1.0.6 を使うように更新されました。
 
 =item *
 
@@ -3580,8 +3630,8 @@ Unicode constants work once more.  They have been broken since Perl 5.10.0
 
 =end original
 
-Unicode constants work once more.  They have been broken since Perl 5.10.0
-[CPAN RT #67525].
+再び Unicode 定数が動作するようになりました。
+これは Perl 5.10.0 から壊れていました [CPAN RT #67525]。
 
 =item *
 
@@ -3605,19 +3655,35 @@ Major highlights:
 
 =item * much less configuration dialog hassle
 
+(面倒な設定ダイアログが大幅に減少)
+
 =item * support for F<META/MYMETA.json>
+
+(F<META/MYMETA.json> 対応)
 
 =item * support for L<local::lib>
 
+(L<local::lib> 対応)
+
 =item * support for L<HTTP::Tiny> to reduce the dependency on FTP sites 
+
+(FTP サイトへの依存性を現状させるための L<HTTP::Tiny> 対応)
 
 =item * automatic mirror selection
 
+(自動ミラー選択)
+
 =item * iron out all known bugs in configure_requires
+
+(configure_require にある知られている全てのバグの解決)
 
 =item * support for distributions compressed with L<bzip2(1)>
 
+(L<bzip2(1) によって圧縮した配布対応)
+
 =item * allow F<Foo/Bar.pm> on the command line to mean C<Foo::Bar>
+
+(コマンドラインでの F<Foo/Bar.pm> が C<Foo::Bar> を意味するように)
 
 =back
 
@@ -4437,9 +4503,8 @@ non-zero status [perl #72016].
 
 =end original
 
-open3 now produces an error if the C<exec> call fails, allowing this
-condition to be distinguished from a child process that exited with a
-non-zero status [perl #72016].
+open3() は、C<exec> 呼び出しが失敗するとエラーとなるようになり、子プロセスが
+非 0 のステータスで終了した場合と区別できるようになりました [perl #72016]。
 
 =begin original
 
@@ -5508,7 +5573,7 @@ to be installed.
 =end original
 
 ハングル音節符号位置に正しい名前が付き、その分解は常に
-L<Lingua::KO::Hangul::Util> をインストールする必要な氏に出力されます。
+L<Lingua::KO::Hangul::Util> をインストールする必要なしに出力されます。
 
 =item *
 
@@ -5626,8 +5691,8 @@ packages using L<warnings::register>.  See L<perllexwarn(1)> for more informatio
 
 =end original
 
-It is now possible to register warning categories other than the names of
-packages using L<warnings::register>.
+L<warnings::register> を使ったパッケージ名以外の警告カテゴリを
+登録できるようになりました。
 さらなる情報については L<perllexwarn(1)> を参照してください。
 
 =item *
@@ -6014,6 +6079,14 @@ L<Ambiguous use of %c{%s} resolved to %c%s|perldiag/"Ambiguous use of %c{%s} res
 
 =item *
 
+L<Ambiguous use of %c{%s[...]} resolved to %c%s[...]|perldiag/"Ambiguous use of %c{%s[...]} resolved to %c%s[...]">
+
+=item *
+
+L<Ambiguous use of %c{%s{...}} resolved to %c%s{...}|perldiag/"Ambiguous use of %c{%s{...}} resolved to %c%s{...}">
+
+=item *
+
 L<Ambiguous use of -%s resolved as -&%s()|perldiag/"Ambiguous use of -%s resolved as -&%s()">
 
 =item *
@@ -6055,6 +6128,18 @@ get-magic is not processed.  It has been corrected.
 L<perlapi> にある C<SvTRUE> マクロの説明は get-magic が処理されないという
 説明が単純に間違っていました。
 これは修正されました。
+
+=head3 op manipulation functions
+
+(op 操作関数)
+
+=begin original
+
+Several API functions that process optrees have been newly documented.
+
+=end original
+
+op 木を処理するためのいくつかの API 関数が新たに文書化されました。
 
 =head3 L<perlvar> revamp
 
@@ -6404,12 +6489,11 @@ of the constant may not be known at the time the program is written
 
 =end original
 
-"Found = in conditional" 警告は、is emitted when a constant is
-assigned to a variable in a condition is now withheld if the constant is
-actually a subroutine or one generated by C<use constant>, since the value
-of the constant may not be known at the time the program is written
-[perl #77762].
-(TBT)
+条件文の中で定数が変数に代入されるときに出力される
+"Found = in conditional" 警告は、定数が実際にはサブルーチンあるいは
+C<use constant> で生成されたものである場合には出力されなくなりました;
+なぜなら定数の値はプログラムが書かれた時点ではわからないかもしれないからです
+[perl #77762]。
 
 =item *
 
@@ -6762,7 +6846,7 @@ Perl distribution.  It was officially discontinued in an earlier version.
 
 =head2 Platform-Specific Notes
 
-((プラットフォーム固有の注意)
+(プラットフォーム固有の注意)
 
 =head3 AIX
 
@@ -7104,11 +7188,10 @@ Perl からファイルを作成する最も一般的な方法は、パーミッ
 これはパーミッションを RMS デフォルトと ACL から継承するのを
 妨げるので、この問題を回避するために、
 open() に C<0777> を渡すようになりました。
-theVMS CRTL において、C<0777> は has a special
-meaning over and above intersecting with the current umask;
+theVMS CRTL において、C<0777> は現在の umask との交差に加えて、特別な
+意味を持ちます;
 特に、これは Unix syscall がネイティブなデフォルトのパーミッションを
 保存できるようになります (5.12.3)。
-(TBT)
 
 =item *
 
@@ -7125,7 +7208,7 @@ but you'll have some work to do to get the core sources to compile.
 コア C ソースとエクステンションでの 31 文字より長いシンボルの短縮化は
 デフォルトでは xsubpp (XS コードで生成されたシンボルに対してのみ
 できます) ではなく C コンパイラで行うようになりました。
--Uuseshortenedsymbols と設定することで、xsubpp のシンボル短縮化を
+設定時に -Uuseshortenedsymbols を指定することで、xsubpp のシンボル短縮化を
 再有効化できますが、コアソースをコンパイルするには多少の作業が必要です。
 
 =item *
@@ -7352,12 +7435,16 @@ it is correctly allocated and initialised.
 
 =begin original
 
-Several functions have been added for parsing statements or multiple
-statements:
+Several functions have been added for parsing Perl statements and
+expressions.  These functions are meant to be used by XS code invoked
+during Perl parsing, in a recursive-descent manner, to allow modules to
+augment the standard Perl syntax.
 
 =end original
 
-文のパースのためのいくつかの関数が追加されました:
+文や式のパースのためのいくつかの関数が追加されました:
+これらの関数は、Perl のパース中に再帰下降の方式で XS コードによって起動され、
+モジュールが標準 Perl 文法を拡張できるようにします。
 
 =over
 
@@ -7365,84 +7452,79 @@ statements:
 
 =begin original
 
-C<parse_fullstmt> parses a complete Perl statement.
+L<parse_stmtseq()|perlapi/parse_stmtseq>
+parses a sequence of statements, up to closing brace or EOF.
 
 =end original
 
-C<parse_fullstmt> は完全な Perl 文をパースします。
+L<parse_stmtseq()|perlapi/parse_stmtseq> は文の並びを、閉じ中かっこか
+EOF までパースします。
 
 =item *
 
 =begin original
 
-C<parse_stmtseq> parses a sequence of statements, up
-to closing brace or EOF.
+L<parse_fullstmt()|perlapi/parse_fullstmt>
+parses a complete Perl statement, including optional label.
 
 =end original
 
-C<parse_stmtseq> は文の並びを、閉じ中かっこか EOF までパースします。
+L<parse_fullstmt()|perlapi/parse_fullstmt> はオプションの
+ラベルを含む、完全な Perl 文をパースします。
 
 =item *
 
 =begin original
 
-C<parse_block> parses a block [perl #78222].
+L<parse_barestmt()|perlapi/parse_barestmt>
+parses a statement without a label.
 
 =end original
 
-C<parse_block> はブロックをパースします [perl #78222]。
+L<parse_barestmt()|perlapi/parse_barestmt> はラベル抜きの文をパースします。
 
 =item *
 
 =begin original
 
-C<parse_barestmt> parses a statement
-without a label.
+L<parse_block()|perlapi/parse_block>
+parses a code block.
 
 =end original
 
-C<parse_barestmt> はラベル抜きの文をパースします。
+L<parse_block()|perlapi/parse_block> はコードブロックをパースします。
 
 =item *
 
 =begin original
 
-C<parse_label> parses a statement label, separate from statements.
+L<parse_label()|perlapi/parse_label>
+parses a statement label, separate from statements.
 
 =end original
 
-C<parse_label> は文から分離して、文のラベルをパースします。
+L<parse_label()|perlapi/parse_label> は文から分離して、文のラベルを
+パースします。
 
-=back
+=item *
 
 =begin original
 
-The
 L<C<parse_fullexpr()>|perlapi/parse_fullexpr>,
 L<C<parse_listexpr()>|perlapi/parse_listexpr>,
 L<C<parse_termexpr()>|perlapi/parse_termexpr>, and
 L<C<parse_arithexpr()>|perlapi/parse_arithexpr>
-functions have been added to the API.  They run
-recursive-descent parsing of expressions at various precedence levels.
-They are expected to be used by syntax plugins.
+parse expressions at various precedence levels.
 
 =end original
 
 L<C<parse_fullexpr()>|perlapi/parse_fullexpr>,
 L<C<parse_listexpr()>|perlapi/parse_listexpr>,
 L<C<parse_termexpr()>|perlapi/parse_termexpr>,
-L<C<parse_arithexpr()>|perlapi/parse_arithexpr> 関数が API に
-追加されました。
-これらはさまざまな優先順位レベルで、再帰降下パースを実行します。
-これらは文法プラグインで使われることを想定しています。
+L<C<parse_arithexpr()>|perlapi/parse_arithexpr> はさまざまな
+優先順位レベルで、再帰降下パースを実行します。
 
-=begin original
-
-See L<perlapi> for details.
-
-=end original
-
-詳しくは L<perlapi> を参照してください。
+=back
 
 =head3 Hints hash API
 
@@ -7508,19 +7590,19 @@ hook to a specific subroutine.  See L<perlapi/cv_set_call_checker>.
 
 =end original
 
-XS code in an extension module can now annotate a subroutine (whether
-implemented in XS or in Perl) so that nominated XS code will be called
-at compile time (specifically as part of op checking) to change the op
-tree of that subroutine.  The compile-time check function (supplied by
-the extension module) can implement argument processing that can't be
-expressed as a prototype, generate customised compile-time warnings,
-perform constant folding for a pure function, inline a subroutine
-consisting of sufficiently simple ops, replace the whole call with a
-custom op, and so on.  This was previously all possible by hooking the
-C<entersub> op checker, but the new mechanism makes it easy to tie the
-hook to a specific subroutine.
+エクステンションモジュールの XS コードはサブルーチンに (XS で
+実装されているか Perl で実装されているか) のアノテーションが
+付けられるようになったので、任命された XS コードはそのサブルーチンの
+op 木を変更するためにコンパイル時 (具体的には op チェックの一部として)
+呼び出されます。
+(エクステンションモジュールによって供給される) コンパイル時のチェック関数は
+プロトタイプとして記述できない引数処理の実装、カスタマイズされた
+コンパイル時警告の生成、純粋な関数のための定数の畳み込みの実行、
+充分に単純な op からなるサブルーチンのインライン化、呼び出し全体の
+カスタム op への置き換えなどが可能です。
+以前はこれは全て C<entersub> op チェッカをフックすることで可能でしたが、
+新しい機構は簡単にフックを特定のサブルーチンに結びつけることができます。
 L<perlapi/cv_set_call_checker> を参照してください。
-(TBT)
 
 =begin original
 
@@ -7628,14 +7710,14 @@ C<PL_rpeepp> が利用可能になりました。
 
 The following functions/macros have been added to the API.  The C<*_nomg>
 macros are equivalent to their non-C<_nomg> variants, except that they ignore
-C<get-magic>.  Those ending in C<_flags> allow one to specify whether
-C<get-magic> is processed.
+get-magic.  Those ending in C<_flags> allow one to specify whether
+get-magic is processed.
 
 =end original
 
 以下の関数/マクロが API に追加されました。
-C<*_nomg> マクロは C<_nomg> なし版と等価ですが、C<get-magic> を無視します。
-C<_flags> で終わっているものは、C<get-magic> を処理するかどうかを
+C<*_nomg> マクロは C<_nomg> なし版と等価ですが、get-magic を無視します。
+C<_flags> で終わっているものは、get-magic を処理するかどうかを
 指定できます。
 
   sv_2bool_flags
@@ -7762,13 +7844,12 @@ C<MAGIC> pointers of an C<SV> to find the magic that belongs to them.
 
 L<C<mg_findext()>|perlapi/mg_findext> 関数と
 L<C<sv_unmagicext()>|perlapi/sv_unmagicext> 関数が API に追加されました。
-They allow extension authors to find and remove magic attached to
-scalars based on both the magic type and the magic virtual table, similar to how
-sv_magicext() attaches magic of a certain type and with a given virtual table
-to a scalar.
-これは eliminates the need for extensions to walk the list of
-C<MAGIC> pointers of an C<SV> to find the magic that belongs to them.
-(TBT)
+これらはエクステンションの作者がマジックの種類およびマジックの仮想テーブルを
+基に、スカラに付加されているマジックを探したり削除したりできるようにします;
+sv_magicext() が特定の種類と与えられた仮想テーブルのマジックをスカラに
+付与する方法と同様です。
+これにより、C<SV> に付与されているマジックを探すために、エクステンションが
+その C<MAGIC> ポインタを辿る必要をなくします。
 
 =head3 C<find_rundefsv>
 
@@ -7878,11 +7959,10 @@ and MakeMaker contains a more specific escape hatch:
 
 =end original
 
-The option to define C<PERL_POLLUTE> to expose older 5.005 symbols for
-backwards compatibility has been removed.
+後方互換性のために古い 5.005 のシンボルを露出させるための
+C<PERL_POLLUTE> を定義するオプションは削除されました。
 この使用は常に勧められず、
 MakeMaker はより具体的な回避方法を持っています:
-(TBT)
 
     perl Makefile.PL POLLUTE=1
 
@@ -7908,10 +7988,10 @@ longer work.  They need to be recompiled against the new Perl.
 
 =end original
 
-When Perl's API changes in incompatible ways (which usually happens between
-major releases), XS modules compiled for previous versions of Perl will no
-longer work.  They need to be recompiled against the new Perl.
-(TBT)
+Perl の API が互換性のない形で変更されたとき (普通はメジャーリリース間で
+起こります)、以前のバージョンの Perl 用にコンパイルされた XS モジュールは
+もはや動作しなくなります。
+新しい Perl 用に再コンパイルする必要があります。
 
 =begin original
 
@@ -7924,28 +8004,25 @@ exception if they don't match.
 
 =end original
 
-The C<XS_APIVERSION_BOOTCHECK> macro has been added to ensure that modules
-are recompiled and to prevent users from accidentally loading modules
-compiled for old perls into newer perls.  That macro, which is called when
-loading every newly compiled extension, compares the API version of the
-running perl with the version a module has been compiled for and raises an
-exception if they don't match.
-(TBT)
+C<XS_APIVERSION_BOOTCHECK> マクロは、確実にモジュールが再コンパイルされて、
+ユーザーが間違って古い perl 用にコンパイルされたモジュールを新しい perl で
+読み込むのを防ぐために追加されました。
+新しくコンパイルされたエクステンションが読み込まれる度に呼び出される
+このマクロは、実行中の perl の API のバージョンと、モジュールのコンパイルされた
+バージョンを比較し、それが一致しなければ例外を発生させます。
 
 =head3 Perl_fetch_cop_label
 
 =begin original
 
 The first argument of the C API function C<Perl_fetch_cop_label> has changed
-from C<struct refcounted he *> to C<COP *>, to insulate the user from
+from C<struct refcounted_he *> to C<COP *>, to insulate the user from
 implementation details.
 
 =end original
 
-The first argument of the C API function C<Perl_fetch_cop_label> has changed
-from C<struct refcounted he *> to C<COP *>, to insulate the user from
-implementation details.
-(TBT)
+C API 関数 C<Perl_fetch_cop_label> の第 1 引数は、ユーザーから実装詳細を
+分離するために、C<struct refcounted_he *> から C<COP *> に変更されました。
 
 =begin original
 
@@ -7955,9 +8032,10 @@ references to it.)
 
 =end original
 
-This API function was marked as "may change", and likely isn't in use outside
-the core.  (Neither an unpacked CPAN nor Google's codesearch finds any other
-references to it.)
+この API 関数は「変更されるかもしれない」という印が付けられ、
+コアの外で使われることはなさそうです。
+(CPAN を展開したものや Google コードサーチではこれを参照しているものは
+見つかりませんでした。)
 
 =head3 GvCV() and GvGP() are no longer lvalues
 
@@ -7981,10 +8059,9 @@ C<gp_cv> slot.
 
 =end original
 
-This allows a future commit to eliminate some backref magic between GV
-and CVs, which will require complete control over assignment to the
-C<gp_cv> slot.
-(TBT)
+これにより、C<gp_cv> スロットへの代入を完全に制御するのに必要な、
+GV と CV の間の後方参照マジックを取り除くためのコミットが将来
+出来るようになります。
 
 =head3 CvGV() is no longer an lvalue
 
@@ -8001,14 +8078,13 @@ API, regardless of this new macro (and despite its being listed in this section)
 
 =end original
 
-Under some circumstances, the CvGV() field of a CV is now
-reference-counted.  To ensure consistent behaviour, direct assignment to
-it, for example C<CvGV(cv) = gv> is now a compile-time error.  A new macro,
-C<CvGV_set(cv,gv)> has been introduced to run this operation
-safely.
+ある種の状況では、CV の CvGV() フィールドは参照カウントされます。
+一貫性のある振る舞いを保証するために、例えば C<CvGV(cv) = gv> のような
+直接の代入はコンパイルエラーになります。
+新しいマクロである C<CvGV_set(cv,gv)> が、この操作を安全に行うために
+導入されました。
 この新しいマクロにも関わらず(そしてこの節に書いているにも関わらず)
 このフィールドの変更は公式 API の一部ではないことに注意してください。
-(TBT)
 
 =head3 CvSTASH() is no longer an lvalue
 
@@ -8023,11 +8099,10 @@ API.
 
 =end original
 
-The CvSTASH() macro can now only be used as an rvalue.  CvSTASH_set()
-has been added to replace assignment to CvSTASH().  This is to ensure
-that backreferences are handled properly.  These macros are not part of the
-API.
-(TBT)
+CvSTASH() マクロは右辺値としてのみ使えるようになりました。
+CvSTASH_set() が、CvSTASH() への代入の代わりとして追加されました。
+これは、バックリファレンスが正しく扱われるのを保証するためです。
+これらのマクロは API の一部ではありません。
 
 =head3 Calling conventions for C<newFOROP> and C<newWHILEOP>
 
@@ -8074,35 +8149,27 @@ C<UNICODE_ALLOW_FDD0>, C<UNICODE_ALLOW_FFFF>, C<UNICODE_ILLEGAL>, and
 C<UNICODE_IS_ILLEGAL> have been removed, as they stem from a
 fundamentally broken model of how the Unicode non-character code points
 should be handled, which is now described in
-
-=end original
-
-uvuni_to_utf8_flags() と utf8n_to_uvuni() へのフラグ引数の一部が
-変更されました。
-This is a result of Perl's now allowing
-internal storage and manipulation of code points that are problematic
-in some situations.
-従って、これらの関数のデフォルトアクションはこれらの符号位置を認めるように
-補完されました。
-新しいフラグは L<perlapi> で文書化されています。
-Code that requires the problematic code
-points to be rejected needs to change to use the new flags.
-一部のフラグ名は後方ソース互換性のために保持していますが、何もしません;
-今ではデフォルトとなっています。
-しかし C<UNICODE_ALLOW_FDD0>, C<UNICODE_ALLOW_FFFF>, C<UNICODE_ILLEGAL>,
-C<UNICODE_IS_ILLEGAL> は削除されました; as they stem from a
-fundamentally broken model of how the Unicode non-character code points
-should be handled, which is now described in
-(TBT)
-
-=begin original
-
 L<perlunicode/Non-character code points>.  See also the Unicode section
 under L</Selected Bug Fixes>.
 
 =end original
 
-L<perlunicode/Non-character code points>。
+uvuni_to_utf8_flags() と utf8n_to_uvuni() へのフラグ引数の一部が
+変更されました。
+これは、ある種の状況で問題となる符号位置の内部保管と操作が可能になった
+結果です。
+従って、これらの関数のデフォルトアクションはこれらの符号位置を認めるように
+補完されました。
+新しいフラグは L<perlapi> で文書化されています。
+問題のある符号位置を拒絶することが必要なコードは、この新しいフラグを
+使うように変更する必要があります。
+一部のフラグ名は後方ソース互換性のために保持していますが、何もしません;
+今ではデフォルトとなっています。
+しかし C<UNICODE_ALLOW_FDD0>, C<UNICODE_ALLOW_FFFF>, C<UNICODE_ILLEGAL>,
+C<UNICODE_IS_ILLEGAL> は削除されました;
+L<perlunicode/Non-character code points> に記述されているように、
+Unicode 非文字符号位置をどう扱うべきかに関して本質的に壊れたモデルに
+基づくものだからです。
 L</Selected Bug Fixes> の Unicode の節も参照してください。
 
 =head2 Deprecated C APIs
@@ -8224,14 +8291,12 @@ care to avoid destroying the ghost frame.
 
 C<die> の最終ステージの C スタックの巻き戻しのための手順は、どのように
 ターゲットスタックフレームを識別するかが変更されました。
-This now uses
-a separate variable C<PL_restartjmpenv>, where previously it relied on
-the C<blk_eval.cur_top_env> pointer in the C<eval> context frame that
-has nominally just been discarded.
+今では別の変数 C<PL_restartjmpenv> を使うようになりました; 以前は
+名目上捨てられた C<eval> コンテキストフレームにある
+C<blk_eval.cur_top_env> ポインタに依存していました。
 この変更は、Perl レベルの巻き戻しのさまざまなステージで実行中の
 コードが、もはや幽霊フレームを破壊することを避けるために気をつかう
 必要はありません。
-(TBT)
 
 =head3 Scope stack entries
 
@@ -8267,14 +8332,12 @@ both less CPU intensive.
 =end original
 
 ポインタテーブルのためのメモリ割り当てが変更されました。
-Previously
-C<Perl_ptr_table_store> allocated memory from the same arena system as
-C<SV> bodies and C<HE>s, with freed memory remaining bound to those arenas
-until interpreter exit.  Now it allocates memory from arenas private to the
-specific pointer table, and that memory is returned to the system when
-C<Perl_ptr_table_free> is called.
+以前は C<Perl_ptr_table_store> は C<SV> ボディおよび C<HE> と同じ領域から
+メモリを割り当て、解放されたメモリはインタプリタが終了するまでその領域に
+残っていました。
+今では特定のポインタテーブル専用の領域からメモリを割り当てられ、このメモリは
+C<Perl_ptr_table_free> が呼び出されるとシステムに返されます。
 さらに、割り当てと解放は両方とも CPU パワーを使わなくなります。
-(TBT)
 
 =head3 C<UNDERBAR>
 
@@ -8565,12 +8628,10 @@ C<s|(.)|@a{ print($1), /./ }|g> [perl #19078].
 
 =end original
 
-A regular expression match in the right-hand side of a global substitution
-(C<s///g>) that is in the same scope will no longer cause match variables
-to have the wrong values on subsequent iterations. 
+同じスコープにある全体置換 (C<s///g>) の右側にある正規表現マッチングは、
+もはや引き続く反復で間違った値を持つ変数にマッチングしなくなりました。
 これは、C<s|(.)|@a{ print($1), /./ }|g> のように、配列やハッシュの添え字が
 右側で展開されたときに起こります [perl #19078]。
-(TBT)
 
 =item *
 
@@ -8583,12 +8644,11 @@ C<\w> and C<\W> [perl #78464] [perl #18281] [perl #60156].
 
 =end original
 
-Several cases in which characters in the Latin-1 non-ASCII range (0x80 to
-0xFF) used not to match themselves, or used to match both a character class
-and its complement, have been fixed.
+Latin-1 の非 ASCII 範囲 (0x80 から 0xFF) の文字は場合によっては
+自分自身とマッチングしなかったり、ある文字クラスとその逆クラスの
+兵法にマッチングしていたりしていましたが、これは修正されました。
 例えば、U+00E2 は C<\w> と C<\W> の両方にマッチングしていました
 [perl #78464] [perl #18281] [perl #60156]。
-(TBT)
 
 =item *
 
@@ -8664,19 +8724,19 @@ point it is.
 
 =end original
 
-Case-insensitive matching in regular expressions compiled under
-C<use locale> now works much more sanely when the pattern or target
-string is internally encoded in UTF8.  Previously, under these
-conditions the localeness was completely lost.  Now, code points
-above 255 are treated as Unicode, but code points between 0 and 255
-are treated using the current locale rules, regardless of whether
-the pattern or the string is encoded in UTF8.  The few case-insensitive
-matches that cross the 255/256 boundary are not allowed.
+C<use locale> の影響下でコンパイルされた大文字小文字を無視する
+正規表現マッチングは、パターンやターゲット文字列が内部的に UTF8 で
+エンコーディングされているときに、はるかにまともに動作するようになりました。
+以前は、このような条件ではロケール性は完全に失われていました。
+今では、255 を超える符号位置は Unicode として扱われますが、0 から 255 までは
+パターンや文字列が UTF8 でエンコーディングされているかどうかにかかわらず
+現在のロケールルールを使って扱われるようになりました。
+255/256 の境界をまたぐような稀な大文字小文字を無視するマッチングは
+認められません。
 例えば、0xFF は 0x178 LATIN CAPITAL LETTER Y WITH DIAERESIS と
 大文字小文字なしにマッチングします; 0xFF は現在のロケールでは
 LATIN SMALL LETTER Y に含まれず、Perl はロケール中にこの文字が
 含まれているかや、ましてやどの符号位置かを知る方法がないからです。
-(TBT)
 
 =item *
 
@@ -8689,11 +8749,10 @@ not take multiple branches into account [perl #84746].
 
 =end original
 
-The C<(?|...)> 正規表現構造は、no longer crashes if the final
-branch has more sets of capturing parentheses than any other branch.
-これは単一ブランチの場合は Perl 5.10.1 で修正されましたが、
-これは複数ブランチを考慮に入れていませんでした [perl #84746]。
-(TBT)
+The C<(?|...)> 正規表現構造は、最後の枝がその他の枝よりも多い捕捉かっこの
+集合を持つ場合にクラッシュしていました。
+これは単一の枝の場合は Perl 5.10.1 で修正されましたが、
+これは複数の枝を考慮に入れていませんでした [perl #84746]。
 
 =item *
 
@@ -8849,10 +8908,9 @@ within a C<UNITCHECK> block no longer causes the interpreter to crash
 
 =end original
 
-Parsing Perl code (either with string C<eval> or by loading modules) from
-within a C<UNITCHECK> block no longer causes the interpreter to crash
-[perl #70614].
-(TBT)
+C<UNITCHECK> ブロック内からの (文字列 C<eval> かモジュール読み込みによる)
+Perl コードのパースは、もはやインタプリタをクラッシュさせなくなりました
+[perl #70614]。
 
 =item *
 
@@ -8941,11 +8999,10 @@ of the C<@>) [perl #72090].
 
 =end original
 
-C<< @$a > 3 >> のような式は no longer cause C<$a> to be mentioned in
-the "Use of uninitialized value in numeric gt" warning when C<$a> is
-undefined (since it is not part of the C<< > >> expression, but the operand
-of the C<@>) [perl #72090].
-(TBT)
+C<< @$a > 3 >> のような式は、(C<< > >> 式の一部ではなく、C<@> の
+オペランドなので) C<$a> が未定義のときにもはや
+"Use of uninitialized value in numeric gt" 警告を出さなくなりました
+[perl #72090]。
 
 =item *
 
@@ -8958,11 +9015,10 @@ manipulation could remove it, as in these two cases which used to crash:
 
 =end original
 
-Accessing an element of a package array with a hard-coded number (as
-opposed to an arbitrary expression) would crash if the array did not exist.
-普通は配列はコンパイル中に自動有効化されますが、typeglob
-manipulation could remove it, as in these two cases which used to crash:
-(TBT)
+(任意の式でなく) ハードコードされた数値でパッケージ配列の要素に
+アクセスすると、その要素がないときにクラッシュしていました。
+普通は配列はコンパイル中に自動有効化されますが、型グロブの操作は
+これを取り除き、以下の二つのケースでクラッシュしていました:
 
   *d = *a;  print $d[0];
   undef *d; print $d[0];
@@ -9010,13 +9066,13 @@ existed before 5.10.0:
 
 =end original
 
-Perl 5.10.0 introduced a new internal mechanism for caching MROs (method
-resolution orders, or lists of parent classes; aka "isa" caches) to make
-method lookup faster (so C<@ISA> arrays would not have to be searched
-repeatedly).  Unfortunately, this brought with it quite a few bugs.  Almost
-all of these have been fixed now, along with a few MRO-related bugs that
-existed before 5.10.0:
-(TBT)
+Perl 5.10.0 では、メソッド検索をより速くするために MRO キャッシュする
+(メソッド解決順序、つまり親クラスのリスト; またの名を "isa" キャッシュ)
+ための新しい内部機構が導入されました (これにより C<@ISA> が繰り返し検索する
+必要がなくなりました)。
+残念ながら、これにはいくつかバグがありました。
+そのほとんどは、5.10.0 以前からあった MRO 関係のバグと共に、
+今では修正されました:
 
 =over
 
@@ -9030,11 +9086,10 @@ classes.  These have been fixed.
 
 =end original
 
-The following used to have erratic effects on method resolution, because
-the "isa" caches were not reset or otherwise ended up listing the wrong
-classes.
+以下のようなことをするとメソッド解決に間違った影響を与えていました;
+なぜなら "isa" キャッシュがリセットされなかったり、最終的に
+間違ったクラスの一覧となったりしていたからです。
 これらは修正されました。
-(TBT)
 
 =over
 
@@ -9083,9 +9138,9 @@ the assignment contained a subroutine.
 
 =end original
 
-Typeglob assignments would crash if the glob's stash no longer existed, so
-long as the glob assigned to were named C<ISA> or the glob on either side of
-the assignment contained a subroutine.
+型グロブの代入は、グロブのスタッシュがもはや存在しないときに
+代入されたグロブが C<ISA> という名前か、代入のどちらかの側にサブルーチンが
+含まれているとクラッシュしていました。
 
 =item *
 
@@ -9098,11 +9153,11 @@ causing a memory leak [perl #75176].
 
 =end original
 
-C<PL_isarev>, which is accessible to Perl via C<mro::get_isarev> is now
-updated properly when packages are deleted or removed from the C<@ISA> of
-other classes.  This allows many packages to be created and deleted without
-causing a memory leak [perl #75176].
-(TBT)
+C<mro::get_isarev> 経由で Perl にアクセスできる C<PL_isarev> は、
+パッケージが削除されたり、他のクラスの C<@ISA> からパッケージが
+取り除かれたとき、適切に更新されるようになりました。
+これにより多くのパッケージがメモリリークなしに作成および
+削除できるようになります [perl #75176]。
 
 =back
 
@@ -9129,12 +9184,11 @@ longer crash the interpreter.
 
 =end original
 
-Some work has been done on the internal pointers that link between symbol
-tables (stashes), typeglobs, and subroutines.  This has the effect that
-various edge cases related to deleting stashes or stash entries (for example,
-<%FOO:: = ()>), and complex typeglob or code-reference aliasing, will no
-longer crash the interpreter.
-(TBT)
+シンボルテーブル(スタッシュ)、型グロブ、サブルーチンの間のリンクとなる
+内部ポインタに対していくつかの作業が行われました。
+この降下により、スタッシュやスタッシュのエントリの削除 (例えば
+<%FOO:: = ()>)や、複雑な型グロブとコードリファレンスの別名によって
+もはやインタプリタをクラッシュさせなくなりました。
 
 =item *
 
@@ -9267,13 +9321,15 @@ cases [perl #87664].
 
 =end original
 
-If a typeglob is freed while a subroutine attached to it is still
-referenced elsewhere, the subroutine is renamed to C<__ANON__> in the same
-package, unless the package has been undefined, in which case the C<__ANON__>
-package is used.  This could cause packages to be sometimes autovivified,
-such as if the package had been deleted.  Now this no longer occurs.
-The C<__ANON__> package is also now used when the original package is
-no longer attached to the symbol table.
+型グロブが解放されたときに、それに付加されているサブルーチンがまだ
+他の場所から参照されていると、サブルーチンは同じパッケージで
+C<__ANON__> という名前に代わります(パッケージ名が未定義の場合は
+C<__ANON__> パッケージが使われます)。
+これにより、例えばパッケージが削除されたときなどに、パッケージが
+自動有効化されていました。
+これはもはや起きなくなりました。
+C<__ANON__> パッケージはまた、元のパッケージがもはやシンボルテーブルに
+付加されていないときにも使われるようになりました。
 これによりいくつかの場合でのメモリリークを防ぎます [perl #87664]。
 
 =item *
@@ -9465,11 +9521,9 @@ that they will throw out the whole concept of multi-character matches.
 また、このマッチングはテキストの NFD (Normalization Form Decomposed) の
 マッチングによるという現在のUnicode 標準を完全には満たしていません。
 しかし、これを書いている時点(2010 年 4 月)では、Unicode 標準は
-currently in flux about
-what they will recommend doing with regard in such scenarios.  It may be
-that they will throw out the whole concept of multi-character matches.
-[perl #71736].
-(TBT)
+このような状況で推奨される動作について今のところ不安定です。
+複数文字マッチングという概念全体を放り出すことになるかも知れません
+[perl #71736]。
 
 =item *
 
@@ -9491,7 +9545,6 @@ a single C<"."> to be parsed incorrectly [perl #74978] (5.12.1).
 
 =end original
 
-We fixed a bug that could cause 
 C<\N{I<NAME>}> 構造に引き続いて単一の C<"."> がある場合に間違って
 パースされることによるバグを修正しました [perl #74978] (5.12.1)。
 
@@ -9542,12 +9595,11 @@ a "panic" error message [perl #77692].
 
 =end original
 
-Sometimes the UTF8 length cache would not be reset on a value
-returned by substr, causing C<length(substr($uni_string, ...))> to give
-wrong answers. 
-C<${^UTF8CACHE}> に -1 をセットすることで、"panic" エラーメッセージも
+時々 UTF8 の length キャッシュが substr の返り値によってリセットされず、
+そのために C<length(substr($uni_string, ...))> が間違った答えを
+返していました。
+C<${^UTF8CACHE}> に -1 をセットしていると、"panic" エラーメッセージも
 引き起こしていました [perl #77692]。
-(TBT)
 
 =back
 
@@ -9569,12 +9621,12 @@ treated as not overloaded [RT #57012].
 
 =end original
 
-Overloading now works properly in conjunction with tied
-variables.  What formerly happened was that most ops checked their
-arguments for overloading I<before> checking for magic, so for example
-an overloaded object returned by a tied array access would usually be
-treated as not overloaded [RT #57012].
-(TBT)
+オーバーロードは tie された変数と組み合わされたも正しく
+動作するようになりました。
+以前起きていたのは、ほとんどの op は引数のオーバーロードのチェックを
+マジックのチェックの I<前に> 行っていたので、例えば tie された
+配列アクセスによって返されたオーバーロードされたオブジェクトは
+普通はオーバーロードされていないものとして扱われていました [RT #57012]。
 
 =item *
 
@@ -9643,12 +9695,12 @@ reference already (such as from a previous FETCH) [perl #72144].
 
 =begin original
 
-C<splice> now calls C<set-magic> (so changes made
+C<splice> now calls set-magic (so changes made
 by C<splice @ISA> are respected by method calls) [perl #78400].
 
 =end original
 
-C<splice> は C<set-magic> を呼び出すようになりました (それで
+C<splice> は set-magic を呼び出すようになりました (それで
 C<splice @ISA> はメソッド呼び出しに尊重されるように変更されました)
 [perl #78400]。
 
@@ -9668,11 +9720,11 @@ FETCH/STORE を全く呼び出していませんでした [perl #43789] (5.12.2)
 
 =begin original
 
-utf8::is_utf8() now respects C<get-magic> (like C<$1>) (5.12.1).
+utf8::is_utf8() now respects get-magic (like C<$1>) (5.12.1).
 
 =end original
 
-utf8::is_utf8() は (C<$1> と同様) C<get-magic> を尊重します (5.12.1)。
+utf8::is_utf8() は (C<$1> と同様) get-magic を尊重します (5.12.1)。
 
 =back
 
@@ -9867,9 +9919,9 @@ when the argument is tainted.  This has been broken since perl 5.8.9
 
 =end original
 
-C<lc>, C<uc>, C<lcfirst>, and C<ucfirst> no longer return untainted strings
-when the argument is tainted.  This has been broken since perl 5.8.9
-[perl #87336].
+C<lc>, C<uc>, C<lcfirst>, C<ucfirst> は、引数が汚染されているときに
+もはや汚染されていない文字列を返さなくなりました。
+これは perl 5.8.9 から壊れていました [perl #87336]。
 
 =back
 
@@ -10058,12 +10110,11 @@ warnings when joining threads.
 
 =end original
 
-Perl now does a timely cleanup of SVs that are cloned into a new
-thread but then discovered to be orphaned (that is, their owners
-are I<not> cloned).
+Perl は、SV が新しいスレッドにクローン化されたけれども親がいなくなっている
+(つまり、この所有者はクローン化 I<されなかった>) ことを発見した場合、
+定期的に SV を掃除します。
 これは、スレッドを結合したときのいくつかの "scalars leaked" 警告を
 除去します。
-(TBT)
 
 =back
 
@@ -10095,10 +10146,9 @@ same file name [perl #68712].
 
 =end original
 
-C<require> はもはや C<caller> が to return the wrong file name for
-the scope that called C<require> and other scopes higher up that had the
-same file name [perl #68712].
-(TBT)
+C<require> は、呼び出された C<require> のスコープと、より高いその他の
+スコープで同じファイル名があるときに、もはや C<caller> が間違った
+ファイル名を返さなくなりました [perl #68712]。
 
 =item *
 
@@ -10471,8 +10521,10 @@ taints C<$^A> now if its arguments are tainted [perl #79138].
 
 =end original
 
-C<formline> no longer crashes when passed a tainted format picture.  It also
-taints C<$^A> now if its arguments are tainted [perl #79138].
+C<formline> は汚染されたフォーマットピクチャーを渡されたときに、もはや
+クラッシュしなくなりました。
+また、引数が汚染されているときには C<$^A> も汚染されるようになりました
+[perl #79138]。
 
 =item *
 
@@ -10717,12 +10769,12 @@ Windows で fputc() あるいは fputs() を使った XS コードは、引数�
 
 =begin original
 
-A possible segfault in the C<T_PRTOBJ> default typemap has been fixed
+A possible segfault in the C<T_PTROBJ> default typemap has been fixed
 (5.12.2).
 
 =end original
 
-デフォルト typemap C<T_PRTOBJ> でセグメンテンションフォールトが
+デフォルト typemap C<T_PTROBJ> でセグメンテンションフォールトが
 起きる可能性があった問題が修正されました (5.12.2)。
 
 =item *
@@ -10808,18 +10860,6 @@ readline() がシグナルで中断したとき、undef ではなく空文字列
 
 =begin original
 
-L<version> now prevents object methods from being called as class methods
-(d808b68)
-
-=end original
-
-L<version> はオブジェクトメソッドがクラスメソッドとして呼び出されるのを
-妨げるようになりました (d808b68)。
-
-=item *
-
-=begin original
-
 The changes in prototype handling break L<Switch>.  A patch has been sent
 upstream and will hopefully appear on CPAN soon.
 
@@ -10835,7 +10875,7 @@ upstream and will hopefully appear on CPAN soon.
 
 The upgrade to F<ExtUtils-MakeMaker-6.57_05> has caused
 some tests in the F<Module-Install> distribution on CPAN to
-fail. (Specifically, F<02_mymeta.t> tests 5 and 21l; F<18_all_from.t>
+fail. (Specifically, F<02_mymeta.t> tests 5 and 21; F<18_all_from.t>
 tests 6 and 15; F<19_authors.t> tests 5, 13, 21, and 29; and
 F<20_authors_with_special_characters.t> tests 6, 15, and 23 in version
 1.00 of that distribution now fail.)
@@ -10844,9 +10884,40 @@ F<20_authors_with_special_characters.t> tests 6, 15, and 23 in version
 
 F<ExtUtils-MakeMaker-6.57_05> への更新により、CPAN の F<Module-Install> 配布の
 いくつかのテストが失敗するようになりました。
-(具体的には、バージョン 1.00 では F<02_mymeta.t> テスト 5 と 21; F<18_all_from.t>
-テスト 6 と 15; F<19_authors.t> tests 5, 13, 21, 29; 
-F<20_authors_with_special_characters.t> tests 6, 15, 23 が失敗します。)
+(具体的には、バージョン 1.00 では F<02_mymeta.t> テスト 5 と 21;
+F<18_all_from.t> テスト 6 と 15; F<19_authors.t> テスト 5, 13, 21, 29; 
+F<20_authors_with_special_characters.t> テスト 6, 15, 23 が失敗します。)
+
+=item *
+
+=begin original
+
+On VMS, C<Time::HiRes> tests will fail due to a bug in the CRTL's
+implementation of C<setitimer>: previous timer values would be cleared
+if a timer expired but not if the timer was reset before expiring.  HP
+OpenVMS Engineering have corrected the problem and will release a patch
+in due course (Quix case # QXCM1001115136).
+
+=end original
+
+VMS では、C<Time::HiRes> のテストは CRTL の C<setitimer> 実装のバグにより
+失敗していました: 以前は、タイマーの値は時間切れになると
+クリアされていましたが、もしタイマーが時間切れになる前にリセットされると
+クリアされませんでした。
+HP OpenVMS Engineering はこの問題を修正し、後日パッチをリリースします
+(Quix case # QXCM1001115136)。
+
+=item *
+
+=begin original
+
+On VMS, there were a handful of C<Module::Build> test failures we didn't
+get to before the release; please watch CPAN for updates.
+
+=end original
+
+VMS では、以前は成功していた C<Module::Build> のテストの一部が
+失敗するようになっています; CPAN の更新を見守ってください。
 
 =back
 
@@ -10881,7 +10952,7 @@ keys(), values(), each() 組み込み関数を配列に対しても使えるよ�
 
 split() no longer modifies C<@_> when called in scalar or void context.
 In void context it now produces a "Useless use of split" warning.
-This was also a perl 5.12.0 changed that missed the perldelta.
+This was also a perl 5.12.0 change that missed the perldelta.
 
 =end original
 
@@ -11001,6 +11072,8 @@ community for helping Perl to flourish.
 私たちは Perl が繁栄するのを助けている CPAN コミュニティ全体に感謝します。
 
 =head1 Reporting Bugs
+
+(バグ報告)
 
 =begin original
 

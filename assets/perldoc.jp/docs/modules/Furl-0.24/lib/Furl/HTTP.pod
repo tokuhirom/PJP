@@ -1,7 +1,5 @@
 =encoding utf8
 
-=encoding utf8
-
 =head1 名前
 
 =begin original
@@ -410,7 +408,7 @@ C<request()>簡単に使うためのエイリアスです。C<DELETE>メソッ�
 
 =begin original
 
-=item Why IO::Socket::SSL?
+(Why IO::Socket::SSL?)
 
 =end original
 
@@ -426,7 +424,7 @@ Net::SSL はドキュメントが貧弱です。
 
 =begin original
 
-=item Why is env_proxy optional?
+(Why is env_proxy optional?)
 
 =end original
 
@@ -444,7 +442,7 @@ and we think it may confuse users when something doesn't go right.
 
 =begin original
 
-=item What operating systems are supported?
+(What operating systems are supported?)
 
 =end original
 
@@ -468,7 +466,7 @@ And other operating systems will be supported if you send a patch.
 
 =begin original
 
-=item Why doesn't Furl support chunked upload?
+(Why doesn't Furl support chunked upload?)
 
 =end original
 
@@ -510,7 +508,7 @@ These facts together makes using chunked requests virtually impossible (unless y
 
 =begin original
 
-=item How do you build the response content as it arrives?
+(How do you build the response content as it arrives?)
 
 =end original
 
@@ -537,7 +535,7 @@ You can use L<IO::Callback> for this purpose.
 
 =begin original
 
-=item How do you use gzip/deflate compressed communication?
+(How do you use gzip/deflate compressed communication?)
 
 =end original
 
@@ -553,7 +551,7 @@ B<Accept-Encoding>ヘッダをリクエストに追加してください。Furl�
 
 =begin original
 
-=item How do you use mutipart/form-data?
+(How do you use mutipart/form-data?)
 
 =end original
 
@@ -591,7 +589,7 @@ Native multipart/form-data support for L<Furl> is available if you can send a pa
 
 =begin original
 
-=item How do you use Keep-Alive and what happens on the HEAD method?
+(How do you use Keep-Alive and what happens on the HEAD method?)
 
 =end original
 
@@ -649,7 +647,7 @@ C<If-Modified-Sinse>のほうがHTTPコンテンツをキャッシュするの�
 
 =begin original
 
-=item Why does Furl take longer than specified until it returns a timeout error?
+(Why does Furl take longer than specified until it returns a timeout error?)
 
 =end original
 

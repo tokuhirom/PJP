@@ -44,11 +44,10 @@ in L<perltoc>.
 
 この導入文書は完全性を目的とはしていません。
 完全な正確性すらも目的にしていません。
-In some cases perfection has been
-sacrificed in the goal of getting the general idea across.
+場合によっては、一般的な考え方を得るというゴール野のために正確性を
+犠牲にしています。
 この概要を読んだ後、完全な Perl マニュアル(目次は L<perltoc> にあります)から
 さらなる情報を得ることをI<強く> 勧めます。
-(TBT)
 
 =begin original
 
@@ -381,8 +380,7 @@ Scalar values can be used in various ways:
 
 =end original
 
-Scalar values can be used in various ways:
-(TBT)
+スカラ値は色々な方法で利用できます:
 
     print $animal;
     print "The animal is $animal\n";
@@ -401,10 +399,11 @@ it's set implicitly by certain looping constructs.
 
 There are a number of "magic" scalars with names that look like
 punctuation or line noise.  These special variables are used for all
-kinds of purposes, and are documented in L<perlvar>.  The only one you
-need to know about for now is C<$_> which is the "default variable".
-It's used as the default argument to a number of functions in Perl, and
-it's set implicitly by certain looping constructs.
+kinds of purposes, and are documented in L<perlvar>.
+今のところ知っておくべきただ一つのことは、「デフォルト変数」である
+C<$_> です。
+これは Perl の多くの関数でデフォルト引数として使われ、ある種のループ構造で
+暗黙に設定されます。
 (TBT)
 
     print;          # prints contents of $_ by default
@@ -431,8 +430,8 @@ Arrays are zero-indexed.  Here's how you get at elements in an array:
 
 =end original
 
-Arrays are zero-indexed.  Here's how you get at elements in an array:
-(TBT)
+配列は添え字 0 から始まります。
+以下は配列の要素を取得する方法です:
 
     print $animals[0];              # prints "camel"
     print $animals[1];              # prints "llama"
@@ -444,9 +443,7 @@ of an array:
 
 =end original
 
-The special variable C<$#array> tells you the index of the last element
-of an array:
-(TBT)
+特殊変数 C<$#array> は、配列の最後の要素の添え字を返します:
 
     print $mixed[$#mixed];       # last element, prints 1.23
 
@@ -459,11 +456,10 @@ of elements in the array:
 
 =end original
 
-You might be tempted to use C<$#array + 1> to tell you how many items there
-are in an array.  Don't bother.  As it happens, using C<@array> where Perl
-expects to find a scalar value ("in scalar context") will give you the number
-of elements in the array:
-(TBT)
+配列にある要素の数を知るのに C<$#array + 1> を使いたくなるかも知れません。
+心配はいりません。
+偶然にも、Perl がスカラ値を想定しているところ(「スカラコンテキスト」)で
+C<@array> を使うと、配列の要素の数を返します:
 
     if (@animals < 5) { ... }
 
@@ -475,10 +471,8 @@ you get a scalar.
 
 =end original
 
-The elements we're getting from the array start with a C<$> because
-we're getting just a single value out of the array -- you ask for a scalar,
-you get a scalar.
-(TBT)
+配列から一つの値を取り出したいだけなので、配列の要素は C<$> で始まります --
+スカラを得ようとすれば、スカラを得ます。
 
 =begin original
 
@@ -486,21 +480,27 @@ To get multiple values from an array:
 
 =end original
 
-To get multiple values from an array:
-(TBT)
+配列から複数の値を得るには:
+
+=begin original
 
     @animals[0,1];                  # gives ("camel", "llama");
     @animals[0..2];                 # gives ("camel", "llama", "owl");
     @animals[1..$#animals];         # gives all except the first element
 
+=end original
+
+    @animals[0,1];                  # ("camel", "llama") を返す
+    @animals[0..2];                 # ("camel", "llama", "owl") を返す
+    @animals[1..$#animals];         # 最初の要素以外全てを返す
+
 =begin original
 
 This is called an "array slice".
 
 =end original
 
-This is called an "array slice".
-(TBT)
+これは「配列スライス」と呼ばれます。
 
 =begin original
 
@@ -508,8 +508,7 @@ You can do various useful things to lists:
 
 =end original
 
-You can do various useful things to lists:
-(TBT)
+リストに対して色々便利なことが出来ます:
 
     my @sorted    = sort @animals;
     my @backwards = reverse @numbers;
@@ -522,10 +521,9 @@ subroutine).  These are documented in L<perlvar>.
 
 =end original
 
-There are a couple of special arrays too, such as C<@ARGV> (the command
-line arguments to your script) and C<@_> (the arguments passed to a
-subroutine).  These are documented in L<perlvar>.
-(TBT)
+C<@ARGV> (スクリプトのコマンドライン引数) や C<@_> (サブルーチンに渡された
+引数) のように、色々な特殊配列もあります。
+これらは L<perlvar> に文書化されています。
 
 =item Hashes
 
@@ -562,9 +560,14 @@ To get at hash elements:
 =end original
 
 ハッシュの要素を得るには:
-(TBT)
+
+=begin original
 
     $fruit_color{"apple"};           # gives "red"
+
+=end original
+
+    $fruit_color{"apple"};           # "red" を返す
 
 =begin original
 
@@ -597,11 +600,9 @@ L<perlvar>.
 
 =end original
 
-Just like special scalars and arrays, there are also special hashes.
-The most well known of these is C<%ENV> which contains environment
-variables.  Read all about it (and other special variables) in
-L<perlvar>.
-(TBT)
+特殊スカラおよび配列と同様、特殊ハッシュもあります。
+そのうち最もよく知られているものは、環境変数が入っている C<%ENV> です。
+これら全て (およびその他の特殊変数) は L<perlvar> にあります。
 
 =back
 
@@ -611,8 +612,8 @@ Scalars, arrays and hashes are documented more fully in L<perldata>.
 
 =end original
 
-Scalars, arrays and hashes are documented more fully in L<perldata>.
-(TBT)
+スカラ、配列、ハッシュについては L<perldata> により完全に
+文書化されています。
 
 =begin original
 
@@ -621,9 +622,8 @@ you to build lists and hashes within lists and hashes.
 
 =end original
 
-More complex data types can be constructed using references, which allow
-you to build lists and hashes within lists and hashes.
-(TBT)
+より複雑なデータ型は、リストやハッシュの中にリストやハッシュを
+入れることができるリファレンスを使って構築できます。
 
 =begin original
 
@@ -635,12 +635,11 @@ structure using anonymous hash references.
 
 =end original
 
-A reference is a scalar value and can refer to any other Perl data
-type. So by storing a reference as the value of an array or hash
-element, you can easily create lists and hashes within lists and
-hashes. The following example shows a 2 level hash of hash
-structure using anonymous hash references.
-(TBT)
+リファレンスはスカラ値で、任意の他の Perl データを参照できます。
+従って、リファレンスを配列やハッシュの値として格納することで、
+リストやハッシュの中に簡単にリストやハッシュを作成できます。
+以下の例は、無名ハッシュリファレンスを使った 2 レベルのハッシュのハッシュを
+説明しています:
 
     my $variables = {
         scalar  =>  {
@@ -666,9 +665,8 @@ L<perlreftut>, L<perllol>, L<perlref> and L<perldsc>.
 
 =end original
 
-Exhaustive information on the topic of references can be found in
-L<perlreftut>, L<perllol>, L<perlref> and L<perldsc>.
-(TBT)
+リファレンスに関する包括的な情報は、
+L<perlreftut>, L<perllol>, L<perlref>, L<perldsc> にあります。
 
 =head2 Variable scoping
 
@@ -766,7 +764,8 @@ which are commonly used in conditional statements.
 
 =end original
 
-The conditions can be any Perl expression.  See the list of operators in
+任意の Perl 式は条件となります。
+See the list of operators in
 the next section for information on comparison and boolean logic operators,
 which are commonly used in conditional statements.
 (TBT)
@@ -789,8 +788,7 @@ There's also a negated version of it:
 
 =end original
 
-There's also a negated version of it:
-(TBT)
+これの否定版もあります:
 
     unless ( condition ) {
         ...
@@ -802,8 +800,7 @@ This is provided as a more readable version of C<if (!I<condition>)>.
 
 =end original
 
-This is provided as a more readable version of C<if (!I<condition>)>.
-(TBT)
+これは、C<if (!I<condition>)> をより読みやすくしたものです。
 
 =begin original
 
@@ -813,10 +810,9 @@ conditional blocks more English like:
 
 =end original
 
-Note that the braces are required in Perl, even if you've only got one
-line in the block.  However, there is a clever way of making your one-line
-conditional blocks more English like:
-(TBT)
+たとえブロック中に 1 行しかなくても、Perl では中かっこが必要であることに
+注意してください。
+しかし、1 行の条件ブロックをより英語風にする賢明な方法があります:
 
     # the traditional way
     if ($zippy) {
@@ -839,8 +835,7 @@ There's also a negated version, for the same reason we have C<unless>:
 
 =end original
 
-There's also a negated version, for the same reason we have C<unless>:
-(TBT)
+C<unless> があるのと同じ理由で、これにも否定版があります。
 
     until ( condition ) {
         ...
@@ -852,10 +847,15 @@ You can also use C<while> in a post-condition:
 
 =end original
 
-You can also use C<while> in a post-condition:
-(TBT)
+C<while> を後置条件にも使えます:
+
+=begin original
 
     print "LA LA LA\n" while 1;          # loops forever
+
+=end original
+
+    print "LA LA LA\n" while 1;          # 無限ループ
 
 =item for
 
@@ -865,8 +865,7 @@ Exactly like C:
 
 =end original
 
-Exactly like C:
-(TBT)
+完全に C と同様です:
 
     for ($i = 0; $i <= $max; $i++) {
         ...
@@ -879,9 +878,8 @@ the more friendly list scanning C<foreach> loop.
 
 =end original
 
-The C style for loop is rarely needed in Perl since Perl provides
-the more friendly list scanning C<foreach> loop.
-(TBT)
+C 形式のループは Perl ではめったに必要ではありません; なぜなら Perl は
+より親切なリストスキャンである C<foreach> ループがあるからです。
 
 =item foreach
 
@@ -891,7 +889,16 @@ the more friendly list scanning C<foreach> loop.
 
     print $list[$_] foreach 0 .. $max;
 
+=begin original
+
     # you don't have to use the default $_ either...
+    foreach my $key (keys %hash) {
+        print "The value of $key is $hash{$key}\n";
+    }
+
+=end original
+
+    # デフォルトの $_ を使う必要はありません…
     foreach my $key (keys %hash) {
         print "The value of $key is $hash{$key}\n";
     }
@@ -905,9 +912,8 @@ this overview) see L<perlsyn>.
 
 =end original
 
-For more detail on looping constructs (and some that weren't mentioned in
-this overview) see L<perlsyn>.
-(TBT)
+ループ構造に関するさらなる詳細 (およびこの概説で触れていないこと) に
+ついては L<perlsyn> を参照してください。
 
 =head2 Builtin operators and functions
 
@@ -943,14 +949,25 @@ Perl の演算子は L<perlop> に完全に文書化されていますが、もっとも
 
 (数値演算)
 
+=begin original
+
     +   addition
     -   subtraction
     *   multiplication
     /   division
 
+=end original
+
+    +   加算
+    -   減算
+    *   乗算
+    /   除算
+
 =item Numeric comparison
 
 (数値比較)
+
+=begin original
 
     ==  equality
     !=  inequality
@@ -959,9 +976,20 @@ Perl の演算子は L<perlop> に完全に文書化されていますが、もっとも
     <=  less than or equal
     >=  greater than or equal
 
+=end original
+
+    ==  相等
+    !=  不等
+    <   より小さい
+    >   より大きい
+    <=  以下
+    >=  以上
+
 =item String comparison
 
 (文字列比較)
+
+=begin original
 
     eq  equality
     ne  inequality
@@ -969,6 +997,15 @@ Perl の演算子は L<perlop> に完全に文書化されていますが、もっとも
     gt  greater than
     le  less than or equal
     ge  greater than or equal
+
+=end original
+
+    eq  相等
+    ne  不等
+    lt  より小さい
+    gt  より大きい
+    le  以下
+    ge  以上
 
 =begin original
 
@@ -1011,10 +1048,19 @@ detail.)
 
 (その他)
 
+=begin original
+
     =   assignment
     .   string concatenation
     x   string multiplication
     ..  range operator (creates a list of numbers)
+
+=end original
+
+    =   代入
+    .   文字列結合
+    x   文字列乗算
+    ..  範囲演算子 (数値のリストを作る)
 
 =back
 
@@ -1026,9 +1072,17 @@ Many operators can be combined with a C<=> as follows:
 
 多くの演算子は、以下のように C<=> と組み合わせることができます:
 
+=begin original
+
     $a += 1;        # same as $a = $a + 1
     $a -= 1;        # same as $a = $a - 1
     $a .= "\n";     # same as $a = $a . "\n";
+
+=end original
+
+    $a += 1;        # $a = $a + 1 と同じ
+    $a -= 1;        # $a = $a - 1 と同じ
+    $a .= "\n";     # $a = $a . "\n"; と同じ
 
 =head2 Files and I/O
 
@@ -1042,10 +1096,9 @@ but in short:
 
 =end original
 
-You can open a file for input or output using the C<open()> function.
-It's documented in extravagant detail in L<perlfunc> and L<perlopentut>,
-but in short:
-(TBT)
+C<open()> 関数を使って、入力や出力のためにファイルを開けます。
+L<perlfunc> と L<perlopentut> に非常に詳細に文書化されていますが、
+簡単には:
 
     open(my $in,  "<",  "input.txt")  or die "Can't open input.txt: $!";
     open(my $out, ">",  "output.txt") or die "Can't open output.txt: $!";
@@ -1060,11 +1113,10 @@ the list:
 
 =end original
 
-You can read from an open filehandle using the C<< <> >> operator.  In
-scalar context it reads a single line from the filehandle, and in list
-context it reads the whole file in, assigning each line to an element of
-the list:
-(TBT)
+C<< <> >> 演算子を使って、開いているファイルハンドルから読み込めます。
+スカラコンテキストではファイルハンドルから 1 行を読み込み、リスト
+コンテキストではファイル全体を読み込んで、それぞれの行をリストの要素に
+代入します:
 
     my $line  = <$in>;
     my @lines = <$in>;
@@ -1077,10 +1129,10 @@ can be done a line at a time with Perl's looping constructs.
 
 =end original
 
-Reading in the whole file at one time is called slurping. It can
-be useful but it may be a memory hog. Most text file processing
-can be done a line at a time with Perl's looping constructs.
-(TBT)
+ファイル全体を一度に読み込むことは「吸い込み」(slurping) と呼ばれます。
+これは便利ですが、メモリを占有するかもしれません。
+ほとんどのテキストファイル処理は、Perl のループ構文を使って
+1 行ずつ処理できます。
 
 =begin original
 
@@ -1088,8 +1140,7 @@ The C<< <> >> operator is most often seen in a C<while> loop:
 
 =end original
 
-The C<< <> >> operator is most often seen in a C<while> loop:
-(TBT)
+C<< <> >> 演算子は、C<while> ループの中でもっともよく見られます:
 
     while (<$in>) {     # assigns each line in turn to $_
         print "Just read in this line: $_";
@@ -1103,10 +1154,9 @@ which filehandle to print to:
 
 =end original
 
-We've already seen how to print to standard output using C<print()>.
-However, C<print()> can also take an optional first argument specifying
-which filehandle to print to:
-(TBT)
+C<print()> を使って標準出力に出力する方法はすでに見てきました。
+しかし、C<print()> はオプションとして、どのファイルハンドルに出力するかを
+指定する第一引数を取ることもできます:
 
     print STDERR "This is your final warning.\n";
     print $out $record;
@@ -1119,9 +1169,8 @@ When you're done with your filehandles, you should C<close()> them
 
 =end original
 
-When you're done with your filehandles, you should C<close()> them
-(though to be honest, Perl will clean up after you if you forget):
-(TBT)
+ファイルハンドルを使ったら、C<close()> を使うべきです
+(しかし正直に言うと、もしあなたが忘れても Perl はあなたの後始末をします):
 
     close $in or die "$in: $!";
 
@@ -1137,17 +1186,25 @@ elsewhere.  However, in short:
 
 =end original
 
-Perl's regular expression support is both broad and deep, and is the
-subject of lengthy documentation in L<perlrequick>, L<perlretut>, and
-elsewhere.  However, in short:
-(TBT)
+Perl の正規表現サポートは広く深く、長い文書は L<perlrequick>, L<perlretut>
+およびどこにでもあります。
+しかし、短く言うと:
 
 =over 4
 
 =item Simple matching
 
+(単純なマッチング)
+
+=begin original
+
     if (/foo/)       { ... }  # true if $_ contains "foo"
     if ($a =~ /foo/) { ... }  # true if $a contains "foo"
+
+=end original
+
+    if (/foo/)       { ... }  # $_ に "foo" が含まれていれば真
+    if ($a =~ /foo/) { ... }  # $a に "foo" が含まれていれば真
 
 =begin original
 
@@ -1164,21 +1221,30 @@ binding operator (also documented in L<perlop>).
 
 =item Simple substitution
 
+=begin original
+
     s/foo/bar/;               # replaces foo with bar in $_
     $a =~ s/foo/bar/;         # replaces foo with bar in $a
     $a =~ s/foo/bar/g;        # replaces ALL INSTANCES of foo with bar in $a
 
+=end original
+
+    s/foo/bar/;               # $_ にある foo を bar に置き換える
+    $a =~ s/foo/bar/;         # $a にある foo を bar に置き換える
+    $a =~ s/foo/bar/g;        # $a にある全ての foo を bar に置き換える
+
 =begin original
 
 The C<s///> substitution operator is documented in L<perlop>.
 
 =end original
 
-The C<s///> substitution operator is documented in L<perlop>.
-(TBT)
+C<s///> 置換演算子は L<perlop> に文書化されています。
 
 =item More complex regular expressions
 
+(より複雑な正規表現)
+
 =begin original
 
 You don't just have to match on fixed strings.  In fact, you can match
@@ -1193,6 +1259,8 @@ on just about anything you could dream of by using more complex regular
 expressions.  These are documented at great length in L<perlre>, but for
 the meantime, here's a quick cheat sheet:
 (TBT)
+
+=begin original
 
     .                   a single character
     \s                  a whitespace character (space, tab, newline, ...)
@@ -1205,8 +1273,28 @@ the meantime, here's a quick cheat sheet:
     [^aeiou]            matches a single character outside the given set
     (foo|bar|baz)       matches any of the alternatives specified
 
+=end original
+
+    .                   単一の文字
+    \s                  空白文字(空白、タブ、改行…)
+    \S                  非空白文字
+    \d                  数字 (0-9)
+    \D                  非数字
+    \w                  単語文字 (a-z, A-Z, 0-9, _)
+    \W                  非単語文字
+    [aeiou]             指定された集合に含まれる単一の文字
+    [^aeiou]            指定された集合に含まれない単一の文字
+    (foo|bar|baz)       指定された代替のいずれかにマッチング
+
+=begin original
+
     ^                   start of string
     $                   end of string
+
+=end original
+
+    ^                   文字列の先頭
+    $                   文字列の末尾
 
 =begin original
 
@@ -1222,6 +1310,8 @@ want to match on, where "thing" means either a literal character, one
 of the metacharacters listed above, or a group of characters or
 metacharacters in parentheses.
 (TBT)
+
+=begin original
 
     *                   zero or more of the previous thing
     +                   one or more of the previous thing
@@ -1230,14 +1320,24 @@ metacharacters in parentheses.
     {3,6}               matches between 3 and 6 of the previous thing
     {3,}                matches 3 or more of the previous thing
 
+=end original
+
+    *                   手前にあるものに 0 回以上マッチング
+    +                   手前にあるものに 1 回以上マッチング
+    ?                   手前にあるものに 1 回または 0 回マッチング
+    {3}                 手前にあるものにちょうど 3 回マッチング
+    {3,6}               手前にあるものに 3 回から 6 回マッチング
+    {3,}                手前にあるものに 3 回以上マッチング
+
 =begin original
 
 Some brief examples:
 
 =end original
 
-Some brief examples:
-(TBT)
+いくつかの簡単な例です:
+
+=begin original
 
     /^\d+/              string starts with one or more digits
     /^$/                nothing in the string (start and end are adjacent)
@@ -1246,7 +1346,26 @@ Some brief examples:
     /(a.)+/             matches a string in which every odd-numbered letter
                         is a (eg "abacadaf")
 
+=end original
+
+    /^\d+/              一つ以上の数字で始まる
+    /^$/                空文字列 (先頭と末尾が隣接している)
+    /(\d\s){3}/         3 桁の数字(それぞれに空白文字が引き続く)
+                        (例えば "3 4 5 ")
+    /(a.)+/             奇数番目が全て a である文字列
+                        (例えば "abacadaf")
+
+=begin original
+
     # This loop reads from STDIN, and prints non-blank lines:
+    while (<>) {
+        next if /^$/;
+        print;
+    }
+
+=end original
+
+    # このループは STDIN から読み込み、非空行を表示する:
     while (<>) {
         next if /^$/;
         print;
@@ -1254,7 +1373,7 @@ Some brief examples:
 
 =item Parentheses for capturing
 
-(かっことキャプチャ)
+(かっこと捕捉)
 
 =begin original
 
@@ -1264,10 +1383,9 @@ The results end up in C<$1>, C<$2> and so on.
 
 =end original
 
-As well as grouping, parentheses serve a second purpose.  They can be
-used to capture the results of parts of the regexp match for later use.
-The results end up in C<$1>, C<$2> and so on.
-(TBT)
+かっこは、グループ化だけではなく第二の目的の役目を果たします。
+正規表現マッチングの一部の結果を後で使うために捕捉するために使えます。
+結果は C<$1>, C<$2> などに入ります。
 
     # a cheap and nasty way to break an email address up into parts
 
@@ -1278,6 +1396,8 @@ The results end up in C<$1>, C<$2> and so on.
 
 =item Other regexp features
 
+(その他の正規表現の機能)
+
 =begin original
 
 Perl regexps also support backreferences, lookaheads, and all kinds of
@@ -1286,10 +1406,9 @@ L<perlretut>, and L<perlre>.
 
 =end original
 
-Perl regexps also support backreferences, lookaheads, and all kinds of
-other complex details.  Read all about them in L<perlrequick>,
-L<perlretut>, and L<perlre>.
-(TBT)
+Perl の正規表現は、後方参照、前方参照およびその他のあらゆる種類の複雑な
+詳細に対応しています。
+L<perlrequick>, L<perlretut>, L<perlre> でこれらに関する全てを読んでください。
 
 =back
 
@@ -1303,8 +1422,7 @@ Writing subroutines is easy:
 
 =end original
 
-Writing subroutines is easy:
-(TBT)
+サブルーチンを書くのは簡単です:
 
     sub logger {
         my $logmessage = shift;
@@ -1318,8 +1436,7 @@ Now we can use the subroutine just as any other built-in function:
 
 =end original
 
-Now we can use the subroutine just as any other built-in function:
-(TBT)
+これでサブルーチンをその他の組み込み関数と同様に使えます:
 
     logger("We have a logger subroutine!");
 
@@ -1346,8 +1463,7 @@ We can manipulate C<@_> in other ways too:
 
 =end original
 
-We can manipulate C<@_> in other ways too:
-(TBT)
+その他の方法でも C<@_> を操作できます:
 
     my ($logmessage, $priority) = @_;       # common
     my $logmessage = $_[0];                 # uncommon, and ugly
@@ -1358,8 +1474,7 @@ Subroutines can also return values:
 
 =end original
 
-Subroutines can also return values:
-(TBT)
+サブルーチンは値を返すこともできます:
 
     sub square {
         my $num = shift;
@@ -1373,8 +1488,7 @@ Then use it like:
 
 =end original
 
-Then use it like:
-(TBT)
+それからこういう風に使います:
 
     $sq = square(8);
 
@@ -1384,8 +1498,8 @@ For more information on writing subroutines, see L<perlsub>.
 
 =end original
 
-For more information on writing subroutines, see L<perlsub>.
-(TBT)
+サブルーチンの書き方に関するさらなる情報については、L<perlsub> を
+参照してください。
 
 =head2 OO Perl
 
@@ -1400,11 +1514,10 @@ Read L<perlboot>, L<perltoot>, L<perltooc> and L<perlobj>.
 
 =end original
 
-OO Perl is relatively simple and is implemented using references which
-know what sort of object they are based on Perl's concept of packages.
-However, OO Perl is largely beyond the scope of this document.
-Read L<perlboot>, L<perltoot>, L<perltooc> and L<perlobj>.
-(TBT)
+OO Perl は比較的単純で、オブジェクトが Perl の概念であるパッケージの
+どれに基づいているかを知っているリファレンスを使って実装されています。
+しかし、OO Perl はこの文書の範囲からは大きく外れます。
+L<perlboot>, L<perltoot>, L<perltooc>, L<perlobj> を読んでください。
 
 =begin original
 
@@ -1413,9 +1526,8 @@ in using third-party modules, which are documented below.
 
 =end original
 
-As a beginning Perl programmer, your most common use of OO Perl will be
-in using third-party modules, which are documented below.
-(TBT)
+Perl プログラマを始めるに当たって、OO Perl の最も一般的な使用法は
+以下に記述している、サードパーティーモジュールを使うことです。
 
 =head2 Using Perl modules
 
@@ -1466,9 +1578,8 @@ you access to exported functions or an OO interface to the module.
 
 特定のモジュールの使い方を学ぶには、C<perldoc I<Module::Name>> を
 使ってください。
-Typically you will want to C<use I<Module::Name>>, which will then give
-you access to exported functions or an OO interface to the module.
-(TBT)
+典型的には C<use I<Module::Name>> として、それからエクスポートされた
+関数か、モジュールへの OO インターフェースにアクセスします。
 
 =begin original
 
@@ -1506,7 +1617,7 @@ Kirrily "Skud" Robert <skud@cpan.org>
 
 =begin meta
 
-Translated: SHIRAKATA Kentaro <argrath@ub32.org>
+Translate: SHIRAKATA Kentaro <argrath@ub32.org>
 
 =end meta
 
