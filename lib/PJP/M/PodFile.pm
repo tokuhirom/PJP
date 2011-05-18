@@ -95,7 +95,7 @@ sub generate_one_file {
 
 	infof("Processing: %s", $file);
 	my $args = $c->cache->file_cache(
-		"path:25",
+		"path:26",
 		$file,
 		sub {
 		    my $html = PJP::M::Pod->pod2html($file);

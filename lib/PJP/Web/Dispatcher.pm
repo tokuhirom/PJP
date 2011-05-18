@@ -105,7 +105,10 @@ get '/docs/modules/{distvname:[A-Za-z0-9._-]+}{trailingslash:/?}' => sub {
     my $distvname = $p->{distvname};
 
     my @rows = PJP::M::PodFile->search_by_distvname($distvname);
-    return $c->res_404() unless @rows;
+    unless (@rows) {
+        warnf("Unknonwn distvname: $distvname");
+        return $c->res_404();
+    }
 
     return $c->render(
         'directory_index.tt' => {
