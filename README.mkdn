@@ -37,9 +37,12 @@ main.css の方を変更してはいけません。
 Dotcloud
 ========
 
-    curl -LO http://ftp.gnu.org/non-gnu/cvs/source/stable/1.11.23/cvs-1.11.23.tar.bz2
-    tar xzvf cvs-*.tar.bz2
-    cd cvs-1.11.23/
+    # http://packages.ubuntu.com/natty/cvs
+    curl -LO http://archive.ubuntu.com/ubuntu/pool/main/c/cvs/cvs_1.12.13.orig.tar.gz
+    tar xzvf ...
+    curl -LO http://archive.ubuntu.com/ubuntu/pool/main/c/cvs/cvs_1.12.13-12ubuntu1.diff.gz
+    zcat *.diff.gz | patch -p1
+    cd ...
     ./configure --prefix=/home/dotcloud/perl5/
     make
     make install
