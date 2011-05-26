@@ -1,9 +1,9 @@
-#!/bin/zsh
-BASE=/home/dotcloud/code
+#!/bin/bash
+BASE=$HOME/code
+
+. $HOME/.bashrc
 
 cd $BASE/assets/perldoc.jp
-
-export PATH=/home/tokuhirom/perl5/perlbrew/perls/perl-5.12.2/bin/:$PATH
 
 cvs upd -dP
 
