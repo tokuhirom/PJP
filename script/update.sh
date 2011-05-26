@@ -7,7 +7,10 @@ cd $BASE/perldoc.jp
 
 cvs upd -dP
 
-cd $BASE/module-pod-jp
+if [ ! -d $HOME/assets/module-pod-jp/ ] ; then
+    git clone git://github.com/perldoc-jp/module-pod-jp.git $HOME/assets/module-pod-jp/
+fi
+cd $HOME/assets/module-pod-jp
 git pull origin master
 
 rm $BASE/index-module.pl
