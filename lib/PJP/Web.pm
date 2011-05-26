@@ -28,7 +28,7 @@ use Text::Xslate;
     my $view = Text::Xslate->new(+{
         'syntax'   => 'TTerse',
         'module'   => [ 'Text::Xslate::Bridge::TT2Like' ],
-        tmpl       => ['./tmpl/'],
+        path       => ['./tmpl/'],
         'function' => {
             c => sub { Amon2->context() },
             uri_with => sub { Amon2->context()->req->uri_with(@_) },
