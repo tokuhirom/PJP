@@ -9,7 +9,7 @@ perl5120delta - what is new for perl v5.12.0
 
 =end original
 
-perldelta - perl v5.12.0 での変更点
+perl5120delta - perl v5.12.0 での変更点
 
 =head1 DESCRIPTION
 
@@ -7577,7 +7577,7 @@ L<http://dev.perl.org/perl5/errata.html> には、このリリース以降に
 
 =begin meta
 
-Translated: Kentaro Shirakata <argrath@ub32.org>
+Translate: Kentaro Shirakata <argrath@ub32.org>
 
 =end meta
 

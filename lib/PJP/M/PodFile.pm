@@ -53,7 +53,10 @@ sub get_latest {
         $c->dbh->selectall_arrayref( q{SELECT distvname FROM pod WHERE package=?},
             {}, $package )
       };
-	return undef unless @versions;
+	unless (@versions) {
+		infof("Any versions not found in database: %s", $package);
+		return undef;
+	}
 
 	my($path) = $c->dbh->selectrow_array(
 		q{SELECT path FROM pod WHERE package=? AND distvname=?}, {}, $package, $versions[0]
@@ -81,41 +84,48 @@ sub generate {
 									->in($base);
 
 		for my $file (@files) {
-			infof("Processing: %s", $file);
-            my $args = $c->cache->file_cache(
-                "path:21",
-                $file,
-                sub {
-                    my $html = PJP::M::Pod->pod2html($file);
-                    my $relpath = abs2rel( $file, $base );
-                    my ( $package, $description ) =
-                      PJP::M::Pod->parse_name_section($file);
-                    if ( !defined $package ) {
-                        $package = $relpath;
-                        $package =~ s/\.pod$//;
-                        $package =~ s!^modules/!!;
-                    }
-                    ( my $distvname = $relpath ) =~ s!^modules/!!;
-                    $distvname =~ s!^perl/!!;
-                    $distvname =~ s!/.+!!;
-                    +{
-                        path        => $relpath,
-                        package     => $package,
-                        description => $description,
-                        distvname   => $distvname,
-                        html        => $html,
-                    };
-                }
-            );
-            $c->dbh->replace(
-                pod => +{
-					repository => $repository,
-					%$args
-				},
-            );
+			$class->generate_one_file($c, $file, $base, $repository);
 		}
 	}
 	$txn->commit;
+}
+
+sub generate_one_file {
+	my ($class, $c, $file, $base, $repository) = @_;
+
+	infof("Processing: %s", $file);
+	my $args = $c->cache->file_cache(
+		"path:26",
+		$file,
+		sub {
+		    my $html = PJP::M::Pod->pod2html($file);
+		    my $relpath = abs2rel( $file, $base );
+		    my ( $package, $description ) =
+		      PJP::M::Pod->parse_name_section($file);
+		    if ( !defined $package ) {
+			warnf("Cannot get package name from %s", $file);
+			$package = $relpath;
+			$package =~ s/\.pod$//;
+			$package =~ s!^modules/!!;
+		    }
+		    ( my $distvname = $relpath ) =~ s!^modules/!!;
+		    $distvname =~ s!^perl/!!;
+		    $distvname =~ s!/.+!!;
+		    +{
+			path        => $relpath,
+			package     => $package,
+			description => $description,
+			distvname   => $distvname,
+			html        => $html,
+		    };
+		}
+	);
+	$c->dbh->replace(
+		pod => +{
+			repository => $repository,
+			%$args
+		},
+	);
 }
 
 1;

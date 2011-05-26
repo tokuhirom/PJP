@@ -70,7 +70,10 @@ get '/pod/*' => sub {
     my $path = PJP::M::PodFile->get_latest(
         $package
     );
-    return $c->res_404() unless $path;
+    unless ($path) {
+        warnf("the path is not found in database: %s", $package);
+        return $c->res_404();
+    }
     # my $is_old = $path !~ /delta/ && eval { version->parse($version) } < eval { version->parse("5.8.5") };
 
     return $c->redirect("/docs/$path");
@@ -102,7 +105,10 @@ get '/docs/modules/{distvname:[A-Za-z0-9._-]+}{trailingslash:/?}' => sub {
     my $distvname = $p->{distvname};
 
     my @rows = PJP::M::PodFile->search_by_distvname($distvname);
-    return $c->res_404() unless @rows;
+    unless (@rows) {
+        warnf("Unknonwn distvname: $distvname");
+        return $c->res_404();
+    }
 
     return $c->render(
         'directory_index.tt' => {

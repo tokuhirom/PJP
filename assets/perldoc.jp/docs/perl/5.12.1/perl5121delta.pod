@@ -8,7 +8,7 @@ perldelta - what is new for perl v5.12.1
 
 =end original
 
-perldelta - perl v5.12.1 での変更点
+perl5121delta - perl v5.12.1 での変更点
 
 =head1 DESCRIPTION
 
@@ -970,7 +970,7 @@ The F<Artistic> and F<Copying> files for copyright information.
 
 =begin meta
 
-Translated: Kentaro Shirakata <argrath@ub32.org>
+Translate: Kentaro Shirakata <argrath@ub32.org>
 
 =end meta
 

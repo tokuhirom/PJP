@@ -1,0 +1,574 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Email-Valid 0.182\n"
+"POT-Creation-Date: 2011-03-30 09:41+0900\n"
+"PO-Revision-Date: 2011-03-30 11:22+0900\n"
+"Last-Translator: IWAI, Masaharu <iwaim.sub@gmail.com>\n"
+"Language-Team: JPRP <perldocjp@freeml.com>\n"
+"Language: Japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=euc-jp\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: =head1
+#: Valid.pod:1
+msgid "NAME"
+msgstr "NAME"
+
+#. type: textblock
+#: Valid.pod:3
+msgid "Email::Valid - Check validity of Internet email addresses"
+msgstr "Email::Valid - インターネット電子メールアドレスの正当性のチェック"
+
+#. type: =head1
+#: Valid.pod:5
+msgid "SYNOPSIS"
+msgstr "SYNOPSIS"
+
+#. type: verbatim
+#: Valid.pod:7
+#, no-wrap
+msgid ""
+"  use Email::Valid;\n"
+"  print (Email::Valid->address('maurice@hevanet.com') ? 'yes' : 'no');\n"
+"\n"
+msgstr ""
+"  use Email::Valid;\n"
+"  print (Email::Valid->address('maurice@hevanet.com') ? 'yes' : 'no');\n"
+"\n"
+
+#. type: =head1
+#: Valid.pod:10
+msgid "DESCRIPTION"
+msgstr "DESCRIPTION"
+
+#. type: textblock
+#: Valid.pod:12
+msgid ""
+"This module determines whether an email address is well-formed, and "
+"optionally, whether a mail host exists for the domain."
+msgstr ""
+"このモジュールは、電子メールアドレスが適格であるか否かを判断します。 "
+"さらに、そのドメインのメールホストが存在するか否かも判断します。"
+
+#. type: textblock
+#: Valid.pod:15
+msgid ""
+"Please note that there is no way to determine whether an address is "
+"deliverable without attempting delivery (for details, see perlfaq 9)."
+msgstr ""
+"実際に配送することなしに電子メールアドレスが配送可能か否かを "
+"判断することはできないということに留意してください。 "
+"（詳細については、perlfaq 9 を見てください。）"
+
+#. type: =head1
+#: Valid.pod:19
+msgid "PREREQUISITES"
+msgstr "PREREQUISITES"
+
+#. type: textblock
+#: Valid.pod:21
+msgid ""
+"This module requires perl 5.004 or later and the Mail::Address module.  "
+"Either the Net::DNS module or the nslookup utility is required for DNS "
+"checks.  The Net::Domain::TLD module is required to check the validity of "
+"top level domains."
+msgstr ""
+"このモジュールは perl 5.004 以降と Mail::Address を要求します。 また、DNS "
+"チェックのために Net::DNS モジュールか nslookup "
+"ユーティリティのどちらかを要求します。Net::Domain::TLD モジュールは "
+"トップレベルドメインの妥当性チェックのために必要です。"
+
+#. type: =head1
+#: Valid.pod:26
+msgid "METHODS"
+msgstr "METHODS"
+
+#. type: verbatim
+#: Valid.pod:28
+#, no-wrap
+msgid ""
+"  Every method which accepts an <ADDRESS> parameter may\n"
+"  be passed either a string or an instance of the Mail::Address\n"
+"  class.  All errors raise an exception.\n"
+"\n"
+msgstr ""
+"  <ADDRESS> パラメータを受け取るための全てのメソッドには、\n"
+"  文字列か Mail::Address クラスのインスタンスのどちらかを\n"
+"  渡すことができます。全てのエラーには例外が発生します。\n"
+"\n"
+
+#. type: =item
+#: Valid.pod:34
+msgid "new ( [PARAMS] )"
+msgstr "new ( [PARAMS] )"
+
+#. type: textblock
+#: Valid.pod:36
+msgid ""
+"This method is used to construct an Email::Valid object.  It accepts an "
+"optional list of named parameters to control the behavior of the object at "
+"instantiation."
+msgstr ""
+"このメソッドは、Email::Valid オブジェクトを生成します。 "
+"パラメータの名前のオプションのリストを渡すことによって "
+"オブジェクトの振る舞いを変更することができます。"
+
+#. type: textblock
+#: Valid.pod:40
+msgid ""
+"The following named parameters are allowed.  See the individual methods "
+"below of details."
+msgstr ""
+"許可されているパラメータの名前は次のものです。 "
+"個々の詳細は下にある説明を見てください。"
+
+#. type: verbatim
+#: Valid.pod:43
+#, no-wrap
+msgid ""
+" -mxcheck\n"
+" -tldcheck\n"
+" -fudge\n"
+" -fqdn\n"
+" -local_rules\n"
+"\n"
+msgstr ""
+" -mxcheck\n"
+" -tldcheck\n"
+" -fudge\n"
+" -fqdn\n"
+" -local_rules\n"
+"\n"
+
+#. type: =item
+#: Valid.pod:49
+msgid "mx ( <ADDRESS>|<DOMAIN> )"
+msgstr "mx ( <ADDRESS>|<DOMAIN> )"
+
+#. type: textblock
+#: Valid.pod:51
+msgid ""
+"This method accepts an email address or domain name and determines whether a "
+"DNS record (A or MX) exists for it."
+msgstr ""
+"このメソッドは、電子メールアドレスかドメイン名を渡すことによって、 （A か MX "
+"の）DNS レコードが存在するか否かを判断します。"
+
+#. type: textblock
+#: Valid.pod:54
+msgid "The method returns true if a record is found and undef if not."
+msgstr ""
+"このメソッドはレコードが見つかったならば true を、そうでない ならば undef "
+"を返します。"
+
+#. type: textblock
+#: Valid.pod:56
+msgid ""
+"Either the Net::DNS module or the nslookup utility is required for DNS "
+"checks.  Using Net::DNS is the preferred method since error handling is "
+"improved.  If Net::DNS is available, you can modify the behavior of the "
+"resolver (e.g. change the default tcp_timeout value) by manipulating the "
+"global Net::DNS::Resolver instance stored in $Email::Valid::Resolver."
+msgstr ""
+"DNS チェックには、Net::DNS モジュールか nslookup ユーティリティの "
+"どちらかが必要です。Net::DNS モジュールを用いた方が、良いエラー "
+"ハンドリングを得ることができます。もし、Net::DNS モジュールが "
+"利用できるならば、あなたは $Email::Valid::Resolver に格納されている "
+"グローバルな Net::DNS::Resolver インスタンスの操作によって （例えば "
+"tcp_timeout の初期値を変更するなどの）レゾルバの振る舞いを "
+"変更することができます。"
+
+#. type: =item
+#: Valid.pod:63
+msgid "tld ( <ADDRESS> )"
+msgstr "tld ( <ADDRESS> )"
+
+#. type: textblock
+#: Valid.pod:65
+msgid ""
+"This method determines whether the domain part of an address is in a "
+"recognized top-level domain."
+msgstr "このメソッドは、アドレスのドメインパートが承認されているトップレベルドメインであるのかを判定します。"
+
+#. type: =item
+#: Valid.pod:68
+msgid "rfc822 ( <ADDRESS> )"
+msgstr "rfc822 ( <ADDRESS> )"
+
+#. type: textblock
+#: Valid.pod:70
+msgid ""
+"This method determines whether an address conforms to the RFC822 "
+"specification (except for nested comments).  It returns true if it conforms "
+"and undef if not."
+msgstr ""
+"このメソッドは、アドレスが RFC822 の仕様に従っているか否かを "
+"判断します。但し、ネストしたコメントには対応していません。 "
+"仕様に従っているならば true を、そうでないならば undef を返します。"
+
+#. type: =item
+#: Valid.pod:74
+msgid "fudge ( <TRUE>|<FALSE> )"
+msgstr "fudge ( <TRUE>|<FALSE> )"
+
+#. type: textblock
+#: Valid.pod:76
+msgid ""
+"Specifies whether calls to address() should attempt to correct common "
+"addressing errors.  Currently, this results in the removal of spaces in AOL "
+"addresses, and the conversion of commas to periods in Compuserve addresses.  "
+"The default is false."
+msgstr ""
+"address() が呼ばれた際に、一般的なアドレスのエラーがあれば "
+"修正しようと試みます。今のところは、AOL のアドレスの場合は、 "
+"空白文字を削除し、Compuserve アドレスの場合は、コンマをピリオドに "
+"置換します。初期値は false です。"
+
+#. type: =item
+#: Valid.pod:81
+msgid "fqdn ( <TRUE>|<FALSE> )"
+msgstr "fqdn ( <TRUE>|<FALSE> )"
+
+#. type: textblock
+#: Valid.pod:83
+msgid ""
+"Species whether addresses passed to address() must contain a fully qualified "
+"domain name (FQDN).  The default is true."
+msgstr ""
+"address() にアドレスが渡されたときに正規の完全なドメイン名（FQDN）を "
+"持つのかをチェックします。初期値は true です。"
+
+#. type: =item
+#: Valid.pod:86
+msgid "local_rules ( <TRUE>|<FALSE> )"
+msgstr "local_rules ( <TRUE>|<FALSE> )"
+
+#. type: textblock
+#: Valid.pod:88
+msgid ""
+"Specifies whether addresses passed to address() should be tested for domain "
+"specific restrictions.  Currently, this is limited to certain AOL "
+"restrictions that I'm aware of.  The default is false."
+msgstr ""
+"address() にアドレスが渡されたときに特定の制約事項を持つドメインの "
+"アドレスをチェックします。今のところは AOL の制約事項の検出に "
+"限定されています。初期値は false です。"
+
+#. type: =item
+#: Valid.pod:92
+msgid "mxcheck ( <TRUE>|<FALSE> )"
+msgstr "mxcheck ( <TRUE>|<FALSE> )"
+
+#. type: textblock
+#: Valid.pod:94
+msgid ""
+"Specifies whether addresses passed to address() should be checked for a "
+"valid DNS entry.  The default is false."
+msgstr ""
+"address() にアドレスが渡されたときに正しい DNS エントリーで "
+"あるのかをチェックします。初期値は false です。"
+
+#. type: =item
+#: Valid.pod:97
+msgid "tldcheck ( <TRUE>|<FALSE> )"
+msgstr "tldcheck ( <TRUE>|<FALSE> )"
+
+#. type: textblock
+#: Valid.pod:99
+msgid ""
+"Specifies whether addresses passed to address() should be checked for a "
+"valid top level domains.  The default is false."
+msgstr ""
+"address() にアドレスが渡されたときに正しいトップレベルドメインで "
+"あるのかをチェックします。初期値は false です。"
+
+#. type: =item
+#: Valid.pod:102
+msgid "address ( <ADDRESS> )"
+msgstr "address ( <ADDRESS> )"
+
+#. type: textblock
+#: Valid.pod:104
+msgid ""
+"This is the primary method which determines whether an email address is "
+"valid.  It's behavior is modified by the values of mxcheck(), tldcheck(), "
+"local_rules(), fqdn(), and fudge().  If the address passes all checks, the "
+"(possibly modified) address is returned as a string.  Otherwise, the "
+"undefined value is returned.  In a list context, the method also returns an "
+"instance of the Mail::Address class representing the email address."
+msgstr ""
+"電子メールアドレスが正当である（valid）か否かを判断するための "
+"主要な（primary）メソッドです。mxcheck() や tldcheck()、local_rules()、 "
+"fqdn()、fudge() の値によって振る舞いを変更できます。もし、 "
+"アドレスが全てのチェックで問題がなかったならば、 "
+"（場合によっては修正された）アドレスを文字列として返します。 "
+"そうでなければ、未定義値を返します。リストコンテキストならば、 "
+"電子メールアドレスを表現するクラスである Mail::Address の "
+"インスタンスも返します。"
+
+#. type: =item
+#: Valid.pod:112
+msgid "details ()"
+msgstr "details ()"
+
+#. type: textblock
+#: Valid.pod:114
+msgid ""
+"If the last call to address() returned undef, you can call this method to "
+"determine why it failed.  Possible values are:"
+msgstr ""
+"最後に呼ばれた address() が undef を返したときに、 "
+"どのチェック項目で失敗したのかを返します。 次の値が用意されています。"
+
+#. type: verbatim
+#: Valid.pod:117
+#, no-wrap
+msgid ""
+" rfc822\n"
+" local_rules\n"
+" fqdn\n"
+" mxcheck  \n"
+" tldcheck\n"
+"\n"
+msgstr ""
+" rfc822\n"
+" local_rules\n"
+" fqdn\n"
+" mxcheck  \n"
+" tldcheck\n"
+"\n"
+
+#. type: textblock
+#: Valid.pod:123
+msgid ""
+"If the class is not instantiated, you can get the same information from the "
+"global $Email::Valid::Details."
+msgstr ""
+"もし、クラスのインスタンスを生成していないならば、グローバル変数 "
+"$Email::Valid::Details から同様の情報を得ることができます。"
+
+#. type: =head1
+#: Valid.pod:128
+msgid "EXAMPLES"
+msgstr "EXAMPLES"
+
+#. type: textblock
+#: Valid.pod:130
+msgid ""
+"Let's see if the address 'maurice@hevanet.com' conforms to the RFC822 "
+"specification:"
+msgstr ""
+"それでは、RFC822 の仕様に従っている 'maurice@hevanet.com' という "
+"アドレスでの例を見てみましょう。"
+
+#. type: verbatim
+#: Valid.pod:133
+#, no-wrap
+msgid ""
+"  print (Email::Valid->address('maurice@hevanet.com') ? 'yes' : 'no');\n"
+"\n"
+msgstr ""
+"  print (Email::Valid->address('maurice@hevanet.com') ? 'yes' : 'no');\n"
+"\n"
+
+#. type: textblock
+#: Valid.pod:135
+msgid "Additionally, let's make sure there's a mail host for it:"
+msgstr "更に、メールホストを確認してみましょう。"
+
+#. type: verbatim
+#: Valid.pod:137
+#, no-wrap
+msgid ""
+"  print (Email::Valid->address( -address => 'maurice@hevanet.com',\n"
+"                                -mxcheck => 1 ) ? 'yes' : 'no');\n"
+"\n"
+msgstr ""
+"  print (Email::Valid->address( -address => 'maurice@hevanet.com',\n"
+"                                -mxcheck => 1 ) ? 'yes' : 'no');\n"
+"\n"
+
+#. type: textblock
+#: Valid.pod:140
+msgid "Let's see an example of how the address may be modified:"
+msgstr "アドレスを修正する場合の例を見てみましょう。"
+
+#. type: verbatim
+#: Valid.pod:142
+#, no-wrap
+msgid ""
+"  $addr = Email::Valid->address('Alfred Neuman <Neuman @ foo.bar>');\n"
+"  print \"$addr\\n\"; # prints Neuman@foo.bar \n"
+"\n"
+msgstr ""
+"  $addr = Email::Valid->address('Alfred Neuman <Neuman @ foo.bar>');\n"
+"  print \"$addr\\n\"; # prints Neuman@foo.bar \n"
+"\n"
+
+#. type: textblock
+#: Valid.pod:145
+msgid "Now let's add the check for top level domains:"
+msgstr "トップレベルドメインのチェックを追加してみましょう。"
+
+#. type: verbatim
+#: Valid.pod:147
+#, no-wrap
+msgid ""
+"  $addr = Email::Valid->address( -address => 'Neuman@foo.bar',\n"
+"                                 -tldcheck => 1 );\n"
+"  print \"$addr\\n\"; # doesn't print anything\n"
+"\n"
+msgstr ""
+"  $addr = Email::Valid->address( -address => 'Neuman@foo.bar',\n"
+"                                 -tldcheck => 1 );\n"
+"  print \"$addr\\n\"; # doesn't print anything\n"
+"\n"
+
+#. type: textblock
+#: Valid.pod:151
+msgid "Need to determine why an address failed?"
+msgstr "何故アドレスが正しくないのかの理由が必要な場合は次のようになります。"
+
+#. type: verbatim
+#: Valid.pod:153
+#, no-wrap
+msgid ""
+"  unless(Email::Valid->address('maurice@hevanet')) {\n"
+"    print \"address failed $Email::Valid::Details check.\\n\";\n"
+"  }\n"
+"\n"
+msgstr ""
+"  unless(Email::Valid->address('maurice@hevanet')) {\n"
+"    print \"address failed $Email::Valid::Details check.\\n\";\n"
+"  }\n"
+"\n"
+
+#. type: textblock
+#: Valid.pod:157
+msgid ""
+"If an error is encountered, an exception is raised.  This is really only "
+"possible when performing DNS queries.  Trap any exceptions by wrapping the "
+"call in an eval block:"
+msgstr ""
+"エラーがあった場合に例外を発生させます。これは、DNS クエリを実行 "
+"したときだけ使えます。eval ブロックで括ることによって、 例外を捕捉します。"
+
+#. type: verbatim
+#: Valid.pod:161
+#, no-wrap
+msgid ""
+"  eval {\n"
+"    $addr = Email::Valid->address( -address => 'maurice@hevanet.com',\n"
+"                                   -mxcheck => 1 );\n"
+"  };\n"
+"  warn \"an error was encountered: $@\" if $@; \n"
+"\n"
+msgstr ""
+"  eval {\n"
+"    $addr = Email::Valid->address( -address => 'maurice@hevanet.com',\n"
+"                                   -mxcheck => 1 );\n"
+"  };\n"
+"  warn \"an error was encountered: $@\" if $@; \n"
+"\n"
+
+#. type: =head1
+#: Valid.pod:167
+msgid "BUGS"
+msgstr "BUGS"
+
+#. type: textblock
+#: Valid.pod:169
+msgid ""
+"Email::Valid should work with Perl for Win32.  In my experience, however, "
+"Net::DNS queries seem to take an extremely long time when a record cannot be "
+"found."
+msgstr ""
+"Email::Valid は Perl for Win32 で動作します。しかし、私の経験では、 Net::DNS "
+"クエリを使ったとしても、レコードを見つけることが "
+"できなかった際に極めて長い時間待たされるように思います。"
+
+#. type: =head1
+#: Valid.pod:173
+msgid "AUTHOR"
+msgstr "AUTHOR"
+
+#. type: textblock
+#: Valid.pod:175
+msgid ""
+"Copyright 1998-2003, Maurice Aubrey E<lt>maurice@hevanet.comE<gt>.  All "
+"rights reserved."
+msgstr ""
+"Copyright 1998-2003, Maurice Aubrey E<lt>maurice@hevanet.comE<gt>.  All "
+"rights reserved."
+
+#. type: textblock
+#: Valid.pod:178
+msgid ""
+"This module is free software; you may redistribute it and/or modify it under "
+"the same terms as Perl itself."
+msgstr ""
+"This module is free software; you may redistribute it and/or modify it under "
+"the same terms as Perl itself."
+
+#. type: =head1
+#: Valid.pod:181
+msgid "CREDITS"
+msgstr "CREDITS"
+
+#. type: textblock
+#: Valid.pod:183
+msgid ""
+"Significant portions of this module are based on the ckaddr program written "
+"by Tom Christiansen and the RFC822 address pattern developed by Jeffrey "
+"Friedl.  Neither were involved in the construction of this module; all "
+"errors are mine."
+msgstr ""
+"このモジュールの大部分は、Tom Christiansen によって書かれた ckaddr "
+"プログラムと Jeffrey Friedl によって書かれた RFC822 アドレスの正規表現 "
+"をベースにしています。 どちらもこのモジュールの構築には関係ありません。 "
+"全ての誤りは私自身に責任があります。"
+
+#. type: textblock
+#: Valid.pod:188
+msgid ""
+"Thanks very much to the following people for their suggestions and bug "
+"fixes:"
+msgstr "下に挙げる人々の示唆やバグ修正に大変感謝しています。"
+
+#. type: verbatim
+#: Valid.pod:191
+#, no-wrap
+msgid ""
+"  Otis Gospodnetic <otis@DOMINIS.com>\n"
+"  Kim Ryan <kimaryan@ozemail.com.au>\n"
+"  Pete Ehlke <pde@listserv.music.sony.com> \n"
+"  Lupe Christoph\n"
+"  David Birnbaum\n"
+"  Achim\n"
+"  Elizabeth Mattijsen (liz@dijkmat.nl)\n"
+"\n"
+msgstr ""
+"  Otis Gospodnetic <otis@DOMINIS.com>\n"
+"  Kim Ryan <kimaryan@ozemail.com.au>\n"
+"  Pete Ehlke <pde@listserv.music.sony.com> \n"
+"  Lupe Christoph\n"
+"  David Birnbaum\n"
+"  Achim\n"
+"  Elizabeth Mattijsen (liz@dijkmat.nl)\n"
+"\n"
+
+#. type: =head1
+#: Valid.pod:199
+msgid "SEE ALSO"
+msgstr "SEE ALSO"
+
+#. type: textblock
+#: Valid.pod:201
+msgid "Mail::Address, Net::DNS, Net::Domain::TLD, perlfaq9"
+msgstr "Mail::Address, Net::DNS, Net::Domain::TLD, perlfaq9"

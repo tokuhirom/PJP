@@ -1576,7 +1576,7 @@ Ditto for stringifying large arrays:
 
 =end original
 
-大きな配列の文字列かでも同じことが言えます:
+大きな配列の文字列化でも同じことが言えます:
 
         {
                 local $, = "\n";
@@ -2073,7 +2073,7 @@ F<dosish.h> file in the source distribution for more information).
 
 =end original
 
-C<(*.cmd> ファイルの先頭をこのようにするだけです(C<-S> は、
+C<*.cmd> ファイルの先頭をこのようにするだけです(C<-S> は、
 cmd.exe の "extproc" に関するバグのためです)。
 DOS の場合は、適切なバッチファイルを作って C<ALTERNATE_SHEBANG> を
 行うべきでしょう(詳細は、ソース配布キットにある F<dosish.h> という
@@ -2483,3 +2483,11 @@ domain.  You are permitted and encouraged to use this code and any
 derivatives thereof in your own programs for fun or for profit as you
 see fit.  A simple comment in the code giving credit to the FAQ would
 be courteous but is not required.
+
+=begin meta
+
+Translate: 吉村 寿人 <JAE00534@niftyserve.or.jp>
+Update: SHIRAKATA Kentaro <argrath@ub32.org> (5.6.1-)
+
+=end meta
+

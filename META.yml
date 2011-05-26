@@ -1,0 +1,45 @@
+---
+abstract: ~
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Requires: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 1.00'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+module_name: PJP
+name: PJP
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  Amon2: 0
+  CPAN::DistnameInfo: 0
+  Cache::FileCache: 0
+  Carp::Clan: 0
+  DBD::SQLite: 0
+  DBIx::TransactionManager: 0
+  File::Find::Rule: 0
+  LWP::UserAgent: 0
+  Log::Minimal: 0
+  Plack::Middleware::ReverseProxy: 0
+  Pod::Simple: 3.16
+  Pod::Simple::XHTML: 0
+  SQL::Interp: 0
+  SQL::Maker: 0
+  Text::Xslate: 0
+  Text::Xslate::Bridge::TT2Like: 0
+  Tiffany: 0
+  Time::Piece: 0
+  Try::Tiny: 0
+  URI::Escape: 0
+  perl: 5.10.0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01

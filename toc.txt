@@ -60,7 +60,7 @@ XS
     # ↑ autodoc.pl の警告がみえちゃってる
     perlapio - perl の抽象入出力インターフェース
     perlxs - XS 言語リファレンスマニュアル
-    perlxstut - XSUB を書くためのチュートリアル
+    perlXStut - XSUB を書くためのチュートリアル
     perlembed - C プログラムへの Perl の埋め込み方
     perlguts - Perl API の紹介
 
@@ -80,6 +80,7 @@ FAQ
 更新履歴
 
     perlhist - Perl の歴史的記録
+    perldelta - perl v5.14.0 での変更点
     perl5123delta - perl v5.12.3 での変更点
     perl5122delta - perl v5.12.2 での変更点
     perl5121delta - perl v5.12.1 での変更点

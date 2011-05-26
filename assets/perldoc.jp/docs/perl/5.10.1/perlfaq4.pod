@@ -146,7 +146,7 @@ are in base 10:
 
 おそらく文字列を数値に変換しようとしているのでしょうが、Perl は
 10 進数しか変換しません。
-Perl が文字列を数値に変換するとき、戦闘の空白とゼロは無視して、残りの
+Perl が文字列を数値に変換するとき、先頭の空白とゼロは無視して、残りの
 数字は 10 進数であると仮定します:
 
 	my $string = '0644';
@@ -5367,3 +5367,11 @@ are hereby placed into the public domain.  You are permitted and
 encouraged to use this code in your own programs for fun
 or for profit as you see fit.  A simple comment in the code giving
 credit would be courteous but is not required.
+
+=begin meta
+
+Translate: 吉村 寿人 <JAE00534@niftyserve.or.jp>
+Update: SHIRAKATA Kentaro <argrath@ub32.org> (5.6.1-)
+
+=end meta
+

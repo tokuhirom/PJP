@@ -9,7 +9,7 @@ perldelta - what is new for perl v5.10.1
 
 =end original
 
-perldelta - perl v5.10.1 での変更点
+perl5101delta - perl v5.10.1 での変更点
 
 =head1 DESCRIPTION
 
@@ -4341,7 +4341,6 @@ F<Artistic> 及び F<Copying> ファイルに著作権情報があります。
 =begin meta
 
 Translate: Kentaro Shirakata <argrath@ub32.org>
-License: Same as Perl
 
 =end meta
 

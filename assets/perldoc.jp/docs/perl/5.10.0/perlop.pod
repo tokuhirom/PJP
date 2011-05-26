@@ -1252,15 +1252,14 @@ C<$b> is defined, use C<defined($a // $b)>.
 
 C では直接等価なものはありませんが、Perl の C<//> 演算子は C スタイル
 論理和に関連しています。
-実際、左側は真偽はなく定義されているかを判定することを除けば
+実際、左辺の真偽ではなく定義されているかを判定することを除けば
 C<||> と同じです。
 したがって C<$a // $b> は C<defined($a) || $b> と似ていて (ただし、
 C<defined($a)> ではなく C<$a> の値を返します)、C<defined($a) ? $a : $b> と
 完全に等価です。
 これは、変数に対するデフォルト値を設定するのにとても有用です。
-実際に望んでいることが、C<$a> と C<$b> の少なくとも片方が
-定義されていることかを判定することなら、C<defined($a // $b)> を
-使ってください。
+実際に、C<$a> と C<$b> の少なくとも片方が定義されているかを判定したいなら、
+C<defined($a // $b)> を使ってください。
 
 =begin original
 
@@ -5679,6 +5678,5 @@ Choose wisely.
 
 Translate: 吉村 寿人 <JAE00534@niftyserve.or.jp> (5.000)
 Update: Kentaro Shirakata <argrath@ub32.org> (5.6.1-)
-License: GPL or Artistic
 
 =end meta

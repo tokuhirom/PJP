@@ -48,7 +48,7 @@ sub insert {
 sub replace {
     my ($self, $table, $vars, $attr) = @_;
 	$attr //= {};
-	$attr->{prefix} = 'REPLACE ';
+	$attr->{prefix} = 'REPLACE INTO ';
     my ($sql, @bind) = $self->sql_maker->insert($table, $vars, $attr);
     $self->do($sql, {}, @bind);
 }

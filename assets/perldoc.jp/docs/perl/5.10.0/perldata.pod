@@ -1000,8 +1000,8 @@ file accessible via C<main::DATA>.
 
 =end original
 
-しかし、__DATA__ 以降のテキストはファイルハンドル C<PACKAGE::DATA> を
-通して読み出すことができます; ここで PACKNAME は __DATA__ トークンに
+しかし、__DATA__ 以降のテキストはファイルハンドル C<PACKNAME::DATA> を
+通して読み出すことができます; ここで C<PACKNAME> は __DATA__ トークンに
 遭遇した時点でのカレントのパッケージ名です。
 ファイルハンドルは __DATA__ の後の内容を指して開かれたままです。
 ここからデータを読み終わったら C<close DATA> するのはプログラムの責任です。
@@ -1977,8 +1977,8 @@ L<perlsub>, L<perlmod/"Symbol Tables"> を参照してください。
 
 =begin meta
 
-Created: KIMURA Koichi
-Updated: Kentaro Shirakata <argrath@ub32.org> (5.8.8-)
+Translate: KIMURA Koichi
+Update: Kentaro Shirakata <argrath@ub32.org> (5.8.8-)
 
 =end meta
 

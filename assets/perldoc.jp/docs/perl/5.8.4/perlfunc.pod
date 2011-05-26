@@ -943,6 +943,7 @@ FILEHANDLE を「バイナリ」または「テキスト」で読み書きするように
 指定します。
 FILEHANDLE が式である場合には、その式の値がファイルハンドルの
 名前として使われます。
+成功時には真を返し、失敗時には C<undef> を返して C<$!> (errno) を設定します。
 
 =begin original
 
@@ -1257,8 +1258,8 @@ between versions of Perl, and are not meant for external use.
 
 =end original
 
-ここでフレームがサブルーチン呼び出しでない場合、C<eval> ではなく
-C<(eval)> になります。
+もしフレームがサブルーチン呼び出しではなく C<eval> だった場合、この
+$subroutine は C<(eval)> になります。
 この場合、追加の要素である $evaltext と C<$is_require> がセットされます:
 C<$is_require> はフレームが C<require> または C<use> で作られた場合に
 真になり、$evaltext は C<eval EXPR> のテキストが入ります。
@@ -1339,7 +1340,8 @@ successfully changed.  See also L</oct>, if all you have is a string.
 
 LIST に含まれるファイルの、パーミッションを変更します。
 LIST の最初の要素は、数値表現のモードでなければなりません。
-C<0644> は OK ですが、 C<'0644'> はだめです。
+恐らく 8 進表記の数であるべきでしょう。しかし、8 進表記のC<文字列ではいけません>。
+C<0644> は OK ですが、 C<'0644'> はだめ、ということです。
 変更に成功したファイルの数を返します。
 文字列を使いたい場合は、L</oct> を参照してください。
 
@@ -1462,8 +1464,8 @@ as C<chomp($a, $b)>.
 これは、C<chomp $cwd = `pwd`;> は、予測している
 C<chomp( $cwd = `pwd` )> ではなく、C<(chomp $cwd) = `pwd`;> と
 解釈されるからです。
-同様に、C<chomp $a, $b> ではなく、C<chomp($a, $b)> C<chomp($a), $b> と
-解釈されます。
+同様に、C<chomp $a, $b> は C<chomp($a, $b)> ではなく C<chomp($a), $b>
+と解釈されます。
 
 =item chop VARIABLE
 
@@ -1482,8 +1484,8 @@ If VARIABLE is a hash, it chops the hash's values, but not its keys.
 
 文字列の最後の文字を切り捨てて、その切り取った文字を返します。
 文字列の検索もコピーも行ないませんので
-C<s/\n//> よりも、ずっと効率的です。
-VARIABLE が省略されると、$_ を対象として chop します。
+C<s/.$//s> よりも、ずっと効率的です。
+VARIABLE が省略されると、C<$_> を対象として chop します。
 VARIABLE がハッシュの場合、ハッシュの value を chop しますが、
 key は chop しません。
 
@@ -1904,7 +1906,7 @@ cryptography.  (For that, see your nearby CPAN mirror.)
 
 C<crypt|/crypt> は一方向関数を指向していることに注意してください。
 オムレツを作るのに卵を割るようなものです。
-(知られている限り)対応する複合化関数はありません
+(知られている限り)対応する復号化関数はありません
 (言い換えると、crypt() は一方向ハッシュ関数です)。
 結果として、この関数はあらゆる暗号に対して有効というわけではありません
 (このためには、お近くの CPAN を参照してください)。
@@ -4046,7 +4048,7 @@ forking and reaping moribund children.
 ゾンビをためこむことになります。
 C<$SIG{CHLD}> に C<"IGNORE"> を指定することでこれを回避できるシステムもあります。
 fork と消滅しかけている子プロセスを回収するための更なる例については
-L<perlpc> も参照してください。
+L<perlipc> も参照してください。
 
 =begin original
 
@@ -6435,7 +6437,7 @@ ignored.)
 =end original
 
 は、Unicode 文字を含む UTF-8 エンコードされたファイルを開きます;
-L<perlruniintro> を参照してください。
+L<perluniintro> を参照してください。
 (3 引数形式で層を指定すると、C<open> プラグマでセットしたデフォルト層は
 無視されることに注意してください。)
 
@@ -12416,9 +12418,9 @@ problem by using C<pipe> instead.
 
 =end original
 
-C<syscall(&SYS_pipe)> には問題があります。
-これはパイプの読み出し側が作ったファイル番号を返します。
-相手側のファイル番号を得る方法がありません。
+C<syscall(&SYS_pipe)> には問題があり、
+作ったパイプの、読み出し側のファイル番号を返しますが、
+もう一方のファイル番号を得る方法がありません。
 この問題を避けるためには、代わりに C<pipe> を使ってください。
 
 =item sysopen FILEHANDLE,FILENAME,MODE
@@ -14443,7 +14445,7 @@ wait(2) システムコールと同様に振る舞います。
 チャイルドプロセスが終了するのを待ち、消滅したプロセスの pid を返します。
 チャイルドプロセスが存在しないときには、C<-1> を返します。
 ステータスは C<$?> に返されます。
-L<perlpc> に書いているように、返り値が C<-1> の場合は子プロセスが
+L<perlipc> に書いているように、返り値が C<-1> の場合は子プロセスが
 自動的に刈り取られたことを意味するかもしれないことに注意してください。
 
 =item waitpid PID,FLAGS

@@ -32,7 +32,7 @@ a number/whole/integer/float", to be precise).
 正規表現を使って処理されますが、この回答はこの資料のあらゆる所で
 見つけることができます(正確には L<perlfaq9>:
 "How do I decode or create those %-encodings on the web" と
-L<perfaq4>: "How do I determine whether a scalar is
+L<perlfaq4>: "How do I determine whether a scalar is
 a number/whole/integer/float")。
 
 =head2 How can I hope to use regular expressions without creating illegible and unmaintainable code?
@@ -2014,3 +2014,11 @@ are hereby placed into the public domain.  You are permitted and
 encouraged to use this code in your own programs for fun
 or for profit as you see fit.  A simple comment in the code giving
 credit would be courteous but is not required.
+
+=begin meta
+
+Translate: 吉村 寿人 <JAE00534@niftyserve.or.jp>
+Update: SHIRAKATA Kentaro <argrath@ub32.org> (5.6.1-)
+
+=end meta
+
