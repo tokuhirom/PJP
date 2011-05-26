@@ -8,6 +8,7 @@ use Log::Minimal;
 use Text::Xslate::Util qw/mark_raw html_escape/;
 use Encode ();
 use HTML::Entities ();
+use Amon2::Declare;
 
 sub parse_name_section {
     my ($class, $stuff) = @_;
@@ -64,7 +65,7 @@ sub get_file_list {
 
     my @path = reverse sort { eval { version->parse($a->[1]) } <=> eval { version->parse($b->[1]) } } map {
         +[ $_, map { local $_=$_; s!.*/perl/!!; s!/$name.pod!!; $_ } $_ ]
-    } glob("assets/perldoc.jp/docs/perl/*/$name.pod");
+    } glob("@{[ c()->assets_dir() ]}/perldoc.jp/docs/perl/*/$name.pod");
 	return @path;
 }
 

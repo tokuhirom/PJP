@@ -19,4 +19,9 @@ sub dbh {
 	return $c->{db} //= PJP::DBI->connect(@$conf);
 }
 
+sub assets_dir {
+    my $c = shift;
+    $c->config->{assets_dir} // die "Missing configuration for assets dir";
+}
+
 1;

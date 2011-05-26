@@ -14,3 +14,4 @@ echo installed crontab
 if [ ! -f $HOME/perldocjp.db ]; then
     sqlite3 $HOME/perldocjp.db < sql/sqlite.sql
 fi
+

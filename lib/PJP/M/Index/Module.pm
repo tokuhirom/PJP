@@ -41,7 +41,7 @@ sub get {
 
 sub cache_path {
     my ($class, $c) = @_;
-    return catfile($c->base_dir(), 'assets', 'index-module.pl');
+    return catfile($c->assets_dir(), 'index-module.pl');
 }
 
 sub generate_and_save {
@@ -66,9 +66,9 @@ sub generate {
 
     # 情報をかきあつめる
     my @mods;
-    for my $base (qw(
-        assets/perldoc.jp/docs/modules/
-        assets/module-pod-jp/docs/modules/
+    for my $base (map { File::Spec->catdir( $c->assets_dir(), $_) } qw(
+        perldoc.jp/docs/modules/
+        module-pod-jp/docs/modules/
     )) {
         push @mods, $class->_generate($c, $base);
     }

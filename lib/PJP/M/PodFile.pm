@@ -18,7 +18,7 @@ sub slurp {
     my ($cnt) = $c->dbh->selectrow_array(q{SELECT COUNT(*) FROM pod WHERE path=?}, {}, $path);
     return undef unless $cnt;
 
-    my ($fullpath) = glob(catdir($c->base_dir(), 'assets', '*', 'docs', $path));
+    my ($fullpath) = glob(catdir($c->assets_dir(), '*', 'docs', $path));
     return undef unless -f $fullpath;
 
     open my $fh, '<', $fullpath or die "Cannot open file: $fullpath";
@@ -75,7 +75,7 @@ sub generate {
 
 	my $txn = $c->dbh->txn_scope();
 	$c->dbh->do(q{DELETE FROM pod});
-    my @bases = glob(catdir($c->base_dir(), 'assets', '*', 'docs'));
+    my @bases = glob(catdir($c->assets_dir(), '*', 'docs'));
 	for my $base (@bases) {
 		my $repository = (File::Spec->splitdir($base))[-2];
 
