@@ -1,19 +1,18 @@
 #!/bin/bash
-BASE=$HOME/code
+BASE=$HOME/assets
 
 . $HOME/.bashrc
 
-cd $BASE/assets/perldoc.jp
+cd $BASE/perldoc.jp
 
 cvs upd -dP
 
-cd $BASE/PJP/assets/module-pod-jp
+cd $BASE/module-pod-jp
 git pull origin master
 
-rm $BASE/assets/index-module.pl
+rm $BASE/index-module.pl
 
-cd $BASE
-which perl
+cd $HOME/code/
 
 perl -Ilib -e 'use PJP::M::Index::Module; use PJP; my $c = PJP->bootstrap; PJP::M::Index::Module->generate_and_save($c)'
 
