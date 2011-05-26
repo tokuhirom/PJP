@@ -1,7 +1,6 @@
 #!/bin/sh
 
-cd $HOME/code/.; ln -s ../../etc/app-config.pl `pwd`/config/deployment.pl
-echo made a symbolic link to the configuration file.
+cd $HOME/code/.;
 
 perl <<'END_OF_PERL' | crontab -
     print <<"...";
