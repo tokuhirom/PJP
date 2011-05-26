@@ -19,7 +19,6 @@ requires 'Try::Tiny';
 requires 'DBD::SQLite';
 requires 'SQL::Maker' => 0.14;
 requires 'DBIx::TransactionManager';
-<<<<<<< HEAD
 requires(
 	'SQL::Interp' => 0,
 	'Carp::Clan' => 0,
@@ -41,12 +40,6 @@ can_run('git') or do {
 	system "make";
 	system "make install";
 };
-=======
-requires 'SQL::Interp';
-requires 'Carp::Clan';
-requires 'File::Find::Rule';
-requires 'Tiffany';
->>>>>>> c8276233d15a11bbbb05df0e92971b84d6899461
 
 test_requires 'Test::Requires';
 
