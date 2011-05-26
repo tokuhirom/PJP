@@ -123,6 +123,7 @@ sub _generate {
         my $row = {distvname => $e, name => $dist, version => $version};
 
         # get information from FrePAN
+=pod
         my $data = $c->cache->get_or_set("frepanapi:1:$e", sub {
             my $res = $ua->get('http://frepan.org/api/v1/dist/show.json?dist_name=' . uri_escape($dist));
             if ($res->is_success) {
@@ -138,6 +139,7 @@ sub _generate {
             $row->{latest_version} = $data->{version};
             $row->{abstract}       = $data->{abstract};
         }
+=cut
 
         # ファイル名のいちばん短い pod ファイルが代表格といえる
         my ($pod_file) = sort { length($a) <=> length($b) }
