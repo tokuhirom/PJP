@@ -8,6 +8,8 @@ perl <<'END_OF_PERL' | crontab -
     $local_lib =~ s/export (.+?);/$1/g;
     $local_lib =~ s/\$PATH/$ENV{PATH}/g;
     print "$local_lib\n";
+    print "PLACK_ENV=deployment\n";
+    print "\n";
     print `cat crontab`;
 END_OF_PERL
 echo installed crontab
