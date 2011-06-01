@@ -1,11 +1,11 @@
 +{
 	DB => [
-		'dbi:SQLite:dbname=/home/perldocjp/perldocjp.db',
+		"dbi:SQLite:dbname=$ENV{HOME}/perldocjp.db",
 		'',
 		'',
 	],
     'Text::Xslate' => {
-        cache_dir => '/tmp/perldocjp-xslate.cache/'
+        cache_dir => "$ENV{HOME}/tmp/perldocjp-xslate.cache/"
     },
-    'assets_dir' => '/home/perldocjp/assets/',
+    'assets_dir' => "$ENV{HOME}/assets/",
 };
