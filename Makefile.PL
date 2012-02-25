@@ -24,6 +24,7 @@ requires(
 	'Carp::Clan' => 0,
 	'JSON' => 0,
 	'File::Find::Rule' => 0,
+	'Module::Find' => 0,
 );
 
 can_run('cronlog') or do {
